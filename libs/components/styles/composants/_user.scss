@@ -1,0 +1,213 @@
+.user {
+	a, a:hover, a:focus {
+		text-decoration: none !important;
+		display: block;
+	}
+	img {
+		height:auto;
+		width:40px;
+		margin:15px 5px;
+	}
+	h3 {
+		min-height:auto;
+	}
+	.user-name {
+		color: $text;
+		&:hover {color:$title;}
+	} 
+	 
+	&.user-small {
+		img {
+			height:auto;
+			width:40px;
+		}
+	}
+	&.user-medium {
+		img {  
+			height:auto;
+			max-width:130px;
+			width:100%;
+		}
+	}
+	
+	&.user-large {
+		img {
+			height: auto;
+			max-width: 180px;
+			width: 100%;
+		} 
+	}
+	.dropdown {padding:0;}
+}
+
+.user-name {
+	font-size: 13px;
+	padding:0 5px 0 0;
+}
+
+.user-block {
+	background: $white;
+	margin-bottom:20px;
+
+	.user-header {
+		padding: 40px 15px;
+
+		img {margin:0;}
+	}
+	.user-footer {
+		padding: 10px 15px;
+	}
+
+	.list-icons {padding: 0;}
+	.navigation {
+		padding:0;
+		margin:0;
+		li {
+			a {
+				text-decoration: none;
+				padding:0 30px 0 27px;
+				color: $text;
+				border-left: 3px solid transparent;
+				display: block;
+				i {
+					font-size: 24px;
+				    padding: 0;
+				    text-align: center;
+				    color: $text;
+				    margin-right: 24px;
+				    position: static;
+				    display: inline-block;
+				    line-height: 70px;
+				}
+				&:hover {
+					color: $title;
+					i {
+						color: $primary-200;
+					}
+				}
+			}
+			&.active a {border-left:3px solid $primary-200; color:$title;
+				i {color:$primary-200;}
+			}
+		}
+	}
+	ul { 
+		li {
+			list-style: none;
+		}
+	}
+	.user-identity {
+		li {
+			height: 50px;
+		    padding:15px 15px;
+		}
+	}
+	.user-visuel, 
+	.user-identity, 
+	.status-block {
+		display: table-cell;
+		vertical-align: top;
+	}
+	.user-visuel img {margin:15px;}
+	.user-identity {
+		width: 100%;
+	}
+	.user {
+		float: none;
+		&.user-icon {
+			padding: 20px 23px;
+		}
+	}
+	h5 {
+		padding:14px 0 5px;
+		min-height: auto;
+	}
+}
+
+.user-block-inverse {
+	background: $secondary-200;
+
+	h1, h2, h3, h4, h5, 
+	.list-icons, 
+	.icons,
+	a {color:$white !important;opacity:0.7;}
+	
+	ul.navigation {
+		li {
+			a {
+				i {
+					color:$white;
+					opacity:0.7;
+				}
+				&:hover {opacity:1;color:$white;
+					i {opacity:1; color:$white;}
+				}
+			}
+			&.active {
+				a {opacity:1;color:$white;
+					i {opacity:1;color:$white;}
+				}
+			}
+		}
+	}
+}
+
+.status-block {
+	padding:30px 20px;
+	span {cursor:pointer;}
+	.status {
+		display: block;
+		width: 10px;
+		height: 10px;
+		border-radius: 100%;
+		&.status-large {
+			width: 14px;
+			height: 14px;
+		}
+		&.status-medium {
+			width: 8px;
+			height: 8px;
+		}
+		&.status-small {
+			width: 5px;
+			height: 5px;
+		}
+		&.status-online {background: $valid-200;}
+		&.status-off    {background: $default-200;}
+		&.status-busy   {background: $error-200;}
+	}
+}
+
+.user-edit {
+	position: absolute;
+    top: 0;
+    left: 50%;
+    margin-left: -65px;
+
+	a {
+		opacity:0;
+		background: rgba(0, 0,0, 0.5);
+		padding: 55px;
+		height: 130px;
+		max-width: 130px;
+		width: 130px;
+		border-radius: 100px;
+
+		i {color:$white;}
+
+		&:hover, &:focus {
+			outline: none;
+			opacity: 1;
+			-webkit-transition: all 0.2s;
+				-moz-transition: all 0.2s;
+				-ms-transition: all 0.2s;
+					-o-transition: all 0.2s;
+					transition: all 0.2s;
+		}
+	}
+}
+
+.niveau-confiance {padding:25px 15px;
+    p {display: inline-block;}
+    .status-block {padding: 4px 20px;display: inline-block;}
+}

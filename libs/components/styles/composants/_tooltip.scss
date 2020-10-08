@@ -1,0 +1,40 @@
+.tooltip-inner {
+    max-width: 200px;
+    padding: 3px 10px;
+    color: #fff;
+    text-align: center;
+    background-color: #000;
+    border-radius: 3px;
+    font-size:11px;
+}
+
+.tooltip-primary+.tooltip.top .tooltip-arrow {border-top-color:$primary-200;}
+.tooltip-primary+.tooltip.bottom .tooltip-arrow {border-bottom-color:$primary-200;}
+.tooltip-primary+.tooltip.right .tooltip-arrow {border-right-color:$primary-200;}
+.tooltip-primary+.tooltip.left .tooltip-arrow {border-left-color:$primary-200;}
+.tooltip-primary+.tooltip .tooltip-inner {color: $white;background-color: $primary-200;}
+
+.tooltip-secondary+.tooltip.top .tooltip-arrow {border-top-color:$secondary-200;}
+.tooltip-secondary+.tooltip.bottom .tooltip-arrow {border-bottom-color:$secondary-200;}
+.tooltip-secondary+.tooltip.right .tooltip-arrow {border-right-color:$secondary-200;}
+.tooltip-secondary+.tooltip.left .tooltip-arrow {border-left-color:$secondary-200;}
+.tooltip-secondary+.tooltip .tooltip-inner {color: $white;background-color: $secondary-200;}
+
+.tooltip-valid+.tooltip.top .tooltip-arrow {border-top-color:$valid-200;}
+.tooltip-valid+.tooltip.bottom .tooltip-arrow {border-bottom-color:$valid-200;} 
+.tooltip-valid+.tooltip.right .tooltip-arrow {border-right-color:$valid-200;}
+.tooltip-valid+.tooltip.left .tooltip-arrow {border-left-color:$valid-200;}
+.tooltip-valid+.tooltip .tooltip-inner {color: $white;background-color: $valid-200;}
+
+.tooltip-error+.tooltip.top .tooltip-arrow {border-top-color:$error-200;}
+.tooltip-error+.tooltip.bottom .tooltip-arrow {border-bottom-color:$error-200;}
+.tooltip-error+.tooltip.right .tooltip-arrow {border-right-color:$error-200;}
+.tooltip-error+.tooltip.left .tooltip-arrow {border-left-color:$error-200;}
+.tooltip-error+.tooltip .tooltip-inner {color: $white;background-color: $error-200;}
+
+.tooltip-default+.tooltip.top .tooltip-arrow {border-top-color:$default-200;}
+.tooltip-default+.tooltip.bottom .tooltip-arrow {border-bottom-color:$default-200;}
+.tooltip-default+.tooltip.right .tooltip-arrow {border-right-color:$default-200;}
+.tooltip-default+.tooltip.left .tooltip-arrow {border-left-color:$default-200;}
+.tooltip-default+.tooltip .tooltip-inner {color: $text;background-color: $default-200;}
+

@@ -1,0 +1,39 @@
+.breadcrumb {
+	margin-bottom:0;
+	border-radius:none;
+	background: none;
+	padding-left:40px;
+	padding:0; 
+	margin:1rem 0; 
+	li { 
+		font-size:13px;
+		a {
+			color:$text;
+			text-decoration:none;
+			i {
+				margin-right: 10px;
+				position: relative;
+			} 	
+			&:hover {
+				color:$title;
+			}
+		}
+		&.active {
+			color:$title;
+			font-weight: 600;
+		}
+	}  
+	&.breadcrumb-small {
+		li {font-size: 11px;}
+	}
+	&.breadcrumb-large {
+		li {font-size: 15px;}
+	}
+}
+.breadcrumb-item + .breadcrumb-item::before {
+	color:$text;
+}
+.breadcrumb-item {
+    float: none;
+    display: inline-block;
+}

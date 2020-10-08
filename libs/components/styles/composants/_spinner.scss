@@ -1,0 +1,83 @@
+$offset: 187;
+$duration: 1.4s;
+
+.spinner {animation: rotator $duration linear infinite; margin:15px;}
+.spinner, .spinner-medium {height:25px;width:25px;}
+.spinner-small {height:16px;width:16px;}
+.spinner-large {height:50px;width:50px;}
+
+
+@keyframes rotator {
+  0%   {transform: rotate(0deg);}
+  100% {transform: rotate(270deg);}
+}
+
+.path {
+	stroke-dasharray: $offset;
+	stroke-dashoffset: 0;
+	transform-origin: center;
+}
+
+.path-primary {
+	stroke-dasharray: $offset;
+	stroke-dashoffset: 0;
+	transform-origin: center;
+	animation:
+    dash $duration ease-in-out infinite, 
+    Colorprimary ($duration*4) ease-in-out infinite;
+}
+
+.path-secondary {
+	stroke-dasharray: $offset;
+	stroke-dashoffset: 0;
+	transform-origin: center;
+	animation:
+    dash $duration ease-in-out infinite, 
+    Colorsecondary ($duration*4) ease-in-out infinite;
+}
+
+.path-default {
+	stroke-dasharray: $offset;
+	stroke-dashoffset: 0;
+	transform-origin: center;
+	animation:
+    dash $duration ease-in-out infinite, 
+    Colordefault ($duration*4) ease-in-out infinite;
+}
+
+.path-white {
+	stroke-dasharray: $offset;
+	stroke-dashoffset: 0;
+	transform-origin: center;
+	animation:
+    dash $duration ease-in-out infinite, 
+    Colorwhite ($duration*4) ease-in-out infinite;
+}
+
+@keyframes Colorprimary {
+	0%, 100% {stroke: $primary-200;}
+}
+
+@keyframes Colorsecondary {
+	0%, 100% {stroke: $secondary-200;}
+}
+
+@keyframes Colordefault {
+	0%, 100% {stroke: $default-200;}
+}
+
+@keyframes Colorwhite {
+	0%, 100% {stroke: $white;}
+}
+
+@keyframes dash {
+	 0% { stroke-dashoffset: $offset;}
+	 50% {
+		stroke-dashoffset: $offset/4;
+		transform:rotate(135deg);
+	 }
+	 100% {
+		stroke-dashoffset: $offset;
+		transform:rotate(450deg);
+	}
+}

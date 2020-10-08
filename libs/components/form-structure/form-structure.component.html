@@ -1,0 +1,7 @@
+<div *ngIf="title != null" class="form-title">{{title}}</div>
+<div [class]="borderStyle">
+    <div class="row pt-4">
+        <ng-content></ng-content>
+    </div>
+    <ng-content select="sof-form-buttons"></ng-content>
+</div>

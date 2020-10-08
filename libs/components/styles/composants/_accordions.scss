@@ -1,0 +1,207 @@
+
+/* default */
+.accordion {
+	@extend %radius;
+	box-shadow: none;
+	.card {
+		box-shadow: none;
+		@extend %m-0;
+		&.no-border-shadow {box-shadow: none;}
+		.card-header {
+			background: none;
+			border:none;
+			@extend %p-0;
+			min-height: auto;
+			h1, 
+			h2, 
+			h3, 
+			h4, 
+			h5 {
+				@extend %p-0, %m-0;
+				min-height:0px;
+			}
+			a { 
+				padding:12px 0; 
+				text-decoration: none;
+				color:$title;
+				display: block;
+				i {
+					float: left;
+					margin-right: 15px;
+				} 
+			}
+		}
+		.card-block {
+			@extend %p-2;
+		} 
+	}
+	.collapsed i {
+		-ms-transform: rotate(180deg);
+	    -webkit-transform: rotate(180deg);
+	    transform: rotate(180deg);
+	}
+	.alert {
+		margin: 0 -30px;
+		box-shadow: none !important;
+		&.alert-dismissible .close {right: 5px;}
+	}
+}
+
+
+
+/* Dividered */
+.accordion-dividered {
+	.card {
+		.card-header,
+		.card-block {
+			border-bottom:1px solid $border;
+		}
+		.card-block {
+			@extend %p-2;
+		}
+	}
+}
+
+
+
+/* bordered */
+.accordion-bordered {
+	.card {
+		margin:0;
+		.card-header {
+			border:1px solid $border;
+			margin-top:-1px;
+		}
+		.card-block {
+			border:1px solid $border;
+			border-top: 0;
+			@extend %p-3;
+		}
+	}
+}
+
+
+
+/* Inverse */
+.accordion-inverse {
+	.card {background: none !important;
+		.card-header {
+
+			h1, 
+			h2, 
+			h3, 
+			h4, 
+			h5 {
+				a {
+					color:$white;
+					i {
+						float: left;
+						margin-right: 15px;
+					}
+				}
+			}
+		}
+	}
+	.collapsed i {
+		-ms-transform: rotate(180deg);
+	    -webkit-transform: rotate(180deg);
+	    transform: rotate(180deg);
+	}
+	.card-block {
+		color:$default-200;
+	}
+}
+
+
+/* border Hover */
+.accordion-border {
+	.card {
+	    margin: 0;
+		.card-header {
+			margin: 0;
+			padding: 0; 
+			a {
+				padding:10px;
+				border-left:3px solid $primary-200;
+			}
+			.collapsed {
+				padding:10px;
+				border-left:3px solid transparent;
+			}
+		}
+		.card-block {
+			border-left:3px solid $primary-200;
+			border-top: 0; 
+			@extend %p-3;
+		}
+	}
+}
+
+.accordion-bloc {
+    margin: 0 0 15px;
+    border-radius: 0;
+    box-shadow: none;
+    border: 0;
+	background: #ffffff;
+	
+    &.accordion {
+        .card {margin: 0;border:none;
+            input {border: 1px solid $border;padding:8px 15px;color:$text;
+                &:focus {border-bottom: 1px solid $primary-200;}
+            }
+        }
+    }
+}
+
+/* Search criteria */
+.accordion {
+	.card-search {margin: 0;
+		.card-header {position: absolute; top: -65px;right: 0;
+			a i {float: left;margin-right: 32px;}
+		}
+		.card-block {padding:0;overflow: hidden;} 
+		select, input {margin-bottom:0;}
+		.select:hover {background: rgba($secondary-200, 0.1);}
+	}
+}
+
+.accordion {
+	&.accordion-small {margin-bottom:15px;
+		.card {
+			.card-header {min-height: auto;padding:5px;
+				a {padding: 5px 0;
+					i {float: left; margin:0 10px;
+						&.icon-right {float: right;}
+					}
+				}
+				h5 a:hover {background:rgba($default-200, .5);}
+			}
+			.card-block {padding: 0 1rem;}
+		}
+		&.accordion-add h5 a::after {
+			content: "\f194";
+			font-family: icons !important;
+			font-style: normal;
+			font-weight: normal !important;
+			vertical-align: top;
+			color: $primary-200;
+			position: absolute;
+			right:15px;
+		}
+		&.accordion-add h5 a.collapsed::after {
+			content:"\f101";
+			font-family: icons !important;
+			font-style: normal;
+			font-weight: normal !important;
+			vertical-align: top; 
+			color: $primary-200;
+			position: absolute;
+			right:15px;
+		}
+	}
+}
+
+
+.accordion .card-search .card-header a i {float: right;margin: 10px;}
+.accordion .card-search .card-header a {padding:0;height:36px;}
+.accordion .card-search .card-header {top: -43px;}

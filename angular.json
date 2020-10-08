@@ -1,7 +1,143 @@
 {
   "version": 1,
-  "projects": {},
+  "projects": {
+    "ng-softilys": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss",
+          "skipTests": true
+        },
+        "@schematics/angular:class": {
+          "skipTests": true
+        },
+        "@schematics/angular:directive": {
+          "skipTests": true
+        },
+        "@schematics/angular:guard": {
+          "skipTests": true
+        },
+        "@schematics/angular:interceptor": {
+          "skipTests": true
+        },
+        "@schematics/angular:module": {
+          "skipTests": true
+        },
+        "@schematics/angular:pipe": {
+          "skipTests": true
+        },
+        "@schematics/angular:service": {
+          "skipTests": true
+        }
+      },
+      "root": "apps/ng-softilys",
+      "sourceRoot": "apps/ng-softilys/src",
+      "prefix": "webapp",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/ng-softilys",
+            "index": "apps/ng-softilys/src/index.html",
+            "main": "apps/ng-softilys/src/main.ts",
+            "polyfills": "apps/ng-softilys/src/polyfills.ts",
+            "tsConfig": "apps/ng-softilys/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "apps/ng-softilys/src/favicon.ico",
+              "apps/ng-softilys/src/assets"
+            ],
+            "styles": ["apps/ng-softilys/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/ng-softilys/src/environments/environment.ts",
+                  "with": "apps/ng-softilys/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "ng-softilys:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "ng-softilys:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "ng-softilys:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["apps/ng-softilys/tsconfig.app.json"],
+            "exclude": ["**/node_modules/**", "!apps/ng-softilys/**/*"]
+          }
+        }
+      }
+    },
+    "ng-softilys-library": {
+      "projectType": "library",
+      "root": "libs/components",
+      "prefix": "sof",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:package",
+          "options": {
+            "tsConfig": "libs/components/tsconfig.lib.json",
+            "project": "libs/components/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/components/tsconfig.lib.prod.json"
+            }
+          }
+        }
+      }
+    }
+  },
   "cli": {
-    "defaultCollection": "@nrwl/workspace"
-  }
+    "defaultCollection": "@nrwl/angular"
+  },
+  "schematics": {
+    "@nrwl/angular:application": {
+      "unitTestRunner": "none",
+      "e2eTestRunner": "none"
+    },
+    "@nrwl/angular:library": {
+      "unitTestRunner": "none"
+    }
+  },
+  "defaultProject": "ng-softilys"
 }

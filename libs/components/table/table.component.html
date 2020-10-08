@@ -1,0 +1,1411 @@
+<div [formGroup]="parentForm">
+
+  <p-table id="softable" rowExpandMode="single" [ngClass]="colorligne()" #dt1 [dataKey]="dataKey || null"
+    [sortOrder]="config.sortOrder || 1" (onHeaderCheckboxToggle)="onHeaderCheckboxToggle()"
+    [tableStyle]="{'table-layout':'auto'}" [scrollable]="false" [columns]="columns"
+    selectionMode="{{config.selectionMode?.toString()}}" [value]="data" [paginator]="config.pagination"
+    [rows]="config.rowsPerPage"
+    [rowsPerPageOptions]="config.pagination?data?.length?config.rowsPerPageOptions : null:null"
+    [(selection)]="tableSelectedRows" sortField="{{config.defaultSortedColumns?.toString()}}" sortOrder="-1"
+    [reorderableColumns]="config.reorderableColumns" (onRowSelect)="onRowSelect($event)"
+    (onRowUnselect)="onRowUnselect($event)" [lazy]="config.lazy"   [totalRecords]="totalElements"
+    (onLazyLoad)="onLazyLoadFunction($event)" (onPage)="catchPaginationDetails($event)">
+
+    <!--[loading]="loading"-->
+    <!-- caption -->
+    <ng-template pTemplate="caption">
+      <div id="row" class=" row">
+
+
+        <!-- Global filter -->
+        <div *ngIf="config.globalFilter" class="col-md-12">
+          <i [class]="'fa fa-search ' + (browser == 'IE' ? 'search-icon-ie':'search-icon')"></i>
+          <input class="search-input" type="text" pInputText size="50" placeholder="{{globalFilter}}" appAutofocus
+            (input)="filterGlobalLazy($event)">
+          <!-- (input)="dt1.filterGlobal($event.target.value, 'contains')" -->
+        </div>
+      </div>
+    </ng-template>
+    <!-- with Variable Width -->
+    <ng-template *ngIf="config.resizable" pTemplate="colgroup" let-columns>
+      <colgroup>
+        <col *ngFor="let col of columnsOrdered" [style.width]="col.width">
+      </colgroup>
+    </ng-template>
+
+
+    <!-- header -->
+    <ng-template id="template" pTemplate="header" let-columns>
+      <tr id="idtr">
+        <!-- Reorder table-->
+        <th id="reorder" *ngIf="config.reorderable"> </th>
+
+        <!-- checkbox selection -->
+
+        <th id="libselection" *ngIf="config.checkboxSelection" [class]="(lockedColumns.length >0 ? ' lock-column ':'')">
+          <p-tableHeaderCheckbox id="headcheck" *ngIf="config.selectionMode === 'multiple'"
+            style="pointer-events: auto !important;" (click)="selectRow($event)">
+          </p-tableHeaderCheckbox>
+        </th>
+
+        <!-- Expandable row icon header -->
+        <th id="expandable" *ngIf="config.expandable"
+          [class]="' customWidth ' +( (lockedColumns.length >0 ? ' lock-column ':''))" [ngStyle]="getstyleExpand()">
+        </th>
+
+        <!-- Actions buttons when position = start -->
+        <ng-container *ngIf=" config.actionButtonsPosition === 'start'">
+          <th id="libActionButtonsPosition"
+            *ngIf="!config.buttons_contextual_overview && config.rowdataButtons.length > 0 || config.editRow "
+            [class]=" 'customWidth'">
+            {{config.actionButtonsHeader || ''}}
+            <div class="btn-action  lock">
+              <a (click)="config.lock_buttons = !config.lock_buttons" *ngIf="config.lockColumns">
+                <i [class]="config.lock_buttons?  'icons icon-lock': 'icons icon-unlock' " softooltip="Lock Column"></i>
+              </a>
+            </div>
+          </th>
+        </ng-container>
+
+
+
+        <th id="libColumnsOrdered" *ngFor="let col of columnsOrdered; let i = index;"
+          [class]=" (islock(col)? ' lock-column ':'')" [ngStyle]="getstyle(col)" pReorderableColumn
+          [pReorderableColumnDisabled]="!config.reorderableColumns" (click)="lockColumn(i)"
+          [style.background-color]="getStyleLocked(i)" [style.padding-bottom]="getpaddingAll(col)">
+
+          <div class="btn-action lock float-left" *ngIf="fix">
+            <a *ngIf="config.lockColumns">
+
+              <i [class]="islock(col)?  'icons icon-lock': 'icons icon-unlock' " softooltip="Lock Column"></i>
+            </a>
+          </div>
+
+          <p-sortIcon [pSortableColumn]="config.sortedColumns?col.field : null" (click)="sort();"
+            [style.margin-top]="col.filter ? '8px' : ''"
+            [class.default-sort]="config.defaultSortedColumns && col.field == config.defaultSortedColumns"
+            *ngIf="config.sortedColumns" [field]="col.field" ariaLabel="Activate to sort"
+            ariaLabelDesc="Activate to sort in descending order" ariaLabelAsc="Activate to sort in ascending order">
+          </p-sortIcon>
+
+          <!-- Columns Filter  -->
+          <!-- filter select -->
+
+          <ng-container *ngIf="col.filter && col.filter === filterTypes.SELECT">
+            <div class="form-ui-select">
+
+              <label [ngStyle]="retour()"> {{col.header}}</label>
+              <select (click)="$event.stopPropagation();" (change)="filterSelect($event,col.field,col.pipe)" required>
+
+                <!--(change)="dt1.filter(getPipedData(col.pipe, $event.target.value), col.field, 'equals');"-->
+                <option [selected]="col.filterDefaultValue === o ? true: false" *ngFor="let o of col.filterOptions">
+                  {{o}}</option>
+              </select>
+            </div>
+          </ng-container>
+          <!-- filter date -->
+          <ng-container *ngIf="col.filter && col.filter === filterTypes.DATE">
+
+            <div class="form-ui-date" *ngIf="browser == 'IE' && col.filterDefaultValue">
+
+
+              <!--(change)="dt1.filter(getFormatedValue(col.format, $event.target.value), col.field, 'contains')"-->
+              <label [ngStyle]="retour()">{{col.header}}</label>
+              <input type="date" onfocus="(this.type='date')" onblur="if(!this.value)this.type='text'"
+                [value]="col.filterDefaultValue|| '' " (click)="$event.stopPropagation();"
+                (change)="dt1.filter(getFormatedValue(col.format, $event.target.value), col.field, 'contains')" required
+                min="1000-01-01" max="9999-12-31">
+            </div>
+            <div class="form-ui-date" *ngIf="browser !== 'IE' && col.filterDefaultValue">
+
+
+
+              <!--(change)="dt1.filter(getFormatedValue(col.format, $event.target.value), col.field, 'contains')"-->
+              <label [ngStyle]="retour()">{{col.header}}</label>
+              <input type="date" onfocus="(this.type='date')" onblur="if(!this.value)this.type='text'"
+                [value]="col.filterDefaultValue || ''" (click)="$event.stopPropagation();"
+                (change)="dt1.filter(getFormatedValue(col.format, $event.target.value), col.field, 'contains')" required
+                min="1000-01-01" max="9999-12-31">
+            </div>
+
+            <div class="form-ui-date" *ngIf="browser !== 'IE' && !col.filterDefaultValue ">
+
+              <label [ngStyle]="retour()">{{col.header}}</label>
+
+              <input type="text" onfocus="(this.type='date')" onblur="if(!this.value)this.type='text'"
+                [value]="col.filterDefaultValue || ''" (click)="$event.stopPropagation();"
+                (input)="filterDate($event,col.field)" required>
+            </div>
+
+
+
+          </ng-container>
+          <!-- Filter input -->
+          <ng-container #inputFilter *ngIf="col.filter && col.filter === filterTypes.INPUT">
+            <div class="form-ui">
+
+              <label [ngStyle]="retour()">{{col.header}}</label>
+              <input #inpuutFilter id="inpuutFilter" pInputText type="text"
+                [value]="col.filterDefaultValue? col.filterDefaultValue : ''" (click)="$event.stopPropagation();"
+                (input)="filterInput($event,col.field,col.pipe,col.subfields)" required="">
+
+            </div>
+          </ng-container>
+          <!-- No filter -->
+          <ng-container *ngIf="!col.filter">{{col.header}}
+
+          </ng-container>
+          <ng-container *ngIf="col.type === 'multi-select' && filterByColumns">
+
+            <div class="form-ui-select" *ngIf="col.strings === true && col.type === 'multi-select'">
+
+              <label [ngStyle]="retour()"></label>
+              <select (click)="$event.stopPropagation();" (change)="filterSelect($event,col.field,col.pipe)" required>
+                <option *ngFor="let o4 of col.filterOptions2">
+                  {{o4}}</option>
+
+                <!--  <option *ngFor="let o2 of col.filterOptions5">
+                              {{o2[col.bindlabelmultiselect]}}</option>   -->
+
+              </select>
+
+
+            </div>
+
+          </ng-container>
+          <ng-container *ngIf="col.type === 'select' && filterByColumns ">
+
+            <div class="form-ui-select" *ngIf="col.type === 'select' && !col.ObjectMono">
+
+              <label [ngStyle]="retour()"> </label>
+              <select (click)="$event.stopPropagation();" (change)="filterSelect($event,col.field,col.pipe)" required>
+
+
+                <!-- <option [ngValue]="o3" *ngFor="let o3 of col.filterOptions3">
+              {{o3[col.bindLabel]}}</option>   -->
+
+                <option *ngFor="let o4 of col.filterOptions4">
+                  {{o4}}</option>
+              </select>
+
+
+            </div>
+
+          </ng-container>
+        </th>
+
+
+
+        <ng-container *ngIf="!config.actionButtonsPosition || config.actionButtonsPosition === 'end'">
+
+          <th id="btn-actionlock"
+            *ngIf="!config.buttons_contextual_overview && config.rowdataButtons.length > 0 || config.editRow || config.addRow || config.pop"
+            [class]="'customWidth' +( (config.lock_buttons)? 'btn-action btn-action-start ' : '')">
+
+            <div class="btn-action  lock" style="display: contents;">
+              {{config.actionButtonsHeader || ''}}
+              <a (click)="config.lock_buttons = !config.lock_buttons" *ngIf="config.lockColumns">
+                <i [class]="config.lock_buttons?  'icons icon-lock': 'icons icon-unlock' " softooltip="Lock Column"></i>
+              </a>
+            </div>
+            <ng-container *ngIf="config.pop  ">
+              <!--button type="button" (click)="showlignToAdd(rowIndex)"  style="min-width: 20px !important;
+                padding: 7px 7px !important;" class=" dropdown-toggle no-carret m-1 btn btn-icon btn-bg-primary border-radius-5 " data-toggle="dropdown" aria-expanded="false">
+                    <i aria-hidden="true"  class="icons icon-add size-16 text-white"></i>
+                </button-->
+
+              <div class="btn-group" role="group" aria-label="...">
+
+                <button id="add1" type="button"
+                  class="btn btn-border bg-primary font-size-12 border-radius-5 d-xl-block" (click)="showPop()">
+                  <i class="icons icon-add size-16   text-white "></i>
+                </button>
+
+              </div>
+
+            </ng-container>
+
+            <ng-container *ngIf="config.addRow ">
+              <!--button type="button" (click)="showlignToAdd(rowIndex)"  style="min-width: 20px !important;
+  
+              <ng-container *ngIf="config.addRow  ">
+                button type="button" (click)="showlignToAdd(rowIndex)"  style="min-width: 20px !important;
+                  padding: 7px 7px !important;" class=" dropdown-toggle no-carret m-1 btn btn-icon btn-bg-primary border-radius-5 " data-toggle="dropdown" aria-expanded="false">
+                      <i aria-hidden="true"  class="icons icon-add size-16 text-white"></i>
+                  </button-->
+
+              <div *ngIf="typeTable==='statique'" class="btn-group" role="group" aria-label="...">
+
+                <button [disabled]="showadd" id="add" type="button"
+                  class="btn btn-border bg-primary font-size-12 border-radius-5 d-xl-block" (click)="showlignToAdd()"
+                  [disabled]="editInput" [ngStyle]="{'border-radius': buttonAdd? '20px' : '' }"
+                  softooltip="{{buttonadd}}">
+                  <i class="icons icon-add size-16   text-white "></i>
+                  <span> {{buttonAdd}} </span>
+                </button>
+
+              </div>
+
+            </ng-container>
+
+
+          </th>
+        </ng-container>
+        <!-- <th *ngIf="!config.buttons_contextual_overview && config.rowdataButtons.length > 0 || config.addRow || config.addRow &&  config.editRow"
+              [class]="' customWidth ' + 'v-align-middle'+ ((config.lock_buttons)? ' btn-action ':'')+ 'text-center '">
+              
+    
+          </th> -->
+
+      </tr>
+      <tr *ngIf="rowDragged" class="trstyle">
+        <th><span id="span122"> &nbsp;&nbsp;&nbsp;&nbsp; {{message}} </span></th>
+        <th *ngFor="let x of columnsDrag"></th>
+
+      </tr>
+
+    </ng-template>
+
+
+
+
+
+
+
+
+
+    <!-- body -->
+    <ng-template pTemplate="body"  let-rowData let-expanded="expanded" let-editing="config.editRow"
+      let-columns="columnsOrdered" let-rowIndex="rowIndex">
+
+      <!-- <tr  draggable="true" (onDragStart)="dragStart(rowData)" (onDragEnd)="dragEnd($event)"> 
+    <td>a</td>
+    <td>z</td>
+    <td>e</td>
+    <td>d</td>
+  </tr> -->
+
+      <!-- <tr data-tech="rowIndex"  [pSelectableRow]="rowData" [ngClass]="config.rowStyle? config.rowStyle(rowData) : ''"
+          [tab-drag]="config.dragName" draggable="true" (onDragStart)="dragStart(rowData)" (onDragEnd)="dragEnd($event)"
+          [pReorderableRow]="rowIndex" > -->
+
+
+      <!-- reordable row options -->
+
+
+      <!-- tr1 -->
+
+      <tr *ngIf="!dragDrop" data-tech="rowIndex"  [id]="'rowIndex' + rowIndex"
+           [ngClass]="config.rowStyle? config.rowStyle(rowData) : ''"                   pEditableRow="rowData">
+
+
+
+        <td [pReorderableRow]="rowIndex" id="reorderable" *ngIf="config.reorderable">
+          <i class="fa fa-bars" pReorderableRowHandle></i>
+        </td>
+
+        <td [pSelectableRow]="rowData" id="selection"  *ngIf="config.checkboxSelection"
+          [class]=" (lockedColumns.length >0 ? ' lock-column ':'')">
+
+          <p-tableCheckbox [id]="rowIndex"  [value]="rowData" style=" pointer-events: none;"></p-tableCheckbox>
+        </td>
+
+
+        <!-- expandable row icon -->
+        <td id="expandable" *ngIf="config.expandable"
+          [class]="' customWidth ' + (lockedColumns.length >0 ? ' lock-column':'')" [ngStyle]="getstyleExpand()">
+          <a href="#" (click)="$event.stopPropagation()" [pRowToggler]="rowData">
+            <i [ngClass]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'"
+              (click)="triggerActionFunction('expanded',rowData)"></i>
+          </a>
+        </td>
+
+        <!-- Action buttons when position = start or not defined -->
+        <!--  -->
+        <ng-container *ngIf="config.actionButtonsPosition === 'start'">
+          <td [id]="'editRow' + rowIndex"
+            *ngIf="!config.buttons_contextual_overview && config.rowdataButtons.length > 0 || config.editRow"
+            [class]="' customWidth ' + 'v-align-middle'+ ((config.lock_buttons)? ' btn-action ':'')+ 'text-center '">
+            <div class="btn-action ">
+              <ng-container *ngIf="config.editRow ">
+                <a *ngIf="(!editInput || rowIndex !== editIndex) ">
+                  <button class="iconButtons" (click)="editLigneAction(rowData, rowIndex);" [id]="'Editer' + rowIndex"
+                    [disabled]="showedit">
+                    <i aria-hidden="true" class="icons icon-edit" softooltip="{{editLabel}}"></i>
+                  </button>
+                </a>
+                <a *ngIf="editInput && rowIndex === editIndex ">
+                  <button [disabled]="isValidRow(rowIndex)" class="iconButtons"
+                    (click)="saveLigneAction(rowIndex,rowData);showlignToAdd()" [id]="'Sauvgarder' + rowIndex">
+                    <i aria-hidden="true" class="icons icon-check" softooltip="{{saveLabel}}"></i>
+                  </button>
+                </a>
+                <a *ngIf="editInput  && rowIndex === editIndex">
+                  <button class="iconButtons" (click)="cancelLigneAction(rowIndex)" [id]="'Annuler' + rowIndex">
+                    <i aria-hidden="true" class="icons icon-cancel" softooltip="{{cancelLabel}}"></i>
+                  </button>
+                </a>
+
+              </ng-container>
+
+
+
+
+
+
+
+
+
+
+
+
+
+              <ng-container *ngFor="let button of config.rowdataButtons">
+                <a *ngIf="button.display_condition ? button.display_condition(rowData) && (rowIndex != editIndex) : (rowIndex != editIndex)"
+                  (click)="$event.stopPropagation()">
+                  <button class="iconButtons"
+                    (click)="triggerActionFunction(button.action,rowData) && $event.stopPropagation()"
+                    [id]="button?.id || button?.action + rowIndex">
+                    <i aria-hidden="true" class="{{button?.icon}}" softooltip="{{button?.title}}"></i>
+                  </button>
+
+                </a>
+                <a *ngIf="button.display_condition ? !button.display_condition(rowData) : false">
+
+                  <i aria-hidden="true"></i>
+
+                </a>
+              </ng-container>
+            </div>
+          </td>
+        </ng-container>
+
+        <td [id]="'td'+ rowIndex " *ngFor=" let col of columnsOrdered ;let i=index"
+          [class]="(islock(col)? ' lock-column':'')" style="overflow: visible;" [ngStyle]="getstyle(col)"
+           pEditableColumn [ngClass]="col.cellStyle?col.cellStyle(rowData[col.field]) : null">
+          <!--  -->
+
+          <input id="input1 " class=" input-table" [formControlName]="col.field + '|' + rowIndex"
+             *ngIf="(rowIndex === editIndex && editInput && col.type === 'date' && config.editRow)" type="date"
+            onfocus="(this.type='date')" onblur="if(!this.value)this.type='text'"
+            [value]="variablee | date: 'yyyy-MM-dd' "  
+             [(ngModel)]="col.subfields ? getRowdata(col.subfields,col.field,rowData) : rowData[col.field]"
+            (ngModelChange)="inputChange()" min="1000-01-01" max="9999-12-31">
+
+          <!-- [value]="col.subfields ? getRowdata(col.subfields,col.field,rowData) : rowData[col.field]| date: 'yyyy-MM-dd' " -->
+          <!-- CellEdit: -->
+          <input [id]="'editCell1' + rowIndex" #cellEditTemplate class="input-table" formControlName="editCell"
+            *ngIf="(config.editCell||col.editCell) && editCellInput && col.type === 'date' && rowIndex === editCellIndex && col.field===editCellField "
+            type="date" onfocus="(this.type='date')" [value]="variablee | date: 'yyyy-MM-dd' "
+            (blur)="onBlurCell(rowData)" (keydown.enter)="onBlurCell(rowData)"
+            [(ngModel)]="col.subfields ? getRowdata(col.subfields,col.field,rowData) : rowData[col.field]"
+            (ngModelChange)="inputChange()" min="1000-01-01" max="9999-12-31">
+
+
+          <input [id]="'editCell3' + rowIndex" #cellEditTemplate class="input-table" formControlName="editCell"
+             *ngIf="(config.editCell||col.editCell) && editCellInput && !col.type && rowIndex === editCellIndex && col.field===editCellField || config.editCell && editCellInput && col.type==='badge' && rowIndex === editCellIndex && col.field===editCellField  "
+            (blur)="onBlurCell(rowData)" (keydown.enter)="onBlurCell(rowData)"  type="text"
+             [(ngModel)]="col.subfields ? getRowdata(col.subfields,col.field,rowData) : rowData[col.field]"
+            (ngModelChange)="inputChange()">
+
+          <input [id]="'editCell4' + rowIndex"  class="input-table" [formControlName]="col.field + '|' + rowIndex"
+             *ngIf="(col.type==='input'  )&& (!config.editRow  ||  ( rowIndex !== editIndex || rowIndex === editIndex && !editInput) )"
+             type="text"  [(ngModel)]="col.subfields ? getRowdata(col.subfields,col.field,rowData) : rowData[col.field]"
+            [attr.disabled]="col.disabled||rowData['disabled']" (ngModelChange)="inputChange()">
+
+          <sof-monoselect [id]="'editCell444' + rowIndex"  class="input-table"
+            [formControlName]="col.field + '|' + rowIndex"
+             *ngIf="(col.type==='select' && editCol==='Edit Select')&& (!config.editRow  ||  ( rowIndex !== editIndex || rowIndex === editIndex && !editInput) )"
+              [(ngModel)]="col.subfields ? getRowdata(col.subfields,col.field,rowData) : rowData[col.field]"
+            type="select" (ngModelChange)="inputChange()" (onChange)="getResultradio1(rowData)"
+            [bindLabel]="col.bindLabel" [bindValue]="col.bindValue" [options]="col.options">
+          </sof-monoselect>
+
+
+          <sof-monoselect [id]="'editCell5' + rowIndex" [formControlName]="col.field + '|' + rowIndex"
+            class="input-table" [formControlName]="col.field + '|' + rowIndex"
+             *ngIf="rowIndex === editIndex && editInput && col.type === 'select' && config.editRow " type="select"  
+             [(ngModel)]="col.subfields ? getRowdata(col.subfields,col.field,rowData) : rowData[col.field]"
+            (ngModelChange)="openDISABLED(rowData,col.field,rowIndex);inputChange()"
+            [disabled]=" INOpen(rowData,col.field,rowIndex) " [options]="col.options" mode="autoComplete"
+            [bindLabel]="col.bindLabel">
+          </sof-monoselect>
+
+
+          <!-- Edit cellule: -->
+          <sof-monoselect [id]="'editCell6' + rowIndex" #cellEditTemplate formControlName="editCell" class="input-table"
+             *ngIf="(config.editCell||col.editCell) && editCellInput && col.type === 'select' && rowIndex === editCellIndex && col.field===editCellField"
+            type="select"   (keyup.enter)="onBlurCell(rowData)"
+             [(ngModel)]="col.subfields ? getRowdata(col.subfields,col.field,rowData) : rowData[col.field]"
+            (ngModelChange)="inputChange()" (onBlur)="onBlurCell(rowData)" [options]="col.options" mode="autoComplete"
+            [bindLabel]="col.bindLabel">
+
+
+          </sof-monoselect>
+
+
+          <sof-multi-select id="multiselect1" [formControlName]="col.field + '|' + rowIndex"
+            [nbItemsToShow]="nbItemsToShowT"
+             *ngIf="rowIndex === editIndex && editInput && col.type === 'multi-select' && config.editRow"
+            [disabled]=" INOpen(rowData,col.field,rowIndex) " [options]="col.options"
+            [(ngModel)]="col.subfields ? getRowdata(col.subfields,col.field,rowData) : rowData[col.field]"
+            (ngModelChange)="openDISABLED(rowData,col.field,rowIndex);inputChange();"
+            (onBlur)=" !config.editRow? openIN(rowData,rowIndex,col.field):null" [bindLabel]="col.bindlabelmultiselect"
+            mode="autoComplete" [notFoundText]='notFoundText' [strings]="col.strings"></sof-multi-select>
+
+
+
+
+
+          <!-- multi-select for edit -->
+          <!-- <sof-monoselect #cellEditTemplate formControlName="editCell" class="input-table"
+                 *ngIf="editCellInput && col.type === 'select' && rowIndex === editCellIndex && col.field===editCellField" type="select"  
+                 (keyup.enter)="onBlurCell()"
+                 [(ngModel)]="col.subfields ? getRowdata(col.subfields,col.field,rowData) : rowData[col.field]"
+                (ngModelChange)="inputChange()"
+                [options]="col.options">
+              </sof-monoselect> -->
+
+          <sof-multi-select id="multiselect2" #cellEditTemplate formControlName="editCell"
+            [nbItemsToShow]="nbItemsToShowT"
+             *ngIf="(config.editCell||col.editCell) && editCellInput && col.type === 'multi-select' && rowIndex === editCellIndex && col.field===editCellField"
+            (keyup.enter)="onBlurCell(rowData)" (onBlur)="onBlurCell(rowData)" [options]="col.options"
+            [(ngModel)]="col.subfields ? getRowdata(col.subfields,col.field,rowData) : rowData[col.field]"
+            (ngModelChange)="inputChange();" (onBlur)="openIN(rowData,rowIndex,col.field)"
+            [bindLabel]="col.bindlabelmultiselect" mode="autoComplete" [notFoundText]='notFoundText'
+            [strings]="col.strings">
+          </sof-multi-select>
+
+
+          <!-- <option></option>
+                      <option *ngFor="let n of col.options" >
+                        
+                        {{n}}
+                      </option> -->
+
+          <!-- </select>  -->
+
+          <!-- add input  -->
+          <input id="input2" class="input-table"
+             *ngIf="rowIndex == 0 &&col.type !== 'checkbox' && col.type !== 'select' && col.type !== 'radio' && col.type !== 'multi-select' && col.type !== 'date' && col.type!=='progress-bar' && displayDialog && (config.addRow ||config.addDyn) "
+            type="text"  [(ngModel)]="col.subfields ? getRowdata(col.subfields,col.field,rowData) : rowData[col.field]"
+            [formControlName]="col.field + '|' + rowIndex">
+
+
+
+          <!-- add select  -->
+          <sof-monoselect id="monoselect1 " class="input-table" [formControlName]="col.field + '|' + rowIndex"
+             *ngIf=" col.type === 'select'&& rowIndex == 0 && (config.addRow ||config.addDyn)  && displayDialog "
+            type="select" [(ngModel)]="col.subfields ? getRowdata(col.subfields,col.field,rowData) : rowData[col.field]"
+            [options]="col.options" mode="autoComplete" [bindLabel]="col.bindLabel">
+            <!-- <option></option>
+                      <option *ngFor="let n of col.options" >
+                        
+                        {{n}}
+                      </option> -->
+          </sof-monoselect>
+
+          <!-- <select class="input-table" [formControlName]="col.field + '|' + rowIndex"
+                   *ngIf=" col.type === 'multi-select'&& rowIndex == data.length-1 && config.addRow && displayDialog "
+                  type="select"
+                  [(ngModel)]="col.subfields ? getRowdata(col.subfields,col.field,rowData) : rowData[col.field]">
+                  <option></option>
+                  <option *ngFor="let n of pays">
+    
+                    {{n}}
+                  </option>
+    
+                </select> -->
+
+          <sof-multi-select id="multiselect3" [formControlName]="col.field + '|' + rowIndex" class="input-table"
+            id="sof-multi-select" [nbItemsToShow]="nbItemsToShowT"
+             *ngIf=" col.type === 'multi-select'&& rowIndex == 0 && (config.addRow ||config.addDyn)  && displayDialog "
+            [options]="col.options"
+            [(ngModel)]="col.subfields ? getRowdata(col.subfields,col.field,rowData) : rowData[col.field]"
+            (ngModelChange)="inputChange();" (onBlur)="openIN(rowData,rowIndex,col.field)"
+            [bindLabel]="col.bindlabelmultiselect" mode="autoComplete" [notFoundText]='notFoundText'
+            [strings]="col.strings">
+          </sof-multi-select>
+
+
+
+          <!-- add input date  -->
+          <input class="input-table" id="input3" [formControlName]="col.field + '|' + rowIndex"
+             *ngIf="col.type === 'date' && rowIndex == 0 && (config.addRow ||config.addDyn) && displayDialog"
+            type="date" onfocus="(this.type='date')" onblur="if(!this.value)this.type='text'"
+            [(ngModel)]="col.subfields ? getRowdata(col.subfields,col.field,rowData) : rowData[col.field]"
+            min="1000-01-01" max="9999-12-31">
+
+
+
+
+
+
+
+
+
+          <sof-status-bar id="progress-bar"
+            [data]='col.subfields ? getRowdata(col.subfields,col.field,rowData) : rowData[col.field]'
+            *ngIf="col.type==='progress-bar'"> </sof-status-bar>
+
+          <ng-container *ngIf="col.type==='checkbox' ">
+            <sof-checkBox id="customCheckbox" [attr.disabled]="true" booleanValue='true'
+              [ngModelOptions]="{standalone: true}"
+              [isdisabled]="disableCheckTable && (rowIndex === editIndex || rowIndex === -1)? false : true"
+              [(ngModel)]='col.subfields ? getRowdata(col.subfields,col.field,rowData) : rowData[col.field]'
+              (click)="onCheck.emit()">
+            </sof-checkBox>
+          </ng-container>
+          <ng-container
+            *ngIf="!(editCellInput && col.type === 'date' && rowIndex === editCellIndex && col.field===editCellField) && !col.time && col.type==='date' &&  (!config.editRow  ||  ( rowIndex !== editIndex || rowIndex === editIndex && !editInput)) && ( !displayDialog ||  rowIndex !== 0 && displayDialog)">
+
+            <div id="editCellAction" (dblclick)="editCellAction(rowIndex,col.field,col.editCell)">
+              <span id="rowclick" (click)="onRowOneClick(rowData)"
+                 >{{ col.subfields ?
+                          getRowdata(col.subfields,col.field,rowData) : getData(rowData[col.field]| date: 'dd/MM/yyyy')  }}</span>
+            </div>
+
+
+          </ng-container>
+          <ng-container
+            *ngIf="!(editCellInput && col.type === 'date' && rowIndex === editCellIndex && col.field===editCellField) && col.type==='date' && col.time &&  (!config.editRow  ||  ( rowIndex !== editIndex || rowIndex === editIndex && !editInput)) && ( !displayDialog ||  rowIndex !== 0 && displayDialog)">
+
+            <div id="editCellAction" (dblclick)="editCellAction(rowIndex,col.field,col.editCell)">
+              <span id="rowclick" (click)="onRowOneClick(rowData)"
+                 >{{ col.subfields ?
+                        getRowdata(col.subfields,col.field,rowData) :  getData(rowData[col.field]| date: 'dd/MM/yyyy, h:mm:ss a') }}</span>
+            </div>
+
+
+          </ng-container>
+          <ng-container>
+            <div (dblclick)="editCellAction(rowIndex,col.field,col.editCell)">
+        <td (click)="onRowOneClick(rowData)" (dblclick)="editCellAction(rowIndex,col.field,col.editCell)"
+          *ngIf="!(editCellInput && col.type === 'select' && rowIndex === editCellIndex && col.field===editCellField) && col.type==='select' &&  (!config.editRow  ||  ( rowIndex !== editIndex || rowIndex === editIndex && !editInput)) && ( !displayDialog ||  rowIndex !== 0 && displayDialog ) && ( col.type==='select')  ">
+
+          <span *ngIf="editCol !='Edit Select' "
+            id="span111">{{col.ObjectMono ? rowData[col.field][col.bindLabel] : rowData[col.field] }}</span>
+        </td>
+
+</div>
+
+<!--                 <select>
+                      <option *ngFor="let n of pays" >
+                        
+                        {{n}}
+                      </option>
+                      
+                    </select> -->
+
+</ng-container>
+
+
+
+<ng-container
+  *ngIf="col.type !== 'checkbox' && col.type !== 'lien'&& col.type !== 'img'&& col.type !== 'badge' && col.type !== 'select'  && col.type !== 'multi-select' && col.type !== 'date' && (!config.editRow  || ( rowIndex !== editIndex || rowIndex === editIndex && !editInput)) && ( !displayDialog ||  rowIndex !== 0 && displayDialog)">
+  <span id="span2"  *ngIf="col.type!=='input' && col.type!=='progress-bar' && !col.fields && col.pipe"
+    (click)="onRowOneClick(rowData)">{{ col.subfields ? getPipedData(col.pipe,
+                  getRowdata(col.subfields, col.field, rowData)) : getPipedData(col.pipe,
+                  rowData[col.field])}}
+  </span>
+
+
+  <div (dblclick)="editCellAction(rowIndex,col.field,col.editCell)">
+    <span id="span3" (click)="onRowOneClick(rowData)"
+       *ngIf="!(editCellInput  &&  !col.type && rowIndex === editCellIndex && col.field===editCellField)&&(col.type!=='input' &&  col.type!=='radio-edit' && col.type!=='icon' && col.type!=='progress-bar' && !col.fields && !col.pipe   && ( !displayDialog ||  rowIndex !== 0 && displayDialog))">{{ col.subfields ?
+                    getRowdata(col.subfields,col.field,rowData) : rowData[col.field] }}</span>
+    <span id="span4"
+      *ngIf="col.type!=='input'  && col.type!=='progress-bar' && col.fields && col.pipe && ( !displayDialog ||  rowIndex !== 0 && displayDialog)">{{ getPipedData(col.pipe,
+                    getDataFromFields(col.field,rowData)) }}</span>
+    <span id="span5"
+       *ngIf="col.type!=='input'  && col.type!=='progress-bar' && col.fields && !col.pipe && ( !displayDialog ||  rowIndex !== 0 && displayDialog)">{{ getDataFromFields(col.field, rowData) }}</span>
+  </div>
+
+</ng-container>
+
+<ng-container
+  *ngIf="col.type !== 'checkbox' && col.type !== 'img'&& col.type !== 'badge' && col.type !== 'select'  && col.type === 'multi-select' && col.type !== 'date' && (!config.editRow  || ( rowIndex !== editIndex || rowIndex === editIndex && !editInput)) && ( !displayDialog ||  rowIndex !== 0 && displayDialog)">
+  <div (dblclick)="editCellAction(rowIndex,col.field,col.editCell)">
+    <span id="span6"  *ngIf="col.type!=='input' && col.type!=='progress-bar' && !col.fields && col.pipe">{{ col.subfields ? getPipedData(col.pipe,
+                      getRowdata(col.subfields, col.field, rowData)) : getPipedData(col.pipe,
+                      rowData[col.field])}}
+    </span>
+
+    <span id="span7" (click)="onRowOneClick(rowData)"
+       *ngIf="!(editCellInput && col.type === 'multi-select' && rowIndex === editCellIndex && col.field===editCellField) && col.type!=='input'  && col.type!=='progress-bar' && !col.fields && !col.pipe && ( !displayDialog ||  rowIndex !== 0 && displayDialog)">{{ col.subfields ?
+                      getRowdata(col.subfields,col.field,rowData) : afficherListeObjet(col.strings,rowData[col.field],col.bindlabelmultiselect)}}</span>
+    <span id="span8"
+      *ngIf="col.type!=='input'  && col.type!=='progress-bar' && col.fields && col.pipe && ( !displayDialog ||  rowIndex !== 0 && displayDialog)">{{ getPipedData(col.pipe,
+                      getDataFromFields(col.field,rowData)) }}</span>
+    <span id="span9"
+       *ngIf="col.type!=='input'  && col.type!=='progress-bar' && col.fields && !col.pipe && ( !displayDialog ||  rowIndex !== 0 && displayDialog)">{{ getDataFromFields(col.field, rowData) }}</span>
+  </div>
+
+</ng-container>
+
+
+
+<ng-container
+  *ngIf="col.type !== 'checkbox' && col.type !== 'img'&& col.type !== 'badge' && col.type !== 'select' && col.type !== 'multi-select' && col.type !== 'date' && col.subfields && rowIndex === editIndex && editInput  && config.editRow && ( !displayDialog ||  rowIndex !== data.length-1 && displayDialog)">
+  <span id="span10"  *ngIf="col.type!=='input' && col.type!=='progress-bar' && !col.fields && col.pipe">{{  getPipedData(col.pipe,
+                    getRowdata(col.subfields, col.field, rowData))}}
+  </span>
+
+  <span id="span11"  *ngIf="col.type!=='input'  && col.type!=='progress-bar' && !col.fields && !col.pipe">{{ 
+                    getRowdata(col.subfields,col.field,rowData)  }}</span>
+
+</ng-container>
+
+
+
+
+<ng-container
+  *ngIf="col.closecolCondition && col.type !=='radio' && col.type !== 'checkbox' && col.type !== 'select' && col.type !== 'multi-select' && col.type !== 'date' && col.type!=='progress-bar' && !col.fields && !col.subfields && rowIndex === editIndex && editInput && config.editRow && ( !displayDialog ||  rowIndex !== data.length-1 && displayDialog)">
+
+  <input id='this'  class="input-table" [formControlName]="col.field + '|' + rowIndex"    type="text"
+     [(ngModel)]="rowData[col.field]" (ngModelChange)="openDISABLED(rowData,col.field,rowIndex);inputChange()"
+    [attr.disabled]=" INOpen(rowData,col.field,rowIndex) ">
+
+</ng-container>
+
+
+<ng-container
+  *ngIf="!col.closecolCondition && col.type !=='radio' && col.type !== 'checkbox' && col.type !== 'select' && col.type !== 'multi-select' && col.type !== 'date' && col.type!=='progress-bar' && !col.fields && !col.subfields && rowIndex === editIndex && editInput && config.editRow && ( !displayDialog ||  rowIndex !== data.length-1 && displayDialog)">
+
+  <input id='this jdida'  class="input-table" [formControlName]="col.field + '|' + rowIndex"    type="text"
+     [(ngModel)]="rowData[col.field]" (ngModelChange)="inputChange()"
+    [attr.disabled]=" INOpen(rowData,col.field,rowIndex) ">
+
+</ng-container>
+
+
+
+<ng-container
+  *ngIf="col.type !== 'checkbox' && col.type !== 'lien'&& col.type !== 'img'&& col.type !== 'badge' && col.type !== 'select' && col.type !== 'multi-select' && col.type !== 'date' && col.type!=='progress-bar' && col.fields  && !col.subfields  
+                && rowIndex === editIndex && editInput && config.editRow && ( !displayDialog ||  rowIndex !== data.length-1 && displayDialog)">
+
+  <span id="span12" *ngIf="col.pipe ">{{ getPipedData(col.pipe,
+                        getDataFromFields(col.field,rowData)) }}</span>
+  <span id="span13"  *ngIf="!col.pipe ">{{ getDataFromFields(col.field, rowData) }}</span>
+
+</ng-container>
+<ng-container
+  *ngIf="config.rowdataButtons.length > 0 && config.buttons_contextual_overview &&buttonToDisplay(rowData) ">
+  <div>
+    <ng-container *ngFor="let button of config.rowdataButtons">
+      <a *ngIf=" button.display_condition ? button.display_condition(rowData) && (rowIndex != editIndex) : (rowIndex != editIndex)"
+        (click)="triggerActionFunction(button.action,rowData)">
+        <i aria-hidden="true" class="{{button?.icon}}" softooltip="{{button?.title}}"></i>
+      </a>
+    </ng-container>
+
+  </div>
+</ng-container>
+
+<ng-container>
+  <td (click)="onRowOneClick(rowData)" (dblclick)="editCellAction(rowIndex,col.field,col.editCell)"
+    *ngIf="col.type == 'img'&& ( !displayDialog ||  rowIndex !== 0 && displayDialog) && (!config.editRow  || ( rowIndex !== editIndex || rowIndex === editIndex && !editInput))">
+    <img alt="avatar" class="rounded-circle" [src]="rowData[col.field]" />
+
+  </td>
+</ng-container>
+<ng-container>
+  <td (click)="onRowOneClick(rowData)" (dblclick)="editCellAction(rowIndex,col.field,col.editCell)"
+    *ngIf="col.type == 'lien'&& ( !displayDialog ||  rowIndex !== 0 && displayDialog) && (!config.editRow  || ( rowIndex !== editIndex || rowIndex === editIndex && !editInput))">
+    <a routerLink="https://www.google.com/">{{rowData[col.field]}}</a>
+
+  </td>
+</ng-container>
+
+<ng-container>
+  <td *ngIf="(col.type=='radio-edit')||(col.type =='radio'&& (rowIndex === editIndex || rowIndex === -1)) ">
+    <div id="radio" *ngFor="let radiox of radioDemoOptionsTab;index as i;">
+      <sof-radio-button id="{{i}}" [groupName]="rowIndex" [formControlName]="'radio|' + rowIndex"
+        [(ngModel)]="rowData[col.field]" [data]="radiox" bindValue='value' bindLabel='label'
+        (unCheckRadio)="getResultradio1(rowData)"></sof-radio-button>
+    </div>
+
+  </td>
+
+</ng-container>
+<ng-container>
+
+  <td
+    *ngIf="col.type == 'icon'&& ( !displayDialog ||  rowIndex !== 0 && displayDialog) && (!config.editRow  || ( rowIndex !== editIndex || rowIndex === editIndex && !editInput))">
+    <i class="color-primary size-16 icons " [ngClass]="col.iconName" softooltip={{rowData[col.field]}}></i>
+  </td>
+
+</ng-container>
+
+<ng-container>
+  <div (dblclick)="editCellAction(rowIndex,col.field,col.editCell)">
+    <td id="badgee" [ngStyle]="{'width':col.widthBadge}" (click)="onRowOneClick(rowData)"
+      *ngIf="!(editCellInput && col.type === 'badge' && rowIndex === editCellIndex  && col.field===editCellField) && config.badge && col.type == 'badge'&& ( !displayDialog ||  rowIndex !== 0 && displayDialog) && (!config.editRow  || ( rowIndex !== editIndex || rowIndex === editIndex && !editInput))">
+      <span *ngIf="rowData[col.field] && checkspaces(rowData[col.field]) && col.typeBadge!=='pillule' " id="span14"
+        [ngClass]="CssBadge(col.color? col.color(rowData[col.field]) : col.colorLigne(rowData))">
+        {{getPipedData(col.pipe,rowData[col.field])}} </span>
+      <!--pillule-->
+      <span *ngIf="rowData[col.field] && checkspaces(rowData[col.field]) && col.typeBadge==='pillule'" id="span15"
+        [ngClass]="CssBadge(col.color? col.color(rowData[col.field]) : col.colorLigne(rowData)) ">
+        {{getPipedData(col.pipe,rowData[col.field])}} </span>
+
+    </td>
+  </div>
+</ng-container>
+<!-- <div (dblclick)="editCellAction(rowIndex,col.field,col.editCell)"> 
+              <td (click)="onRowOneClick(rowData)" (dblclick)="editCellAction(rowIndex,col.field,col.editCell)"
+              *ngIf="!(editCellInput && col.type === 'select' && rowIndex === editCellIndex && col.field===editCellField) && col.type==='select' &&  (!config.editRow  ||  ( rowIndex !== editIndex || rowIndex === editIndex && !editInput)) && ( !displayDialog ||  rowIndex !== 0 && displayDialog )  ">
+              <span id="span1" style="display: inline-block" >{{rowData[col.field]}}</span>
+            </td>
+          </div> -->
+
+<!-- [class]="CssBadge(col.color)" -->
+</td>
+
+
+
+
+<ng-container *ngIf="!config.actionButtonsPosition || config.actionButtonsPosition === 'end' ">
+  <td
+    *ngIf="!config.buttons_contextual_overview && config.rowdataButtons.length > 0 || config.editRow  || (config.addRow ||config.addDyn) || config.pop "
+    [class]="' customWidth ' + 'v-align-middle'+ ((config.lock_buttons)? ' btn-action ':'')+ 'text-center '"
+    [ngClass]="{ ligne:Row && rowIndex === 0 && typeTable==='dynamique'} ">
+    <div class="btn-action pull-right">
+      <ng-container *ngIf="config.editRow ">
+
+        <a *ngIf="(!editInput || rowIndex !== editIndex) && (!showAction || rowIndex!=0) ">
+          <button class="iconButtons" (click)="editLigneAction(rowData, rowIndex)" [id]="'edit' + rowIndex"
+            [disabled]="showedit">
+            <i aria-hidden="true" class="icons icon-edit" softooltip="{{editLabel}}"></i>
+          </button>
+        </a>
+        <a *ngIf="editInput && rowIndex === editIndex ">
+          <button [disabled]="isValidRow(rowIndex)" class="iconButtons" (click)="saveLigneAction(rowIndex,rowData)"
+            [id]="'sauvegarder' + rowIndex">
+            <i aria-hidden="true" class="icons icon-check" softooltip="{{saveLabel}}"></i>
+          </button>
+        </a>
+        <a *ngIf="editInput  && rowIndex === editIndex ">
+          <button class="iconButtons" (click)="cancelLigneAction(rowIndex)" [id]="'annuler' + rowIndex">
+            <i aria-hidden="true" class="icons icon-cancel" softooltip="{{cancelLabel}}"></i>
+          </button>
+
+        </a>
+
+
+
+      </ng-container>
+
+
+      <a *ngIf="displayDialog  && rowIndex == 0 && config.addDyn && typeTable==='dynamique'">
+        <button class="iconButtons" (click)="save(rowData);showligne()" [id]="'Sauvgarder' + rowIndex">
+          <!--  <i aria-hidden="true" class="icons icon-add" softooltip="{{saveLabel}}"></i> -->
+          <i class="icons icon-add size-16"></i>
+        </button>
+      </a>
+
+
+      <a *ngIf="displayDialog  && rowIndex == 0 && (config.addRow ||config.addDyn)  && typeTable==='statique'">
+        <button [disabled]=isValidRow(rowIndex) class="iconButtons" (click)="save(rowData)"
+          [id]="'Sauvgarder' + rowIndex">
+
+          <i class="icons icon-check size-16" softooltip="{{saveLabel}}"></i>
+
+        </button>
+      </a>
+
+       
+      <!-- <button  [ngModel]="addLigne" type="button" class="btn btn-border bg-primary font-size-12 border-radius-5 d-xl-block" (click)="InputDisable()">
+                                          <i class="icons icon-add size-16   text-white "></i> 
+                        </button> -->
+
+      <a *ngIf="displayDialog  && rowIndex == 0 && (config.addRow ||config.addDyn)  && typeTable==='statique'">
+        <button class="iconButtons" (click)="cancel()" [id]="'Annuler' + rowIndex">
+          <i aria-hidden="true" class="icons icon-cancel" softooltip="{{cancelLabel}}"></i>
+        </button>
+      </a>
+
+
+      <!-- change here -->
+
+      <ng-container *ngFor="let button of config.rowdataButtons">
+        <a *ngIf="button.display_condition ? button.display_condition(rowData) && (rowIndex != editIndex) : (rowIndex != editIndex)"
+          (click)="$event.stopPropagation()">
+          <button Class="iconButtons"
+            [disabled]="button.disabled_condition ? button.disabled_condition(rowData) : false "
+            (click)="triggerActionFunction(button.action,rowData) && $event.stopPropagation()"
+            [id]="button?.id || button?.action + rowIndex">
+            <i aria-hidden="true" class="{{button?.icon}}" [softooltip]="TitleChanger(rowData,button)"></i>
+          </button>
+        </a>
+        <a *ngIf="button.display_condition ? !button.display_condition(rowData) : false">
+          <i aria-hidden="true"></i>
+
+        </a>
+      </ng-container>
+
+    </div>
+  </td>
+
+</ng-container>
+
+
+
+
+
+</tr>
+
+
+
+
+
+
+
+
+<!-- Drag and drop option  tr2 -->
+
+<tr *ngIf="dragDrop" data-tech="rowIndex" [id]="'rowIndex' + rowIndex"
+  [ngClass]="config.rowStyle? config.rowStyle(rowData) : ''" pEditableRow="rowData" class="thing"
+  [tab-drag]="config.dragName" draggable="true" (onDragStart)="dragStart(rowData,rowIndex)" class="thing"
+  (onDragEnd)="dragEnd($event,rowIndex)">
+
+
+
+  <td id="reorderable" *ngIf="config.reorderable">
+    <i class="fa fa-bars" pReorderableRowHandle></i>
+  </td>
+
+  <td id="selection"  *ngIf="config.checkboxSelection" [class]=" (lockedColumns.length >0 ? ' lock-column ':'')">
+
+    <p-tableCheckbox [pSelectableRow]="rowData" [id]="rowIndex"  [value]="rowData"></p-tableCheckbox>
+  </td>
+
+
+  <!-- expandable row icon -->
+  <td id="expandable" *ngIf="config.expandable"
+    [class]="' customWidth ' + (lockedColumns.length >0 ? ' lock-column':'')" [ngStyle]="getstyleExpand()">
+    <a href="#" (click)="$event.stopPropagation()" [pRowToggler]="rowData">
+      <i [ngClass]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'"
+        (click)="triggerActionFunction('expanded',rowData)"></i>
+    </a>
+  </td>
+
+  <!-- Action buttons when position = start or not defined -->
+  <!--  -->
+  <ng-container *ngIf="config.actionButtonsPosition === 'start'">
+    <td [id]="'editRow' + rowIndex"
+      *ngIf="!config.buttons_contextual_overview && config.rowdataButtons.length > 0 || config.editRow"
+      [class]="' customWidth ' + 'v-align-middle'+ ((config.lock_buttons)? ' btn-action ':'')+ 'text-center '">
+      <div class="btn-action ">
+        <ng-container *ngIf="config.editRow ">
+          <a *ngIf="(!editInput || rowIndex !== editIndex) ">
+            <button class="iconButtons" (click)="editLigneAction(rowData, rowIndex)" [id]="'Editer' + rowIndex"
+              [disabled]="showedit">
+              <i aria-hidden="true" class="icons icon-edit" softooltip="{{editLabel}}"></i>
+            </button>
+          </a>
+          <a *ngIf="editInput && rowIndex === editIndex ">
+            <button [disabled]="isValidRow(rowIndex)" class="iconButtons" (click)="saveLigneAction(rowIndex,rowData)"
+              [id]="'Sauvgarder' + rowIndex">
+              <i aria-hidden="true" class="icons icon-check" softooltip="{{saveLabel}}"></i>
+            </button>
+          </a>
+          <a *ngIf="editInput  && rowIndex === editIndex">
+            <button class="iconButtons" (click)="cancelLigneAction(rowIndex)" [id]="'Annuler' + rowIndex">
+              <i aria-hidden="true" class="icons icon-cancel" softooltip="{{cancelLabel}}"></i>
+            </button>
+          </a>
+
+        </ng-container>
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <ng-container *ngFor="let button of config.rowdataButtons">
+          <a *ngIf="button.display_condition ? button.display_condition(rowData) && (rowIndex != editIndex) : (rowIndex != editIndex)"
+            (click)="$event.stopPropagation()">
+            <button class="iconButtons"
+              (click)="triggerActionFunction(button.action,rowData) && $event.stopPropagation()"
+              [id]="button?.id || button?.action + rowIndex">
+              <i aria-hidden="true" class="{{button?.icon}}" softooltip="{{button?.title}}"></i>
+            </button>
+
+          </a>
+          <a *ngIf="button.display_condition ? !button.display_condition(rowData) : false">
+
+            <i aria-hidden="true"></i>
+
+          </a>
+        </ng-container>
+      </div>
+    </td>
+  </ng-container>
+
+  <td [id]="'td'+ rowIndex " *ngFor=" let col of columnsOrdered ;let i=index" [class]="(islock(col)? ' lock-column':'')"
+    style="overflow: visible;" [ngStyle]="getstyle(col)"  pEditableColumn
+    [ngClass]="col.cellStyle?col.cellStyle(rowData[col.field]) : null">
+    <!--  -->
+
+    <input id="input1" class="input-table" [formControlName]="col.field + '|' + rowIndex"
+       *ngIf="(rowIndex === editIndex && editInput && col.type === 'date' && config.editRow)" type="date"
+      onfocus="(this.type='date')" onblur="if(!this.value)this.type='text'" [value]="variablee | date: 'yyyy-MM-dd' "  
+       [(ngModel)]="col.subfields ? getRowdata(col.subfields,col.field,rowData) : rowData[col.field]"
+      (ngModelChange)="inputChange()" min="1000-01-01" max="9999-12-31">
+
+    <!-- [value]="col.subfields ? getRowdata(col.subfields,col.field,rowData) : rowData[col.field]| date: 'yyyy-MM-dd' " -->
+    <!-- CellEdit: -->
+
+    <input [id]="'editCell1' + rowIndex" #cellEditTemplate class="input-table" formControlName="editCell"
+      *ngIf="(config.editCell||col.editCell) && editCellInput && col.type === 'date' && rowIndex === editCellIndex && col.field===editCellField "
+      type="date" onfocus="(this.type='date')" [value]="variablee | date: 'yyyy-MM-dd' " (blur)="onBlurCell(rowData)"
+      (keydown.enter)="onBlurCell(rowData)"
+      [(ngModel)]="col.subfields ? getRowdata(col.subfields,col.field,rowData) : rowData[col.field]"
+      (ngModelChange)="inputChange()" min="1000-01-01" max="9999-12-31">
+
+
+    <input [id]="'editCell3' + rowIndex" #cellEditTemplate class="input-table" formControlName="editCell"
+       *ngIf="(config.editCell||col.editCell) && editCellInput && !col.type && rowIndex === editCellIndex && col.field===editCellField || config.editCell && editCellInput && col.type==='badge' && rowIndex === editCellIndex && col.field===editCellField  "
+      (blur)="onBlurCell(rowData)" (keydown.enter)="onBlurCell(rowData)"  type="text"
+       [(ngModel)]="col.subfields ? getRowdata(col.subfields,col.field,rowData) : rowData[col.field]"
+      (ngModelChange)="inputChange()">
+
+    <input [id]="'editCell4' + rowIndex"  class="input-table" [formControlName]="col.field + '|' + rowIndex"
+       *ngIf="col.type==='input' && (!config.editRow  ||  ( rowIndex !== editIndex || rowIndex === editIndex && !editInput))"
+       type="text"  [(ngModel)]="col.subfields ? getRowdata(col.subfields,col.field,rowData) : rowData[col.field]"
+      (ngModelChange)="inputChange()">
+
+
+
+    <sof-monoselect [id]="'editCell5' + rowIndex" [formControlName]="col.field + '|' + rowIndex" class="input-table"
+       *ngIf="rowIndex === editIndex && editInput && col.type === 'select' && config.editRow " type="select"  
+       [(ngModel)]="col.subfields ? getRowdata(col.subfields,col.field,rowData) : rowData[col.field]"
+      (ngModelChange)="openDISABLED(rowData,col.field,rowIndex);inputChange()"
+      [disabled]=" INOpen(rowData,col.field,rowIndex) " [options]="col.options" [bindLabel]="col.bindLabel">
+    </sof-monoselect>
+
+
+    <!-- Edit cellule: -->
+    <sof-monoselect [id]="'editCell6' + rowIndex" #cellEditTemplate formControlName="editCell" class="input-table"
+       *ngIf=" (config.editCell||col.editCell) && editCellInput && col.type === 'select' && rowIndex === editCellIndex && col.field===editCellField"
+      type="select"   (keyup.enter)="onBlurCell(rowData)" (onBlur)="onBlurCell(rowData)"
+       [(ngModel)]="col.subfields ? getRowdata(col.subfields,col.field,rowData) : rowData[col.field]"
+      (ngModelChange)="inputChange()" [options]="col.options" [bindLabel]="col.bindLabel">
+
+      <!-- <option *ngFor="let n of col.options">
+  
+                {{n}}
+              </option> -->
+
+    </sof-monoselect>
+
+
+
+
+
+    <!-- <select [formControlName]="col.field + '|' + rowIndex" class="input-table"
+               *ngIf="rowIndex === editIndex && editInput && col.type === 'multi-select' && config.editRow" type="select"
+                 [(ngModel)]="col.subfields ? getRowdata(col.subfields,col.field,rowData) : rowData[col.field]"
+              (ngModelChange)="inputChange()"> -->
+
+
+    <!-- class="input-table" -->
+
+    <sof-multi-select id="multiselect1" [formControlName]="col.field + '|' + rowIndex" [nbItemsToShow]="nbItemsToShowT"
+       *ngIf="rowIndex === editIndex && editInput && col.type === 'multi-select' && config.editRow"
+      [disabled]=" INOpen(rowData,col.field,rowIndex) " [options]="col.options"
+      [(ngModel)]="col.subfields ? getRowdata(col.subfields,col.field,rowData) : rowData[col.field]"
+      (ngModelChange)="openDISABLED(rowData,col.field,rowIndex);inputChange();"
+      (onBlur)="openIN(rowData,rowIndex,col.field)" [bindLabel]="col.bindlabelmultiselect" mode="autoComplete"
+      [notFoundText]='notFoundText' [strings]="col.strings">
+    </sof-multi-select>
+
+
+    <!-- multi-select for edit -->
+    <!-- <sof-monoselect #cellEditTemplate formControlName="editCell" class="input-table"
+               *ngIf="editCellInput && col.type === 'select' && rowIndex === editCellIndex && col.field===editCellField" type="select"  
+               (keyup.enter)="onBlurCell()"
+               [(ngModel)]="col.subfields ? getRowdata(col.subfields,col.field,rowData) : rowData[col.field]"
+              (ngModelChange)="inputChange()"
+              [options]="col.options">
+            </sof-monoselect> -->
+
+    <sof-multi-select id="multiselect2" #cellEditTemplate formControlName="editCell" [nbItemsToShow]="nbItemsToShowT"
+       *ngIf="(config.editCell||col.editCell) && editCellInput && col.type === 'multi-select' && rowIndex === editCellIndex && col.field===editCellField"
+      (keyup.enter)="onBlurCell(rowData)" (onBlur)="onBlurCell(rowData)" [options]="col.options"
+      [(ngModel)]="col.subfields ? getRowdata(col.subfields,col.field,rowData) : rowData[col.field]"
+      (ngModelChange)="inputChange();" (onBlur)="openIN(rowData,rowIndex,col.field)"
+      [bindLabel]="col.bindlabelmultiselect" mode="autoComplete" [notFoundText]='notFoundText' [strings]="col.strings">
+    </sof-multi-select>
+
+
+    <!-- <option></option>
+                    <option *ngFor="let n of col.options" >
+                      
+                      {{n}}
+                    </option> -->
+
+    <!-- </select>  -->
+
+    <!-- add input  -->
+    <input id="input2" class="input-table"
+       *ngIf="rowIndex == 0 &&col.type !== 'checkbox' && col.type !== 'select' && col.type !== 'multi-select' && col.type !== 'date' && col.type!=='progress-bar' && displayDialog && config.addRow"
+      type="text"  [(ngModel)]="col.subfields ? getRowdata(col.subfields,col.field,rowData) : rowData[col.field]"
+      [formControlName]="col.field + '|' + rowIndex">
+
+
+
+    <!-- add select  -->
+    <sof-monoselect id="monoselect1 " class="input-table" [formControlName]="col.field + '|' + rowIndex"
+       *ngIf=" col.type === 'select'&& rowIndex == 0 && (config.addRow ||config.addDyn)  && displayDialog "
+      type="select" [(ngModel)]="col.subfields ? getRowdata(col.subfields,col.field,rowData) : rowData[col.field]"
+      [options]="col.options" [bindLabel]="col.bindLabel">
+      <!-- <option></option>
+                    <option *ngFor="let n of col.options" >
+                      
+                      {{n}}
+                    </option> -->
+    </sof-monoselect>
+
+    <!-- <select class="input-table" [formControlName]="col.field + '|' + rowIndex"
+                 *ngIf=" col.type === 'multi-select'&& rowIndex == data.length-1 && config.addRow && displayDialog "
+                type="select"
+                [(ngModel)]="col.subfields ? getRowdata(col.subfields,col.field,rowData) : rowData[col.field]">
+                <option></option>
+                <option *ngFor="let n of pays">
+  
+                  {{n}}
+                </option>
+  
+              </select> -->
+
+    <sof-multi-select id="multiselect3" [formControlName]="col.field + '|' + rowIndex" class="input-table"
+      id="sof-multi-select" [nbItemsToShow]="nbItemsToShowT"
+       *ngIf=" col.type === 'multi-select'&& rowIndex == 0 && (config.addRow ||config.addDyn)  && displayDialog "
+      [options]="col.options"
+      [(ngModel)]="col.subfields ? getRowdata(col.subfields,col.field,rowData) : rowData[col.field]"
+      (ngModelChange)="inputChange()" [bindLabel]="col.bindlabelmultiselect" mode="autoComplete"
+      [notFoundText]='notFoundText' [strings]="col.strings">
+    </sof-multi-select>
+
+
+    <!-- add input date  -->
+    <input class="input-table" id="input3" [formControlName]="col.field + '|' + rowIndex"
+       *ngIf="col.type === 'date' && rowIndex == 0 && (config.addRow ||config.addDyn)  && displayDialog" type="date"
+      onfocus="(this.type='date')" onblur="if(!this.value)this.type='text'"
+      [(ngModel)]="col.subfields ? getRowdata(col.subfields,col.field,rowData) : rowData[col.field]" min="1000-01-01"
+      max="9999-12-31">
+
+
+
+
+
+
+
+
+
+    <sof-status-bar id="progress-bar"
+      [data]='col.subfields ? getRowdata(col.subfields,col.field,rowData) : rowData[col.field]'
+      *ngIf="col.type==='progress-bar'"> </sof-status-bar>
+
+    <ng-container *ngIf="col.type==='checkbox' ">
+      <sof-checkBox id="customCheckbox" [attr.disabled]="true" booleanValue='true' [ngModelOptions]="{standalone: true}"
+        [isdisabled]="disableCheckTable ? true : false"
+        [(ngModel)]='col.subfields ? getRowdata(col.subfields,col.field,rowData) : rowData[col.field]'
+        (click)="onCheck.emit()">
+      </sof-checkBox>
+    </ng-container>
+    <ng-container
+      *ngIf="!(editCellInput && col.type === 'date' && rowIndex === editCellIndex && col.field===editCellField) && col.type==='date' &&  (!config.editRow  ||  ( rowIndex !== editIndex || rowIndex === editIndex && !editInput)) && ( !displayDialog ||  rowIndex !== 0 && displayDialog)">
+
+      <span id="editCellAction" (dblclick)="editCellAction(rowIndex,col.field,col.editCell)">
+        <span id="rowclick" (click)="onRowOneClick(rowData)"
+           >{{ col.subfields ?
+                        getRowdata(col.subfields,col.field,rowData) : getData(rowData[col.field]| date: 'dd/MM/yyyy')  }}</span>
+      </span>
+
+    </ng-container>
+    <ng-container>
+      <div (dblclick)="editCellAction(rowIndex,col.field,col.editCell)">
+  <td (click)="onRowOneClick(rowData)" (dblclick)="editCellAction(rowIndex,col.field,col.editCell)"
+    *ngIf="!(editCellInput && col.type === 'select' && rowIndex === editCellIndex && col.field===editCellField) && col.type==='select' &&  (!config.editRow  ||  ( rowIndex !== editIndex || rowIndex === editIndex && !editInput)) && ( !displayDialog ||  rowIndex !== 0 && displayDialog )  ">
+    <span id="span1">{{rowData[col.field]}}</span>
+  </td>
+  </div>
+
+  <!--                 <select>
+                    <option *ngFor="let n of pays" >
+                      
+                      {{n}}
+                    </option>
+                    
+                  </select> -->
+
+  </ng-container>
+
+
+  <ng-container
+    *ngIf="col.type !== 'checkbox' && col.type !== 'lien' && col.type !== 'img'&& col.type !== 'badge' && col.type !== 'select'  && col.type !== 'multi-select' && col.type !== 'date' && (!config.editRow  || ( rowIndex !== editIndex || rowIndex === editIndex && !editInput)) && ( !displayDialog ||  rowIndex !== 0 && displayDialog)">
+    <span id="span2"  *ngIf="col.type!=='input' && col.type!=='progress-bar' && !col.fields && col.pipe">{{ col.subfields ? getPipedData(col.pipe,
+                getRowdata(col.subfields, col.field, rowData)) : getPipedData(col.pipe,
+                rowData[col.field])}}
+    </span>
+
+
+    <div (dblclick)="editCellAction(rowIndex,col.field,col.editCell)">
+      <span id="span3" (click)="onRowOneClick(rowData)"
+         *ngIf="!(editCellInput  && !col.type && rowIndex === editCellIndex && col.field===editCellField)&&(col.type!=='input' && col.type!=='icon'  && col.type!=='progress-bar' && !col.fields && !col.pipe  && ( !displayDialog ||  rowIndex !== 0 && displayDialog))">{{ col.subfields ?
+                  getRowdata(col.subfields,col.field,rowData) : rowData[col.field] }}</span>
+      <span id="span4"
+        *ngIf="col.type!=='input'  && col.type!=='progress-bar' && col.fields && col.pipe && ( !displayDialog ||  rowIndex !== 0 && displayDialog)">{{ getPipedData(col.pipe,
+                  getDataFromFields(col.field,rowData)) }}</span>
+      <span id="span5"
+         *ngIf="col.type!=='input'  && col.type!=='progress-bar' && col.fields && !col.pipe && ( !displayDialog ||  rowIndex !== 0 && displayDialog)">{{ getDataFromFields(col.field, rowData) }}</span>
+    </div>
+
+  </ng-container>
+
+  <ng-container
+    *ngIf="col.type !== 'checkbox' && col.type !== 'lien' && col.type !== 'img'&& col.type !== 'badge' && col.type !== 'select'  && col.type === 'multi-select' && col.type !== 'date' && (!config.editRow  || ( rowIndex !== editIndex || rowIndex === editIndex && !editInput)) && ( !displayDialog ||  rowIndex !== 0 && displayDialog)">
+    <div (dblclick)="editCellAction(rowIndex,col.field,col.editCell)">
+      <span id="span6"  *ngIf="col.type!=='input' && col.type!=='progress-bar' && !col.fields && col.pipe">{{ col.subfields ? getPipedData(col.pipe,
+                    getRowdata(col.subfields, col.field,rowData)) : getPipedData(col.pipe,
+                    rowData[col.field])}}
+      </span>
+
+      <span id="span7" (click)="onRowOneClick(rowData)"
+         *ngIf="!(editCellInput && col.type === 'multi-select' && rowIndex === editCellIndex && col.field===editCellField) && col.type!=='input'  && col.type!=='progress-bar' && !col.fields && !col.pipe && ( !displayDialog ||  rowIndex !== 0 && displayDialog)">{{ col.subfields ?
+                    getRowdata(col.subfields,col.field,rowData) : afficherListeObjet( col.strings,rowData[col.field],col.bindlabelmultiselect)}}</span>
+      <span id="span8"
+        *ngIf="col.type!=='input'  && col.type!=='progress-bar' && col.fields && col.pipe && ( !displayDialog ||  rowIndex !== 0 && displayDialog)">{{ getPipedData(col.pipe,
+                    getDataFromFields(col.field,rowData)) }}</span>
+      <span id="span9"
+         *ngIf="col.type!=='input'  && col.type!=='progress-bar' && col.fields && !col.pipe && ( !displayDialog ||  rowIndex !== 0 && displayDialog)">{{ getDataFromFields(col.field, rowData) }}</span>
+    </div>
+
+  </ng-container>
+
+
+
+  <ng-container
+    *ngIf="col.type !== 'checkbox' && col.type !== 'lien' && col.type !== 'img'&& col.type !== 'badge' && col.type !== 'select' && col.type !== 'multi-select' && col.type !== 'date' && col.subfields && rowIndex === editIndex && editInput  && config.editRow && ( !displayDialog ||  rowIndex !== data.length-1 && displayDialog)">
+    <span id="span10"  *ngIf="col.type!=='input' && col.type!=='progress-bar' && !col.fields && col.pipe">{{  getPipedData(col.pipe,
+                  getRowdata(col.subfields, col.field, rowData))}}
+    </span>
+
+    <span id="span11"  *ngIf="col.type!=='input'  && col.type!=='progress-bar' && !col.fields && !col.pipe">{{ 
+                  getRowdata(col.subfields,col.field,rowData)  }}</span>
+
+  </ng-container>
+
+
+
+
+  <ng-container
+    *ngIf=" col.type !=='radio' && col.type !== 'checkbox' && col.type !== 'select' && col.type !== 'multi-select' && col.type !== 'badge'&& col.type !== 'date' && col.type!=='progress-bar' && !col.fields && !col.subfields && rowIndex === editIndex && editInput && config.editRow && ( !displayDialog ||  rowIndex !== data.length-1 && displayDialog)">
+
+    <input class="input-table" [formControlName]="col.field + '|' + rowIndex"  type="text"
+       [(ngModel)]="rowData[col.field]" (ngModelChange)="inputChange()">
+
+  </ng-container>
+
+
+
+  <ng-container
+    *ngIf="col.type !== 'checkbox' && col.type !== 'lien' && col.type !== 'img'&& col.type !== 'badge' && col.type !== 'select' && col.type !== 'multi-select' && col.type !== 'date' && col.type!=='progress-bar' && col.fields  && !col.subfields  
+              && rowIndex === editIndex && editInput && config.editRow && ( !displayDialog ||  rowIndex !== data.length-1 && displayDialog)">
+
+    <span id="span12" *ngIf="col.pipe ">{{ getPipedData(col.pipe,
+                      getDataFromFields(col.field,rowData)) }}</span>
+    <span id="span13"  *ngIf="!col.pipe ">{{ getDataFromFields(col.field, rowData) }}</span>
+
+  </ng-container>
+  <ng-container
+    *ngIf="config.rowdataButtons.length > 0 && config.buttons_contextual_overview &&buttonToDisplay(rowData) ">
+    <div>
+      <ng-container *ngFor="let button of config.rowdataButtons">
+        <a *ngIf=" button.display_condition ? button.display_condition(rowData) && (rowIndex != editIndex) : (rowIndex != editIndex)"
+          (click)="triggerActionFunction(button.action,rowData)">
+          <i aria-hidden="true" class="{{button?.icon}}" softooltip="{{button?.title}}"></i>
+        </a>
+      </ng-container>
+
+    </div>
+  </ng-container>
+
+  <ng-container>
+    <td (click)="onRowOneClick(rowData)" (dblclick)="editCellAction(rowIndex,col.field,col.editCell)"
+      *ngIf="col.type === 'img'&& ( !displayDialog ||  rowIndex !== 0 && displayDialog) && (!config.editRow  || ( rowIndex !== editIndex || rowIndex === editIndex && !editInput))">
+      <img alt="avatar" class="rounded-circle" [src]="rowData[col.field]" />
+
+    </td>
+  </ng-container>
+  <ng-container>
+    <td (click)="onRowOneClick(rowData)" (dblclick)="editCellAction(rowIndex,col.field,col.editCell)"
+      *ngIf="col.type === 'lien'&& ( !displayDialog ||  rowIndex !== 0 && displayDialog) && (!config.editRow  || ( rowIndex !== editIndex || rowIndex === editIndex && !editInput))">
+      <a routerLink="'{{rowData[col.field]}}'">{{rowData[col.field]}}</a>
+
+    </td>
+  </ng-container>
+  <ng-container>
+    <td
+      *ngIf="config.badge && col.type == 'badge'&& ( !displayDialog ||  rowIndex !== 0 && displayDialog) && (!config.editRow  || ( rowIndex !== editIndex || rowIndex === editIndex && !editInput))">
+      <span id="span14" [ngClass]="CssBadge(col.color?col.color(rowData[col.field]) : null)">
+        {{getPipedData(col.pipe,rowData[col.field])}} </span>
+    </td>
+  </ng-container>
+
+  <!-- [class]="CssBadge(col.color)" -->
+  </td>
+
+
+
+
+  <ng-container *ngIf="!config.actionButtonsPosition || config.actionButtonsPosition === 'end' ">
+    <td
+      *ngIf="!config.buttons_contextual_overview && config.rowdataButtons.length > 0 || config.editRow  || (config.addRow ||config.addDyn)  || config.pop "
+      [class]="' customWidth ' + 'v-align-middle'+ ((config.lock_buttons)? ' btn-action ':'')+ 'text-center '"
+      [ngClass]="{ ligne:Row && rowIndex === 0 && typeTable==='dynamique'} ">
+      <div class="btn-action pull-right">
+        <ng-container *ngIf="config.editRow ">
+
+          <a *ngIf="(!editInput || rowIndex !== editIndex) && (!showAction || rowIndex!=0) ">
+            <button class="iconButtons" (click)="editLigneAction(rowData, rowIndex)" [id]="'edit' + rowIndex"
+              [disabled]="showedit">
+              <i aria-hidden="true" class="icons icon-edit" softooltip="{{editLabel}}"></i>
+            </button>
+          </a>
+          <a *ngIf="editInput && rowIndex === editIndex ">
+            <button [disabled]="isValidRow(rowIndex)" class="iconButtons" (click)="saveLigneAction(rowIndex,rowData)"
+              [id]="'sauvegarder' + rowIndex">
+              <i aria-hidden="true" class="icons icon-check" softooltip="{{saveLabel}}"></i>
+            </button>
+          </a>
+          <a *ngIf="editInput  && rowIndex === editIndex ">
+            <button class="iconButtons" (click)="cancelLigneAction(rowIndex)" [id]="'annuler' + rowIndex">
+              <i aria-hidden="true" class="icons icon-cancel" softooltip="{{cancelLabel}}"></i>
+            </button>
+
+          </a>
+
+
+
+        </ng-container>
+
+
+        <a *ngIf="displayDialog  && rowIndex == 0 && (config.addRow ||config.addDyn)  ">
+          <button [disabled]=isValidRow(rowIndex) class="iconButtons" (click)="save(rowData)"
+            [id]="'Sauvgarder' + rowIndex">
+            <!--  <i aria-hidden="true" class="icons icon-add" softooltip="{{saveLabel}}"></i> -->
+            <i class="icons icon-add size-16   text-white "></i>
+
+          </button>
+        </a>
+        <a *ngIf="displayDialog  && rowIndex == 0 && (config.addRow ||config.addDyn)  ">
+          <button class="iconButtons" (click)="cancel()" [id]="'Annuler' + rowIndex">
+            <i aria-hidden="true" class="icons icon-cancel" softooltip="{{cancelLabel}}"></i>
+          </button>
+        </a>
+        <ng-container *ngFor="let button of config.rowdataButtons">
+          <a *ngIf="button.display_condition ? button.display_condition(rowData) && (rowIndex != editIndex) : (rowIndex != editIndex)"
+            (click)="$event.stopPropagation()">
+            <button Class="iconButtons"
+              [disabled]="button.disabled_condition ? button.disabled_condition(rowData) : false "
+              (click)="triggerActionFunction(button.action,rowData) && $event.stopPropagation()"
+              [id]="button?.id || button?.action + rowIndex">
+              <i aria-hidden="true" class="{{button?.icon}}" softooltip="{{button?.title}}"></i>
+            </button>
+          </a>
+          <a *ngIf="button.display_condition ? !button.display_condition(rowData) : false">
+            <i aria-hidden="true"></i>
+
+          </a>
+        </ng-container>
+
+      </div>
+    </td>
+
+  </ng-container>
+
+
+
+
+
+</tr>
+
+
+
+</ng-template>
+
+
+<ng-template pTemplate="rowexpansion" id="idexpendable" let-rowData let-columns="columns">
+
+  <tr>
+
+    <ng-content select="expandableContent">
+
+    </ng-content>
+  </tr>
+</ng-template>
+
+<!-- Costom row footer -->
+
+<ng-template pTemplate="footer" let-columns="columnsOrdered">
+
+  <!-- add row  -->
+
+
+  <tr>
+    <ng-content select="footer">
+    </ng-content>
+
+  </tr>
+
+</ng-template>
+
+</p-table>
+<div *ngIf="config.showTotalDataNumber" [style.margin-top]="getMargin()">
+  <span id="span16" class="footerTSF">{{totalElements}} </span>
+  <div id="totlaElements">{{config.totalDataMessage}}</div>
+</div>
+
+</div>
+
+
+
+<!-- 
+  <p-dialog [header]="headerpop" [(visible)]="displayPop" [responsive]="true" showEffect="fade" [modal]="true"   [style]="{width: '1300px'}" >
+    <div class="ui-g ui-fluid" >
+      tucjavxkagx
+       <ng-content select="body"></ng-content>[appendTo]="'body'"
+    </div>
+    <p-footer>
+        <div >
+            
+           
+            <sof-button  (click)="onClick.emit();cancelPop();">
+              Ajouter
+            </sof-button>
+            
+        </div>
+    </p-footer>
+  </p-dialog> -->
+
+
+<sof-modal [(visible)]="displayPop" position="center" [title]="headerpop">
+  <ng-content select="body"></ng-content><br />
+  <sof-modal-footer>
+    <button type="button" id="btnmodal1" class="btn btn-primary" (click)="onClick.emit();cancelPop();">
+      {{buttonpop1}}
+    </button>
+    <button type="button" class="btn btn-default" (click)="displayPop = !displayPop">{{buttonpop2}}</button>
+  </sof-modal-footer>
+</sof-modal>

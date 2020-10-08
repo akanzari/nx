@@ -1,0 +1,226 @@
+:host ::ng-deep .search,
+.search-default,
+.search-medium {
+  height: 50px;
+  margin: 0px 0;
+}
+:host ::ng-deep .search.search-small input,
+.search-default.search-small input,
+.search-medium.search-small input {
+  height: 42px;
+}
+:host ::ng-deep .search.search-small i,
+.search-default.search-small i,
+.search-medium.search-small i {
+  margin-top: 13px;
+}
+:host ::ng-deep .search i,
+.search-default i,
+.search-medium i {
+  //  color: $default-200;
+}
+:host ::ng-deep::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  // color: $white;
+  opacity: 1; /* Firefox */
+}
+:host ::ng-deep .sidebar::-webkit-scrollbar {
+  display: none;
+}
+:host ::ng-deep html,
+body {
+  -ms-overflow-style: none;
+  overflow: auto;
+}
+
+:host ::ng-deep .positionR {
+  float: right;
+}
+
+:host ::ng-deep .positionL {
+  float: left;
+}
+
+:host ::ng-deep a {
+  //color: $primary-200;
+  cursor: pointer;
+}
+
+:host ::ng-deep .search.search-small input,
+.search-default.search-small[_ngcontent-c11] input[_ngcontent-c11],
+.search-medium.search-small[_ngcontent-c11] input[_ngcontent-c11] {
+  height: 42px;
+  // color: $white;
+}
+
+#search.ng-tns-c13-1 {
+  // background-color: $text;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  border: 1px solid none;
+  //-webkit-text-fill-color: $white;
+  // -webkit-box-shadow: 0 0 0px 1000px $secondary-200 inset;
+  // transition: background-color 5000s ease-in-out 0s;
+}
+
+:host ::ng-deep input[type='text']::-ms-clear {
+  display: none;
+  width: 0;
+  height: 0;
+}
+:host ::ng-deep input[type='text']::-ms-reveal {
+  display: none;
+  width: 0;
+  height: 0;
+}
+:host ::ng-deep input[type='search']::-webkit-search-decoration,
+input[type='search']::-webkit-search-cancel-button,
+input[type='search']::-webkit-search-results-button,
+input[type='search']::-webkit-search-results-decoration {
+  display: none;
+}
+
+input[type='text']::-ms-clear {
+  display: none;
+  width: 0;
+  height: 0;
+}
+input[type='text']::-ms-reveal {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+input[type='text']::-ms-clear {
+  display: none;
+  width: 0;
+  height: 0;
+}
+input[type='text']::-ms-reveal {
+  display: none;
+  width: 0;
+  height: 0;
+}
+input[type='search']::-webkit-search-decoration,
+input[type='search']::-webkit-search-cancel-button,
+input[type='search']::-webkit-search-results-button,
+input[type='search']::-webkit-search-results-decoration {
+  display: none;
+}
+
+/* reset our lists to remove bullet points and padding */
+.mainmenu,
+.submenu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* make ALL links (main and submenu) have padding and background color */
+.mainmenu a {
+  display: block;
+  text-decoration: none;
+  padding: 10px;
+  // color: $white;
+}
+
+/* add hover behaviour */
+.mainmenu {
+}
+
+/* when hovering over a .mainmenu item,
+  display the submenu inside it.
+  we're changing the submenu's max-height from 0 to 200px;
+  */
+
+.mainmenu .submenu {
+  display: block;
+  max-height: 100%;
+}
+
+/*
+  we now overwrite the background-color for .submenu links only.
+  CSS reads down the page, so code at the bottom will overwrite the code at the top.
+  */
+
+.submenu a {
+  // color: $white;
+  //  background: $secondary-300;
+}
+
+/* hover behaviour for links inside .submenu */
+.submenu {
+  //  color: $white;
+  //  background: $secondary-300;
+}
+
+/* this is the initial state of all submenus.
+  we set it to max-height: 0, and hide the overflowed content.
+  */
+.submenu {
+  overflow: hidden;
+  max-height: 0;
+  -webkit-transition: all 0.5s ease-out;
+  margin-left: 30px;
+}
+
+ul {
+  display: block;
+  list-style-type: disc;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  padding-inline-start: 40px;
+}
+.sidebar.sidebar-nav ul ul li a span {
+  margin-left: initial;
+}
+//   .sidebar.sidebar-nav ul ul li {
+//     margin-bottom: 0;
+//     margin-left: 40px;
+//     margin-right: 0;
+//     line-height: 40px;
+// }
+// .sidebar.sidebar-nav ul ul {
+//   margin-top: 0px;
+//   width: 100%;
+//   padding: 0;
+//   border-left: 3px solid #ccb581;
+//   overflow: hidden;
+// }
+.sidebar.sidebar-nav[_ngcontent-c38]
+  ul[_ngcontent-c38]
+  ul[_ngcontent-c38]
+  li[_ngcontent-c38] {
+  margin-bottom: 0x;
+  margin-left: 30px;
+  margin-right: 0;
+  line-height: 40px;
+}
+.mainmenu[_ngcontent-c38] .submenu[_ngcontent-c38] {
+  max-height: 100%;
+}
+@media screen and (max-width: 991px) {
+  .sidebar.sidebar-nav ul li a i {
+    margin-left: 28%;
+  }
+}
+.sidebar.sidebar-nav ul ul li {
+  margin-bottom: 0;
+  margin-left: 30px;
+  margin-right: 0;
+  line-height: 40px;
+}
+
+.mainmenu[_ngcontent-c39] .submenu[_ngcontent-c39] {
+  display: block;
+  max-height: 100% !important;
+}

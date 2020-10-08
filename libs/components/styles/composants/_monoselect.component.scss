@@ -1,0 +1,119 @@
+
+ .ng-select .ng-select-container {  
+    position: unset;  
+}
+// fix blue default color when focused
+// Begin
+ng-select .ng-select-container {
+     border-radius: 0 !important;
+}
+ .ng-select.ng-select-focused:not(.ng-select-opened)> .ng-select-container {
+   
+   border-color: $default-300  $default-300  $default-300 ;
+   box-shadow: 0 0 0 transparent !important;
+   border-bottom: 1px solid $primary-200 ;
+}
+// End
+
+ .ng-select .ng-arrow-wrapper .ng-arrow {
+    margin-top: -4px;
+} 
+:host ::ng-deep  .icone:before{
+    content: "\f127"; 
+    font-family: 'icons' !important;
+  
+  }
+
+ .ng-input input {
+    height: unset !important;
+    margin: unset !important;
+    padding: 5px 0px 0px 0px !important;
+}
+ .ng-select  .ng-dropdown-panel .ng-dropdown-panel-items .ng-option.ng-option-marked {
+    border-left: 2px solid $primary-100;
+    background-color:  unset !important;
+    padding-left: 8px;
+} .ng-select  .ng-dropdown-panel .ng-dropdown-panel-items .ng-option.ng-option-selected {
+    border-left: 2px solid $primary-100;
+    background-color: unset !important;
+    padding-left: 8px;
+}
+//////////////////css ajouté pour que mono select soit conforme au multi select ---BEGIN
+ .ng-select .ng-select-container .ng-has-value{
+    background: $default-100; 
+}
+ .ng-select .ng-select-container .ng-value-container .ng-value {
+
+
+    background-color: none;
+    border: none;
+    font-size: 13px;
+}
+  .ng-select .ng-select-container .ng-value-container .ng-placeholder {
+    top: 9px !important;
+  
+}
+ .ng-select  .ng-dropdown-panel .ng-dropdown-panel-items .ng-option.ng-option-marked .ng-option-label{
+  
+    color:#000305 !important;
+ 
+}
+ .ng-select  .ng-dropdown-panel .ng-dropdown-panel-items .ng-option.ng-option-selected {
+    border-left: 2px solid $primary-100;
+    background-color: unset !important;
+    background-color: $background !important;
+    padding-left: 8px;
+    font-size: 11px;
+    color: $text !important;
+}
+.ng-dropdown-panel .ng-dropdown-panel-items .ng-option.ng-option-selected .ng-option-label {
+    font-weight: unset;
+    color: $text !important;
+    font-size: 11px !important;
+}
+
+
+
+.ng-dropdown-panel .ng-dropdown-panel-items .ng-option-label {
+    font-weight: unset;
+    color: $text !important;
+    font-size: 11px !important;
+}
+.ng-select .ng-select-container .ng-value-container .ng-value .ng-value-icon.left:hover {
+    background:  $primary-100;
+}
+ .ng-select .ng-select-container .ng-value-container .ng-value .ng-value-icon.left {
+   
+    border-right: 2px solid $primary-100;
+}
+
+/////////////////////////////////////// ----END
+
+// for ie 11
+// Begin
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+     .ng-select .ng-select-container .ng-value-container .ng-input input{
+        align-items: center;    
+    }
+      .ng-input input{
+       height : 8px !important; 
+         
+    }
+     .ng-dropdown-panel .ng-dropdown-panel-items .ng-option.ng-option-marked {
+        background-color: $white !important;
+        padding-left: 8px;
+    }
+     .ng-dropdown-panel .ng-dropdown-panel-items .ng-option.ng-option-selected {
+        background-color: $white !important;
+        padding-left: 8px;
+        bottom: 10px !important;
+    }
+     .ng-select .ng-dropdown-panel .ng-dropdown-panel-items .ng-option.ng-option-marked {
+    
+        padding-left: 8px;
+      
+    }
+    // End
+}
+// End IE
+

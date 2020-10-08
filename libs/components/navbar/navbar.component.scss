@@ -1,0 +1,114 @@
+:host ::ng-deep .navbar {
+  min-height: 60px !important;
+}
+
+:host ::ng-deep .navbarBig {
+  & nav {
+    height: 70px !important;
+  }
+  & .logo {
+    height: 50px !important;
+  }
+  & .icons {
+    height: 50px;
+    font-size: 20px !important;
+  }
+  & .rounded-circle {
+    width: 40px !important;
+    height: auto !important;
+  }
+  & .flag {
+    width: 20px !important;
+    height: 67px !important;
+  }
+  & .navbar .nav-link i {
+    height: 100% !important;
+  }
+  & nav.navbar.navbar-expand-lg.navbar-top {
+    padding-left: 0px !important;
+  }
+}
+
+:host ::ng-deep .navbarSmall {
+  & nav {
+    height: 50px !important;
+  }
+  & .logo {
+    height: 38px !important;
+  }
+  & .icons {
+    height: 38px;
+    font-size: 22px !important;
+  }
+  & .rounded-circle {
+    width: 30px;
+    height: auto !important;
+    margin: 0px !important;
+  }
+  & .flag {
+    width: 20px !important;
+    height: 50px !important;
+    line-height: 50px !important;
+  }
+  & .navbar-collapse,
+  .navbar-collapse ul,
+  .navbar-collapse ul li,
+  .navbar-collapse ul li a,
+  .navbar-collapse ul li a span,
+  .navbar-collapse ul li button,
+  .navbar-toggler,
+  .navbar .nav-link i {
+    height: 50px !important;
+  }
+  & .navbar-collapse ul li a,
+  .navbar .nav-link i,
+  .navbar-collapse ul li button,
+  .navbar-toggler i {
+    height: 100% !important;
+    line-height: 50px !important;
+  }
+  & nav.navbar.navbar-expand-lg.navbar-top {
+    padding-left: 0px !important;
+  }
+}
+
+/*   :host ::ng-deep  .navbarWhite {
+    & nav {
+        //background-color : $white !important; 
+      }
+    & .logo {
+        background: url(../assets/sof-images/logo.svg)no-repeat center;
+        background-size: auto 100%;
+    }
+
+    & .icons , .icons:hover{
+       // color: $text !important;
+      }
+      
+
+  }
+ */
+:host ::ng-deep .navbarBlack {
+  & nav {
+    background: linear-gradient(85deg, #2a2c33, #494c56) !important;
+  }
+  & .logo {
+    background: url(../assets/sof-images/logo-white.svg) no-repeat center;
+    background-size: auto 100%;
+  }
+  & .navbar.navbar-inverse .nav-link:hover {
+    // background:$secondary-100 !important;
+  }
+  & .icons,
+  .icons:hover {
+    // color: $white !important;
+  }
+}
+
+#navbarNavDropdown > ul.nav.navbar-nav.navbar-right > li:nth-child(4) > a > i {
+  padding-right: 60px;
+}
+
+:host ::ng-deep .navbar .nav-link:hover {
+  // background:$secondary-300 !important;
+}

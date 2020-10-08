@@ -1,0 +1,415 @@
+/*
+.stepper {padding:20px;margin-bottom:10px;
+    .num-circle {height:60px;width:60px;background:$default-200;margin:10px auto;border-radius:50px;padding:18px 0;font-size: 14px;color:$text;
+        &.num-prev {color:$white;background:$primary-200;padding:20px 0;
+            i {font-size: 18px; color:$white;}
+        }
+        &.num-actif {font-weight:700;color:$white;background:$primary-200;}
+    }
+    .bold {font-weight: 700;color:$title;
+        em {font-weight: 300;color:$text;}
+    }
+
+    &.stepper-horizontal {padding:10px 15px;
+        .num-circle {float: left;text-align:center;height:30px;width:30px;margin:10px 15px;padding:4px 0;font-size: 14px;
+            &.num-prev {padding:7px 0;
+                i {font-size: 16px;}
+            }
+        }
+        p {margin: 15px 0; float:left; padding-right:50px;}
+    }
+} 
+*/
+
+@media only screen and (max-width: 1440px) { 
+
+}
+
+    aw-wizard-navigation-bar.horizontal.large-empty-symbols ul.steps-indicator li.done.navigable .step-indicator{
+    color: $subtitle !important;
+    border-bottom: 0px  !important;
+
+  }
+   aw-wizard-navigation-bar.horizontal.large-empty-symbols ul.steps-indicator li.done .step-indicator{
+    color: $subtitle ;
+    border-bottom: 2px solid $stepper !important;
+
+  }
+ 
+  aw-wizard-navigation-bar.horizontal.large-empty-symbols ul.steps-indicator li.editing .step-indicator{
+    color: $subtitle ;
+    border-bottom: 2px solid $stepper !important ;
+}
+ aw-wizard-navigation-bar.horizontal.large-filled-symbols ul.steps-indicator li.done:after{
+    color: $subtitle !important;
+    border: none !important;
+}
+
+ aw-wizard-navigation-bar.horizontal.large-empty-symbols ul.steps-indicator li.editing a:hover .step-indicator {
+    border-color: $stepper !important;
+    color: $subtitle !important;
+}
+
+
+ aw-wizard-navigation-bar.horizontal.large-empty-symbols ul.steps-indicator {
+    padding: 0 0 48px !important;}
+
+ aw-wizard-navigation-bar.horizontal ul.steps-indicator {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: center !important;
+    margin: 0px !important;
+    width: 100% !important;
+   
+    list-style: none !important;
+}
+ aw-wizard-navigation-bar.horizontal.large-empty-symbols ul.steps-indicator li.current .step-indicator {
+    color: $subtitle ;
+    border: none !important;
+    border-bottom: 2px solid $stepper  !important ;
+    border-radius: 0% !important;
+}
+ aw-wizard-navigation-bar.horizontal.large-empty-symbols ul.steps-indicator li .step-indicator {
+    position: absolute;
+    top: 11% !important;
+    left: 0 !important;
+    width: 100% ;//editing symbol width for a step
+    height: 100% !important;//editing symbol height for a step
+    text-align: center;
+    vertical-align: baseline !important;
+    line-height: 10% !important;
+    transition: -27.75s !important;
+    border-radius: 0;
+    color: $subtitle !important;
+    border: none !important;
+}
+
+ aw-wizard-step .centered-content {
+    background-color: $default-200;
+    color: blue;
+  }
+
+ aw-wizard-navigation-bar.horizontal.large-empty-symbols ul.steps-indicator li:not(:last-child):before {
+    background-color: red !important;
+    content: none !important;
+    position: 0 !important;
+    height: 0 !important;
+    width: 0 !important;
+    top: 0 !important;
+    left: 0 !important;
+}
+
+
+  aw-wizard-navigation-bar.horizontal ul.steps-indicator li a .label {
+    
+    white-space: pre-wrap !important;
+    font-size: 14px !important;
+    text-decoration: none;
+    text-transform: none;
+    text-align: center;
+    font-weight: 100;
+    transition: 0.25s;
+} 
+ aw-wizard-navigation-bar.horizontal ul.steps-indicator li.default a {
+    cursor: pointer !important;
+}
+
+
+
+ a:active {
+    outline: 0 !important;
+    box-shadow: none;
+}
+ .soft aw-wizard-navigation-bar.horizontal.large-empty-symbols ul.steps-indicator li.done .step-indicator{
+    color: $subtitle;
+    border: 2px solid $stepper;
+
+}
+.soft aw-wizard-navigation-bar.horizontal.large-empty-symbols ul.steps-indicator li.current .step-indicator{
+    background-color:  $stepper;
+    color: $white;
+    border: 2px solid $stepper;
+
+}
+
+.soft aw-wizard-navigation-bar.horizontal.large-empty-symbols ul.steps-indicator li.done a:hover .step-indicator {
+color: $stepper;
+border-color: $stepper;
+border: 1px solid $stepper;
+
+}
+
+
+
+ 
+
+.soft aw-wizard-navigation-bar.horizontal.large-filled-symbols ul.steps-indicator li.done a:hover .step-indicator {
+    background-color: $white;
+    border-color: $stepper;
+    border: 1px solid $stepper;
+    color: $stepper;
+
+}
+.soft aw-wizard-navigation-bar.horizontal.large-filled-symbols ul.steps-indicator li.default a:hover .step-indicator {
+    background-color: white;
+    border-color: $subtitle;
+    border: 1px solid $subtitle;
+    color: $subtitle;
+
+
+
+}
+.soft aw-wizard-navigation-bar.horizontal.large-filled-symbols ul.steps-indicator li.default .step-indicator {
+    background-color: white;
+    border-color: $subtitle;
+    border: 1px solid $subtitle;
+    color: $subtitle;
+
+
+}
+.soft aw-wizard-navigation-bar.horizontal.large-filled-symbols ul.steps-indicator li.done .step-indicator {
+    background-color: $white;
+    border-color: $stepper;
+    border: 1px solid $stepper;
+    color: $stepper;
+    position: absolute;
+    visibility: hidden;
+    content: '';
+
+}
+.soft aw-wizard-navigation-bar.horizontal.large-filled-symbols ul.steps-indicator li.current .step-indicator {
+    background-color: $stepper;
+    color: $white;
+}
+.soft aw-wizard-navigation-bar.horizontal.large-filled-symbols ul.steps-indicator li.editing .step-indicator {
+    background-color: white;
+    border-color: $subtitle;
+    border: 1px solid $subtitle;
+    color: $subtitle;
+}
+.soft aw-wizard-navigation-bar.horizontal.large-filled-symbols ul.steps-indicator li.editing a:hover .step-indicator {
+    background-color: white;
+    border-color: $subtitle;
+    border: 1px solid $subtitle;
+    color: $subtitle;
+}
+
+
+.soft aw-wizard-navigation-bar.vertical.large-empty-symbols ul.steps-indicator li.done .step-indicator{
+    color: $subtitle;
+    border: 2px solid $stepper;
+
+}
+.soft aw-wizard-navigation-bar.vertical.large-empty-symbols ul.steps-indicator li.current .step-indicator{
+    background-color:  $stepper;
+    color: $white;
+    border: 2px solid $stepper;
+
+}
+
+.soft aw-wizard-navigation-bar.vertical.large-empty-symbols ul.steps-indicator li.done a:hover .step-indicator {
+color: $stepper;
+border-color: $stepper;
+border: 1px solid $stepper;
+
+}
+
+
+.soft aw-wizard-navigation-bar.vertical.large-filled-symbols ul.steps-indicator li.done a:hover .step-indicator {
+    background-color: $white;
+    border-color: $stepper;
+    border: 1px solid $stepper;
+    color: $stepper;
+
+}
+.soft aw-wizard-navigation-bar.vertical.large-filled-symbols ul.steps-indicator li.default a:hover .step-indicator {
+    background-color: white;
+    border-color: $subtitle;
+    border: 1px solid $subtitle;
+    color: $subtitle;
+
+
+
+}
+.soft aw-wizard-navigation-bar.vertical.large-filled-symbols ul.steps-indicator li.default .step-indicator {
+    background-color: white;
+    border-color: $subtitle;
+    border: 1px solid $subtitle;
+    color: $subtitle;
+
+
+}
+.soft aw-wizard-navigation-bar.vertical.large-filled-symbols ul.steps-indicator li.done .step-indicator {
+    background-color: $white;
+    border-color: $stepper;
+    border: 1px solid $stepper;
+    color: $stepper;
+    position: absolute;
+    visibility: hidden;
+
+
+}
+.soft aw-wizard-navigation-bar.vertical.large-filled-symbols ul.steps-indicator li.done .step-indicator::before {
+    content: "\2713";
+    visibility: visible;
+
+}
+
+.soft aw-wizard-navigation-bar.horizontal.large-filled-symbols ul.steps-indicator li.done .step-indicator::before {
+    content: "\2713";
+    visibility: visible;
+
+}
+
+
+.soft aw-wizard-navigation-bar.vertical.large-filled-symbols ul.steps-indicator li.current .step-indicator {
+    background-color: $stepper;
+    color: $white;
+}
+.soft aw-wizard-navigation-bar.vertical.large-filled-symbols ul.steps-indicator li.editing .step-indicator {
+    background-color: white;
+    border-color: $subtitle;
+    border: 1px solid $subtitle;
+    color: $subtitle;
+}
+.soft aw-wizard-navigation-bar.vertical.large-filled-symbols ul.steps-indicator li.editing a:hover .step-indicator {
+    background-color: white;
+    border-color: $subtitle;
+    border: 1px solid $subtitle;
+    color: $subtitle;
+
+}
+.soft aw-wizard-navigation-bar.horizontal ul.steps-indicator li a .label {
+    
+    white-space: pre-wrap !important;
+    font-size: 14px !important;
+    text-decoration: none;
+    text-transform: none;
+    text-align: center;
+    font-weight: 100;
+    transition: 0.25s;
+}
+.soft aw-wizard-navigation-bar.vertical ul.steps-indicator li a .label {
+    
+    white-space: pre-wrap !important;
+    font-size: 14px !important;
+    text-decoration: none;
+    text-transform: none;
+    text-align: center;
+    font-weight: 100;
+    transition: 0.25s;
+}
+.soft aw-wizard-navigation-bar.horizontal.large-filled-symbols ul.steps-indicator li:not(:last-child):before {
+  background-color: $subtitle;
+}
+.soft aw-wizard-navigation-bar.vertical.large-filled-symbols ul.steps-indicator li:not(:last-child):before {
+    background-color: $subtitle;
+  }
+
+  .soft aw-wizard-navigation-bar.horizontal.large-filled-symbols ul.steps-indicator li:not(:last-child):before{
+
+    content: '';
+    position: absolute;
+    height: 1px;
+    width: calc(92% - 50px);
+    top: -25p;
+    left: calc(54% + 50px / 2);
+  
+  }
+/*   .soft aw-wizard-navigation-bar.vertical.large-filled-symbols ul.steps-indicator li:not(:last-child):before{
+
+    content: '';
+    position: absolute;
+    height: 1px;
+    width: calc(92% - 50px);
+    top: -25p;
+    left: calc(54% + 50px / 2);
+  
+  } */
+  .soft aw-wizard-navigation-bar.horizontal.large-empty-symbols ul.steps-indicator li .step-indicator {
+    position: absolute;
+    top: 11% !important;
+    left: 0 !important;
+    width: 100% ;//editing symbol width for a step
+    height: 100% !important;//editing symbol height for a step
+    text-align: center;
+    vertical-align: baseline !important;
+    line-height: 10% !important;
+    transition: -27.75s !important;
+    border-radius: 0;
+    color: $subtitle !important;
+    border: none !important;
+}
+
+/* .mat-step-header .mat-step-icon-selected, .mat-step-header .mat-step-icon-state-done, .mat-step-header .mat-step-icon-state-edit {
+    background-color: $stepper;
+    color: $white;
+} */
+.mat-horizontal-stepper-header .mat-step-icon {
+    margin-right: 8px;
+    flex: none;
+    width: 40px;
+    height: 40px;}
+    .mat-vertical-stepper-header .mat-step-icon {
+        margin-right: 8px;
+        margin-left: -6px;
+        flex: none;
+        width: 40px;
+        height: 40px;}
+        .mat-vertical-stepper-header  {            
+            margin-bottom: 7px;
+            padding-top: 40px;
+        }
+        
+
+        
+    .mat-stepper-horizontal, .mat-stepper-vertical {
+        display: block;
+        width: 650px;
+    }
+    .mat-stepper-vertical {
+        display: block;
+        width: 1000px;}
+
+    .mat-step-text-label {
+        text-overflow: ellipsis;
+        overflow: hidden;
+        font-weight: 100;
+        white-space: pre-wrap !important;
+    font-size: 14px !important;
+    }
+    .mat-step-header.cdk-keyboard-focused, .mat-step-header.cdk-program-focused, .mat-step-header:hover {
+        background-color: $white;}
+
+        .mat-horizontal-stepper-header::after, .mat-horizontal-stepper-header::before, .mat-stepper-horizontal-line {
+            border-top-color: $subtitle;
+        }
+        .mat-step-header .mat-step-icon {
+            background-color: $white;
+            color: $subtitle;
+            border: 1px solid $subtitle;    
+           }
+        .mat-step-header .mat-step-icon-selected{
+            background-color: $stepper;
+            color: $white;
+            border: 1px solid;
+        }
+         .mat-step-header .mat-step-icon-state-done{
+            background-color: $white;
+            color: $stepper;
+            border: 1px solid;
+         } 
+         .mat-step-header .mat-step-icon-state-done .mat-step-label.mat-step-label-active {
+            color: #56565C;
+        }
+     
+        .mat-step-header.cdk-keyboard-focused, .mat-step-header.cdk-program-focused, .mat-step-header:hover {
+       background-color: $white !important;
+        }
+        .mat-step-header.cdk-keyboard-focused, .mat-step-header.cdk-program-focused, .mat-step-header:focus {
+            background-color: $white ;
+             }
+
+             .mat-vertical-content-container {
+             height: 35px;
+             }

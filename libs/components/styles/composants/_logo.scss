@@ -1,0 +1,86 @@
+.logo {
+	height:50px;
+	min-width:150px; 
+	margin:10px 0;
+	
+	a {
+		height:50px; 
+		display: block;
+	    width: 100%;
+	}
+
+	img {height:50px;}
+ 
+	&.logo-small {height:38px;margin: 5px 0;
+		a {height:38px;}
+		img {height:38px;}
+	}
+	&.logo-medium {height:50px;
+		a {height:50px;}
+		img {height:50px;}
+	}
+	&.logo-large {
+		margin:10px 0;
+		height:100px;
+		a {height:100px;}
+		img {height:100px;}
+	}
+	&.logo-left {background-position: left !important;}
+	&.logo-right {background-position: right !important;}
+}
+.navbarWhite {
+    & nav {
+        //background-color : $white !important; 
+      }
+    & .logo {
+        background: url(./assets/sof-images/logo.svg)no-repeat center;
+        background-size: auto 100%;
+    }
+
+  
+
+  }
+
+.logo-default {
+	background: url(./assets/sof-images/logo.svg) no-repeat center;
+	background-size: auto 100%;
+}
+.logo-white {
+	background: url(./assets/sof-images/logo-white.svg) no-repeat center;
+	background-size: auto 100%; 
+}
+
+.be-almerys {background: url(./assets/sof-images/branding/logos/be-almerys.svg) no-repeat center;}
+.be-almerys_white {background: url(./assets/sof-images/branding/logos/be-almerys_white.svg) no-repeat center;}
+.be-almerys_ex {background: url(./assets/sof-images/branding/logos/be-almerys_ex.svg) no-repeat center;}
+.be-almerys_ex_white {background: url(./assets/sof-images/branding/logos/be-almerys_ex_white.svg) no-repeat center;}
+
+.be-clearys {background: url(./assets/sof-images/branding/logos/be-clearys.svg) no-repeat center;}
+.be-clearys_white {background: url(./assets/sof-images/branding/logos/be-clearys_white.svg) no-repeat center;}
+.be-clearys_ex {background: url(./assets/sof-images/branding/logos/be-clearys_ex.svg) no-repeat center;}
+.be-clearys_ex_white {background: url(./assets/sof-images/branding/logos/be-clearys_ex_white.svg) no-repeat center;}
+
+.be-idys {background: url(./assets/sof-images/branding/logos/be-idys.svg) no-repeat center;}
+.be-idys_white {background: url(./assets/sof-images/branding/logos/be-idys_white.svg) no-repeat center;}
+.be-idys_ex {background: url(./assets/sof-images/branding/logos/be-idys_ex.svg) no-repeat center;}
+.be-idys_ex_white {background: url(./assets/sof-images/branding/logos/be-idys_ex_white.svg) no-repeat center;}
+
+.be-itys {background: url(./assets/sof-images/branding/logos/be-itys.svg) no-repeat center;}
+.be-itys_white {background: url(./assets/sof-images/branding/logos/be-itys_white.svg) no-repeat center;}
+.be-itys_ex {background: url(./assets/sof-images/branding/logos/be-itys_ex.svg) no-repeat center;}
+.be-itys_ex_white {background: url(./assets/sof-images/branding/logos/be-itys_ex_white.svg) no-repeat center;}
+
+.be-optilys {background: url(./assets/sof-images/branding/logos/be-optilys.svg) no-repeat center;}
+.be-optilys_white {background: url(./assets/sof-images/branding/logos/be-optilys_white.svg) no-repeat center;}
+.be-optilys_ex {background: url(./assets/sof-images/branding/logos/be-optilys_ex.svg) no-repeat center;}
+.be-optilys_ex_white {background: url(./assets/sof-images/branding/logos/be-optilys_ex_white.svg) no-repeat center;} 
+
+.be-studys {background: url(./assets/sof-images/branding/logos/be-studys.svg) no-repeat center;}
+.be-studys_white {background: url(./assets/sof-images/branding/logos/be-studys_white.svg) no-repeat center;}
+.be-studys_ex {background: url(./assets/sof-images/branding/logos/be-studys_ex.svg) no-repeat center;}
+.be-studys_ex_white {background: url(./assets/sof-images/branding/logos/be-studys_ex_white.svg) no-repeat center;}
+
+.be-ys {background: url(./assets/sof-images/branding/logos/be-ys.svg) no-repeat center;}
+.be-ys_white {background: url(./assets/sof-images/branding/logos/be-ys_white.svg) no-repeat center;}
+.be-ys_ex {background: url(./assets/sof-images/branding/logos/be-ys_ex.svg) no-repeat center;}
+.be-ys_ex_white {background: url(./assets/sof-images/branding/logos/be-ys_ex_white.svg) no-repeat center;}

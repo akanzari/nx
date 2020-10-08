@@ -1,0 +1,142 @@
+ul, ol {
+	padding-left: 20px;
+	li.disabled, li.disabled:focus, li.disabled:hover {
+	    color: $prompt;
+	    cursor: not-allowed;
+	    background-color: transparent;
+	}
+}
+ul.list-content {
+	margin:0;
+	padding: 0;
+	width: 100%;
+	li {
+		padding:8px 0;
+		list-style: none;
+		&:before {
+			content: "\f12a";
+			font-family: icons !important;
+		    vertical-align: -2px;
+		    font-size: 16px;
+		    margin-right:15px;
+		    color: $primary-200;
+		}
+		&.sub-list {
+			&:before {
+				content: "\f114";
+			}
+		}
+		ul {
+			border-top:1px solid $default-200;
+			border-bottom:1px solid $default-200;
+			margin:10px 0 5px;
+			padding:5px 30px;
+			li{
+				&:before {
+					font-size:10px;
+				}
+			}
+		}
+	}
+}
+
+ul.list-icons {
+	margin:0 0 10px;
+	width: 100%;
+	
+	li {
+		list-style: none; 
+		padding:8px 15px 8px 30px;
+		i {
+			font-size:20px !important;
+			position: absolute; 
+			margin-left:-30px;
+			margin-top:0;
+		}
+	}
+}
+
+ul.list-group-dividered {
+	padding:0;
+	margin:0;
+	li { 
+		padding:8px  0;
+		border-top: 1px solid $default-200;
+		list-style:none;
+		&:first-child {
+		    border-top:1px solid transparent;
+		}
+	}
+}
+
+ul.list-group-bordered {
+	padding:0;
+	margin:0;
+	li {
+		list-style:none;
+		border:1px solid $default-200;
+		border-top:1px solid transparent;
+		padding:8px 20px;
+		&:first-child {
+		    border-top:1px solid $default-200;
+		}
+	}
+}
+
+ul.list-hover {
+	margin:0;
+	padding:0;
+	li {
+		list-style: none;
+		padding:8px 20px;
+		border-radius: 3px;
+		&:hover {
+			background:$primary-200; 
+			color: $white;
+			.Badgeprimary {background: $white; color:$primary-200;}
+			.Badgeerror {background: $white; color:$error-200;}
+			.Badgesecondary {background: $white; color:$secondary-200;}
+			.Badgevalid {background: $white; color:$valid-200;}
+		}
+	}
+}
+
+ul.list-border {
+	padding:0;
+	margin: 0;
+	li {
+		padding:8px 20px;
+		list-style: none;
+		&:hover {
+			border-left:3px solid $primary-200;
+			padding-left: 17px;
+		}
+		a {color:$text;display: block;
+			&:hover,
+			&:focus {color:$title;text-decoration:none;}
+		}
+	}
+}
+
+ul.list-inline {
+	padding:10px 0;
+	margin:0;
+	li {
+    	display: inline-block;
+    	padding-left: 5px;
+    	padding-right: 5px;
+	}
+}
+
+.list-search {padding: 0;margin:0;
+	a {padding: 10px 0;display: block;border-left:2px solid transparent;
+		&:hover {text-decoration: none;background: $background;border-left:2px solid $primary-200;}
+	}
+	li {list-style: none;}
+	i {position: absolute; margin-left: 15px;margin-top: -2px;font-size:18px;}
+	p {padding: 0 0 0 50px; margin:0;}
+	.search-acces {font-size:11px;
+		i {font-size:14px;margin-top:0;}
+		em {position: absolute;right:15px;margin-top:-15px; color:$prompt;}
+	}
+}

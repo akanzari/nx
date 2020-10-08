@@ -1,0 +1,21 @@
+<ng-select (search)="trySearchmono($event)"   id="monoselect" [notFoundText]="notFoundText"
+  [items]="Load ? optionsBuffer :options" [clearable]="clearable === 'false' ? false : true" [placeholder]="placeholder"
+  [(ngModel)]="value" bindLabel="{{bindLabel}}" [bindValue]="bindValue" [disabled]="disabled ? disabled : null"
+  (search)="onSearch($event)" (change)="onChange($event)" (add)="onAdd($event)" (remove)="onRemove($event)"
+  (open)="onOpen()" (close)="onClose()" (focus)="onFocus($event)" (blur)="onBlur($event)" (click)="onClick($event)"
+  (clear)="onClear()" [searchable]="mode && mode.indexOf('autoComplete') > -1 ? true : false" [virtualScroll]="Load"
+  [loading]="loading" (scrollToEnd)="scroll()" [appendTo]="appendTo">
+
+  <!-- <ng-template ng-header-tmp *ngIf="Load">
+      <small class="form-text text-muted" > {{optionsBuffer.length}} / {{nbTotal}}</small>
+      <div id="row" class="row">
+        <div id="col-1" class="col-1" style="    margin-top: 8px; max-width: 5.333333%;">
+          <i class="icons icon-search" id="monoicon"></i>
+        </div>
+        <div  id="col11" class="col-11">
+        <input id=inputmono class="form-text text-muted" [(ngModel)]="input" (ngModelChange)="inputChange()">
+      </div>
+      </div>
+  </ng-template> -->
+
+</ng-select>

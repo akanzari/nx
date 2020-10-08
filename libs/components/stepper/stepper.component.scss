@@ -1,0 +1,120 @@
+:host
+  ::ng-deep
+  aw-wizard-navigation-bar.horizontal.large-empty-symbols
+  ul.steps-indicator
+  li.done.navigable
+  .step-indicator {
+  border-bottom: 0px;
+}
+:host
+  ::ng-deep
+  aw-wizard-navigation-bar.horizontal.large-empty-symbols
+  ul.steps-indicator
+  li.done
+  .step-indicator {
+  border-bottom: 2px solid;
+}
+
+:host
+  ::ng-deep
+  aw-wizard-navigation-bar.horizontal.large-empty-symbols
+  ul.steps-indicator
+  li.editing
+  .step-indicator {
+  border-bottom: 2px solid;
+}
+:host
+  ::ng-deep
+  aw-wizard-navigation-bar.horizontal.large-filled-symbols
+  ul.steps-indicator
+  li.done:after {
+  border: none;
+}
+
+:host
+  ::ng-deep
+  aw-wizard-navigation-bar.horizontal.large-empty-symbols
+  ul.steps-indicator {
+  padding: 0 0 48px !important;
+}
+
+:host ::ng-deep aw-wizard-navigation-bar.horizontal ul.steps-indicator {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 0px;
+  width: 100% !important;
+
+  list-style: none;
+}
+:host
+  ::ng-deep
+  aw-wizard-navigation-bar.horizontal.large-empty-symbols
+  ul.steps-indicator
+  li.current
+  .step-indicator {
+  // border: none ;
+  border-bottom: 2px solid;
+  border-radius: 0%;
+}
+
+:host
+  ::ng-deep
+  aw-wizard-navigation-bar.horizontal.large-empty-symbols
+  ul.steps-indicator
+  li:not(:last-child):before {
+  content: none;
+  position: 0;
+  height: 0;
+  width: 0;
+  top: 0;
+  left: 0;
+}
+
+:host
+  ::ng-deep
+  aw-wizard-navigation-bar.horizontal
+  ul.steps-indicator
+  li
+  a
+  .label {
+  white-space: pre-wrap;
+  font-size: 14px;
+  text-decoration: none;
+  text-transform: none;
+  text-align: center;
+  font-weight: 100;
+  transition: 0.25s;
+}
+:host
+  ::ng-deep
+  aw-wizard-navigation-bar.horizontal
+  ul.steps-indicator
+  li.default
+  a {
+  cursor: pointer;
+}
+
+:host
+  ::ng-deep
+  aw-wizard-navigation-bar.horizontal.large-empty-symbols
+  ul.steps-indicator
+  li
+  .step-indicator {
+  position: absolute;
+  top: 11%;
+  left: 0;
+  width: 100% !important; //editing symbol width for a step
+  height: 100%; //editing symbol height for a step
+  text-align: center;
+  vertical-align: baseline;
+  line-height: 10%;
+  transition: -27.75s;
+  border-radius: 0;
+  border: none;
+}
+
+:host ::ng-deep a:active {
+  outline: 0;
+  box-shadow: none;
+}

@@ -1,0 +1,25 @@
+
+ .progress-bar {
+    
+    background-color: $primary-100 !important;
+    
+}
+  .progress {
+    height: 8px !important;
+    margin-bottom: 0px !important;
+}
+ .progress .progress-primary {
+    background-color: $primary-100 !important;
+}
+ .progress .progress-error {
+    background-color: $error-200 !important;
+}
+
+ .progress .progress-valid {
+    background-color: $valid-200 !important;
+}
+ .progress .progress-secondary {
+    background-color: $secondary-200 !important;
+}
+
+

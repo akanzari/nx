@@ -1,0 +1,14 @@
+.notifications {
+	padding: 15px 30px;
+    margin-bottom: 15px;
+    border-radius:0;
+    h1, h2, h3, h4, h5 {min-height: inherit; padding:0; margin:10px 0;color: $white;}
+    p {color: $white;}
+    &.notification-default {background: $default-200;
+    	h1, h2, h3, h4, h5, p {color: $secondary-200;}
+    }
+    &.notification-primary {background: $primary-200;}
+	&.notification-secondary {background: $secondary-200;}
+	&.notification-error {background: $error-200;}
+	&.notification-valid {background: $valid-200;}
+}

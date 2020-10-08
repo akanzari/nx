@@ -1,0 +1,734 @@
+.table-divider {border:0;}
+.table-divider>tbody>tr>td, 
+.table-divider>tbody>tr>th, 
+.table-divider>tfoot>tr>td, 
+.table-divider>tfoot>tr>th, 
+.table-divider>thead>tr>td, 
+.table-divider>thead>tr>th {
+	border:0;
+    border-bottom:1px solid $border;
+}
+td, th {    
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.table-hover>tbody>tr:hover {background-color: $default-200;}
+.table-disabled {opacity: 0.3;}
+.table-disabled,
+.table-disabled a {cursor: not-allowed;}
+
+.table { margin-bottom:15px;
+	thead {color: $title;font-weight:600;
+		th {border-bottom:1px solid $border;}
+	}
+	tbody {color: $text;}
+	.sorting, .sorting_asc, .sorting_desc {padding:15px !important; cursor:pointer;font-size: 14px;
+		&:focus {outline: none;}
+	}
+	thead {
+		.sorting, 
+		.sorting_asc, 
+		.sorting_desc {
+			min-width: 190px;
+		}
+		.sorting:after {
+			content: "\f12b";
+			font-family: icons !important;
+			font-size: 10px;
+			border: none;
+			color: $text;
+			float: right;
+			margin-top: 3px;
+		}
+		.sorting_asc {color:$primary-200;
+			&:after {
+				content: "\f127";
+				font-family: icons !important;
+				font-size: 10px;
+				border: none;
+				color: $primary-200;
+				float: right;
+				margin-top: 3px;
+			}
+		}
+		.sorting_desc {columns: $primary-200;; 
+			&:after {
+				content:"\f12c";
+				font-family: icons !important;
+				font-size: 10px;
+				border: none; 
+				color: $primary-200;
+				float: right;
+				margin-top: 1px;
+			}
+		}
+	}
+	p {margin-bottom: 0px;}
+	td, th {padding: 7px 15px;border-top:0;}
+	input {height:35px;}
+	input, select, textarea  {width: 100%;font-weight:normal;margin-bottom:0;}
+	.v-align-middle {
+	    vertical-align: middle!important;
+	}
+	input[type="checkbox"] + label:before {
+	    left: 12px;
+	    top: 7px; 
+	    border-radius: 0;
+	}
+	input[type="checkbox"]:checked + label:before {
+	    left: 17px;
+	    top: 4px;
+	    border: 2px solid $secondary-200;
+	    border-top-color: transparent;
+	    border-left-color: transparent;
+	}
+	&.table-form {
+		.form-ui {float:left;width:85%;margin-bottom:0; 
+			input {margin-bottom:0;border-bottom: 1px solid $default-300;}
+			label {
+				color:$title;
+				font-weight: 600;
+			}
+		} 
+		.form-ui input:focus ~ label, .form-ui input:valid ~ label {font-size:11px;}
+		thead {
+			.sorting:after {margin-top:12px;}
+			.sorting_asc:after {margin-top:16px;}
+			.sorting_desc:after {margin-top:10px;}
+		}
+		.bar {
+			&:before,
+			&:after {bottom:0;}
+		}
+	}
+	input[type="checkbox"] + label:last-child {margin-bottom: 0;}
+}
+
+.table-border-hover tbody tr {border-left:3px solid transparent; 
+	&:hover {background:$white;border-left:3px solid $primary-200;}
+}
+
+.table-cursor {cursor:pointer;}
+.table {
+	.is-visible {
+		color: $title;
+		text-align: center;
+		background-color: $primary-300 !important;
+	}
+	.is-hidden {
+		color: $prompt;
+		text-align: center;
+		background-color: $default-200!important;
+	}
+}
+
+.table-action { 
+	table {padding-right:200px;
+		.last-columns {padding-right: 125px !important; min-width: 300px;}
+	}
+	th.btn-action, 
+	td.btn-action {
+		position: absolute;
+		padding:15px 10px;
+		right:15px;
+		border-left:3px solid $border;
+		background:$white;
+		width:120px;
+	}
+	th.btn-action {padding:23px 15px;border-left:3px solid $white;} 
+}
+table {
+	.btn-action {
+		width:140px;
+		a {padding:8px 4px;}
+	}
+}
+.table-responsive {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+}
+
+.data-hide { 
+	p {float: left;}
+	a {color: $text;float:right;
+		&:hover {text-decoration:none;}
+		i {float: right;color: $text; font-size: 16px; margin:0 5px;
+			&.active {float: right;color:$primary-200; font-size: 16px; margin: 5px;}
+		}
+	}
+}
+
+.table-small {
+	p {font-size:11px;}
+	td, 
+	th {padding: 2px 15px;}
+	.btn-action a i,
+	.btn-action {
+		width: auto;
+		text-align: center;
+	}
+	.sorting, 
+	.sorting_asc, 
+	.sorting_desc {padding: 10px 15px 0 !important;}
+	&.table-form {
+		thead {
+			.sorting_asc:after {
+				margin-top: 10px;
+			}
+		}
+		.form-ui {
+			input { border-bottom: 0;}
+			label {font-size: 12px;}
+		}
+		label {padding: 0;}
+	}
+	input[type="checkbox"] + label:before {
+		left: -2px;
+		top: -6px;
+		border-radius: 0;
+	}
+	input[type="checkbox"]:checked + label:before {
+		left: 0px;
+		top: -8px;
+	}
+	input[type="checkbox"] + label {padding: 5px 0;}
+	input[type="checkbox"]:checked + label:before {top: -2px;left: 5px;width: 7px;}
+	input[type="checkbox"] + label:before {top: -2px;left: 2px;width: 12px;height: 12px;}
+	input[type="checkbox"] + label:last-child {margin-bottom: 0;}
+	td.btn-action {padding: 1px 10px;width: 140px;
+		a i {font-size: 14px;margin-right: 3px;}
+	}
+}
+.ui-paginator .ui-paginator-page.ui-state-active {
+	background:$primary-200 !important;
+	border-bottom: 1px solid $primary-200 !important;
+	color: $white !important;
+	border-radius: 3px;
+  /*   height: 90%;
+   */  z-index: 1;
+  
+  }
+.ui-paginator .ui-paginator-next,
+.ui-paginator .ui-paginator-last,
+.ui-paginator .ui-paginator-first,
+.ui-paginator .ui-paginator-prev{
+  border: none;
+  color:$primary-200;
+}
+.ui-paginator .ui-paginator-page:hover,
+.ui-paginator .ui-paginator-pages:hover,
+.ui-paginator .ui-paginator-current:hover{
+  border: none;
+  color:$primary-200 ;
+  border-radius: 3px;
+}
+.pi-caret-right:before {
+	font-family: "FontAwesome";
+  content: "\f105";
+  color: $primary-100 !important;
+  font-size: 120%
+  }
+  .pi-caret-left:before {
+	font-family: "FontAwesome";
+	content: "\f104";
+	color: $primary-100 !important;
+	font-size: 120%
+  
+	}
+
+	.btn-action a:focus i,
+	.btn-action a:hover i {
+	  color:$primary-200 !important;
+	}
+   .test .btn-action a i {
+		color: $error-300 !important;
+	  }
+	  @media screen and (min-width: 170px){
+
+
+
+.ui-table .ui-table-tbody>tr>td.btn-action,
+	.ui-table .ui-table-tfoot>tr>td.btn-action,
+		.ui-table .ui-table-thead>tr>th.btn-action:not(p-sortIcon){
+		  position: sticky !important;
+		  right: 0px;
+		  border-bottom: transparent;
+		  // background: inherit !important;
+		  width: initial !important;
+		  //left: 0px !important;
+		}
+		}
+		.btn-action a i {
+			color: $title ;
+			font-size: 16px !important;
+		  }
+		  .default-sort  a  i.ui-sortable-column-icon:not(.pi-sort-up):not(.pi-sort-down):not(.pi-sort)::before {
+			content: "\f127";
+			font-family: icons !important;
+			font-size: 10px;
+			border: none;
+			color:$subtitle;
+			float: right;
+			margin-top: 1px;
+		  }
+		  .default-sort  a  i.ui-sortable-column-icon:not(.pi-sort-up):not(.pi-sort-down):not(.pi-sort):hover {
+			content: "\f127";
+			font-family: icons !important;
+			font-size: 10px;
+			border: none;
+			color:$primary-200;
+			float: right;
+			margin-top: 1px;
+		  }
+ p-sorticon > a > i.pi-sort-up::before {
+  content: "\f12c";
+  font-family: icons !important;
+  font-size: 10px;
+  border: none;
+  color:$primary-200;
+  float: right;
+  margin-top: 1px;
+}
+.icone:before{
+	content: "\f127"; 
+	font-family: 'icons' !important;
+  
+  }
+ p-sorticon > a > i.pi-sort-down::before {
+  content: "\f127";
+  font-family: icons !important;
+  font-size: 10px;
+  border: none;
+  color:$primary-200;
+  float: right;
+  margin-top: 1px;
+}
+.ng-select.ng-select-multiple .ng-select-container .ng-value-container .ng-value {
+	background-color: $item;
+	border: 1px solid $primary-100;
+	font-size: 11px !important;
+  } 
+p-sorticon > a > i.pi-sort::before {
+  content: "\f12b" ;
+  font-family: icons !important;
+  font-size: 10px;
+  border: none;
+  color:$primary-200;
+  float: right;
+  margin-top: 1px;
+}
+
+.ui-table .ui-sortable-column .ui-sortable-column-icon {
+	color:$subtitle !important;
+  
+	font-size: 10px;
+  
+	margin-top: 3px;
+  }
+  
+.ui-table .ui-sortable-column .ui-sortable-column-icon:hover {
+	color:$primary-200 !important;
+  
+	font-size: 10px;
+  
+	margin-top: 3px;
+  }
+  .ui-table .ui-table-tbody > tr {
+	background-color: $white ;
+	}
+	.iconButtons:disabled i{
+		color: $default-300;
+	  
+	  }
+.form-ui input {
+		background: none;
+		padding: 0 !important;
+		display: block;
+		border: none !important;
+		border-bottom: 1px solid $border !important;
+		border-radius: 0;
+		box-shadow: none;
+	
+	}
+	 tr.ui-selectable-row:focus{
+		outline: 1px solid $primary;
+	}
+.ui-table .ui-table-thead>tr>th.lock-column {
+		border-bottom: 1px solid $border;
+		z-index: 1;
+	  }
+	 .ui-table .ui-table-tbody>tr>td.lock-column,
+  .ui-table .ui-table-tfoot>tr>td.lock-column
+  {
+
+    position: sticky !important;
+    border-bottom: 1px solid $border;
+    z-index: 1;
+     background: inherit !important;
+    outline: inherit;
+    //left: 0px !important;
+  }
+ .ui-table .ui-table-tbody>tr>td.lock-column,
+  .ui-table .ui-table-tfoot>tr>td.lock-column,
+ .ui-table .ui-table-thead>tr>th.lock-column:not(p-sortIcon){
+
+    position: sticky !important;
+    border-bottom: 1px solid $border;
+    z-index: 1;
+    //background: inherit !important;
+    // left: 0px !important;
+  }
+  
+.ui-dropdown-items-wrapper{
+
+	position: unset !important;
+	color: $text !important;
+  }
+  .footerTSF{
+	padding-left: 15px; 
+	padding-right: 15px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	margin-right:10px;
+	border: 1px solid $border;
+  }
+   .ui-dropdown   {
+	// color: $primary-100 !important;
+	  background-color: $white;
+	  border: 1px solid $border !important;  
+	  margin-top: 0.3%;
+	  float: right;
+	  margin-right: 10px;
+	  
+	}
+	.ui-dropdown-open .ui-dropdown-label{
+		color: $text !important;
+	  
+	  }
+	 .ui-dropdown:hover .ui-dropdown-label { 
+		color: $text !important;
+	 }
+	.ui-dropdown-label{
+		color: $text !important; 
+		font-size: 12px !important;
+	  }
+	  .ui-table-tbody > tr.ui-state-highlight {
+		background-color: $primary-100 !important;
+	   
+	   }
+	   
+	  .ui-chkbox-box.ui-state-active{
+		 height: 13px;
+		  width: 8px !important;
+		  left: 5px;
+		  font-size: 10px;
+	   opacity: 1 !important;
+	   border: 2px solid $title;
+	   border-radius: 3px !important;
+	   z-index: 1;
+	   border-top-color: transparent !important;
+	   border-left-color: transparent !important;
+	   -webkit-transform: rotate(45deg) !important;
+			  transform: rotate(45deg) !important;
+	   }
+	   
+	   .search-icon {
+		position: absolute;
+		color: $text;
+		margin:  10px 4px 0 15px !important;
+	  }
+	
+	  .search-icon-ie {
+		position: absolute;
+		color: $text;
+		margin: 14px 0 0 93px !important
+	  }
+	 .ui-table .ui-table-tbody > tr > td {
+		border: none !important;
+		border-bottom: 1px solid $border !important;
+	   // min-width: 150px;
+	   //left: 0px !important;
+	 }
+	 
+	 .ui-table .ui-table-thead > tr > th,
+	 .ui-table .ui-table-tfoot > tr > td {
+	   border-top: none !important ;
+	   border-right: none !important ;
+	   border-left: none !important ;
+	   border-bottom:  1px solid $border !important;
+	   //left: 0px !important;
+	 }
+	  
+	.ui-table .ui-table-thead > tr > th,
+	  .ui-table .ui-table-tfoot > tr > td {
+	   //left: 0px !important;
+	   color: $secondary-200;
+	  // min-width: 150px;
+	 }
+	 
+	.form-ui-select select:valid ~ label{color:$secondary-200; }
+	 
+	 
+	 .zebrure .ui-table .ui-table-tbody > tr:nth-child(even) {
+	  
+		 background-color: $default-100 ;
+	   
+	 }
+	 :host ::ng-deep .form-ui-date input[type="date"]:focus{
+		border-bottom: 1px solid $border !important;
+		box-shadow: none;
+	  
+	  }
+	  
+	  
+	  // :host ::ng-deep .ui-table .ui-table-tbody :hover {
+	  //       background-color: transparent !important; 
+	  
+	  // }
+	  
+	  .pi-chevron-right:before {
+		content: "\e901";
+		color:$secondary-200;
+	  }
+	  
+	  
+	  /* :host ::ng-deep #expp {
+	  
+		background-color: white !important;
+	  } */
+	   
+	  .pi-chevron-down:before {
+		  content: "\e902";
+		  color: $secondary-200;
+	  }
+	  
+	 .form-ui-select select:focus ~ label{
+	   color: $secondary-200 !important;  
+	   padding-left: -5px !important;
+	   margin-top: -17px;
+	  }
+	  
+	 .form-ui input:focus{
+		border-bottom: 1px solid $border !important;
+		box-shadow: none;
+	  
+	  }
+	  
+	  .form-ui-date input[type="date"]:valid ~ label{
+		color: $secondary-200 !important;
+		
+		
+	  }
+	   .form-ui-select select:focus {
+		outline: none;
+		border-bottom: 1px solid $border !important;
+	  }
+	  
+	   tr.ui-selectable-row:focus {
+		outline: none !important; 
+		background-color: $default-200;
+	  }
+	  
+	  
+	   .form-ui-date input[type="date"]:focus ~ label{
+		color: $secondary-200 !important;
+		
+	  }
+	  
+	   button.bg-primary:hover {
+		background: $primary-100 !important;
+		color: $white !important;
+	  }
+	.btn-group button:active{
+		background: $primary-300  !important;
+		color: $white !important;
+	  }
+	  .btn-group button:focus{
+		background: $primary-300  !important;
+		color: $white !important;
+	  }
+	 button.bg-primary:hover {
+		background: $primary-100 !important;
+		color: $white !important;
+	  }
+	  .btn-group button:active{
+		background: $primary-300  !important;
+		color: $white !important;
+	  }
+    .btn-group button:focus{
+		background: $primary-300  !important;
+		color: $white !important;
+	  } 
+	 .ui-dropdown-item:hover {
+		border-left: 2px solid $primary-100  !important;
+		padding-left: 8px;
+	  }
+
+	  .form-ui {
+		position:relative;
+		margin-bottom: 25px;
+		input {
+			background: none;
+			padding:0;
+			display:block;
+			border:none;
+			border-bottom:1px solid $border;
+			&:focus {outline:none;border-bottom:1px solid $primary-200;}
+			&:focus ~ label,
+			&:valid ~ label {
+				top:-12px;
+				font-size:11px;
+				color:$primary-200;
+			}
+		}
+		label {
+			color:$title;
+			font-size:13px;
+			//font-weight: bold;
+			position:absolute;
+			pointer-events:none;
+			left:0;
+			top:6px;
+			transition:0.2s ease all;
+			-moz-transition:0.2s ease all;
+			-webkit-transition:0.2s ease all;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			width: 100%;
+		}
+		&.form-error {
+			input {margin: 0 0 8px 0;
+				&:focus {outline:none;border-bottom:1px solid $error-200;}
+				&:focus ~ label,
+				&:valid ~ label {
+					top:-12px;
+					font-size:11px;
+					color:$error-200 !important;
+				}
+			}
+			p {
+				i {font-size: 13px; color:$error-200;float:left; margin:1px 10px 0 0;}
+			}
+		}
+		&.form-valid {
+			input {margin: 0 0 8px 0;
+				&:focus {outline:none;border-bottom:1px solid $valid-200;}
+				&:focus ~ label,
+				&:valid ~ label {
+					top:-12px;
+					font-size:11px;
+					color:$valid-200;
+				}
+			}
+			p {
+				i {font-size: 16px; color:$valid-200;float:left; margin:1px 10px 0 0;}
+			}
+		}
+		&.form-info {
+			input {margin: 0 0 8px 0;}
+			p {
+				i {font-size: 13px; color:$primary-200;float:left; margin:1px 10px 0 0;}
+			}
+		}
+	}
+	.form-ui-select {
+		position:relative;
+		width: 80%;
+		  select {
+		  margin-bottom: 0px;
+			  background: none;
+			  display:block;
+			  border-bottom:1px solid $border;
+			  &:focus {outline:none;border-bottom:1px solid $primary-200;}
+			  &:focus ~ label,
+			  &:valid ~ label {
+				  top:-12px;
+				  font-size:11px;
+			   
+			  }
+		  }
+		  label {
+		  //font-weight: bold;
+			  font-size:13px;
+			  position:absolute;
+			  pointer-events:none;
+			  left:8%;
+			  top:8px;
+			  transition:0.2s ease all;
+			  -moz-transition:0.2s ease all;
+			  -webkit-transition:0.2s ease all;
+			  overflow: hidden;
+			  text-overflow: ellipsis;
+			  white-space: nowrap;
+			  width: 100%;
+		  }
+		  &.form-error {
+			  select {margin: 0 0 8px 0;
+				  &:focus {outline:none;border-bottom:1px solid $error-200;}
+				  &:focus ~ label,
+				  &:valid ~ label {
+					  top:-12px;
+					  font-size:11px;
+					  color:$error-200 !important;
+				  }
+			  }
+			  p {
+				  i {font-size: 13px; color:$error-200;float:left; margin:1px 10px 0 0;}
+			  }
+		  }
+		  &.form-valid {
+			  select {margin: 0 0 8px 0;
+				  &:focus {outline:none;border-bottom:1px solid $valid-200;}
+				  &:focus ~ label,
+				  &:valid ~ label {
+					  top:-12px;
+					  font-size:11px;
+					  color:$valid-200;
+				  }
+			  }
+			  p {
+				  i {font-size: 13px; color:$valid-200;float:left; margin:1px 10px 0 0;}
+			  }
+		  }
+		  &.form-info {
+			  select {margin: 0 0 8px 0;}
+			  p {
+				  i {font-size: 13px;float:left; margin:1px 10px 0 0;}
+			  }
+		  }
+	  }
+	  input[type="date"] {
+		border: 1px solid $border;
+		background: none;
+		border-radius: 0;
+			background: none;
+		display:block;
+		box-shadow: none;
+	
+			border-bottom:1px solid $border;
+			&:focus {outline:none;border-bottom:1px solid $primary-200;}
+			&:focus ~ label,
+			&:valid ~ label {
+				top:-16px;
+				font-size:11px;
+			 
+			}
+	  }
+	  .trstyle{
+		background-color: $default-100;
+		height: 45px;
+		 border: 2px dashed $primary;
+		 cursor: grab !important;
+	  }
+	  #span122{
+		color:$primary ;
+		 font-size: 13px;
+		 font-family: 'Open Sans Regular';
+	  }
+	  .ng-select.ng-select-multiple.ng-select-disabled>.ng-select-container .ng-value-container .ng-value {
+		background-color: $item; 
+		border: 1px solid $primary-100;
+	}

@@ -1,0 +1,75 @@
+/* custom style */
+#BtnAction {margin-top:-85px;text-align:center;width:100%;
+    button {box-shadow:0 2px 20px rgba(0, 0, 0, 0.1);}
+}
+
+.panel {
+    .panel-heading { 
+        .panel-actions {
+            li {border-bottom: 1px solid #ececec;}
+        }
+    }
+}
+.accordion-bloc {
+    margin: 0 0 15px;
+    border-radius: 0;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+    border: 0;
+    background: #ffffff;
+    &.accordion {
+        .card {margin: 0 30px;border:none;
+            input {border: 1px solid #e0e0e0;padding:8px 15px;color:#768591;
+                &:focus {border-bottom: 1px solid #bda671;}
+            } 
+        }
+    }
+}
+
+#NiveauConfiance {padding:25px 15px;
+    p {display: inline-block;}
+    .status-block {padding: 4px 20px;display: inline-block;}
+}
+
+.attribut_adresse {
+    padding:15px;
+    margin:30px -30px;
+    h5 {
+        margin-bottom:20px;
+        &:after {
+            content: "";
+            display: block;
+            background: #d8c392;
+            height:4px;
+            position: absolute;
+            width: 50px;
+            margin-top:20px;
+        }
+    }
+}
+
+.form-border {border: 1px solid #e0e0e0;padding:8px 15px;color:#768591;
+    &:focus {border-bottom: 1px solid #bda671;}
+}
+
+#Paiement {
+    .modal-content {padding:0;}
+    .modal-body {padding-top:0;}
+}
+
+.paiement { 
+    border-bottom: 1px solid #e4eaec;
+    border-radius: 3px;
+    background: #fff;
+    a {text-decoration: none;}
+    &:hover {background: #fafafa;}
+    h5 {min-height: inherit;padding:0;}
+    label {width: 100%;}
+}
+
+#Home {padding-top:30px;}
+
+
+/* footer */
+footer {line-height: 50px;margin:0 -15px;height:50px;padding:0 30px;
+    p {margin:0}
+}

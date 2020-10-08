@@ -1,0 +1,27 @@
+// :host .ui-progress-spinner-svg {
+//     height: 25px;
+//     width: 25px;
+//     animation: rotator 1.4s linear infinite;
+//     margin: 15px;
+//     overflow: hidden;
+//     vertical-align: middle;
+//     }
+
+// :host ::ng-deep .overlay{
+//     position: inherit!important;
+//     width:20%;
+//     height:40px;
+//     z-index: 99999!important;
+//     background-color:#494c56!important;
+// }
+
+// :host ::ng-deep  .overlay[_ngcontent-c30]{
+//     position :sticky !important;
+//     top: 60%;
+//     left: 15%;
+//     width: 200%;
+//     height: 620%;
+//     z-index: 99999!important;
+//     overflow:absolute;
+
+//   }

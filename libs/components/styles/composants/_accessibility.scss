@@ -1,0 +1,95 @@
+.btn.active.focus, 
+.btn.active:focus, 
+.btn.focus, 
+.btn:active,
+.btn:active.focus, 
+.btn:active, 
+.btn:focus { 
+	outline: 3px solid $border;
+	-webkit-box-shadow:none;
+    box-shadow:none;
+}
+a:focus,
+a:active {
+	outline: 3px solid $border;
+	-webkit-box-shadow:none;
+    box-shadow:none;
+}
+
+.navbar ul li a:focus, 
+.navbar ul li a:active,
+.navbar ul li #btn-full:focus, 
+.navbar ul li #btn-full:active {
+	outline: 0 !important;
+	background: rgba($secondary-100, .05) !important;
+	-webkit-box-shadow:none;
+    box-shadow:none;
+}
+.navbar.navbar-inverse ul li a:focus, 
+.navbar.navbar-inverse ul li a:active,
+.navbar.navbar-inverse ul li #btn-full:focus, 
+.navbar.navbar-inverse ul li #btn-full:active {
+	outline: 0 !important;
+	background: rgba(0, 0, 0, .1) !important;
+	-webkit-box-shadow:none;
+    box-shadow:none;
+}
+
+.navbar.navbar-inverse ul ul li a:focus, 
+.navbar.navbar-inverse ul ul li a:active {
+	background: rgba($secondary-100, .05) !important;
+}
+
+.sidebar ul li a:focus, 
+.sidebar ul li a:active {
+	outline: 0 !important;
+	background: rgba($secondary-100, .1) !important;
+	-webkit-box-shadow:none;
+    box-shadow:none;
+}
+.sidebar.sidebar-inverse ul li a:focus, 
+.sidebar.sidebar-inverse ul li a:active {
+	outline: 0 !important;
+	background: rgba(0, 0, 0, .4) !important;
+	-webkit-box-shadow:none;
+    box-shadow:none;
+}
+
+.btn-group button:focus, 
+.btn-group button:active {
+	outline: 0 !important;
+	background: rgba($secondary-200, .1) !important;
+	-webkit-box-shadow:none;
+    box-shadow:none;
+}
+.btn.btn-white:focus, 
+.btn.btn-white:active,
+.btn.btn-bg-white:focus, 
+.btn.btn-bg-white:active {
+	outline: 0 !important;
+	background: rgba($secondary-200, .1) !important;
+	-webkit-box-shadow:none;
+    box-shadow:none;
+}
+
+.btn.dropdown-toggle.bs-placeholder.btn-light:focus {
+	outline: 0 !important;
+	-webkit-box-shadow:none;
+	box-shadow:none;
+	border-bottom:1px solid $primary-200 !important; 
+}
+
+
+a.evitement  { 
+    display : inline-block; 
+    position : absolute ; 
+    left : -99999px ; 
+    z-index : 100; 
+    top: 22px;
+    margin: 0 !important;
+    line-height: 22px; 
+
+	&:focus { 
+		left: 355px;    
+	}
+}

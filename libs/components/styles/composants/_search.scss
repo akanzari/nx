@@ -1,0 +1,133 @@
+.search,
+.search-default,
+.search-medium {
+		height:50px;
+		margin: 15px 0;
+
+	input {
+		padding:0 0 0 50px;
+		height:50px;
+		font-size: 15px;
+		color:$text;
+		border:none;
+		border-radius: 0;
+		margin:0;
+	}
+	i {
+    	position: absolute;
+    	margin-left: 18px;
+    	margin-top: 15px;
+    	width: 25px;
+    	font-size: 20px;
+    	color:$text;
+    }
+	&.search-small {
+		height:auto;
+		input {
+			height:30px;
+			padding:0 0 0 35px; 
+			font-size: 12px;
+		}
+		i {
+	    	position: absolute;
+	    	margin-left:10px;
+	    	margin-top:7px;
+	    	width: 20px;
+	    	font-size: 16px;
+	    }
+	}
+	&.search-large {
+		height:70px;
+		margin:20px 0;
+		input {
+			height:70px;
+			padding:0 0 0 70px;
+			font-size: 18px;
+		}
+		i {
+	    	position: absolute;
+	    	margin-left: 22px;
+    		margin-top: 22px;
+	    	width:25px;
+	    	font-size:28px;
+	    }
+	}
+} 
+.search-primary {
+	input {color:$primary-200;}
+	i {color:$primary-200;}
+	::-webkit-input-placeholder {color: $primary-200;}
+	::-moz-placeholder {color: $primary-200;}
+	:-ms-input-placeholder {color: $primary-200;}
+	:-moz-placeholder {color: $primary-200;}
+	&.search-line {
+		border-bottom: 2px solid $primary-200; 
+	}
+}
+.search-secondary {
+	input {color:$title;}
+	i {color:$title;}
+	::-webkit-input-placeholder {color: $title;}
+	::-moz-placeholder {color: $title;}
+	:-ms-input-placeholder {color: $title;}
+	:-moz-placeholder {color: $title;}
+	&.search-line {
+		border-bottom: 2px solid $secondary-200; 
+	}
+}
+
+.search-white {
+	input {color:$white;}
+	i {color:$white;}
+	::-webkit-input-placeholder {color: $white;}
+	::-moz-placeholder {color: $white;}
+	:-ms-input-placeholder {color: $white;}
+	:-moz-placeholder {color: $white;}
+	&.search-line {
+		border-bottom: 2px solid $white; 
+	}
+}
+
+.search-line input {
+	border-bottom: 2px solid $border; 
+}
+
+.search-bg-default input {
+	background: $default-200; 
+	border-radius: 0;
+}
+
+.search-bg-white input {
+	background: $white;  
+	border-radius: 0;
+}
+
+.search-bg-secondary, 
+.search-bg-primary {
+	border-radius: 0;
+	input {color:$white;}
+	i {color:$white;}
+	::-webkit-input-placeholder {color: $white;}
+	::-moz-placeholder {color: $white;}
+	:-ms-input-placeholder {color: $white;}
+	:-moz-placeholder {color: $white;}
+}
+.search-bg-primary input {
+	background: $primary-200; 
+}
+.search-bg-secondary input {
+	background: $secondary-200; 
+}
+.search-border {
+	input {
+		border: 1px solid $border;
+		border-radius: 0; 
+		background: none;
+	}
+	&.search-primary input {border: 1px solid $primary-200;}
+	&.search-secondary input {border: 1px solid $secondary-200;}
+	&.search-white input {border: 1px solid $white;}
+} 
+.search-radius input {
+	border-radius: 100px; 
+}

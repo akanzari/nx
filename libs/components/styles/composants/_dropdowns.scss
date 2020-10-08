@@ -1,0 +1,176 @@
+.dropdown {
+	padding:0;
+	&.show {
+		.dropdown-menu {display: block;}
+	}
+	&.float-right .btn {margin: 15px 0 15px 15px;}
+	.dropdown-toggle {
+		padding: 0 25px 0 15px;
+    	margin-right: 10px;
+		&:hover i {color:$primary-200;}
+		&::after {
+			content: "\f127";
+		    font-family: icons !important;
+		    vertical-align: -3px;
+		    font-size: 13px;
+		    border: none;
+		    margin-left:10px;
+		}	 
+	}
+	&.dropdown-menu, .dropdown-menu {
+		font-size: 13px;
+		padding:0;
+		border:0; 
+		border-radius: 0;
+		box-shadow: 0 0 7px rgba($secondary-200, 0.1), 0 2px 6px rgba($secondary-200, 0.1);
+		position:absolute;
+		margin-top:10px;
+		.divider {margin:0;}
+		a {text-decoration: none;}
+
+		header {
+			font-weight: 700;
+			text-align: center;
+			padding: 0 15px;
+			margin: 0;
+			border-bottom: 1px solid $border;
+			color: $title;
+			line-height: 50px;
+		}
+		li {
+			padding: 0; 
+			.dropdown-item {
+				padding:0 20px 0 17px !important;			
+				text-decoration: none;
+				min-width: 250px;
+			    color: $text !important;
+			    line-height: 50px !important;
+			    font-size: 13px;
+			    border-left:3px solid transparent; 
+			    border-bottom: 0 !important;
+			    height: 50px;
+				&:hover {
+					color:$title !important;
+			    	background: none;
+			    	border-left:3px solid $primary-200;
+			    	border-bottom: 0 !important; 
+			    	i {
+			    		color: $primary-200;
+			    	}
+				}
+				i {
+			    	font-size: 20px;
+				    padding: 0; 
+				    text-align: center;
+				    color: $text;
+				    margin-right: 15px;
+				    position: static;
+				    line-height: 50px !important;
+				}
+			}
+		}
+	}
+}
+.dropdown-menu>.active>a, 
+.dropdown-menu>.active>a:focus, 
+.dropdown-menu>.active>a:hover {background:$white;border-left:3px solid $primary-200 !important; color:$title !important;}
+.dropdown-menu>.active>a i {color:$primary-200 !important; }
+.dropdown.dropup .dropdown-toggle::after {content:"\f12c"}
+
+.dropdown-mega {
+	.dropdown-menu {
+		padding:0 30px;
+		min-width:250px;
+		input, select, textarea {
+			margin:0 0 15px 0;
+		}
+		textarea {min-height:110px;}
+		.btn {margin:0 5px 15px 0;}
+	}
+}
+.dropdown-user .dropdown-toggle::after {margin:0;}
+.btn-primary.active, 
+.btn-primary:active, 
+.show>.btn-primary.dropdown-toggle {
+    color: #fff;
+    background-color:$primary-200;
+    background-image: none; 
+    border-color:$primary-200;
+} 
+
+.dropdown.dropdown-menu.dropdown-menu-small li .dropdown-item, 
+.dropdown .dropdown-menu.dropdown-menu-small li .dropdown-item {min-width:160px;height:30px;line-height:30px!important; font-size: 11px;}
+
+/* Search criteria */
+.search-criteria {
+	.dropdown {
+		.no-carret {
+			&:after {display:none;}
+			&.dropdown-toggle {padding: 3px 5px;}
+		}
+
+		.btn-primary {
+			&.dropdown-toggle:hover i,
+			&.dropdown-toggle:focus i {color: #ffffff;} 
+		}
+		&.float-right {
+			.btn {margin-top:0;}
+		}
+	}
+}
+
+.dropdown-menu-small li a {
+    padding: 8px 15px !important;
+	min-height: 35px !important;
+	font-size: 11px !important;
+}
+.no-carret:after {display:none;}
+
+
+/* nine points */
+.dropdown-activities {width:300px;padding: 15px 30px !important;
+	.activities {text-align: center;padding:0;
+		a { display: block;padding:15px 5px; border:0 !important;color:$text; background: none !important;font-size:12px;
+			&:hover {background: $default-200 !important;}
+			i {color:$text; font-size: 24px;clear: both;display: block;margin:10px;}
+			&.active i {color: $primary-200;}
+		}
+	}
+}
+
+.dropdown-menu {
+    font-size: 13px;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    box-shadow: 0 0 7px rgba($secondary-200, 0.1), 0 2px 6px rgba($secondary-200, 0.1);
+    position: absolute;
+	margin-top: 0;
+	
+	li .dropdown-item {
+		padding: 0 20px 0 17px !important;
+		text-decoration: none;
+		min-width: 250px;
+		color: $text !important;
+		line-height: 50px !important;
+		font-size: 13px;
+		border-left: 3px solid transparent;
+		border-bottom: 0 !important;
+		height: 50px;
+		&:hover, &.active {
+			color: $title !important;
+			background: none;
+			border-left: 3px solid $primary-200;
+			border-bottom: 0 !important;
+		}
+		&.active {
+			background:$default-200;
+		}
+	}
+	&.dropdown-menu-small li .dropdown-item {
+		min-width: 160px;
+		height: 30px;
+		line-height: 30px !important;
+		font-size: 11px;
+	}
+}

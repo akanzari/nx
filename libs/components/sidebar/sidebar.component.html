@@ -1,0 +1,25 @@
+<nav [class]="getposition()" role="navigation" aria-label="Nav Primary">
+  <form class="search search-small search-border searchBar" *ngIf="getvisibility()" [hidden]="!ls.isSideBarDisplay">
+    <i class="icons icon-search"></i>
+    <input id="search" maxlength="50" type="search" [placeholder]="placeholder" (input)="search($event.target.value)">
+  </form>
+  <ul class="mainmenu">
+    <li *ngFor="let item of items">
+
+      <a (click)="showsubmenu(item)">
+        <i class="icons icon-{{item.icon}}"></i>
+        <span>{{item.defaultLabel}}</span>
+      </a>
+
+      <!-- SubMenu definition -->
+      <ul *ngIf=(item.show) class="submenu">
+
+        <li *ngFor="let i of item.listsubmenu"><a>
+            <i class="icons icon-{{i.iconS}}"></i>
+            <span>{{i.defaultLabelS}}</span></a></li>
+
+      </ul>
+
+    </li>
+  </ul>
+</nav>

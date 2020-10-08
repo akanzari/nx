@@ -1,0 +1,36 @@
+<div [@modal]="get_Visibility()"
+    [class]="'modal '+position_right()+' fade '+get_size()+ (visible ? ' show modalshow' : '')" id="CreerListe"
+    tabindex="-1" role="dialog" aria-labelledby="myModalLabel" [ngStyle]=" visible? {'display': 'block'}:null">
+    <button *ngIf="!headerButton()" type="button" class="close" data-dismiss="modal" aria-label="Close"
+        (click)="close()">
+        <span aria-hidden="true">×</span>
+    </button>
+    <div [class]="'modal-dialog ' + get_position()">
+        <div [class]="'modal-content '+getsidebarcontent()" [ngDraggable]="drag" #block="ngDraggable"
+            [handle]="myHandle">
+            <div class="modal-header"
+                [ngClass]="(selectedOption=== 'full' || selectedOption=== 'sidebar')? 'colorSide':'' ">
+
+                <div #myHandle class="drag-block-handle col-sm-12 col-md-4 col-lg-10">
+                    <h4 class="modal-title" [innerHTML]="title"> </h4>
+                </div>
+                <div class="col-sm-12 col-md-4 col-lg-2">
+                    <button *ngIf="headerButton()" type="button" class="close" data-dismiss="modal" aria-label="Close"
+                        (click)="close();closeMethode.emit();onReset(block)">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+            </div>
+            <div class="modal-body">
+                <ng-content></ng-content>
+            </div>
+            <div class="modal-footer">
+                <ng-content select="sof-modal-footer"></ng-content>
+            </div>
+        </div>
+    </div>
+    <div class="subModal">
+        <ng-content select="sof-modal"></ng-content>
+    </div>
+</div>
+<div *ngIf="visible" class="modal-backdrop fade show"></div>

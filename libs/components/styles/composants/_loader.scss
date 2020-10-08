@@ -1,0 +1,50 @@
+
+
+/* loader page sidebar */
+.loader {
+    position:fixed;
+    opacity:0;
+    z-index:50;
+    background:$default-200;
+    top:0;
+    left:0;
+    height:0;
+    width: 100%;
+    animation: 1.5s loader;
+    -webkit-animation: 1.5s loader; 
+    &.loader-page-sidebar {
+        z-index:50;
+        background:$default-200;
+        top:0;
+        left:240px;
+        height:0;
+        width: calc(100% - 240px);
+        animation: 1.5s loader;
+        -webkit-animation: 1.5s loader;
+    }
+    .spinkit {margin:45vh auto;}
+}
+
+@keyframes loader {
+    0% {opacity: 1; display: block;height:100%;}
+    70% {opacity: 1; display: block;height:100%;}
+    90% {opacity: 0; display: block;height:100%;}
+    100% {display: none;height:0;}
+}  
+@-webkit-keyframes loader {
+    0% {opacity: 1; display: block;height:100%;}
+    70% {opacity: 1; display: block;height:100%;}
+    90% {opacity: 0; display: block;height:100%;}
+    100% {display: none;height:0;}
+}
+
+@media screen and (max-width: 991px) {
+    .loader {
+        &.loader-page-sidebar {
+            left:80px;
+            height:0;
+            width: calc(100% - 80px);
+            animation: 1.5s loader;
+        }
+    } 
+}

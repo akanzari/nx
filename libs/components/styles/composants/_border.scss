@@ -1,0 +1,113 @@
+.no-border {border:0 !important;}
+.border-radius {border-radius: 5px;}
+
+.border, 
+.border-1 {border: 1px solid $border !important;}
+.border-2 {border: 2px solid $border !important;}
+.border-3 {border: 3px solid $border !important;}
+
+.border-top,
+.border-top-1 {border-top: 1px solid $border !important;}
+.border-right,
+.border-right-1 {border-right: 1px solid $border !important;}
+.border-bottom,
+.border-bottom-1 {border-bottom: 1px solid $border !important;}
+.border-left,
+.border-left-1 {border-left: 1px solid $border !important;}
+
+.border-top-2 {border-top: 2px solid $border !important;}
+.border-right-2 {border-right: 2px solid $border !important;}
+.border-bottom-2 {border-bottom: 2px solid $border !important;}
+.border-left-2 {border-left: 2px solid $border !important;}
+
+.border-top-3 {border-top: 3px solid $border !important;}
+.border-right-3 {border-right: 3px solid $border !important;}
+.border-bottom-3 {border-bottom: 3px solid $border !important;}
+.border-left-3 {border-left: 3px solid $border !important;}
+
+.border-x,
+.border-x-1 {border-left: 1px solid $border !important;border-right: 1px solid $border !important;}
+.border-x-2 {border-left: 2px solid $border !important;border-right: 2px solid $border !important;}
+.border-x-3 {border-left: 3px solid $border !important;border-right: 3px solid $border !important;}
+
+.border-y,
+.border-y-1 {border-top: 1px solid $border !important;border-bottom: 1px solid $border !important;}
+.border-y-2 {border-top: 2px solid $border !important;border-bottom: 2px solid $border !important;}
+.border-y-3 {border-top: 3px solid $border !important;border-bottom: 3px solid $border !important;}
+
+
+/* primary */
+.border-primary, 
+.border-primary-1 {border: 1px solid $primary-200 !important;}
+.border-primary-2 {border: 2px solid $primary-200 !important;}
+.border-primary-3 {border: 3px solid $primary-200 !important;}
+
+.border-top-primary,
+.border-top-primary-1 {border-top: 1px solid $primary-200 !important;}
+.border-right-primary,
+.border-right-primary-1 {border-right: 1px solid $primary-200 !important;}
+.border-bottom-primary,
+.border-bottom-primary-1 {border-bottom: 1px solid $primary-200 !important;}
+.border-left-primary,
+.border-left-primary-1 {border-left: 1px solid $primary-200 !important;}
+
+.border-top-primary-2 {border-top: 2px solid $primary-200 !important;}
+.border-right-primary-2 {border-right: 2px solid $primary-200 !important;}
+.border-bottom-primary-2 {border-bottom: 2px solid $primary-200 !important;}
+.border-left-primary-2 {border-left: 2px solid $primary-200 !important;}
+
+.border-top-primary-3 {border-top: 3px solid $primary-200 !important;}
+.border-right-primary-3 {border-right: 3px solid $primary-200 !important;}
+.border-bottom-primary-3 {border-bottom: 3px solid $primary-200 !important;}
+.border-left-primary-3 {border-left: 3px solid $primary-200 !important;}
+
+.border-x-primary,
+.border-x-primary-1 {border-left: 1px solid $primary-200 !important;border-right: 1px solid $primary-200 !important;}
+.border-x-primary-2 {border-left: 2px solid $primary-200 !important;border-right: 2px solid $primary-200 !important;}
+.border-x-primary-3 {border-left: 3px solid $primary-200 !important;border-right: 3px solid $primary-200 !important;}
+
+.border-y-primary,
+.border-y-primary-1 {border-top: 1px solid $primary-200 !important;border-bottom: 1px solid $primary-200 !important;}
+.border-y-primary-2 {border-top: 2px solid $primary-200 !important;border-bottom: 2px solid $primary-200 !important;}
+.border-y-primary-3 {border-top: 3px solid $primary-200 !important;border-bottom: 3px solid $primary-200 !important;}
+
+/* secondary */
+
+.border-y-secondary,
+.border-y-secondary-1 {border-top: 1px solid $secondary-200 !important;border-bottom: 1px solid $secondary-200 !important;}
+.border-y-secondary-2 {border-top: 2px solid $secondary-200 !important;border-bottom: 2px solid $secondary-200 !important;}
+.border-y-secondary-3 {border-top: 3px solid $secondary-200 !important;border-bottom: 3px solid $secondary-200 !important;}
+
+.border-secondary, 
+.border-secondary-1 {border: 1px solid $secondary-200 !important;}
+.border-secondary-2 {border: 2px solid $secondary-200 !important;}
+.border-secondary-3 {border: 3px solid $secondary-200 !important;}
+
+.border-top-secondary,
+.border-top-secondary-1 {border-top: 1px solid $secondary-200 !important;}
+.border-right-secondary,
+.border-right-secondary-1 {border-right: 1px solid $secondary-200 !important;}
+.border-bottom-secondary,
+.border-bottom-secondary-1 {border-bottom: 1px solid $secondary-200 !important;}
+.border-left-secondary,
+.border-left-secondary-1 {border-left: 1px solid $secondary-200 !important;}
+
+.border-top-secondary-2 {border-top: 2px solid $secondary-200 !important;}
+.border-right-secondary-2 {border-right: 2px solid $secondary-200 !important;}
+.border-bottom-secondary-2 {border-bottom: 2px solid $secondary-200 !important;}
+.border-left-secondary-2 {border-left: 2px solid $secondary-200 !important;}
+
+.border-top-secondary-3 {border-top: 3px solid $secondary-200 !important;}
+.border-right-secondary-3 {border-right: 3px solid $secondary-200 !important;}
+.border-bottom-secondary-3 {border-bottom: 3px solid $secondary-200 !important;}
+.border-left-secondary-3 {border-left: 3px solid $secondary-200 !important;}
+
+.border-x-secondary,
+.border-x-secondary-1 {border-left: 1px solid $secondary-200 !important;border-right: 1px solid $secondary-200 !important;}
+.border-x-secondary-2 {border-left: 2px solid $secondary-200 !important;border-right: 2px solid $secondary-200 !important;}
+.border-x-secondary-3 {border-left: 3px solid $secondary-200 !important;border-right: 3px solid $secondary-200 !important;}
+
+.border-y-secondary,
+.border-y-secondary-1 {border-top: 1px solid $secondary-200 !important;border-bottom: 1px solid $secondary-200 !important;}
+.border-y-secondary-2 {border-top: 2px solid $secondary-200 !important;border-bottom: 2px solid $secondary-200 !important;}
+.border-y-secondary-3 {border-top: 3px solid $secondary-200 !important;border-bottom: 3px solid $secondary-200 !important;}

@@ -1,0 +1,15 @@
+.dz-success-mark, 
+.dz-error-mark {display: none;}
+.dz-default {padding:50px;width:100%;border:2px dashed $border;text-align: center; background:none; font-size: 18px;border-radius: 10px;cursor: pointer;margin-bottom:30px;}
+.dz-border-white {border:2px dashed $white;}
+.dz-error-message {color:$error-200;}
+#Files {padding:10px 0;
+	.alert {box-shadow:none;border:1px solid $border;margin-bottom:10px;border-radius: 0;margin: 0}
+    .alert.AlertWhite.Sucess {color:$valid-200; font-size:18px;}
+    .alert.AlertWhite.Error {color:$error-200; font-size:18px;}
+}
+.dz-preview {margin-bottom:15px;
+    .dz-image {width:60px;padding:10px; border:1px solid $border;float:left;border-radius:3px; background: $white;margin-right:30px;
+        img {width:100%; height:auto;}
+    }
+}

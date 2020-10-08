@@ -1,0 +1,33 @@
+.label,
+.label-medium {
+    display: inline;
+    padding: .2em .6em .3em;
+    font-size: 75%;
+    font-weight: 300;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius:3px;
+
+    &.label-default {color:$text;background:$default-200;}
+    &.label-valid {color:$white;background:$valid-200;}
+    &.label-error {color:$white;background:$error-200;}
+    &.label-primary {color:$white;background:$primary-200;}
+    &.label-secondary {color:$white;background:$secondary-200;}
+    &.label-info {color:$white;background:$info-200;}
+
+    &.label-radius {border-radius:50px;padding:.2em 1em .3em;}
+} 
+
+.label-small {
+    padding: 0px 2px;
+    font-size: 9px;
+}
+
+.label-large {
+    padding: 4px 10px 5px;
+    font-size: 13px;
+}
+

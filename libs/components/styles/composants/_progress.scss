@@ -1,0 +1,21 @@
+.progress {
+	margin-bottom:15px;
+	background:$default-200;
+	height:10px;
+	border-radius: 3px; 
+	box-shadow: none;
+    overflow: hidden;
+
+    &.progress-radius {border-radius:1000px;overflow:hidden;}
+	.progress-bar  {box-shadow: none;}
+	&.progress-small  {height: 5px;}
+	&.progress-medium  {height:10px;}
+	&.progress-large  {height:20px;
+		.progress-bar {height: 20px;}
+	}
+	.progress-primary  {background-color: $primary-200;}
+	.progress-secondary {background-color: $secondary-200;}
+	.progress-error   {background-color: $error-200;}
+	.progress-valid {background-color: $valid-200;}
+}
+

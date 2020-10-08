@@ -1,0 +1,15 @@
+:host ::ng-deep .ui-datepicker {
+  width: auto;
+  padding: 0.2em;
+  position: absolute;
+  //background-color: $white !important;
+}
+.ui-datepicker-today {
+  //   background-color: $default-300  !important;
+  border-radius: 20px !important;
+}
+
+.ui-datepicker-current-day {
+  //background-color: $secondary-100 ;
+  border-radius: 20px !important;
+}

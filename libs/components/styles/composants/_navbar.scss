@@ -1,0 +1,111 @@
+
+  .navbar {
+    min-height : 50px  !important; 
+  }
+
+  
+
+    .navbarBig  {
+    & nav {
+        height : 70px  !important; 
+    }
+    & .logo {
+      height: 50px !important;
+    }
+    & .icons{
+        height: 50px;
+        font-size: 20px !important;
+      }
+    & .rounded-circle{
+        width: 40px !important; 
+        height: auto !important;
+      }
+    & .flag{
+      width: 20px !important;
+      height: 67px !important;
+    }
+    & .navbar .nav-link i {
+        height: 100% !important;
+     }
+    & nav.navbar.navbar-expand-lg.navbar-top {
+            padding-left: 0px !important; 
+     
+    }
+}
+
+    .navbarSmall {
+      & nav {
+        height : 50px  !important; 
+      }
+      & .logo {
+        height: 40px !important;
+      }
+      & .icons{
+        height: 38px;
+        font-size: 18px !important;
+      }
+      & .rounded-circle{
+        width: 30px  ; 
+        height: auto  !important;
+        margin: 0px  !important;
+      }
+      & .flag{
+        width: 20px !important;
+        height: 50px !important;
+        line-height: 50px !important;
+
+      }
+      & .navbar-collapse, .navbar-collapse ul, .navbar-collapse ul li, .navbar-collapse ul li a , .navbar-collapse ul li a span, .navbar-collapse ul li button , .navbar-toggler , .navbar .nav-link i {
+          height: 50px !important;
+      }
+      & .navbar-collapse ul li a , .navbar .nav-link i , .navbar-collapse ul li button , .navbar-toggler i{
+        height: 100% !important;
+        line-height: 50px !important;
+      }
+      &  nav.navbar.navbar-expand-lg.navbar-top  {
+        padding-left: 0px !important; 
+        }
+    }
+
+   
+    .navbarWhite {
+    & nav {
+        background-color : $navbar !important; 
+      }
+    & .logo {
+      //  background: url(../assets/sof-images/logo.svg)no-repeat center;
+        background-size: auto 100%;
+    }
+
+    & .icons , .icons:hover{
+        color: $iconsNav !important;
+      }
+      
+
+  }
+
+    .navbarBlack {
+    & nav {
+        background:linear-gradient(85deg, #2a2c33, #494c56) !important;
+      }
+    & .logo {
+     // background: url(../assets/sof-images/logo-white.svg)no-repeat center;
+       background-size: auto 100%;
+      }
+      & .icons , .icons:hover{
+        color: $iconsNav !important;
+      }
+   
+  }
+
+  #navbarNavDropdown > ul.nav.navbar-nav.navbar-right > li:nth-child(4) > a > i{
+    padding-right: 60px !important;
+  }
+
+
+   .navbar .nav-link:hover  {
+    
+   // background:$secondary-300 !important;
+
+}
+

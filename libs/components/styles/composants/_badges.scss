@@ -1,0 +1,36 @@
+.badge {
+	font-weight: 400;
+	background: $primary-200;
+	padding: 4px 6px;
+	border-radius: 500px;
+	color:$white;
+}
+.badge-primary  {background:$primary-200;}
+.badge-secondary {background:$secondary-200;}
+.badge-error   {background:$error-200;}
+.badge-valid {background:$valid-200;}
+.badge-white {background:$white;color:$primary-200;}
+.badge-default {background:$default-200;color:$secondary-200;}
+
+.badge-right {
+	float: right;
+	@extend %m-0, %mx-2;
+}
+.badge-radius {
+	@extend %radius;
+}
+.badge-small {
+	@extend %p-0;
+    font-size: 7px;
+}
+.badge-large {
+	@extend %p-2;
+    font-size: 14px;
+}
+.badge-up {
+    position: relative;
+    top:-15px;
+    margin:0 -1.2em;
+    border-radius: 15px;
+}
+ 

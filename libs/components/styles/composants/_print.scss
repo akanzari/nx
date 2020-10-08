@@ -1,0 +1,9 @@
+@media print {
+    .print {display: block;}
+    .sidebar {display:none;}
+    #page-sidebar-right {margin-right:0;}
+    #page-sidebar-left  {margin-left :0;}
+    .breadcrumb {display: none;}
+	.accordion {border:1px solid $border !important;}
+    .panel {border:1px solid $border;}
+}

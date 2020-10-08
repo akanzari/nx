@@ -1,0 +1,5 @@
+<p-tree [value]="nodes" (onNodeExpand)="select($event)">
+        <ng-template let-node pTemplate="default">
+                {{node[label]}}
+        </ng-template>
+</p-tree>

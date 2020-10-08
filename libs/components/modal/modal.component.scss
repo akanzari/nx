@@ -1,0 +1,70 @@
+.modalshow {
+  display: block;
+}
+
+#CreerListe > div.modal-dialog.modal-large {
+  max-height: 100vh;
+  max-width: 35vw;
+  overflow-x: hidden;
+}
+
+#CreerListe > div.modal-dialog.modal-large > div > div.modal-body {
+  max-height: 100vh;
+  max-width: 35vw;
+  overflow-x: auto;
+}
+#CreerListe > div.modal-dialog.modal-large > div {
+  max-height: 100vh;
+  max-width: 35vw;
+}
+
+.modal .modal-content {
+  width: -webkit-fit-content;
+  max-height: 90vh;
+  max-width: 90vw;
+  min-width: 35vw;
+  min-height: 20vh;
+  overflow-x: hidden;
+}
+.modal-dialog {
+  width: -webkit-fit-content;
+  min-width: 35vw;
+  min-height: 20vh;
+  max-height: 90vh;
+  max-width: 90vw;
+  margin: 1.75rem auto;
+}
+
+.drag-block-handle {
+  width: -webkit-fit-content;
+  padding: 1rem 1rem;
+}
+.modal-header .close {
+  padding: 2rem 1rem;
+  outline: 0;
+}
+
+.modal-header {
+  margin-right: -0.911rem;
+  margin-left: -0.911rem;
+}
+.modal-title {
+  line-height: 0.571429;
+  width: -webkit-fit-content;
+}
+
+.modal-body {
+  width: -webkit-fit-content;
+  max-height: 90vh;
+  max-width: 90vw;
+  min-width: 35vw;
+  min-height: 20vh;
+  overflow-x: auto;
+}
+.modal .modal-content {
+  padding: 0 0px;
+}
+
+.colorSide {
+  background-color: white;
+}

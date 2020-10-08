@@ -1,0 +1,10 @@
+<div class="radio fancy-blue">
+      <label>
+            <input [id]="id" type="radio" [(ngModel)]="selected" [name]="groupName"
+                  [value]="bindValue ? data[bindValue] : data" [disabled]="disabled? disabled : false">
+            <button id="radiob"
+                  (click)="bindValue ? selected = data[bindValue] : selected = data; selected.value == true && onCheckRadio.emit();  selected.value != true && unCheckRadio.emit()"
+                  [disabled]="disabled? disabled : false">{{bindLabel ? data[bindLabel] : data}}</button>
+            <span></span>
+      </label>
+</div>

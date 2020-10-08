@@ -1,0 +1,70 @@
+
+
+ .my-drop-zone {
+  // border: dashed 2px #e4eaec !important;
+  width: 100%;
+
+}
+
+ .font {
+  padding: 50px;
+  width: 100%;
+  border: 2px dashed $border;
+  text-align: center;
+  background: none;
+  font-size: 18px;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-bottom: 30px;
+}
+
+._nghost-c27  {
+  padding-left: 10%;
+}
+
+ /* Default class applied to drop zones on over */
+
+  .invalid-drag {
+    border: dotted 3px red;
+  }
+
+  .valid-drag {
+    border: dotted 3px green;
+  }
+
+html,
+body {
+  height: 100%;
+}
+
+.previewIcon {
+  width: 100px;
+  height: 100px;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.inline-block {
+  display: inline-block;
+  margin: .2em;
+}
+.pointer {
+  cursor: pointer;
+}
+
+.bg-warning {
+  background-color:transparent !important;
+}
+
+.progress-bar{
+  background-color: $primary-200;
+}
+.bg-warning{
+  margin-bottom: 40px
+}
+#warning{
+  color: red;
+}
+#div1{
+ margin-bottom: 40px;
+}

@@ -1,0 +1,16 @@
+blockquote {
+	padding: 15px 30px; 
+    margin: 0 0 15px; 
+    font-size: 13px;
+    border-left: 3px solid $border;
+    &.pull-right {
+    	border-left:0; 
+    	border-right:3px solid $border;
+    	text-align: right;
+    }
+    footer {
+        color: $prompt;
+        height: auto;
+        line-height: inherit;
+    }
+} 

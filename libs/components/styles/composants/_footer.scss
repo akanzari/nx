@@ -1,0 +1,10 @@
+/* footer */
+footer {padding:10px 0;margin-top:0;
+    p {margin:0;font-size:11px;height:auto;line-height: inherit;}
+    &.footer-bottom {
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        width: 100%;
+    }
+}

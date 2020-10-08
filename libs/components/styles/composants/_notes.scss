@@ -1,0 +1,25 @@
+.note {
+	padding:0 32px 15px;;
+    margin-bottom: 15px;
+    border: 1px solid $default-200;
+    border-left-width: 3px;
+    border-radius:0;
+    &.note-default {
+		border-left-color:$border; 
+	}
+	&.note-primary {
+		border-left-color:$primary-200; 
+	}
+	&.note-secondary {
+		border-left-color:$secondary-200;
+	}
+	&.note-valid {
+		border-left-color:$valid-200;
+	}
+	&.note-error {	
+		border-left-color:$error-200;
+	}
+	&.note-info {	
+		border-left-color:$info-200;
+	}
+}

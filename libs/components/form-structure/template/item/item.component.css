@@ -1,0 +1,11 @@
+ p[id=message]{
+    visibility: hidden;
+    position: fixed !important;
+    display: contents;
+}
+
+p[id=message].valid-touched{
+    visibility: visible;
+    position: fixed !important;
+    display: contents;
+}

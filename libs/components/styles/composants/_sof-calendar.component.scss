@@ -1,0 +1,21 @@
+.ui-datepicker {
+    width: auto;
+    padding: .2em;
+    position: absolute;
+    background-color: $white !important;
+}
+
+.ui-datepicker-today{
+    background-color: $default-300  !important;
+    border-radius: 20px !important;;
+    color: $white;
+
+   }
+
+  .ui-datepicker-current-day	{
+  background-color: $primary-100;
+    border-radius: 20px !important;
+    color: $white;
+       
+   }
+  

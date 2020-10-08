@@ -1,0 +1,350 @@
+.btn-primary:not(:disabled):not(.disabled):active {
+  border: 2px solid;
+}
+
+button {
+  box-shadow: 0 0 0 transparent !important;
+}
+//flat button
+.btn-link.focus,
+.btn-link:focus {
+  outline: 2px solid;
+}
+.btn-link {
+  font-weight: 400;
+
+  background-color: transparent;
+}
+//flat primary-button
+.btn-link.color-primary {
+  font-weight: 400;
+
+  background-color: transparent;
+}
+.btn-link.color-primary:disabled,
+.btn-link.color-primary.disabled {
+  cursor: not-allowed !important;
+  pointer-events: auto !important;
+}
+.btn-link.color-primary.active.focus,
+.btn-link.color-primary.active:focus,
+.btn-link.color-primary:active,
+.btn-link.color-primary:active.focus,
+.btn-link.color-primary:active {
+  outline: 0 !important;
+}
+//flat erro-button
+.btn-link.color-error {
+  font-weight: 400;
+
+  background-color: transparent;
+}
+.btn-link.color-error:disabled,
+.btn-link.color-error.disabled {
+  cursor: not-allowed !important;
+  pointer-events: auto !important;
+}
+.btn-link.color-error.disabled.active.focus,
+.btn-link.color-error.disabled.active:focus,
+.btn-link.color-error.disabled:active,
+.btn-link.color-error.disabled:active.focus,
+.btn-link.color-error.disabled:active {
+  outline: 0 !important;
+}
+//flat valid-button
+.btn-link.color-valid {
+  font-weight: 400;
+
+  background-color: transparent;
+}
+.btn-link.color-valid:disabled,
+.btn-link.color-valid.disabled {
+  cursor: not-allowed !important;
+  pointer-events: auto !important;
+}
+.btn-link.color-valid.disabled.active.focus,
+.btn-link.color-valid.disabled.active:focus,
+.btn-link.color-valid.disabled:active,
+.btn-link.color-valid.disabled:active.focus,
+.btn-link.color-valid.disabled:active {
+  outline: 0 !important;
+}
+//flat secondary-button
+
+.btn-link.color-secondary {
+  font-weight: 400;
+
+  background-color: transparent;
+}
+.btn-link.color-secondary:disabled,
+.btn-link.color-secondary.disabled {
+  cursor: not-allowed !important;
+  pointer-events: auto !important;
+}
+.btn-link.color-secondary.disabled.active.focus,
+.btn-link.color-secondary.disabled.active:focus,
+.btn-link.color-secondary.disabled:active,
+.btn-link.color-secondary.disabled:active.focus,
+.btn-link.color-secondary.disabled:active {
+  outline: 0 !important;
+}
+//flat default-button
+.btn-link.color-default {
+  font-weight: 400;
+
+  background-color: transparent;
+}
+.btn-link.color-default:disabled,
+.btn-link.color-default.disabled {
+  cursor: not-allowed !important;
+  pointer-events: auto !important;
+}
+.btn-link.color-default.disabled.active.focus,
+.btn-link.color-default.disabled.active:focus,
+.btn-link.color-default.disabled:active,
+.btn-link.color-default.disabled:active.focus,
+.btn-link.color-default.disabled:active {
+  outline: 0 !important;
+}
+//flat white-button
+.btn-link.color-white {
+  font-weight: 400;
+
+  background-color: transparent;
+}
+.btn-link.color-white:disabled,
+.btn-link.color-white.disabled {
+  //border: 2px solid #ffffff !important;
+  cursor: not-allowed !important;
+  pointer-events: auto !important;
+}
+.btn-link.color-white.disabled.active.focus,
+.btn-link.color-white.disabled.active:focus,
+.btn-link.color-white.disabled:active,
+.btn-link.color-white.disabled:active.focus,
+.btn-link.color-white.disabled:active {
+  outline: 0 !important;
+}
+
+.btn-primary {
+  border: 2px solid;
+}
+
+.btn-bg-white {
+  border: none;
+}
+
+.btn-primary:hover {
+  border: 2px solid !important;
+}
+.btn-primary:focus {
+  border: 2px solid !important;
+  background: !important;
+}
+.btn-bg-primary:hover {
+  background: !important;
+}
+
+//disable primary-button
+
+.btn-primary.disabled,
+.btn-primary:disabled,
+.btn-primary.disabled:hover,
+.btn-primary:disabled:hover,
+.btn-primary.disabled,
+.btn-primary:disabled,
+.btn-primary.disabled:focus,
+.btn-primary:disabled:focus {
+  border: 2px solid !important;
+  cursor: not-allowed !important;
+  outline: none !important;
+}
+
+.btn-bg-primary.disabled,
+.btn-bg-primary:disabled,
+.btn-bg-primary.disabled:hover,
+.btn-bg-primary:disabled:hover,
+.btn-bg-primary.disabled,
+.btn-bg-primary:disabled,
+.btn-bg-primary.disabled:focus,
+.btn-bg-primary:disabled:focus {
+  border: 2px solid;
+  cursor: not-allowed !important;
+  outline: none !important;
+}
+//disable error-button
+.btn-error.disabled,
+.btn-error:disabled,
+.btn-error.disabled:hover,
+.btn-error:disabled:hover,
+.btn-error.disabled,
+.btn-error:disabled,
+.btn-error.disabled:focus,
+.btn-error:disabled:focus {
+  border: 2px solid;
+  cursor: not-allowed !important;
+  outline: none !important;
+}
+
+.btn-bg-error.disabled,
+.btn-bg-error:disabled,
+.btn-bg-error.disabled:hover,
+.btn-bg-error:disabled:hover,
+.btn-bg-error.disabled,
+.btn-bg-error:disabled,
+.btn-bg-error.disabled:focus,
+.btn-bg-error:disabled:focus {
+  border: 2px solid;
+  cursor: not-allowed !important;
+  outline: none !important;
+}
+//disable secondary-button
+.btn-secondary.disabled,
+.btn-secondary:disabled,
+.btn-secondary.disabled:hover,
+.btn-secondary:disabled:hover,
+.btn-secondary.disabled,
+.btn-secondary:disabled,
+.btn-secondary.disabled:focus,
+.btn-secondary:disabled:focus {
+  border: 2px solid;
+  cursor: not-allowed !important;
+  outline: none !important;
+}
+.btn-bg-secondary.disabled,
+.btn-bg-secondary:disabled,
+.btn-bg-secondary.disabled:hover,
+.btn-bg-secondary:disabled:hover,
+.btn-bg-secondary.disabled,
+.btn-bg-secondary:disabled,
+.btn-bg-secondary.disabled:focus,
+.btn-bg-secondary:disabled:focus {
+  border: 2px solid;
+  cursor: not-allowed !important;
+  outline: none !important;
+}
+//disable valid-button
+.btn-valid.disabled,
+.btn-valid:disabled,
+.btn-valid.disabled:hover,
+.btn-valid:disabled:hover,
+.btn-valid.disabled,
+.btn-valid:disabled,
+.btn-valid.disabled:focus,
+.btn-valid:disabled:focus {
+  border: 2px solid;
+  cursor: not-allowed !important;
+  outline: none !important;
+}
+.btn-bg-valid.disabled,
+.btn-bg-valid:disabled,
+.btn-bg-valid.disabled:hover,
+.btn-bg-valid:disabled:hover,
+.btn-bg-valid.disabled,
+.btn-bg-valid:disabled,
+.btn-bg-valid.disabled:focus,
+.btn-bg-valid:disabled:focus {
+  border: 2px solid;
+  cursor: not-allowed !important;
+  outline: none !important;
+}
+//disable default-button
+.btn-default.disabled,
+.btn-default:disabled,
+.btn-default.disabled:hover,
+.btn-default:disabled:hover,
+.btn-default.disabled,
+.btn-default:disabled,
+.btn-default.disabled:focus,
+.btn-default:disabled:focus {
+  border: 2px solid;
+  cursor: not-allowed !important;
+  outline: none !important;
+}
+.btn-bg-default.disabled,
+.btn-bg-default:disabled,
+.btn-bg-default.disabled:hover,
+.btn-bg-default:disabled:hover,
+.btn-bg-default.disabled,
+.btn-bg-default:disabled,
+.btn-bg-default.disabled:focus,
+.btn-bg-default:disabled:focus {
+  border: 2px solid !important;
+  cursor: not-allowed !important;
+  outline: none !important;
+}
+//disable white-button
+.btn-white.disabled,
+.btn-white:disabled,
+.btn-white.disabled:hover,
+.btn-white:disabled:hover,
+.btn-white.disabled,
+.btn-white:disabled,
+.btn-white.disabled:focus,
+.btn-white:disabled:focus {
+  border: 2px solid;
+  background: transparent !important;
+
+  cursor: not-allowed !important;
+  outline: none !important;
+}
+.btn-bg-white.disabled,
+.btn-bg-white:disabled,
+.btn-bg-white.disabled:hover,
+.btn-bg-white:disabled:hover,
+.btn-bg-white.disabled,
+.btn-bg-white:disabled,
+.btn-bg-white.disabled:focus,
+.btn-bg-white:disabled:focus {
+  border: 2px solid;
+
+  cursor: not-allowed !important;
+  outline: none !important;
+}
+
+.btn {
+  padding-left: 1%;
+  padding-right: 1%;
+}
+
+.btn-large.btn-icon {
+  line-height: 48px !important;
+}
+
+.btn-icon span {
+  width: 70%;
+  line-height: inherit;
+  font-size: 13px;
+  left: 0;
+  transition: all 0.25s cubic-bezier(0.31, -0.105, 0.43, 1.4);
+  top: -6px;
+}
+
+.btn-icon span,
+.btn-icon .icon {
+  display: block;
+  height: 100%;
+  text-align: center;
+  position: absolute;
+  padding-top: 6px;
+}
+
+.btn-small.btn-icon .icon {
+  top: -5px;
+}
+
+.btn-icon span,
+.btn-icon .icon {
+  display: block;
+  height: 100%;
+  text-align: center;
+  position: absolute;
+  padding-top: 6px;
+}
+
+.btn-small {
+  height: 25px;
+  font-size: 11px;
+  line-height: 20px;
+  padding: 0 0.5rem;
+}

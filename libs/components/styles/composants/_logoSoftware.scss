@@ -1,0 +1,52 @@
+.logo {
+	height:50px;
+	min-width:150px; 
+	margin:10px 0;
+	
+	a {
+		height:50px; 
+		display: block;
+	    width: 100%;
+	}
+
+	img {height:50px;}
+ 
+	&.logo-small {height:38px;margin: 5px 0;
+		a {height:38px;}
+		img {height:38px;}
+	}
+	&.logo-medium {height:50px;
+		a {height:50px;}
+		img {height:50px;}
+	}
+	&.logo-large {
+		margin:10px 0;
+		height:100px;
+		a {height:100px;}
+		img {height:100px;}
+	}
+	&.logo-left {background-position: left !important;}
+	&.logo-right {background-position: right !important;}
+}
+
+.logo-default {
+	background: url(./assets/sof-images/logo-white.svg) no-repeat center;
+	background-size: auto 100%;
+}
+.logo-white {
+	background: url(./assets/sof-images/logo-white.svg) no-repeat center;
+	background-size: auto 100%; 
+}
+
+.navbarWhite {
+    & nav {
+        //background-color : $white !important; 
+      }
+    & .logo {
+        background: url(./assets/sof-images/logo-white.svg)no-repeat center;
+        background-size: auto 100%;
+    }
+
+  
+
+  }

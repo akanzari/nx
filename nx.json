@@ -22,5 +22,12 @@
       }
     }
   },
-  "projects": {}
+  "projects": {
+    "ng-softilys": {
+      "tags": []
+    },
+    "ng-softilys-library": {
+      "tags": []
+    }
+  }
 }

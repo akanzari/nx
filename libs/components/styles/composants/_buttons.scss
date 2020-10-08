@@ -1,0 +1,862 @@
+// Anim
+$speed: "0.25s";
+$transition: all #{0.25s} cubic-bezier(0.310, -0.105, 0.430, 1.400); 
+
+
+.btn {
+	border-radius:4px;
+	border:none;
+	height:35px;
+	@extend %px-4; 
+	@extend %m-0, %mb-3, %mr-3;
+	font-size: 13px; 
+	cursor:pointer;
+
+	&.btn-primary,
+	&.btn-secondary,
+	&.btn-error,
+	&.btn-valid {
+		&:hover i {color:$white;}
+	}
+
+	&.float-right,
+	&.pull-right {@extend %mr-0, %ml-3;}
+	&.color-primary:hover,
+	&.color-primary:focus {color:$primary-200;}
+	&.color-secondary:hover,
+	&.color-secondary:focus {color:$secondary-200;} 
+	&.color-text:hover,
+	&.color-text:focus {color:$text;}
+	&.color-error:hover,
+	&.color-error:focus {color:$error-200;}
+	&.color-valid:hover,
+	&.color-valid:focus {color:$valid-200;}
+}
+
+.btn-primary {border:2px solid $primary-200;color:$primary-200;box-shadow:none;background: transparent;	}
+.btn-primary:hover {border:2px solid $primary-100;background:$primary-100;color:$white;}
+.btn-primary:focus {border:2px solid $primary-300;background:$primary-300;color:$white;}
+.btn-primary.active:hover,
+.btn-primary:active:hover, 
+.open>.dropdown-toggle.btn-primary:hover {
+	border:2px solid $primary-100;background:$primary-100;color:$white;
+}
+.btn-primary.active.focus, 
+.btn-primary.active:focus, 
+.btn-primary:active.focus, 
+.btn-primary:active:focus, 
+.open>.dropdown-toggle.btn-primary.focus, 
+.open>.dropdown-toggle.btn-primary:focus {
+	border:2px solid $primary-300;background:$primary-300;color:$white;
+}
+
+
+.btn-primary:not([disabled]):not(.disabled).active, 
+.btn-primary:not([disabled]):not(.disabled):active, 
+.show>.btn-primary.dropdown-toggle {
+	color: $white;
+    background-color: $primary-300;
+    border-color:$primary-300 !important; 
+    box-shadow: none !important;
+}
+
+.btn-white {border:2px solid $white;color:$white;box-shadow:none;background: transparent;}
+.btn-white:hover,
+.btn-white:focus {border:2px solid $white;background:$white;color:$primary-200;}
+.btn-white.active.focus, 
+.btn-white.active:focus, 
+.btn-white.active:hover, 
+.btn-white:active.focus, 
+.btn-white:active:focus, 
+.btn-white:active:hover, 
+.open>.dropdown-toggle.btn-white.focus, 
+.open>.dropdown-toggle.btn-white:focus, 
+.open>.dropdown-toggle.btn-white:hover {
+	border:2px solid $white;background:$white;color:$primary-200;
+}
+ 
+.btn-secondary {border:2px solid $secondary-200; color:$secondary-200; background: transparent;}
+.btn-secondary:hover {border:2px solid $secondary-100; background:$secondary-100; color:$white;}
+.btn-secondary:focus {border:2px solid $secondary-300; background:$secondary-300; color:$white;}
+.btn-secondary.active:hover, 
+.btn-secondary:active:hover, 
+.open>.dropdown-toggle.btn-secondary:hover {
+	border:2px solid $secondary-100;
+	background:$secondary-100;
+	color:$white;
+}
+.btn-secondary.active.focus, 
+.btn-secondary.active:focus, 
+.btn-secondary:active.focus,
+.btn-secondary:active:focus, 
+.open>.dropdown-toggle.btn-secondary.focus, 
+.open>.dropdown-toggle.btn-secondary:focus {
+	border:2px solid $secondary-300;
+	background:$secondary-300;
+	color:$white;
+}
+
+.btn-secondary:not([disabled]):not(.disabled).active, 
+.btn-secondary:not([disabled]):not(.disabled):active, 
+.show>.btn-secondary.dropdown-toggle {
+	color: $white;
+    background-color: $secondary-300;
+    border-color:$secondary-300 !important; 
+    box-shadow: none !important;
+}
+
+.btn-default {border:2px solid $default-200;color:$text;background: transparent;}
+.btn-default:hover {border:2px solid $default-100;background:$default-100;color:$text;}
+.btn-default:focus {border:2px solid $default-300;background:$default-300;color:$text;}
+.btn-default.active:hover,
+.btn-default:active:hover, 
+.open>.dropdown-toggle.btn-default:hover {
+	border:2px solid $default-100;background:$default-100 ;color:$text;
+}
+.btn-default.active.focus, 
+.btn-default.active:focus, 
+.btn-default:active.focus, 
+.btn-default:active:focus, 
+.open>.dropdown-toggle.btn-default.focus, 
+.open>.dropdown-toggle.btn-default:focus {
+	border:2px solid $default-300;background:$default-300 ;color:$text;
+}
+
+
+.btn-error {border:2px solid $error-200;color:$error-200;background: transparent;}
+.btn-error:hover {border:2px solid $error-100;background:$error-100;color:$white;}
+.btn-error:focus {border:2px solid $error-300;background:$error-300;color:$white;}
+.btn-error.active:hover, 
+.btn-error:active:hover, 
+.open>.dropdown-toggle.btn-error:hover {
+	border:2px solid $error-100;
+	background: $error-100;
+	color: $white;
+}
+.btn-error.active.focus, 
+.btn-error.active:focus, 
+.btn-error:active.focus, 
+.btn-error:active:focus, 
+.open>.dropdown-toggle.btn-error.focus, 
+.open>.dropdown-toggle.btn-error:focus {
+	border:2px solid $error-300;
+	background: $error-300;
+	color: $white;
+}
+
+
+.btn-valid {border:2px solid $valid-200;color:$valid-200;background: transparent;}
+.btn-valid:hover {border:2px solid $valid-100; background:$valid-100; color:$white;}
+.btn-valid:focus {border:2px solid $valid-300; background:$valid-300; color:$white;}
+.btn-valid.active:hover,
+.btn-valid:active:hover, 
+.open>.dropdown-toggle.btn-valid:hover {
+	border:2px solid $valid-100;
+	background:$valid-100;
+	color:$white;
+}
+
+.btn-valid.active.focus, 
+.btn-valid.active:focus, 
+.btn-valid:active.focus, 
+.btn-valid:active:focus, 
+.open>.dropdown-toggle.btn-valid.focus, 
+.open>.dropdown-toggle.btn-valid:focus {
+	border:2px solid $valid-300;
+	background:$valid-300;
+	color:$white;
+}
+
+.btn-white {background: transparent;}
+
+.btn-anim {
+	-webkit-appearance: none;
+	position: relative;
+	overflow: visible;
+	font: inherit;
+	user-select: none;
+	transition: all 0.2s ease;
+	&:hover,
+	&:focus {
+		outline: 0;
+		text-decoration: none;
+	}
+}
+.c-ripple {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	background: transparent;
+}
+.c-ripple__circle {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	opacity: 0;
+	width: 0;
+	height: 0;
+	border-radius: 50%;
+	background: rgba(255, 255, 255, .25);
+	.c-ripple.is-active & {
+		animation: a-ripple .4s ease-in;
+	}
+}
+@keyframes a-ripple {
+  0% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 1;
+  }
+  100% {
+    width: 200%;
+    padding-bottom: 200%;
+    opacity: 0;
+  }
+}
+
+
+.btn-icon {
+	min-width:120px;
+	position:relative;
+	height:35px;
+	line-height:31px;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	cursor: pointer;
+	overflow: hidden;
+	transition: $transition;
+
+	&.btn-primary,
+	&.btn-secondary,
+	&.btn-error,
+	&.btn-valid {
+		&:hover i {
+			color:$white !important;
+		}
+	}
+	span,
+	.icon {
+		display: block;
+		height: 100%;
+		text-align: center;
+		position: absolute;
+		top: 0;
+	}
+	span {
+		width: 70%;
+		line-height: inherit;
+		font-size: 13px;
+		left: 0;
+		transition: $transition;
+	}
+	.icon {
+		width: 28%;
+		right: 0;
+		padding-top:6px;
+		transition: $transition;
+		.icons {
+			font-size: 20px !important;
+			vertical-align: middle;
+			transition: $transition, height #{$speed} ease;
+		}
+	}
+	&:hover {
+		span {
+			left: -72%;
+			opacity: 0;
+			color:$white;
+		}
+		.icon {
+			width: 100%;
+			
+			.icons {
+				font-size: 45px;
+			}
+		}
+	}
+	&:hover {
+		opacity: .9;
+		.icon .fa-remove {
+			height: 46px;
+		}
+	}
+	&:active {
+		opacity: 1;
+	}
+}
+.btn-small {
+	height: 25px;
+    font-size: 11px;
+	line-height: 20px;
+	padding:0 .5rem; 
+	&.btn-icon {line-height: 25px;
+		.icon {top:0px}
+	} 
+}
+.btn-large {height:50px;font-size:16px;@extend %mb-3, %mr-3;
+	&.btn-icon {line-height:60px;
+		.icon {top:10px}
+	}
+}
+.btn-circle {height:35px;width:35px; min-width:35px; border-radius:50%;padding:10px;
+	i {font-size: 16px;}
+}
+.btn-link {
+	background:none;
+	&:focus, 
+	&:hover {
+	    box-shadow: none;
+	    text-decoration: none;
+	}
+	&.color-white {
+		&:hover, &:focus {color:$white;}
+	}
+	&.color-error {
+		&:hover, &:focus {color:$error-200;}
+	}
+	&.color-valid {
+		&:hover, &:focus {color:$valid-200;}
+	}
+	&.color-primary {
+		&:hover, &:focus {color:$primary-200;}
+	}
+	&.color-secondary {
+		&:hover, &:focus {color:$secondary-200;}
+	}
+	&.color-text {
+		&:hover, &:focus {color:$text;}
+	}
+}
+.btn-block {
+	display: block;
+	width:100%;
+}
+
+.btn-radius {
+	border-radius:30px;
+}
+.btn-group {position: static;
+	.dropdown-mega .dropdown-menu {
+		padding: 0;
+	}
+	.btn-icon {min-width:35px;padding:10px 0; text-align: center;margin:0 0 5px; @extend %radius;
+		i {font-size: 20px !important;}
+	} 
+	.btn {margin-right: 0;}
+	.btn-border {padding: 0 10px;}
+}
+
+.btn-menu {
+	padding: 0;
+    border: 0;
+    border-radius: 4px;
+    box-shadow: 0 0 2px rgba($secondary-200, 0.25), 0 2px 2px rgba($secondary-200, 0.25);
+    margin: -3px 0 0 0; 
+    li {
+    	padding: 0;
+    	margin:0;
+    	a { 
+    		display: block;
+    		width: 100%;
+    		padding: 14px 15px !important;
+		    text-decoration: none;
+		    min-width: 200px;
+		    color: #8e9ba1 !important;
+		    min-height: 50px;
+		    border-left: 3px solid $white; 
+		    border-bottom: 0 !important;
+		    color:$text;
+	    	&:hover {
+		    	color:$title;
+			    background: none;
+			    border-left: 3px solid $primary-200;
+		    }
+    	}
+    }
+}
+.btn-border {border:1px solid $border;background: $white;}
+.btn-group-vertical {
+	.btn {margin:0;} 
+}
+
+.float-right .btn,
+.btn.float-right {margin: 0 0 15px 15px;}
+
+  .btn-primary .badge {color:$white; background: $primary-200;}
+.btn-secondary .badge {color:$white; background: $secondary-200;}
+  .btn-default .badge {color:$text;  background: $default-200;}
+    .btn-valid .badge {color:$white; background: $valid-200;}
+    .btn-error .badge {color:$white; background: $error-200;} 
+
+
+.btn-primary.disabled, 
+.btn-primary:disabled,
+.btn-primary.disabled:hover, 
+.btn-primary:disabled:hover {background:$white;color:$primary-200; border: 2px solid $primary-100;}
+.btn-primary.disabled:focus, 
+.btn-primary:disabled:focus {background:$white;color:$primary-200; border: 2px solid $primary-300;}
+ 
+.btn-secondary.disabled, 
+.btn-secondary:disabled,
+.btn-secondary.disabled:hover, 
+.btn-secondary:disabled:hover {background:$white;color:$secondary-200; border: 2px solid $secondary-100;}
+.btn-secondary.disabled:focus, 
+.btn-secondary:disabled:focus {background:$white;color:$secondary-200; border: 2px solid $secondary-300;}
+
+.btn-error.disabled, 
+.btn-error:disabled,
+.btn-error.disabled:hover, 
+.btn-error:disabled:hover {background:$white;color:$error-200; border: 2px solid $error-100;}
+.btn-error.disabled:focus, 
+.btn-error:disabled:focus {background:$white;color:$error-200; border: 2px solid $error-300;}
+
+.btn-valid.disabled, 
+.btn-valid:disabled,
+.btn-valid.disabled:hover, 
+.btn-valid:disabled:hover {background:$white;color:$valid-200; border: 2px solid $valid-100;}
+.btn-valid.disabled:focus, 
+.btn-valid:disabled:focus {background:$white;color:$valid-200; border: 2px solid $valid-300;}
+
+.btn-bg-white {background:$white;border:none;@extend %radius;color:$text;
+	&:hover {background:$default-100;border:none;@extend %radius;color:$title;}
+	&:focus {background:$default-300;border:none;@extend %radius;color:$text;}
+}
+.btn-bg-primary {background:$primary-200;border:none;@extend %radius;color:$white;
+	&:hover {background:$primary-100;border:none;@extend %radius;color:$white;}
+	&:focus {background:$primary-300;border:none;@extend %radius;color:$white;}
+}
+.btn-bg-secondary {background:$secondary-200;border:none;@extend %radius;color:$white;
+	&:hover {background:$secondary-100;border:none;@extend %radius;color:$white;}
+	&:focus {background:$secondary-300;border:none;@extend %radius;color:$white;}
+}
+.btn-bg-default {background:$default-200;border:none;@extend %radius;color:$text;
+	&:hover {background:$default-100;border:none;@extend %radius;color:$text;}
+	&:focus {background:$default-300;border:none;@extend %radius;color:$text;}
+}
+
+.btn-bg-error {background:$error-200;border:none;@extend %radius;color:$white;
+	&:hover {background:$error-100;border:none;@extend %radius;color:$white;}
+	&:focus {background:$error-300;border:none;@extend %radius;color:$white;}
+}
+
+.btn-bg-valid {background:$valid-200;border:none;@extend %radius;color:$white;
+	&:hover {background:$valid-100;border:none;@extend %radius;color:$white;}
+	&:focus {background:$valid-300;border:none;@extend %radius;color:$white;}
+}
+
+.btn-action {@extend %p-0;
+	a {width:40px;height:40px;text-align: center;color:$text;@extend %py-2, %px-1;
+		i {color:$secondary-200;font-size: 16px;@extend %mr-2;}
+		&:focus, &:hover {text-decoration: none;
+			i {color:$primary-200;}
+		}
+	}
+}
+
+.btn-rack {border:1px solid $border; border-radius: 4px;width:40px;height:35px;display:block;padding:8px 11px;
+	i.icons {font-size: 16px;color:$secondary-200;}
+	&:hover {background:$secondary-100; text-decoration: none;}
+	&:focus {background:$secondary-300; text-decoration: none;}
+}
+
+/* Search criteria */
+.search-criteria {
+	.btn-i.float-right {padding:10px 10px;margin-bottom:0 !important;text-align:center;
+		i {font-size:12px;}
+	}
+}
+
+//a 
+a {
+	&.btn {
+		&.btn-primary {color:$primary-200;
+			&:hover {color:$white;}
+		}
+		&.btn-secondary {color:$secondary-200;
+			&:hover {color:$white;}
+		}
+		&.btn-default {color:$text;
+			&:hover {color:$text;}
+		}
+		&.btn-error {color:$error-200;
+			&:hover {color:$white;}
+		}
+		&.btn-valid {color:$valid-200;
+			&:hover {color:$white;}
+		}
+	}
+}
+
+.btn-primary:focus,
+.btn-secondary:focus,
+.btn-error:focus,
+.btn-valid:focus {
+	color:$white !important;
+}   
+
+.btn-group-radius>.btn-group:not(:last-child)>.btn, 
+.btn-group-radius>.btn:not(:last-child):not(.dropdown-toggle),
+.btn-group-radius>.btn-group:not(:first-child)>.btn,
+.btn-group-radius>.btn:not(:first-child) {
+    border-radius:50px !important;
+    padding: 9px 10px;
+    margin-left:8px;
+    box-shadow: 0 1px 4px rgba($secondary-200,.1)
+}
+.btn-group-radius>.btn-group:not(:last-child)>.btn-small, 
+.btn-group-radius>.btn-small:not(:last-child):not(.dropdown-toggle),
+.btn-group-radius>.btn-group:not(:first-child)>.btn-small,
+.btn-group-radius>.btn-small:not(:first-child) {
+	padding: 0px 10px;
+}
+.btn-group-radius .btn.btn-small i {
+	position: relative;
+	top: 2px;
+}
+
+/*---------------------------------------*/
+.btn-primary:not(:disabled):not(.disabled):active {
+	border: 2px solid $primary-200 ;
+	color: $primary-200;
+	 background: $primary-200;
+	 border-color: $primary-200;
+  }
+  
+  .btn-default:not(:disabled):not(.disabled):active {
+	  color: $text;
+	  background: $border;
+	  border-color: $border;
+  }
+  .btn-white :hover .color-white{
+	 color: $text !important;
+  }
+  
+  .btn-error:not(:disabled):not(.disabled):active {
+	  color: $white;
+	  background: $error-200;
+	  border-color: $error-200;
+  }
+  .btn-valid:not(:disabled):not(.disabled):active {
+	  color: $white;
+	  background: $valid-200;
+	  border-color: $valid-200;
+  }
+  .btn-primary:not(:disabled):not(.disabled):active {
+	color: $white;
+	background: $primary-100;
+	border-color: $primary-100;
+  }
+  
+  .btn-default:not(:disabled):not(.disabled):active {
+	color: $text;
+	background: $border;
+	border-color: $border;
+  }
+  
+  .btn-error:not(:disabled):not(.disabled):active {
+	color: $white;
+	background: $error-200;
+	border-color: $error-200;
+  }
+  .btn-valid:not(:disabled):not(.disabled):active {
+	color: $white;
+	background: $valid-200;
+	border-color: $valid-200;
+  }
+  
+  
+  button{
+	border-radius: 4px !important;
+    box-shadow: 0 0 0 transparent !important;
+  }
+  //flat button
+  .btn-link.focus,.btn-link:focus{
+	outline: 2px solid $border !important;
+  
+  }
+  .btn-link {
+	font-weight: 400;
+	color: $primary-200 !important;
+	background-color: transparent;
+	
+  }
+  //flat primary-button
+  .btn-link.color-primary {
+	font-weight: 400;
+	color: $primary-200 !important;
+	background-color: transparent;
+  }
+  .btn-link.color-primary:disabled, .btn-link.color-primary.disabled{
+	cursor: not-allowed !important;
+	pointer-events: auto !important;
+  }
+  .btn-link.color-primary.active.focus, .btn-link.color-primary.active:focus,
+  .btn-link.color-primary:active, .btn-link.color-primary:active.focus, .btn-link.color-primary:active{
+	outline: 0 !important;
+  }
+  //flat erro-button
+  .btn-link.color-error {
+	font-weight: 400;
+	color: $error-200 !important;
+	background-color: transparent;
+  }
+  .btn-link.color-error:disabled, .btn-link.color-error.disabled{
+	cursor: not-allowed !important;
+	pointer-events: auto !important;
+  }
+  .btn-link.color-error.disabled.active.focus, .btn-link.color-error.disabled.active:focus,
+  .btn-link.color-error.disabled:active, .btn-link.color-error.disabled:active.focus, .btn-link.color-error.disabled:active{
+	outline: 0 !important;
+  }
+  //flat valid-button
+  .btn-link.color-valid {
+	font-weight: 400;
+	color: $valid-200 !important;
+	background-color: transparent;
+  }
+  .btn-link.color-valid:disabled, .btn-link.color-valid.disabled{
+	cursor: not-allowed !important;
+	pointer-events: auto !important;
+  }
+  .btn-link.color-valid.disabled.active.focus, .btn-link.color-valid.disabled.active:focus,  
+  .btn-link.color-valid.disabled:active, .btn-link.color-valid.disabled:active.focus, .btn-link.color-valid.disabled:active {
+	outline: 0 !important;
+  }
+  //flat secondary-button
+  
+  .btn-link.color-secondary {
+	font-weight: 400;
+	color: $secondary-200 !important;
+	background-color: transparent;
+  }
+  .btn-link.color-secondary:disabled, .btn-link.color-secondary.disabled{
+	cursor: not-allowed !important;
+	pointer-events: auto !important;
+  }
+  .btn-link.color-secondary.disabled.active.focus, .btn-link.color-secondary.disabled.active:focus, 
+  .btn-link.color-secondary.disabled:active, .btn-link.color-secondary.disabled:active.focus, .btn-link.color-secondary.disabled:active {
+	outline: 0 !important;
+  }  
+  //flat default-button
+  .btn-link.color-default {
+	font-weight: 400;
+	color: $background !important;
+	background-color: transparent;
+  }
+  .btn-link.color-default:disabled, .btn-link.color-default.disabled{
+	cursor: not-allowed !important;
+	pointer-events: auto !important;
+  }
+  .btn-link.color-default.disabled.active.focus, .btn-link.color-default.disabled.active:focus,  
+  .btn-link.color-default.disabled:active, .btn-link.color-default.disabled:active.focus, .btn-link.color-default.disabled:active{
+	outline: 0 !important;
+  }
+  //flat white-button
+  .btn-link.color-white {
+	font-weight: 400;
+	color: $white !important;
+	background-color: transparent;
+  }
+  .btn-link.color-white:disabled, .btn-link.color-white.disabled{
+	//border: 2px solid #ffffff !important;
+	cursor: not-allowed !important;
+	pointer-events: auto !important;
+  }
+  .btn-link.color-white.disabled.active.focus, .btn-link.color-white.disabled.active:focus, 
+  .btn-link.color-white.disabled:active, .btn-link.color-white.disabled:active.focus, .btn-link.color-white.disabled:active {
+	outline: 0 !important;
+  }
+  
+  
+  .btn-primary {
+	border: 2px solid ;
+  
+  }
+  
+  .btn-bg-white {
+	background: $white !important;
+	border: none;
+	color: $text !important;
+  }
+  
+  .btn-primary:hover {
+	border: 2px solid  !important;
+  }
+  .btn-primary:focus {
+	border: 2px solid !important;
+	background:   !important;
+	color:  !important;
+  }
+  .btn-bg-primary:hover {
+	background:  !important;
+	
+	color:  !important;
+  }
+  
+  //disable primary-button
+  
+  .btn-primary.disabled, .btn-primary:disabled, .btn-primary.disabled:hover, .btn-primary:disabled:hover,
+  .btn-primary.disabled, .btn-primary:disabled, .btn-primary.disabled:focus, .btn-primary:disabled:focus {
+	background: $white !important;
+	color:  !important;
+	border: 2px solid  !important;
+	cursor: not-allowed !important;
+	outline: none !important;
+  }
+  
+  .btn-bg-primary.disabled, .btn-bg-primary:disabled, .btn-bg-primary.disabled:hover, .btn-bg-primary:disabled:hover,
+  .btn-bg-primary.disabled, .btn-bg-primary:disabled, .btn-bg-primary.disabled:focus, .btn-bg-primary:disabled:focus {
+	background: $primary-100 !important;
+	color: $white !important;
+	border: 2px solid $primary-100 !important;
+	cursor: not-allowed !important;
+	 outline: none !important;
+  }
+  //disable error-button
+  .btn-error.disabled, .btn-error:disabled, .btn-error.disabled:hover, .btn-error:disabled:hover ,
+  .btn-error.disabled, .btn-error:disabled, .btn-error.disabled:focus, .btn-error:disabled:focus{
+	background: $white !important;
+	color: $error-200 !important;
+	border: 2px solid $error-100 !important;
+	cursor: not-allowed !important;
+	outline: none !important;
+  }
+  
+  .btn-bg-error.disabled, .btn-bg-error:disabled, .btn-bg-error.disabled:hover, .btn-bg-error:disabled:hover,
+  .btn-bg-error.disabled, .btn-bg-error:disabled, .btn-bg-error.disabled:focus, .btn-bg-error:disabled:focus  {
+	background: $error-100 !important;
+	color: $white !important;
+	border: 2px solid $error-100 !important;
+	cursor: not-allowed !important;
+	outline: none !important;
+  }
+  //disable secondary-button
+  .btn-secondary.disabled, .btn-secondary:disabled, .btn-secondary.disabled:hover, .btn-secondary:disabled:hover,
+  .btn-secondary.disabled, .btn-secondary:disabled, .btn-secondary.disabled:focus, .btn-secondary:disabled:focus {
+	background: $white !important;
+	color: $secondary-200 !important;
+	border: 2px solid $secondary-100 !important;
+	cursor: not-allowed !important;
+	outline: none !important;
+  }
+  .btn-bg-secondary.disabled, .btn-bg-secondary:disabled, .btn-bg-secondary.disabled:hover, .btn-bg-secondary:disabled:hover,
+  .btn-bg-secondary.disabled, .btn-bg-secondary:disabled, .btn-bg-secondary.disabled:focus, .btn-bg-secondary:disabled:focus {
+	background: $secondary-100 !important;
+	color: $white !important;
+	border: 2px solid $secondary-100 !important;
+	cursor: not-allowed !important;
+	outline: none !important;
+  }
+  //disable valid-button
+  .btn-valid.disabled, .btn-valid:disabled, .btn-valid.disabled:hover, .btn-valid:disabled:hover ,
+  .btn-valid.disabled, .btn-valid:disabled, .btn-valid.disabled:focus, .btn-valid:disabled:focus {
+	background: $white !important;
+	color: $valid-200 !important;
+	border: 2px solid $valid-100 !important;
+	cursor: not-allowed !important;
+	outline: none !important;
+  }
+  .btn-bg-valid.disabled, .btn-bg-valid:disabled, .btn-bg-valid.disabled:hover, .btn-bg-valid:disabled:hover,
+  .btn-bg-valid.disabled, .btn-bg-valid:disabled, .btn-bg-valid.disabled:focus, .btn-bg-valid:disabled:focus {
+	background: $valid-100 !important;
+	color: $white !important;
+	border: 2px solid $valid-100 !important;
+	cursor: not-allowed !important;
+	outline: none !important;
+  }
+  //disable default-button
+  .btn-default.disabled, .btn-default:disabled, .btn-default.disabled:hover, .btn-default:disabled:hover,
+  .btn-default.disabled, .btn-default:disabled, .btn-default.disabled:focus, .btn-default:disabled:focus {
+	background : $default-300 !important;
+	color: $text !important;
+	border: 2px solid $default-300 !important;
+	cursor: not-allowed !important;
+	outline: none !important;
+  }
+  .btn-bg-default.disabled, .btn-bg-default:disabled, .btn-bg-default.disabled:hover, .btn-bg-default:disabled:hover,
+  .btn-bg-default.disabled, .btn-bg-default:disabled, .btn-bg-default.disabled:focus, .btn-bg-default:disabled:focus  {
+	background : $default-200 !important;
+	color: $text !important;
+	border: 2px solid $default-200 !important;
+	cursor: not-allowed !important;
+	outline: none !important;
+  }
+  //disable white-button
+  .btn-white.disabled, .btn-white:disabled, .btn-white.disabled:hover, .btn-white:disabled:hover ,
+  .btn-white.disabled, .btn-white:disabled, .btn-white.disabled:focus, .btn-white:disabled:focus{
+	
+	border: 2px solid $white  !important;
+	background: transparent!important;
+	color: $white  !important;
+	cursor: not-allowed !important;
+	outline: none !important;
+  }
+  .btn-bg-white.disabled, .btn-bg-white:disabled, .btn-bg-white.disabled:hover, .btn-bg-white:disabled:hover,
+  .btn-bg-white.disabled, .btn-bg-white:disabled, .btn-bg-white.disabled:focus, .btn-bg-white:disabled:focus {
+	
+	border: 2px solid $white !important;
+	color: $text !important;
+	background: $white !important;
+	cursor: not-allowed !important;
+	outline: none !important;
+  }
+  
+   
+  .btn {
+	border-radius: 4px !important;
+	padding-left: 1%  ;
+	padding-right: 1% ;
+  }
+  
+  
+  
+  
+  .btn-large.btn-icon {
+	  line-height: 48px !important;  
+  }
+  
+  
+  .btn-icon span {
+	width: 70%;
+	line-height: inherit;
+	font-size: 13px;
+	left: 0;
+	transition: all 0.25s cubic-bezier(0.31, -0.105, 0.43, 1.4);
+	top: -6px;
+  }
+  
+  .btn-icon span, .btn-icon .icon {
+	display: block;
+	height: 100%;
+	text-align: center;
+	position: absolute;
+	padding-top: 6px;
+  }
+  
+  .btn-small.btn-icon .icon {
+	top: -5px;
+  }
+  
+  .btn-icon span , .btn-icon .icon{
+	display: block;
+	height: 100%;
+	text-align: center;
+	position: absolute;
+	padding-top: 6px;
+  }
+  
+  
+  .btn-small {
+	height: 25px;
+	font-size: 11px;
+	line-height:20px;  
+	padding: 0 .5rem;
+  }
+  

@@ -1,0 +1,35 @@
+<ng-container *ngIf="!icon">
+  <input #sofInput *ngIf="getType() !== 'date' && getType() !== 'number' && getType() !== 'phone'" [id]="id"
+    [name]="name" [maxlength]="maxlength" [min]="min" [max]="max" [type]="getType()" [(ngModel)]="value"
+    [placeholder]="placeholder" [disabled]="disabled" />
+
+  <!-- FIX IE input date  -->
+  <input #sofInput *ngIf="getType() === 'date'" [id]="id" [name]="name" [max]="max" [min]="min" type="date"
+    [maxlength]="maxlength" date-format="dd/mm/yyyy" [(ngModel)]="value" placeholder="jj/mm/aaaa"
+    [disabled]="disabled" />
+  <!-- FIX IE input number  -->
+  <input #sofInput *ngIf="getType() === 'number'" [id]="id" [name]="name" [maxlength]="maxlength" [min]="min"
+    [max]="max" [type]="getType()" [(ngModel)]="value" [placeholder]="placeholder" [disabled]="disabled"
+    onkeypress="return (event.charCode>=48 && event.charCode<=57) || event.charCode==46 || event.charCode==101 || event.charCode==45" />
+</ng-container>
+
+<!-- handle icons -->
+<div *ngIf="icon" class="input-icon">
+  <i class="icons icon-{{ icon }}"></i>
+  <input #sofInput *ngIf="getType() !== 'date'  && getType() !== 'phone'" [id]="id" [name]="name" [type]="getType()"
+    [max]="max" [min]="min" [maxlength]="maxlength" [(ngModel)]="value" [placeholder]="placeholder"
+    [disabled]="disabled" />
+
+  <!-- FIX IE input date  -->
+  <input #sofInput *ngIf="getType() === 'date'" [id]="id" [name]="name" type="date" [max]="max" [min]="min"
+    [maxlength]="maxlength" date-format="dd/mm/yyyy" [(ngModel)]="value" [placeholder]="placeholder"
+    [disabled]="disabled" />
+</div>
+
+<div>
+  <international-phone-number #sofInput *ngIf="getType() === 'phone'" [id]="id" [name]="name" type="phone"
+    [(ngModel)]="value" placeholder="Enter phone number" [maxlength]="min" [required]="true"
+    [defaultCountry]="defaultCountry">
+  </international-phone-number>
+
+</div>

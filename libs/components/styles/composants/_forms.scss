@@ -1,0 +1,371 @@
+.form-group {margin-bottom:0;}
+label {font-size:13px;color:$title;font-weight: 400;}
+input, 
+select {height:35px;padding:8px 15px;color:$text;font-size: 13px;border:0; border:1px solid $border;border-radius:0;width:100%;background:$white;margin:0 0 5px 0;border-radius:0;}
+select[multiple] {padding: 0;
+	option {padding:5px 15px;}
+}
+input {height:35px;
+	&.btn {
+		width: inherit;margin: 0 0 5px 0 !important;
+	}
+}
+::-webkit-input-placeholder {color: $text;} 
+::-moz-placeholder {color: $text;}
+:-ms-input-placeholder {color: $text;}
+:-moz-placeholder {color: $text;}
+input:focus {outline: none;border-bottom:1px solid $primary-200;}
+select:focus {outline: none;border-bottom:1px solid $primary-200;}
+
+textarea {border:1px solid $border; padding:8px 15px;width:100%;min-height:110px;margin:0 0 5px 0;}
+textarea:focus {outline: none;border:1px solid $primary-200;}
+
+.help {
+	input {margin:0 0 8px;}
+	p {
+		i {float:left;margin-right:10px;font-size:16px;color:$text;}
+	}
+}
+.form-group {
+	&.form-error {
+		input {border-bottom:1px solid $error-200 !important;margin:0 0 8px;}
+		p {
+			i {float:left;margin-right:10px;font-size:16px; color:$error-200;}
+		}
+	}
+	&.form-sucess { 
+		input {border-bottom:1px solid $valid-200 !important;margin:0 0 8px;}
+		p {
+			i {float:left;margin-right:10px;font-size:16px; color:$valid-200;}
+		}
+	}
+	&.form-error-icon {
+		input {border-bottom:1px solid $error-200 !important;margin:0 0 8px;}
+	}
+	&.form-valid-icon {
+		input {border-bottom:1px solid $valid-200 !important;margin:0 0 8px;}
+	}
+}
+input.error {border-bottom: 1px solid $error-200 !important;}
+
+form {
+	p {
+		small {font-size:12px;font-weight: 400;display: block;}
+	}
+}
+.form-inline {
+	label  {padding:0 15px 15px;}
+	button {margin:0 0 5px 0;}
+	input {
+	    display: inline-block;
+	    width: auto; 
+	    margin-right:15px;
+	}
+	.form-check {margin: 0 15px;}
+}
+
+.input-icon {
+    left: 0;
+    position: relative;
+    i {
+	    font-size: 18px !important;
+	    left: 0;
+	    margin:8px 0 0 15px;
+	    position: absolute;
+	    text-align: center;
+	    z-index: 3;
+    }
+	input {
+    	padding-left: 45px;
+    }
+    &.icon-right {
+    	i {
+    		left: auto;
+		    right: 15px;
+		    float: right;
+    	}
+    	input {
+   		    padding-left: 15px;
+			padding-right: 45px;
+    	}
+    }
+}
+
+.form-horizontal {
+	label {padding:7px 0; margin:0;}
+    .control-label {
+        padding: 10px 15px;
+        margin-bottom: 0;
+        text-align: right;
+        margin:0 0 5px 0;
+    }
+}
+html input[disabled] {
+    background: rgba($default-200, .5);
+    cursor:not-allowed; 
+    padding:0 10px;
+    border-radius: 0;
+}
+input[type="file"] { 
+	border:0;
+	padding:8px;
+}
+
+.form-static {
+	min-height:35px;
+    padding: 8px 0;
+    color: $text;
+    margin:0 0 5px 0;
+}
+.input-group {
+	.btn {margin:0 0 5px 0;}
+    input {padding:8px 15px;}
+}
+
+input:focus::-webkit-input-placeholder,
+textarea:focus::-webkit-input-placeholder {
+    color: $prompt;
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    -ms-transition: all 0.2s;
+    -o-transition: all 0.2s;
+    transition: all 0.2s;
+}
+
+@media screen and (max-width: 767px) {
+    .form-horizontal .control-label {text-align: left;margin-bottom: 0;padding-bottom: 5px;}
+}
+
+
+.form-small {
+	.form-static {
+		min-height: auto;
+		padding: 2px 0;
+		margin:0;
+		font-size: 11px;
+	}
+	input {height: 25px;margin: 0;padding: 0 5px; font-size: 11px;border:1px solid $border !important;border-radius: 3px;}
+	select { height: 25px;margin: 0;padding: 0;font-size: 11px;border:1px solid $border !important;}
+	.control-label {padding: 2px 15px 5px;margin: 0 0 8px;font-size: 11px;}
+	input[type="radio"] + label {padding: 5px 25px 5px 20px;margin: 0 0 10px 0;}
+	input[type="radio"] + label:before {top: 8px; left: 0px;width: 12px;height: 12px;}
+	input, 
+	select {border:0;border-bottom: 1px solid $border;color:$title;}
+	label {border:0;color:$prompt;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;
+		&.no-border {border:0 !important;}
+	}
+	input:focus,
+	select:focus {border-bottom: 1px solid $primary-200 !important;}
+	textarea {min-height: 70px;font-size: 11px;}
+	.input-icon {
+		i {margin:6px 0 0 3px;font-size: 14px !important;}
+		input {padding-left:25px;}
+	}
+	&.form-cadre input, 
+	&.form-cadre select {border:1px solid $border;}
+}
+@media screen and (max-width: 767px) {
+    .form-small {
+		label {border:0;}
+		input,
+		select {
+			border:1px solid $border !important;
+			margin: 0 2% 5px;
+			width:96%;
+		}
+	}
+    .form-small input, .form-small select {
+        border: 1px solid $border !important;
+        margin: 0 0 5px;
+        width: 100%;
+    }
+    .form-small .control-label {margin: 0;}
+}
+
+/* material design form ui */
+
+.form-ui { 
+	position:relative; 
+	margin-bottom: 25px;
+	input {
+		background: none;
+		padding:0;
+		display:block;
+		border:none;
+		border-bottom:1px solid $border;
+		&:focus {outline:none;border-bottom:1px solid $primary-200;}
+		&:focus ~ label, 
+		&:valid ~ label {
+			top:-12px;
+			font-size:11px;
+			color:$primary-200;
+		}
+	}
+	label {
+		color:$title; 
+		font-size:13px;
+		font-weight:normal;
+		position:absolute;
+		pointer-events:none;
+		left:0;
+		top:10px;
+		transition:0.2s ease all; 
+		-moz-transition:0.2s ease all; 
+		-webkit-transition:0.2s ease all;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		width: 100%; 
+	}
+	&.form-error {
+		input {margin: 0 0 8px 0;
+			&:focus {outline:none;border-bottom:1px solid $error-200;}
+			&:focus ~ label, 
+			&:valid ~ label {
+				top:-12px;
+				font-size:11px;
+				color:$error-200 !important;
+			}
+		}
+		p {
+			i {font-size: 16px; color:$error-200;float:left; margin:1px 10px 0 0;}
+		}
+	}
+	&.form-valid {
+		input {margin: 0 0 8px 0;
+			&:focus {outline:none;border-bottom:1px solid $valid-200;}
+			&:focus ~ label, 
+			&:valid ~ label {
+				top:-12px;
+				font-size:11px;
+				color:$valid-200;
+			}
+		}
+		p {
+			i {font-size: 16px; color:$valid-200;float:left; margin:1px 10px 0 0;}
+		}
+	}
+	&.form-info {
+		input {margin: 0 0 8px 0;}
+		p {
+			i {font-size: 16px; color:$primary-200;float:left; margin:1px 10px 0 0;}
+		}
+	}
+}
+
+/* multiselect */
+.btn-light:not([disabled]):not(.disabled).active, .btn-light:not([disabled]):not(.disabled):active, .show>.btn-light.dropdown-toggle {
+    color:$text;
+    background-color: $default-200;
+	border-color:1px solid $border !important;
+	&:focus {
+		border-color:none !important;
+		outline: 0;
+		box-shadow: none !important;
+	}
+}
+.bootstrap-select {
+	&:not([class*=col-]):not([class*=form-control]):not(.input-group-btn) {
+		width:100% !important;
+	}
+	.btn.dropdown-toggle.bs-placeholder.btn-light {
+		border: 1px solid $border;
+		background: $white;
+		border-radius: 3px; 
+		width: 100%;
+		margin:0 0 5px 0; 
+		&::after {  
+			content: "\f127"; 
+			font-family: icons !important;
+			vertical-align: -3px;
+			font-size: 13px;
+			border: none;
+			position: absolute;
+			right: 19px;
+			top: 9px;
+		}
+	}
+	.dropdown-toggle::after {
+		content: "\f127"; 
+		font-family: icons !important;
+		vertical-align: -3px;
+		font-size: 13px;
+		border: none;
+		position: absolute;
+		right: 19px;
+		top: 9px;
+	}
+	.filter-option {padding:8px 0; text-align: left;
+		&::after {
+			content: "";
+		}
+	}
+	.dropdown-menu {position: static;margin-top: 0; 
+		.dropdown-header {padding: 8px 20px;
+			.text {color:$title !important;font-weight: bold;}
+		}
+		li .dropdown-item {
+			padding: 0 20px 0 17px !important;
+			color: $text !important;
+			line-height: 30px !important;
+			height: 30px;
+			font-size: 11px;
+		}
+		li.selected .dropdown-item {
+			border-left: 3px solid $primary-200;
+			background: $default-200;
+		}
+	}
+	.bs-searchbox {
+		input {
+			border:0;
+			border-bottom:2px solid $border;
+			margin-bottom:10px;
+			border-radius: 0;
+			&:focus {
+				color: $text; 
+				background-color: #fff;
+				border-color:none !important;
+				outline: 0;
+				box-shadow: none !important;
+			}
+		}
+	}
+}
+
+
+.form-title{
+    font-size: 23px !important;
+    font-size: 1.25em !important;
+    font-weight: 300 !important;
+    padding: 5px 0 !important;
+    color: $title !important;
+    width: 100% !important;
+    clear: both !important;
+    margin: 0 !important;
+    text-transform: uppercase;
+}
+
+input {
+    height: 40px !important;
+    margin: 13px 0px 0px 0px ;
+    padding: 0 5px !important;
+    font-size: 11px !important;
+    border-radius: 0.25rem;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+p sof-input:focus{
+    border-bottom: 1px solid $primary-300  !important;
+}
+
+ sof-input.ng-dirty.ng-invalid input:focus{
+    border-bottom: 1px solid $error-300  !important;
+}
+
+ sof-input.ng-dirty.ng-valid input:focus{
+    border-bottom: 1px solid $valid-300  !important
+}
+
+
+ 

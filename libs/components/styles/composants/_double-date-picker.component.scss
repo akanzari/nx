@@ -1,0 +1,36 @@
+
+.form-control {
+margin-left: -7px !important ;
+width: 102% !important ;
+color: #495057 !important;
+}
+.form-control:focus {
+    color: $secondary-200;
+    background-color: $white;
+    border-color: $primary-300  !important;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem transparent !important;
+}
+
+.md-drppicker td.active, .md-drppicker td.active:hover {
+    background-color: $primary-100  !important;
+}
+.md-drppicker .btn {
+
+    background-color: $primary-100 !important;
+
+}
+.md-drppicker .drops-down-auto .ltr .shown .double {
+    display: inline-flex !important;
+}
+.md-drppicker.ltr {
+    direction: ltr !important;
+    text-align: left !important;
+    display: inline-flex !important;}
+    
+   button.btn.btn-default.clear.ng-star-inserted{
+    color: $white;
+}
+.md-drppicker .calendar td, .md-drppicker .calendar th {
+    padding-top: 4px !important;
+}

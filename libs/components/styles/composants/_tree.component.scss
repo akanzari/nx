@@ -1,0 +1,24 @@
+.toggle-children {
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAASCAYAAABSO15qAAAAGXRFW…XIBRuZGKgAKPIC3QLxArnRSHZCIjspk52ZKMrOFBUoAAEGAKnq593MQAZtAAAAAElFTkSuQmCC);
+  height: 8px;
+  width: 9px;
+  background-size: contain;
+  display: inline-block;
+  position: relative;
+  top: 10px !important;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.ui-tree .ui-tree-toggler {
+  cursor: pointer;
+ color:$primary-200;
+  vertical-align: middle;
+  
+  
+}
+.ui-tree .ui-treenode-icon {
+  display: inline-block;
+  vertical-align: middle;
+  color:$primary-200;
+}
+

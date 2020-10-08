@@ -1,0 +1,16 @@
+{
+  "name": "ng-softilys",
+  "version": "0.0.4",
+  "module": "ng-softilys.js",
+  "typings": "ng-softilys.d.ts",
+  "keywords": [
+    "angular", "primeng"
+  ],
+  "peerDependencies": {
+    "@angular/common": "^10.1.5",
+    "@angular/core": "^10.1.5"
+  },
+  "dependencies": {
+    "tslib": "^2.0.0"
+  }
+}

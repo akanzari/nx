@@ -1,0 +1,120 @@
+<div class="row">
+  <div class="col-12">
+
+    <div ngfSelect multiple="1" [(files)]="files">
+      <sof-button bgColor="primary">
+        Tap to Select </sof-button>
+
+    </div>
+    <ngfFormData [files]="files" postName="file" [(FormData)]="sendableFormData"></ngfFormData>
+
+    <ngfUploadStatus [(percent)]="progress" [httpEvent]="httpEvent"></ngfUploadStatus>
+
+
+    <div class="inline-block">
+
+
+
+    </div>
+
+    <div>
+
+      <div class="border padding-15 border-radius bg-white mb-2">
+
+        <div ngfDrop [(validDrag)]="baseDropValid" (fileOver)="hasBaseDropZoneOver=$event" [(files)]="files"
+          [accept]="accept" [maxSize]="maxSize" [(dragFiles)]="dragFiles" [(lastInvalids)]="lastInvalids"
+          class="well my-drop-zone" [class.invalid-drag]="baseDropValid===false" [class.valid-drag]="baseDropValid"
+          (filesChange)="lastFileAt=getDate()">
+          <p class="font">{{getplaceholder()}}</p>
+        </div>
+
+
+      </div>
+
+
+
+
+    </div>
+    <div class="inline-block" *ngIf="getvisibility()">
+      <strong>maxSize in bytes </strong>
+      <div>
+        <input type="number" [(ngModel)]="maxSize" (input)="send($event.target.value)" placeholder="1024kb == 1mb" />
+      </div>
+    </div>
+
+    <!--   <div *ngIf="dragFiles">
+        <h3 style="margin:0">Drag Files</h3>
+        <p *ngIf="!dragFiles.length" >
+          This browser does NOT release metadata for files being dragged. All files will be considered valid drags until dropped.
+        </p>
+        <pre>{{ dragFiles | json }}</pre>
+      </div> -->
+
+    <div class="bg-warning" *ngIf="lastInvalids?.length">
+      <h3 id="warning">{{geterorText()}}</h3>
+
+
+    </div>
+
+    <div id="div1">
+
+      <table class="table" *ngIf="files?.length !== 0">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Size</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of files;let i=index">
+            <td>
+
+              <strong>{{ item.name }}</strong>
+            </td>
+            <td nowrap>
+              {{ item.type }}
+            </td>
+            <td nowrap>
+              {{ item.size/1024/1024 | number:'.2' }} MB
+            </td>
+            <td nowrap>
+
+              <i class="icons icon-file_delete pointer" (click)="deleteFile(i)"></i>
+
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div *ngIf="autoUpload()">
+        <div>
+          Queue progress:
+          <div class="progress">
+            <div class="progress-bar" role="progressbar" [ngStyle]="{ 'width': progress + '%' }"></div>
+          </div>
+        </div>
+
+        <ng-container *ngIf="lastFileAt">
+          <p>
+            <strong>Last file(s) selected At:</strong> {{ lastFileAt | date : 'longTime' }}
+          </p>
+        </ng-container>
+
+        <i *ngIf="progress==100" class="glyphicon glyphicon-ok"></i>
+
+        <sof-button bgColor="primary" (click)="uploadFiles(files)">
+          Upload all
+        </sof-button>
+        <sof-button bgColor="secondary" (click)="remove()">
+          Remove all
+        </sof-button>
+        <sof-button bgColor="default" (click)="cancel()">
+          Cancel all
+        </sof-button>
+
+      </div>
+    </div>
+  </div>
+</div>

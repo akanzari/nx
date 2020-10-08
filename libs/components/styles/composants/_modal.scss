@@ -1,0 +1,175 @@
+.modal {
+	position: fixed;
+	top: 0;
+	right: 15px;
+	bottom: 0;
+	left: 15px;
+	z-index: 1050;
+	display: none;
+	overflow: hidden;
+	outline: 0;
+	&.modal-full {
+		background: $white;
+		.modal-content {
+			box-shadow:none;
+		}  
+		button.close {
+		    position: fixed;
+		    top: 45px;
+		    right: 45px; 
+		    z-index: 1;
+		    filter: alpha(opacity=50);
+		    opacity: .5;
+		    -webkit-transform: translate(0,0);
+		    -ms-transform: translate(0,0);
+		    -o-transform: translate(0,0);
+		    transform: translate(0,0);
+		}
+	}
+	.modal-center {
+	    display: -ms-flexbox;
+	    display: -webkit-flex;
+	    display: -webkit-box;
+	    display: flex;
+	    height: 100%;
+	    margin: 0 auto;
+	    -webkit-justify-content: center;
+	    -ms-flex-pack: center;
+	    -webkit-box-pack: center;
+	    justify-content: center;
+	    -webkit-flex-flow: column nowrap;
+	    -ms-flex-flow: column nowrap;
+	    flex-flow: column nowrap;
+	    -webkit-align-content: stretch;
+	    -ms-flex-line-pack: center;
+	    align-content: center;
+	}
+	.modal-bottom {
+	    display: -ms-flexbox;
+	    display: -webkit-flex;
+	    display: -webkit-box;
+	    display: flex;
+	    height: 100%;
+	    margin: 0 auto;
+	    -webkit-justify-content: flex-end;
+	    -ms-flex-pack: end;
+	    -webkit-box-pack: end;
+	    justify-content: flex-end;
+	    -webkit-flex-flow: column nowrap;
+	    -ms-flex-flow: column nowrap;
+	    flex-flow: column nowrap;
+	    -webkit-align-content: stretch;
+	    -ms-flex-line-pack: center;
+	    align-content: center;
+	    bottom:15px;
+	}
+	.modal-content {
+	    border: none;
+	    border-radius: 3px;
+	    -webkit-box-shadow: 0 2px 12px rgba($secondary-200,.2);
+	    box-shadow: 0 2px 12px rgba($secondary-200,.2);
+
+	    .modal-header {
+		    padding: 15px;
+		    border-bottom: none;
+		    .modal-title {
+			    margin: 0;
+			    padding:0;
+			    min-height: auto;
+			    line-height: 1.57142857;
+			    clear: none;
+			    width: auto;
+			}
+		}
+		.modal-footer {
+			border:none;
+
+			.btn {margin:0 5px 0 0;}
+		}
+	}
+} 
+
+.modal-large {
+    width: 900px;
+}
+.modal-small {
+    width: 300px;
+}
+.modal-medium {
+    width: 600px;
+}
+@media (max-width: 991px) {
+	.modal-large {
+	    width: 100%;
+	}
+}
+@media (max-width: 768px) {
+	.modal-small,
+	.modal-medium,
+	.modal-large {
+	    width: 100%;
+	}
+}
+
+.modal.fade.in .modal-dialog.modal-sidebar {
+    -webkit-transform: translate(0,0);
+    -ms-transform: translate(0,0);
+    -o-transform: translate(0,0);
+    transform: translate(0,0);
+}
+
+.modal.fade .modal-dialog.modal-sidebar {
+    -webkit-transform: translate(25%,0);
+    -ms-transform: translate(25%,0);
+    -o-transform: translate(25%,0);
+    transform: translate(25%,0);
+}
+
+.modal.fade.in .modal-dialog.modal-bottom {
+    -webkit-transform: translate(0,0);
+    -ms-transform: translate(0,0);
+    -o-transform: translate(0,0);
+    transform: translate(0,0);
+}
+
+.modal.fade .modal-dialog.modal-bottom {
+    -webkit-transform: translate(0, 25%);
+    -ms-transform: translate(0, 25%);
+    -o-transform: translate(0, 25%);
+    transform: translate(0, 25%);
+}
+
+
+.modal .modal-content {padding: 0 15px;}
+.modal.right .modal-large,
+.modal.left .modal-large {
+    position: fixed;
+    margin: auto;
+    max-width:900px;
+    height: 100%;
+    -webkit-transform: translate3d(0%, 0, 0);
+        -ms-transform: translate3d(0%, 0, 0);
+            -o-transform: translate3d(0%, 0, 0);
+            transform: translate3d(0%, 0, 0);
+}
+.modal.right .modal-content,
+.modal.left .modal-content {height: 100%;overflow-y: auto;border-radius: 0;}
+
+.modal.right .modal-body,
+.modal.left .modal-body {padding: 30px 30px 80px;}
+.modal.right.fade .modal-large {
+    right: -900px;
+    -webkit-transition: opacity 0.3s linear, right 0.3s ease-out;
+        -moz-transition: opacity 0.3s linear, right 0.3s ease-out;
+            -o-transition: opacity 0.3s linear, right 0.3s ease-out;
+            transition: opacity 0.3s linear, right 0.3s ease-out;
+}
+.modal.left.fade .modal-large {
+    left: -900px;
+    -webkit-transition: opacity 0.3s linear, right 0.3s ease-out;
+        -moz-transition: opacity 0.3s linear, right 0.3s ease-out;
+            -o-transition: opacity 0.3s linear, right 0.3s ease-out;
+            transition: opacity 0.3s linear, right 0.3s ease-out;
+}
+.modal.right.fade.show .modal-dialog {right: 0;}
+.modal.left.fade.show .modal-dialog {left: 0;}

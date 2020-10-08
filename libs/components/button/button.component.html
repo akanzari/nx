@@ -1,0 +1,10 @@
+<button type="button" [class]="btnclass" (click)="onClick.emit($event)" (focus)="onFocus.emit($event)"
+  (blur)="onBlur.emit($event)" [disabled]="disabled? disabled : false">
+  <!--data="(disabled)? 'Disabled' : ''" -->
+  <span>
+    <ng-content></ng-content>
+  </span>
+  <div *ngIf="icon && !flat" class="icon">
+    <i [class]="icons"></i>
+  </div>
+</button>

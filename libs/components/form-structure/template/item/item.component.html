@@ -1,0 +1,6 @@
+<ng-content>
+</ng-content>
+<p *ngIf="!valid">
+    <i class="icons icon-cancel color-error"></i>
+    <small class="color-error">{{errorMsg ? errorMsg : "error !"}}</small>
+</p>
