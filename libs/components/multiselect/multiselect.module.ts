@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { MultiSelectComponent } from './multiselect.component';
-import { SofCheckBoxModule } from '@checkbox-library';
+import { SofCheckBoxModule } from 'ng-softilys/checkbox';
 
 @NgModule({
     imports: [

@@ -1,30 +1,27 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 import { TableModule } from 'primeng/table';
+import { CalendarModule } from 'primeng/calendar';
+import {DialogModule} from 'primeng/dialog';
+
 import { TableComponent } from './table.component';
 import { TabDragModule } from './tab-drag.directive';
 import { SelectableRow } from './navigation.directive';
-import { SofCheckBoxModule } from '../check-box/check-box.module';
-import { CalendarModule } from 'primeng/primeng';
-import { SofStatusBarModule } from '../status-bar/status-bar.module';
-import { SofCalendarModule } from '../sof-calendar/sof-calendar.module';
-import { SofTooltipModule } from '../sof-tooltip/sof-tooltip.module';
-import { SofButtonModule } from '../button/button.module';
-import { SofCardsModule } from '../card/card.module';
-import {DialogModule} from 'primeng/dialog';
-import { SofModalModule } from '../modal/modal.module';
-import {SofMultiSelectModule} from '../multi-select/multi-select.module'
-import { NgSelectModule } from '@ng-select/ng-select';
-import { SofMonoSelectModule } from '../monoselect/monoselect.module';
-import {TooltipModule} from 'primeng/tooltip';
-import { RouterModule } from '@angular/router';
-import { SofRadioButtonModule} from '../radio-button/radio-button.module';
 
-
-
+import { SofCheckBoxModule } from 'ng-softilys/checkbox';
+import { SofStatusBarModule } from 'ng-softilys/statusbar';
+import { SofCalendarModule } from 'ng-softilys/calendar';
+import { SofTooltipModule } from 'ng-softilys/tooltip';
+import { SofButtonModule } from 'ng-softilys/button';
+import { SofCardsModule } from 'ng-softilys/card';
+import { SofModalModule } from 'ng-softilys/modal';
+import {SofMultiSelectModule} from 'ng-softilys/multiselect'
+import { SofMonoSelectModule } from 'ng-softilys/monoselect';
+import { SofRadioButtonModule} from 'ng-softilys/radio-button';
 
 @NgModule({
     imports: [

@@ -1,5 +1,6 @@
 import { Injectable} from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { FullscreenService } from './fullscreen.service';
 
 @Injectable()
 export class LayoutService {
@@ -9,7 +10,7 @@ export class LayoutService {
   public isFullScreen: boolean = false;
   sidebarSubject: BehaviorSubject<boolean>;
 
-  constructor() {
+  constructor(private fullscreenService: FullscreenService) {
     this.sidebarSubject = new BehaviorSubject<boolean>(true);
 
   }
@@ -29,30 +30,7 @@ export class LayoutService {
   }
 
   public toggleFullScreen(): void {
-    const elem: any = document.documentElement;
-    const isFullScreen = document.fullscreenElement || document.webkitFullscreenElement || document['msFullscreenElement']
-    if (!isFullScreen) {
-      if (elem.requestFullscreen) {
-        elem.requestFullscreen();
-      } else if (elem.webkitRequestFullScreen) {
-        elem.webkitRequestFullScreen();
-      } else if (elem.mozRequestFullScreen) {
-        elem.mozRequestFullScreen();
-      }else {
-        elem.msRequestFullscreen();
-      }
-      this.isFullScreen = true;
-
-    } else {
-      if (document.exitFullscreen) {
-        document.exitFullscreen();
-      } else if (document.webkitExitFullscreen) {
-        document.webkitExitFullscreen();
-      }else{
-        document['msExitFullscreen']();
-      }
-      this.isFullScreen = false;
-    }
+    this.fullscreenService.toggle();
   }
 
   public showSidedar(show: boolean){

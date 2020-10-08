@@ -1,6 +1,14 @@
 {
     "$schema": "../../../node_modules/ng-packagr/ng-package.schema.json",
     "lib": {
-      "entryFile": "public_api.ts"
+      "entryFile": "public_api.ts",
+      "umdModuleIds": {
+        "@ng-select/ng-select": "ng-select",
+        "primeng/table": "primeng-table",
+        "primeng/calendar": "primeng-calendar",
+        "primeng/dialog": "primeng-dialog",
+        "primeng/utils": "primeng-utils",
+        "primeng/dom": "primeng-dom"
+      }
     }
 }

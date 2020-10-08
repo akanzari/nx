@@ -1,17 +1,20 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
+    "declaration": true,
+    "target": "es2015",
+    "baseUrl": ".",
+    "stripInternal": true,
+    "emitDecoratorMetadata": false,
+    "experimentalDecorators": true,
+    "moduleResolution": "node",
     "outDir": "../../dist/out-tsc",
     "rootDir": ".",
-    "baseUrl": ".",
-    "target": "es2015",
-    "declaration": true,
-    "declarationMap": true,
-    "inlineSources": true,
-    "types": [],
     "lib": ["dom", "es2018"],
+    "skipLibCheck": true,
+    "types": [],
     "paths": {
-      "primeng/*": ["libs/components/*/index"]
+      "ng-softilys/*": ["*/public_api.ts"]
     }
   },
   "angularCompilerOptions": {

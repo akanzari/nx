@@ -1,5 +1,5 @@
 import { AfterViewInit, Directive, OnDestroy, Input, Output, EventEmitter, ElementRef, NgZone, HostListener } from '@angular/core';
-import { SofDomHandler } from '@dom-library';
+import { SofDomHandler } from 'ng-softilys/dom';
 
 @Directive({
     selector: '[sof-drop]',

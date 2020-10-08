@@ -3,7 +3,7 @@ import { CommonModule } from "@angular/common";
 import { FormsModule } from "@angular/forms";
 
 import { SidebarComponent } from "./sidebar.component";
-import { LayoutService } from "../service/layout.service";
+import { LayoutService } from "ng-softilys/api";
 import { RouterModule } from "@angular/router";
 
 @NgModule({

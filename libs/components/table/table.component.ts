@@ -3,18 +3,11 @@ import { AlTableButtonEvent } from './model/AlTableButtonEvent';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { AlTableConfig } from './model/config';
 import { Table } from 'primeng/table';
+import { FilterUtils } from 'primeng/utils';
 import { DatePipe } from '@angular/common';
 import { trigger, style, state, transition, animate } from '@angular/animations';
 import { ALTableButton } from './model/ALTableButton';
-import { TranslateService } from '@ngx-translate/core';
-import { d, detectChanges } from '@angular/core/src/render3';
-import { disableDebugTools } from '@angular/platform-browser';
 import * as _ from "lodash";
-import { NOT_FOUND_CHECK_ONLY_ELEMENT_INJECTOR } from '@angular/core/src/view/provider';
-
-
-
-
 
 export enum FilterTypes {
   INPUT = 'INPUT', SELECT = 'SELECT', DATE = 'DATE'
@@ -274,7 +267,7 @@ export class TableComponent implements OnInit {
     this.datepipe.transform(this.x, "31/12/9999");
     // this.setFocusSubElement("rowIndex0")
 
-    this.dt1.filterConstraints['myFilter'] = (value, filter): boolean => {
+    FilterUtils['myFilter'] = (value, filter): boolean => {
       let x1 = this.getFormatedValue('dd/MM/yyyy', value);
       let x2 = this.getFormatedValue('dd/MM/yyyy', filter);
       return x1 == x2;
@@ -469,7 +462,6 @@ export class TableComponent implements OnInit {
   }
 
   onRowSelect(event) {
-    console.log(event)
     this.selectedRowsChange.emit(this.selectedRows);
 
   }
@@ -678,8 +670,6 @@ export class TableComponent implements OnInit {
         }
         columnEdit2[0].pattern = [Validators.required];
 
-        console.log(columnEdit2[0])
-
       }
 
       else {
@@ -852,7 +842,7 @@ export class TableComponent implements OnInit {
       this.data = this.datasource;
       this.config.lazy = false;
     }
-    this.dt1.filterConstraints['myFilter2'] = (value, filter): boolean => {
+    FilterUtils['myFilter2'] = (value, filter): boolean => {
 
       let x1 = this.getPipedData(y, value).toUpperCase();
 

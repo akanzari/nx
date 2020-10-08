@@ -5,7 +5,7 @@ import { HostListener, OnInit, Directive, Input } from '@angular/core';
 import { OnDestroy } from '@angular/core';
 
 import { Subscription } from 'rxjs';
-import { DomHandler } from 'primeng/primeng';
+import { DomHandler } from 'primeng/dom';
 import { Table, TableService } from 'primeng/table';
 
 
@@ -98,7 +98,7 @@ export class SelectableRow implements OnInit, OnDestroy {
   }
 
   findNextSelectableRow(row: HTMLTableRowElement): HTMLTableRowElement {
-    let nextRow = <HTMLTableRowElement>row.nextElementSibling;
+    /*let nextRow = <HTMLTableRowElement>row.nextElementSibling;
     if (nextRow) {
       if (this.domHandler.hasClass(nextRow, 'ui-selectable-row'))
         return nextRow;
@@ -107,11 +107,12 @@ export class SelectableRow implements OnInit, OnDestroy {
     }
     else {
       return null;
-    }
+    }*/
+      return null;
   }
 
   findPrevSelectableRow(row: HTMLTableRowElement): HTMLTableRowElement {
-    let prevRow = <HTMLTableRowElement>row.previousElementSibling;
+    /*let prevRow = <HTMLTableRowElement>row.previousElementSibling;
     if (prevRow) {
       if (this.domHandler.hasClass(prevRow, 'ui-selectable-row'))
         return prevRow;
@@ -120,7 +121,8 @@ export class SelectableRow implements OnInit, OnDestroy {
     }
     else {
       return null;
-    }
+    }*/
+      return null;
   }
 
   isEnabled() {

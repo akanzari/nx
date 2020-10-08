@@ -1,5 +1,5 @@
 import { Directive, OnDestroy, AfterViewInit, ElementRef, HostListener, Input, Output, EventEmitter, NgZone } from '@angular/core';
-
+import { SofDomHandler } from 'ng-softilys/dom';
 
 
 @Directive({

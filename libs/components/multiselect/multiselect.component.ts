@@ -10,8 +10,8 @@ export const CUSTOM_MULTI_SELECT_CONTROL_VALUE_ACCESSOR: any = {
 };
 @Component({
   selector: 'sof-multi-select',
-  templateUrl: './multi-select.component.html',
-  styleUrls: ['./multi-select.component.scss'],
+  templateUrl: './multiselect.component.html',
+  styleUrls: ['./multiselect.component.scss'],
   providers: [CUSTOM_MULTI_SELECT_CONTROL_VALUE_ACCESSOR],
 })
 export class MultiSelectComponent implements OnInit, ControlValueAccessor, OnChanges {
@@ -21,7 +21,6 @@ export class MultiSelectComponent implements OnInit, ControlValueAccessor, OnCha
       this.value = []
 
       if (changes["checkboxValue"]) {
-        console.log("checkboxValue" + this.checkboxValue)
         this.checkboxValue = false;
       };
 

@@ -5,7 +5,7 @@ import { NavigationStart, Router, Event } from '@angular/router';
 import { Subscription } from 'rxjs';
 import * as _ from "lodash";
 // import { subMenuItems } from './menu-definition';
-import { LayoutService } from '../service/layout.service';
+import { LayoutService } from 'ng-softilys/api';
 import { SubMenu } from './model/submodel.model';
 
 @Component({

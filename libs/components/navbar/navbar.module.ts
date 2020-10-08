@@ -3,10 +3,10 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 import { NavbarComponent } from './navbar.component'
-import { SofFormStructureModule } from '../form-structure/form-structure.module';
-import { SofCheckBoxModule } from '../checkbox/checkbox.module';
-import { SofInputModule } from '../input/input.module';
-import { SofButtonModule } from '../button/button.module';
+import { SofFormStructureModule } from 'ng-softilys/form-structure';
+import { SofCheckBoxModule } from 'ng-softilys/checkbox';
+import { SofInputModule } from 'ng-softilys/input';
+import { SofButtonModule } from 'ng-softilys/button';
 
 @NgModule({
     imports: [
