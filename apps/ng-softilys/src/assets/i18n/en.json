@@ -1,0 +1,419 @@
+{
+  "home": {
+    "presentation": "Framework-Front is a collection of rich UI components for Angular and recurring solutions",
+    "design-problems":"that solve common design problems.",
+   "version":"This version currently 3.12.8",
+    "new": "New in 3.12.8",
+    "start": "Getting Started",
+    "components": {
+      "title": "20+ COMPONENTS",
+      "description": "20+ easy to use components for all your UI requirements. Styled components with useful functionality."},
+      "opensource":{
+        "title":"OPENSOURCE",
+        "description": "A collection of  a rich set of open source native Angular UI components."
+      },
+      "CUSTOMIZABLE":{
+      "title": "CUSTOMIZABLE",
+      "description": "Built by the FF team to integrate seamlessly with Angular. With specific styling and high fidelity to the UX Pattern Libraries."
+    }
+  },
+  "get_started": {
+    "presentation": "Framework Front comprises a range of components which implement common interaction patterns according to the Material Design specification.",
+    "version":"This version currently 3.12.8 supports Angular 6.",
+    "download": "Installation",
+    "disponible": "Run the following command to download framework-front-softilys to your project:",
+    "create": "Create a",
+    "sous": " file to add the instruction below  under",
+    "details": " :",
+    "replace": "Replace the following email address",
+    "firstName": "firstname",
+    "LastName":"name",
+    "mail": "by adding your company's email address and login with your password: ",
+    "primeng": "Run the following command to install PrimeNG, Font Awesome and Bootstrap:",
+    "ng-select": "Install the compatible",
+    "version-angular":"based on the version of angular already installed :",
+    "version5": "Version 5",
+    "version6": "Version 6",
+    "StylesConfig": "Styles Configuration",
+    "modif":"Configure your",
+    "lancer":"To start your project :",
+    "config": "Configure required styles at the styles",
+    "section":"section at the",
+    "librairie": "file, uses the Pattern libraries templates:",
+    "PS": "PS : To apply all of the Pattern Libraries core styles to your application, add the files under the folder style.",
+    "core_files": "Pattern Libraries core files (css, js, fonts, images…) with Bootstrap 4.1.3 ",
+    "télécharger": "Download",
+    "browser_compatibility":"Browser Compatibility",
+    "list_browser":"Following is the list of the browsers:",
+    "navigateur": "Navigator",
+    "version_browser": "Version",
+    "compatibility": "Compatibility"
+  },
+  "general":{
+    "general_params": "PARAMETER SETTING",
+    "advancedImplementation": "ADVANCED IMPLEMENTATIONS",
+    "functionalSetting":"FONCTIONAL SETTING",
+    "BASIC_USAGE": "BASIC USAGE",
+    "params": "FUNCTIONALITY AND FEATURES",
+    "genericImplementation": "GENERIC IMPLEMENTATION"
+
+  },
+  "table": {
+    "tableCompo": "Components / Table",
+    "overview": "Table Overview",
+    "table_overview": "The table component displays the data as a table and includes more than 15 built-in features, including paging, sorting, filtering, and data binding.",
+    "getting-strated": "Customize your own Table features and generate the Codes:",
+    "table_result": "result Table (depending on the setting)",
+    "exple_desc": "The following example demonstrates the Table in action.",
+    "DOCUMENTATION": "DOCUMENTATION",
+    "Properties":"Properties",
+    "lock": "Lock the columns (maximum number of locked columns is 4, if the user lock more than 4 the last locked column will be replaced)",
+    "column_filter": "Filter by column",
+    "nb_ligne_per_page":"Number of rows per page",
+    "change_ordre": "Change the order of the columns",
+    "add_style": "Row Styled Based On Conditions",
+    "column_ordre": "Sort",
+    "multi_attributs": "Combined columns",
+    "display_nombre": "Show total number of rows",
+    "footer": "Customized footer",
+    "add_style_column": "Cell Styled Based On Conditions",
+    "buttons": "Buttons(Actions)",
+    "transformation": "Pipe(columns/CombinedColumns)",
+    "selectable": "Selectable",
+    "filtre": "Global filter",
+    "subfields": "Subfields",
+    "input": "Edit column",
+    "pagination": "Paging",
+    "zebrure": "stripe",
+    "lazy":"Lazy loading",
+    "expandable": "Expandable",
+    "rowEdit": "Editing a row of the table",
+    "resize": "Resize",
+    "reorder":"Reorder rows",
+    "editRow":"Edit row",
+    "ajout": "Add row",
+    "dataOperation": "DATA OPERATIONS",
+    "multiCol":"Multi-columns",
+    "iconEdit":"Edit row",
+    "iconSauvg":"Save",
+    "iconCancel":"Cancel"
+  },
+  "interval": {
+    "interval": "interval",
+    "du": "from",
+    "au": "to",
+    "date_form": "dd/mm/yyyy",
+    "utilsation": "Use in a form with validation",
+    "nom_formation": "Name of the formation",
+    "duree": "duration",
+    "soumettre": "submit",
+    "intervalCompo": "Components / Interval",
+    "overview": "Interval Overview",
+    "interval_overview": "The Interval is an input component to select start and end dates",
+    "getting-strated": "Customize your own Interval features and generate the Codes:"
+
+  },
+  "upload": {
+    "upload": "upload file",
+    "exple_desc":"The following example demonstrates the upload file component in action.",
+    "uploadCompo": "Components / Upload file",
+    "overview": "Upload file Overview",
+    "upload_overview": "Upload file is a component to drag files into drop zones",
+    "getting-strated": "Customize your own upload file component features and generate the Codes:"
+
+  },
+  "tree": {
+    "tree": "Tree",
+    "exple_desc":"The following example demonstrates the Tree component in action.",
+    "treeCompo": "Components / Tree",
+    "overview": "Tree Overview",
+    "tree_overview": "Tree is a component to order data according to a defined order",
+    "getting-strated": "Customize your own tree component features and generate the Codes:"
+
+  },
+  "tooltip": {
+    "tooltip": "Tooltip",
+    "exple_desc":"The following example demonstrates the Tooltip in action.",
+    "tooltipCompo": "Components / Tree",
+    "overview": "Tooltip Overview",
+    "tooltip_overview": "Tooltip provides a text label that is displayed when the user hovers over an element",
+    "getting-strated": "Customize your own tooltip component features and generate the Codes:"
+
+  },
+  "check_radio": {
+    "breadcrumbCheck":"Components / CheckBox & Radio button",
+    "overview":"Overview",
+    "check-radio_overView":"The component Checkbox is an extension to standard checkbox element with skinning capabilities. It includes many built-in features",
+    "radio-overView":"The component RadioButton is an extension to standard radio button element. Il comprend de nombreuses fonctionnalités intégrées",
+    "getting-strated": "Customize your own CheckBox and Radio button features and generate the Codes:",
+    "setting_check": "Check Box Setting",
+    "expleCheck_desc":"The following example demonstrates the Radio button in action.",
+    "expleRadio_desc":"The following example demonstrates the CheckBox in action.",
+    "exemple": "Check box use example Boolean",
+    "radioExemple":"Radio button example",
+    "valeur": "The value inserted into the ngModel variable: false",
+    "setting_radio": "Setting of the radio button",
+    "true": "true",
+    "fields": "fields to show",
+    "radio_value": "value of the radio",
+    "selected": "selected radio",
+    "result":"Result according to the setting",
+    "imp_detail_booleanCheck":"Implementation details for the second example"
+  },
+  "bouton": {
+    "buttonCompo": "Components / Button",
+    "overview": "Button Overview",
+    "getting-strated": "Customize your own Button features and generate the Codes:",
+    "setting": "Button settings",
+    "style_bordure": "Change the border style",
+    "background": "Change the color of the background",
+    "button_color": "flat button color",
+    "icon": "button icon",
+    "block": "Block button ",
+    "width": "change the width of the button",
+    "size": "change the size of the button",
+    "result": "result of the button",
+    "disabled": "Disabled button",
+    "exple_desc": "The following example demonstrates the button in action.",
+    "button_overview": "The button component provide a clickable UI functionality and includes more than 5 built-in features, including change background, the border style, the width of the button."
+  },
+  "sidebar": {
+    "type": "Type",
+    "icon": "Icon",
+    "name": "Name",
+    "sidebarCompo": "Components / Sidebar",
+    "overview": "Sidebar Overview",
+    "getting-strated": "Customize your own Sidebar features and generate the Codes:",
+    "sidebar_overview": "Sidebar display a menu fixed on the left of the page.",
+    "exple_desc": "The following example demonstrates the Sidebar in action.",
+    "QUICK_ACCESS": "QUICK ACCESS",
+    "color": "Color"
+  },
+  "input": {
+    "inputCompo":"Components / Input",
+    "input_overview": "The Input component is a field which allowed for an input of data, based on a specific and predefined Type. It includes more than 5 built-in features.",
+    "overview": "Input Overview",
+    "getting-strated": "Customize your own Input features and generate the Codes:",
+    "settings": "Input settings",
+    "general-setting": "General settings",
+    "type": "Type",
+    "icon": "Icon",
+    "name": "Name",
+    "exple_desc": "The following example demonstrates the Input in action.",
+    "nniErrorMsg":"Please enter a valid NNI with exactly 13 digits",
+    "ribErrorMsg":"Please enter a valid RIB with exactly 23 digits",
+    "emailErrorMsg":"Please enter a valid EMAIL as \"firstname.lastname@be-softilys.tn \"",
+    "numberErrorMsg":"The type number must contain at most a dash (-) at the beginning, 0 or 1 point(.) in the middle"
+
+  },
+  "navbar": {
+    "navbarCompo":"Components / Navbar",
+    "navbar_overview": "The Navbar component is a responsive navigation menu.",
+    "overview": "Navbar Overview",
+    "getting-strated": "Customize your own Navbar features and generate the Codes:",
+    "settings": "Navbar settings",
+    "general-setting": "General settings",
+    "type": "Type",
+    "icon": "Icon",
+    "name": "Name",
+    "exple_desc": "The following example demonstrates the Navbar in action."
+
+  },
+  "card": {
+    "card": "Card Container",
+    "cardCompo": "Components / Card Container",
+    "overview": "Card Container Overview",
+    "getting-strated": "Customize your own Card Container features and generate the Codes:",
+    "title": "Title",
+    "card_overview": "A card is a flexible and extensible content container",
+    "detail": "keyboard shortcuts Alt & + and Alt & - open and close the Card Container",
+    "exple_desc": "The following example demonstrates the Card Container in action.",
+    "general-setting": "General settings"
+    
+  },
+  "drag": {
+    "drag": "Drag & Drop",
+    "exple_desc":"The following example demonstrates the Drag & Drop component in action.",
+    "dragCompo": "Components / Drag & Drop",
+    "overview": "Drag & Drop Overview",
+    "drag_overview": "Drag & Drop provides interfaces, with support for free dragging, sorting within a list, transferring items between lists and tables",
+    "getting-strated": "Customize your own Drag & Drop component features and generate the Codes:"
+  },
+  "toast": {
+    "toast": "toast",
+    "exple_desc":"The following example demonstrates the toast component in action.",
+    "toastCompo": "Components / Toast",
+    "overview": "Toast Overview",
+    "toast_overview": "toast is a component to display an alert",
+    "getting-strated": "Customize your own toast component features and generate the Codes:",
+    "display":"Display toast"
+
+
+  },
+  "calendar": {
+    "calendar": "Calendar",
+    "exple_desc":"The following example demonstrates the calendar component in action.",
+    "calendarCompo": "Components / Calendar",
+    "overview": "Calendar Overview",
+    "calendar_overview": "calendar is a component that can display dates",
+    "getting-strated": "Customize your own calendar component features and generate the Codes:"
+
+
+  },
+  "icon": {
+    "nom":"Name",
+    "couleur":"Color",
+    "taille":"Size",
+    "list":"Icon's List",
+    "icon": "Icons",
+    "exple_desc":"The following example demonstrates the icons in action.",
+    "iconCompo": "Components / Icons",
+    "overview": "Icons Overview",
+    "icon_overview": "A standalone icon can be displayed using an element such as i or span",
+    "getting-strated": "Customize your own Icons features and generate the Codes:"
+
+
+  },
+  "form": {
+    "formCompo": "Components / Form",
+    "setting": "Setting of the form Structure",
+    "bordure": "Border",
+    "column": "Columns",
+    "validation": "Reactive validation form ",
+    "flex": "Flex Option",
+    "error": "Error message",
+    "result": "Form result",
+    "title": "Title",
+    "overview": "Form Overview",
+    "getting-strated": "Customize your own Form features and generate the Codes:",
+    "form_overview": "The Form component defines the structure of a customizable and responsive form.",
+    "exple_desc": "The following example demonstrates the Form in action."
+  },
+  "monoselect": {
+    "label": "posted label",
+    "value": "Returned value",
+    "deactivated": "Deactivated",
+    "suppression": "Disable the delete icon",
+    "active": "Activate the auto-complete",
+    "callback": "Add a callback on-add",
+    "onchange": "Add a callback onChange",
+    "selected": "Selected elements",
+    "monoselectCompo": "Components / MonoSelect",
+    "overview": "Mono Select Overview",
+    "getting-strated": "Customize your own Monoselect features and generate the Codes:",
+    "monoselect_overview": "MonoSelect is used to select one item from a collection.",
+    "exple_desc": "The following example demonstrates the Monoselect in action.",
+    "name": "Name"
+  },
+  "multiselect": {
+    "setting": "Setting of the component",
+    "general": "General setting",
+    "label": "Displayed label",
+    "value": "Returned value",
+    "max": "Max selected items",
+    "hide": "hide selected items",
+    "deactivated": "Deactivated",
+    "suppression": "Deactivate the delete icon",
+    "active": "Activate the auto-complete",
+    "callback": "Add a callback on-add",
+    "onchange": "Add callback onChange",
+    "selected": "Selected elements",
+    "multiselectCompo": "Components / MultiSelect",
+    "overview": "Multi Select Overview",
+    "getting-strated": "Customize your own Multiselect features and generate the Codes:",
+    "multiselect_overview": "MultiSelect is used to select multiple items from a collection.",
+    "exple_desc": "The following example demonstrates the Multiselect in action.",
+    "name": "Name"
+  },
+  "spinner": {
+    "spinner": "spinner",
+    "toast_overview": "Spinner is a process status indicator.",
+    
+   
+    "type": "Spinner type",
+    "size": "Spinner size",
+    "color": "Spinner color",
+    "exple_desc": "The following example demonstrates the Spinner in action.",
+    "spinnerCompo": "Components / Spinner",
+    "overview": "Spinner Overview",
+    "getting-strated": "Customize your own Spinner features and generate the Codes:",
+    "spinner_overview": "Status Bar is used to indicate the percentage of progression of the task."
+  },
+ 
+  "statusBar": {
+    "breadCrumbStatus":"Status bar",
+    "nbrSub":"number of subdivisions ",
+    "val":"subdivision value",
+    "color":"subdivision color",
+    "html":"HTML code",
+    "tscode":"TS code",
+    "statusBarCompo": "Components / Status Bar",
+    "overview": "Status Bar Overview",
+    "getting-strated": "Customize your own Status Bar features and generate the Codes:",
+    "statusBar_overview": "Status Bar is used to indicate the percentage of progression of the task.",
+    "exple_desc": "The following example demonstrates the Status Bar in action."
+  },
+  
+  "stepper": {
+    "modalCompo": "Components / Tabs",
+    "overview": "Tabs Overview",
+    "getting-strated": "Customize your own tabs features and generate the Codes:",
+    "modal_overview": "Tabs organize content into separate views where only one view can be visible at a time",
+    "exple_desc": "The following example demonstrates the tabs component in action.",
+    "setting": "Stepper setting",
+    "about": "About this component",
+    "documentation": {
+      "nextStep": "By adding a \"awNextStep\" directive to a button or a link inside a step, you automatically add a onClick listener to the button or link, that leads to the next step.This listener will automatically change the currently selected wizard step to the next wizard step after a click on the component.",
+      "navigationMode": {
+        "def": "This component supports three different navigation modes : ",
+        "mode1": "you can only navigate through the wizard steps in a linear fashion, where you can only enter the next step if all previous steps have been completed and the exit condition of your current step have been fulfilled. In this mode it is not possible to jump between different steps.Therefore you are required to do the steps in the order 1 -> 2 -> 3 -> 4.",
+        "mode2": "This mode lets the user navigate between the steps in any order he likes.This means that in this navigation mode a user could complete the steps in the order 1 -> 3 -> 2 -> 4, if the exit conditions have been fulfilled.",
+        "mode3": "This mode let's the user navigate freely between the different steps, including the completion step, in any order he desires."
+      },
+      "prevStep": "By adding a \"awPreviousStep\" directive to a button or a link, you automatically add a onClick listener to the button or link, that changes your wizard to the previous step. This listener will automatically change the currently selected wizard step to the previous wizard step after a click on the component.",
+      "defaultStep": "Per default the wizard always starts with the first wizard step, after initialisation. The same applies for a reset, where the wizard normally resets to the first step. Sometimes this needs to be changed. If another default wizard step needs to be used, you can set it, by using the [defaultStepIndex] input of the wizard component. For example, to start the wizard in the second step, [defaultStepIndex]=\"2\" needs to be set. Please be aware, that angular will interpret the given input value as a string if it's not enclosed by []!",
+      "steptitle": "Used to define the title of the chosen step.",
+      "otherFeatures": {
+        "title": "Other features",
+        "completionStep": "This step is meant as the final wizard step, which signalises the user, that he or she successfully completed the wizard. When an aw-wizard-completion-step has been entered by the user, all wizard steps, including the optional steps belonging to the wizard, are marked as completed. In addition the user is prevented from leaving the aw-wizard-completion-step to another step, once it has been entered.",
+        "completionStepCode": "If you need this feature, add this piece of code under the <aw-wizard> tag : <aw-wizard-completion-step> Final wizard step </ wizard-completion-step>",
+        "optionalStep": "If you need to define an optional step, that doesn't need to be done to continue to the next steps, you can define an optional step by adding the awOptionalStep directive to the step you want to declare as optional."
+      }
+    },
+    "labelDefaultIndex": "Default step index",
+    "modeNavigation": "Navigation mode ",
+    "titleStep": "Step title ",
+    "stepContent": "Content of Step",
+    "next": "Next",
+    "prev": "Previous",
+    "finish": "Finish"
+  },
+  "modal": {
+    "modalCompo": "Components / Modal",
+    "overview": "Modal Overview",
+    "getting-strated": "Customize your own Modal features and generate the Codes:",
+    "modal_overview": "The modal component provides a solid foundation for creating dialogs, popovers, lightboxes...",
+    "exple_desc": "The following example demonstrates the Modal in action."
+  },
+  "typo": {
+    "drag": "Typography",
+    "exple_desc": "The following example demonstrates the Typography in action.",
+    "typoCompo": "Components / Typography",
+    "overview":"Typography Overview",
+    "typo_overview": "Typography ",
+    "getting-strated": "Customize your own Typography features and generate the Codes:"
+    
+  },
+  "breadcrumb": {
+    "breadcrumbCompo": "Components / Breadcrumb",
+    "overview": "Breadcrumb Overview",
+    "getting-strated": "Customize your own breadcrumb features and generate the Codes:",
+    "breadcrumb_overview": "Breadcrumb provides contextual information about page hierarchy.",
+    "exple_desc": "The following example demonstrates the breadcrumb in action.",
+    "taille":"Size"
+  },
+  "imp_details": "Implementation Details",
+  "result": "Result",
+  "prerequis": "Prerequisites",
+  "import": "import"
+}

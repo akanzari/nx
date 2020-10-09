@@ -1,18 +1,14 @@
 {
-  "extends": "./tsconfig.json",
+  "extends": "./tsconfig.json",  
   "compilerOptions": {
-    "declaration": true,
+    "outDir": "../../../dist/out-tsc",
     "target": "es2015",
-    "baseUrl": ".",
-    "stripInternal": true,
-    "emitDecoratorMetadata": false,
+    "declaration": true,
+    "inlineSources": true,
     "experimentalDecorators": true,
-    "moduleResolution": "node",
-    "outDir": "../../dist/out-tsc",
-    "rootDir": ".",
-    "lib": ["dom", "es2018"],
     "skipLibCheck": true,
     "types": [],
+    "lib": ["dom", "es2018"],
     "paths": {
       "ng-softilys/*": ["*/public_api.ts"]
     }
@@ -22,11 +18,10 @@
     "annotateForClosureCompiler": false,
     "strictMetadataEmit": true,
     "skipTemplateCodegen": true,
+    "enableResourceInlining": true,
     "flatModuleOutFile": "ng-softilys.js",
     "flatModuleId": "ng-softilys"
   },
-  "exclude": [],
-  "include": ["**/*.ts"],
   "files": [
     "./public_api.ts"
   ]

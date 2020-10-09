@@ -1,1 +1,1 @@
-export * from './monoselect.module';
+export * from './monoselect';

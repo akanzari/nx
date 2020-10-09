@@ -5,14 +5,13 @@ import { FullscreenService } from './fullscreen.service';
 @Injectable()
 export class LayoutService {
 
-  public isSideBarDisplay: boolean = true;
-  public isNavBarDisplay: boolean = true;
-  public isFullScreen: boolean = false;
+  public isSideBarDisplay: Boolean = true;
+  public isNavBarDisplay: Boolean = true;
+  public isFullScreen: Boolean = false;
   sidebarSubject: BehaviorSubject<boolean>;
 
   constructor(private fullscreenService: FullscreenService) {
     this.sidebarSubject = new BehaviorSubject<boolean>(true);
-
   }
 
   public toggleNavBarMenu(): void {
@@ -20,17 +19,13 @@ export class LayoutService {
   }
 
   public toggleSideBarDisplay(): void {
-
     this.isSideBarDisplay = !this.isSideBarDisplay;
-
-    var event = new CustomEvent("reduce", { "detail": "reduce sidebar" });
+    const event = new CustomEvent("reduce", { "detail": "reduce sidebar" });
     document.dispatchEvent(event);
-
-
   }
 
   public toggleFullScreen(): void {
-    this.fullscreenService.toggle();
+    this.isFullScreen = this.fullscreenService.toggle();
   }
 
   public showSidedar(show: boolean){

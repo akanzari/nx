@@ -1,0 +1,109 @@
+<div id="site" [ngClass]="{ 'sidebar-close': !ls.isSideBarDisplay }">
+    <be-navbar></be-navbar>
+    <div class="Font-FF">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h1 class="color-white font-size-50 bold h1-home">ng-softilys</h1>
+                    <br><br>
+                    <p class="font-size-18">{{'home.presentation'|translate}}</p>
+                    <p class="font-size-18"> {{'home.design-problems'|translate}}</p>
+                    <p class="font-size-18"> {{'home.version'|translate}}</p>
+                    <sof-button id="bouton" bgColor="primary" (onClick)="btnClick();">{{'home.start'|translate}}
+                    </sof-button>
+                    <sof-button id="bouton" bgColor="primary">{{'home.new'|translate}}</sof-button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="py-home">
+
+        <div class="row justify-content-center" style="width:1300px;">
+            <div class="col-md-12 col-lg-12 col-xl-4">
+                <div class="card AfficherCard">
+
+
+                    <div class="card-header">
+                    </div>
+
+                    <div class="card-body-home">
+                        <i class="icons icon-grid color-primary" aria-hidden="true"></i>
+                        <p class="style-title">{{'home.components.title'|translate}}</p>
+                        <p class="style-p"> {{'home.components.description'|translate}}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 col-lg-12 col-xl-4">
+                <div class="card AfficherCard">
+                    <a [routerLink]="['..']">
+                        <div class="card-header">
+                        </div>
+                    </a>
+                    <div class="card-body-home text-center">
+                        <i class="icons icon-code color-primary" aria-hidden="true"></i>
+                        <p class="style-title">{{'home.opensource.title'|translate}} </p>
+                        <p class="style-p"> {{'home.opensource.description'|translate}}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 col-lg-12 col-xl-4">
+                <div class="card AfficherCard">
+                    <a [routerLink]="['..']">
+                        <div class="card-header">
+                        </div>
+                    </a>
+                    <div class="card-body-home">
+                        <i class="icons icon-paint color-primary" aria-hidden="true"></i>
+                        <p class="style-title">{{'home.CUSTOMIZABLE.title'|translate}} </p>
+                        <p class="style-p">{{'home.CUSTOMIZABLE.description'|translate}}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <br>
+        <hr>
+        <br>
+        <br>
+
+
+        <div class="col-12 row">
+            <div style="margin-left:0px" class="col-md-6 col-lg-6 col-xl-6">
+                <div style="text-align: right;">
+
+                    <video class="videoHome"   src= "assets/video/videoFrameworkFront_S1.mp4" controls>
+                            Your browser does not support HTML5 video.
+                    </video>
+
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-6 col-xl-6">
+                <div class="center-table">
+                    <p>
+                        <span>Framework Front</span><br>
+                        Framework front oﬀers premium angular CLI models designed by our
+                        Professional FF team and implemented by the FF team with ﬁrst class quality,
+                        facilitating maintenance and uniﬁed appearance..
+                    </p>
+
+                </div>
+            </div>
+
+
+        </div>
+
+
+    </div>
+    <footer class="border-top m-0">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 text-right">
+                    <p>© 2018 be-ys - <a href="#" data-toggle="modal">Legal Notice</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>

@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
 
-@Injectable()
+@Injectable({
+    providedIn: 'root',
+})
 export class FullscreenService {
-    
+
     private doc = <FullScreenDocument>document;
 
     enter() {
@@ -20,9 +22,9 @@ export class FullscreenService {
         else if (this.doc.webkitExitFullscreen) this.doc.webkitExitFullscreen();
     }
 
-    toggle() {
-        if (this.enabled) this.leave();
-        else this.enter();
+    toggle(): Boolean {
+        if (this.enabled) { this.leave(); return true; }
+        else { this.enter(); return false; }
     }
 
     get enabled() {

@@ -37,12 +37,15 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/ng-softilys",
+            "outputPath": "dist/ng-softilys/app",
             "index": "apps/ng-softilys/src/index.html",
             "main": "apps/ng-softilys/src/main.ts",
             "polyfills": "apps/ng-softilys/src/polyfills.ts",
             "tsConfig": "apps/ng-softilys/tsconfig.app.json",
             "aot": true,
+            "allowedCommonJsDependencies": [
+              "lodash", "util", "chart.js"
+            ],
             "assets": [
               "apps/ng-softilys/src/favicon.ico",
               "apps/ng-softilys/src/assets"

@@ -1,1 +1,1 @@
-export * from './text-area.module';
+export * from './textarea';

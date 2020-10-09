@@ -1,1 +1,242 @@
-/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/scss/bootstrap";
+@import '~ng-softilys/resources/sof-styles/be-software-theme';
+@import '~ng-softilys/resources/sof-styles/be-software';
+
+@import '~@angular/material/prebuilt-themes/deeppurple-amber';
+$fa-font-path: '~font-awesome/fonts';
+@import '~font-awesome/scss/font-awesome';
+@import "~primeng/resources/primeng.min.css";
+@import "~primeicons/primeicons";
+@import "~@ng-select/ng-select/themes/default.theme.css";
+@import "~prismjs/themes/prism";
+@import "~prismjs/plugins/toolbar/prism-toolbar";
+
+.ui-datepicker {
+  background-color: white !important;
+}
+
+.ui-datepicker {
+  background-color: white !important;
+}
+
+.logo-default {
+  background: url(./assets/sof-images/logo.svg) no-repeat center;
+  background-size: auto 100%;
+}
+/* @media screen and (max-width: 991px) {
+  .searchBar{
+    display:none;
+  }
+}*/
+div[id='site'] {
+  width: 100%;
+  position: fixed;
+  overflow: auto;
+  height: 100vh;
+}
+/* @media all and (-ms-high-contrast: none),(-ms-high-contrast:active){
+div[id="site"] {
+
+  overflow-y: auto !important;
+  height: 100vh;
+}} */
+
+/*  @media all and (-ms-high-contrast: none),(-ms-high-contrast:active){
+  .sidebar-left {
+   
+    position: -ms-device-fixed;
+  margin-top: 3.85%
+  }
+  }  */
+.toggle-children {
+  background-image: url('./assets/sof-images/icone.png');
+  height: 14px;
+  width: 30px;
+  background-size: contain;
+  display: inline-block;
+  position: relative;
+  top: 5px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.ng-tooltip {
+  position: absolute;
+  max-width: 150px;
+  font-size: 14px;
+  text-align: center;
+  color: #f8f8f2;
+  padding: 0px 8px;
+  background: #282a36;
+  border-radius: 4px;
+  z-index: 1000;
+  opacity: 0;
+}
+.ng-tooltip:after {
+  content: '';
+  position: absolute;
+  border-style: solid;
+}
+.ng-tooltip-top:after {
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-color: black transparent transparent transparent;
+}
+.ng-tooltip-bottom:after {
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-color: transparent transparent black transparent;
+}
+.ng-tooltip-left:after {
+  top: 50%;
+  left: 100%;
+  margin-top: -5px;
+  border-width: 5px;
+  border-color: transparent transparent transparent black;
+}
+.ng-tooltip-right:after {
+  top: 50%;
+  right: 100%;
+  margin-top: -5px;
+  border-width: 5px;
+  border-color: transparent black transparent transparent;
+}
+.ng-tooltip-show {
+  opacity: 1;
+}
+
+.ui-sidebar-close {
+  visibility: hidden;
+}
+
+.framework-font {
+  font-family: 'Open Sans Regular';
+  font-size: 15px;
+}
+
+.framework-h3-font {
+  font-size: 23px;
+  font-weight: 100;
+  font-family: 'Open Sans Light';
+}
+.marging-top-5 {
+  margin-top: 5px !important;
+}
+
+.framework-h1-font {
+  font-size: 45px;
+  font-family: 'Open Sans Light';
+  padding: 24px 0;
+  color: #363638;
+}
+
+.padding-framework {
+  padding: 24px;
+}
+
+.style-color {
+  color: #000080;
+}
+
+.style-boder-radius {
+  color: #437f9f;
+  border-radius: 3px;
+  border: 1px solid #437f9f;
+  font-family: 'Open Sans Light';
+  font-size: 13px;
+}
+
+.style-span {
+  font-family: 'Open Sans Semibold';
+  font-size: 14px;
+  color: #363638;
+}
+
+.background-code {
+  background-color: #f6f6f6 !important;
+}
+
+.framework-font-Semibold {
+  font-size: 23px;
+  font-weight: 100;
+  font-family: 'Open Sans Semibold';
+  color: #363638;
+}
+
+.line-height-60 {
+  line-height: 60px;
+}
+.style-sof-card > div > div > div {
+  padding: 0px !important;
+  margin: 0 0 -2px;
+}
+.style-sof-card > div > div > .accordion .card .card-header {
+  background: #e0e0e0;
+}
+
+.style-sof-card
+  > div
+  > div
+  > div
+  > div
+  > div
+  > h5
+  > a
+  > i.icons.icon-chevron_down:before {
+  color: #363638;
+  line-height: 3.2;
+}
+
+.style-sof-card
+  > div
+  > div
+  > div
+  > div
+  > div
+  > h5
+  > a
+  > i.icons.icon-chevron_up:before {
+  color: #363638;
+  line-height: 3.2;
+}
+
+.style-sof-card > div > div > div > div > div > h5 {
+  line-height: 3.2;
+}
+
+div.code-toolbar > .toolbar a,
+div.code-toolbar > .toolbar button,
+div.code-toolbar > .toolbar span {
+  color: #575f56;
+  background: #f5f2f0;
+  background: rgba(60, 56, 56, 0.2);
+  box-shadow: 0 2px 0 0 rgb(146, 144, 154);
+}
+
+::-webkit-scrollbar {
+  width: 8px !important;
+  height: 8px !important;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #bdbdbd !important;
+  border-radius: 20px !important;
+}
+
+::-webkit-scrollbar-track {
+  background: #f2f2f2 !important;
+  border-radius: 20px;
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+}

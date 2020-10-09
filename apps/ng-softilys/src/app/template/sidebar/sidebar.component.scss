@@ -1,0 +1,70 @@
+:host ::ng-deep .sidebar-left {
+  position: sticky;
+  left: 0px;
+  top: 0px;
+  overflow-y: scroll;
+  height: 100%;
+  float: left;
+}
+:host ::ng-deep .search.search-small input,
+.search-default.search-small[_ngcontent-c11] input[_ngcontent-c11],
+.search-medium.search-small[_ngcontent-c11] input[_ngcontent-c11] {
+  height: 42px;
+  color: white;
+}
+
+#search.ng-tns-c13-1 {
+  background-color: grey;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  border: 1px solid none;
+  -webkit-text-fill-color: white;
+  -webkit-box-shadow: 0 0 0px 1000px #494c56 inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+/* clears the 'X' from Internet Explorer */
+input[type='search']::-ms-clear {
+  display: none;
+  width: 0;
+  height: 0;
+}
+input[type='search']::-ms-reveal {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+/* clears the 'X' from Chrome */
+input[type='search']::-webkit-search-decoration,
+input[type='search']::-webkit-search-cancel-button,
+input[type='search']::-webkit-search-results-button,
+input[type='search']::-webkit-search-results-decoration {
+  display: none;
+}
+
+i.icons.icon-search:before {
+  content: '\f19f';
+  //  color: white;
+}
+::-webkit-scrollbar {
+  width: 8px !important;
+  height: 8px !important;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #bdbdbd !important;
+  border-radius: 20px !important;
+}
+
+::-webkit-scrollbar-track {
+  background: #f2f2f2 !important;
+  border-radius: 0px !important;
+}

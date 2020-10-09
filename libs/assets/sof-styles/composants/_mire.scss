@@ -1,0 +1,32 @@
+.connection {
+	background: $white;
+  	.bg-connect {
+		background:url(../../sof-images/bg-connect.jpg) no-repeat bottom right $secondary-300 !important;
+		background-size: 600px 450px !important;
+		height: 100vh;
+		h1, h2, h3, h4, h5, p, a {
+			color: $white;
+		}
+		.desc {
+			padding: 20vh 15px;
+		}
+	}
+	.content {
+		padding: 30px;
+	} 
+}
+
+@media screen and (max-width: 991px) {
+	.connection {
+		.content,
+		.desc {
+	  		padding: 50px;
+		}
+		.bg-connect {
+			display: none;
+		}
+		.content {
+			height: 100vh;
+		}
+	}
+}

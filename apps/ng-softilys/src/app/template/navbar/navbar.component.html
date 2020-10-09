@@ -1,0 +1,106 @@
+<sof-navbar Color="white" Height="small">
+    <nav class="navbar navbar-expand-lg navbar-top">
+        <button class="navbar-toggler navbar-toggler-left" type="button" (click)="toggleSearchModeForSmallScreen()">
+            <i class="icons icon-search"></i>
+        </button>
+
+        <button class="navbar-toggler navbar-toggler-right" type="button" (click)="toggleNavBarForSmallScreen()">
+            <i class="icons icon-ellipsize"></i>
+        </button>
+        <a [routerLink]="['']">
+            <div class="logo logo-default"></div>
+        </a>
+        <div class="navbar-collapse collapse" [ngClass]="{'show': isSearchSmDisplay}">
+            <ul class="nav navbar-nav">
+                <li class="nav-item d-none d-lg-block ">
+                    <a class="nav-link nav-icon open " href="#" (click)="ls.toggleSideBarDisplay()">
+                        <i *ngIf="ls.isSideBarDisplay" aria-hidden="true"
+                            class="icons icon-cancel color-text size-20"></i>
+                        <i *ngIf="!ls.isSideBarDisplay" aria-hidden="true"
+                            class="icons icon-hamburger color-text size-20"></i>
+                    </a>
+                </li>
+                <li class="nav-item d-none d-lg-block">
+                    <button type="button" class="nav-link {{ls.isFullScreen ? 'full' : '' }}" id="btn-full"
+                        (click)="ls.toggleFullScreen()">
+                        <i *ngIf="!ls.isFullScreen" class="icons icon-expand color-text"></i>
+                        <i *ngIf="ls.isFullScreen" class="icons icon-contract color-text"></i>
+                    </button>
+                </li>
+            </ul>
+        </div>
+
+        <div class="collapse navbar-collapse" id="navbarNavDropdown" [ngClass]="{'show': isNavBarSmDisplay}">
+            <ul class="mr-auto"></ul>
+            <ul class="nav navbar-nav navbar-right">
+
+                <li class="nav-item dropdown user" *ngIf="currentAccount">
+                    <a class="nav-link dropdown-toggle" ngbDropdownToggle (click)="false">
+                        <img src="./assets/img/avatar.png" alt="avatar" class="rounded-circle">
+                        <span
+                            class="d-block d-lg-none libelle-menu">{{currentAccount.properties["FIRST_NAME"] + ' ' + currentAccount.properties["LAST_NAME"]}}</span>
+                    </a>
+                    <ul class="dropdown-menu " ngbDropdownMenu>
+                        <li>
+                            <a class="dropdown-item">
+                                <i class="icons icon-user size-24 color-text"></i>Mon identité</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="nav-item dropdown dropdown-mega" *ngIf="currentAccount">
+                    <ul class="dropdown-menu" ngbDropdownMenu>
+                        <li>
+                            <h4 class="hidden-lg-down">Contacter le support </h4>
+                            <form>
+                                <div class="form-group">
+                                    <input type="text" placeholder=""
+                                        [value]="currentAccount.properties['FIRST_NAME'] + ' ' + currentAccount.properties['LAST_NAME']">
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" placeholder="" [value]="currentAccount.properties['EMAIL_1']">
+                                </div>
+                                <div class="form-group">
+                                    <textarea placeholder="Message" rows="5"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <button type="button" class="btn btn-anim btn-primary float-right">
+                                        <div class="c-ripple js-ripple">
+                                            <span class="c-ripple__circle"></span>
+                                        </div>
+                                        Envoyer
+                                    </button>
+                                </div>
+                            </form>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown " (click)="change()" (click)='animateLogo()'>
+                    <a class="nav-link dropdown-toggle" id="Language" data-toggle="dropdown">
+                        <ng-container *ngIf="showFr">
+                            <span class="flag flag-fr"></span>
+                        </ng-container>
+                        <ng-container *ngIf="showEn">
+                            <span class="flag flag-en"></span>
+                        </ng-container>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-small dropdown-menu-right show"
+                        aria-labelledby="dropdownMenu1" [style.display]=" displayL ? 'block': 'none'"
+                        [@logoState]='state'>
+                        <li>
+                            <a (click)="switchLanguage('fr')" class="dropdown-item ">Français</a>
+                        </li>
+                        <li>
+                            <a (click)="switchLanguage('en')" class="dropdown-item">Anglais</a>
+
+                        </li>
+
+                    </ul>
+                </li>
+            </ul>
+
+
+        </div>
+
+    </nav>
+</sof-navbar>

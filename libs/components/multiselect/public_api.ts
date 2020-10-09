@@ -1,1 +1,1 @@
-export * from './multiselect.module';
+export * from './multiselect';

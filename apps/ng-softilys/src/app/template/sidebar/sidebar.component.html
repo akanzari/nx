@@ -1,0 +1,55 @@
+<nav class="sidebar sidebar-nav sidebar-nav-top sidebar-left sidebar-inverse" role="navigation" aria-label="Nav Primary"
+    style="margin-bottom: 0;position:sticky">
+    <ul style="overflow-y: scroll; height: -webkit-fill-available;">
+        <form class="search search-small search-border searchBar" [hidden]="!ls.isSideBarDisplay"
+            style="position: sticky !important;">
+            <i class="icons icon-search"></i>
+            <input id="search" type="search" placeholder="Accès rapide" autocomplete="off"
+                (input)="search($event.target.value)">
+        </form>
+        <li class="sub-menu" [ngClass]="{'opened': currentMenu && currentMenu === item.code}"
+            *ngFor="let item of items">
+            <a *ngIf="item.subMenus && item.subMenus.length > 0" (click)="selectMenu(item.code); false">
+                <i class="icons icon-{{item.icon}}"></i>
+                <span>{{item.defaultLabel}}</span>
+            </a>
+            <a *ngIf="!item.subMenus" [routerLink]="item.routerLink" (click)="selectMenu(item.code); false"
+                fragment="{{item.fragment}}" id="{{item.defaultLabel+'_comp'}}">
+                <i class="icons icon-{{item.icon}}"></i>
+                <span>{{item.defaultLabel}}</span>
+            </a>
+            <!-- SubMenu definition -->
+            <ul [@subMenuContent]="(currentMenu && currentMenu === item.code && displaySub) ? 'visible' : 'hidden'"
+                [hidden]="!ls.isSideBarDisplay && !item.subMenus">
+                <h4 [hidden]="!ls.isSideBarDisplay">{{item.defaultLabel}}</h4>
+                <li class="sub-menu" *ngFor="let subItem of item.subMenus">
+
+                    <a *ngIf="subItem.subMenus && subItem.subMenus.length > 0"
+                        (click)="selectSubMenu(currentMenu,subItem); true">
+                        <i class="icons icon-{{subItem.icon}}"></i>
+                        <span>{{subItem.defaultLabel}}</span>
+                    </a>
+
+                    <a *ngIf="!subItem.subMenus" [routerLink]="subItem.routerLink" fragment="{{subItem.fragment}}"
+                        (click)="selectSubMenu(currentMenu,subItem); false">
+                        <i class="icons icon-{{subItem.icon}}"></i>
+                        <span>{{subItem.defaultLabel}}</span>
+                    </a>
+
+                    <!-- sub-subMenu definition -->
+                    <ul
+                        [@subsubMenuContent]=" (currentSubMenu && currentSubMenu === subItem.code && displaySub) ? 'visible' : 'hidden'">
+                        <h4>{{subItem.defaultLabel}}</h4>
+                        <li *ngFor="let subSubItem of subItem.subMenus">
+                            <a [routerLink]="subSubItem.routerLink" fragment="{{subSubItem.fragment}}"
+                                (click)="selectSubMenu(currentMenu,null); false">
+                                {{subSubItem.defaultLabel}}
+                            </a>
+                        </li>
+                    </ul>
+
+                </li>
+            </ul>
+        </li>
+    </ul>
+</nav>

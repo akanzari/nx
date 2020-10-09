@@ -1,1 +1,1 @@
-export * from './double-date-picker.module';
+export * from './double-date-picker';

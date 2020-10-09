@@ -1,1 +1,1 @@
-export * from './statusbar.module';
+export * from './statusbar';

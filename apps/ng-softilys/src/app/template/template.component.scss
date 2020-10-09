@@ -1,0 +1,34 @@
+/deep/ .search,
+.search-default,
+.search-medium {
+  height: 50px;
+  margin: 0px 0;
+}
+/deep/ .search.search-small input,
+.search-default.search-small input,
+.search-medium.search-small input {
+  height: 42px;
+}
+/deep/ .search.search-small i,
+.search-default.search-small i,
+.search-medium.search-small i {
+  margin-top: 13px;
+}
+/deep/ .search i,
+.search-default i,
+.search-medium i {
+  color: #fefeff;
+}
+/deep/ ::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: white;
+  opacity: 1; /* Firefox */
+}
+/deep/ .sidebar::-webkit-scrollbar {
+  display: none;
+}
+/deep/ html,
+body {
+  -ms-overflow-style: none;
+  overflow: auto;
+}

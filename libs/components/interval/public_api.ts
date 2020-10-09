@@ -1,2 +1,2 @@
-export * from './interval.module';
+export * from './interval';
 export * from './model/interval';

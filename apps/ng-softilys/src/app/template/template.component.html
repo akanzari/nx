@@ -1,0 +1,9 @@
+<div id="site" [ngClass]="{ 'sidebar-close': !ls.isSideBarDisplay }">
+    <be-navbar></be-navbar>
+    <be-sidebar></be-sidebar>
+    <main id="page-sidebar-left" class="px-4" role="main">
+        <div class="container-fluid">
+            <router-outlet> </router-outlet>
+        </div>
+    </main>
+</div>

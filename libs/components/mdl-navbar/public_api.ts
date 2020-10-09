@@ -1,1 +1,1 @@
-export * from './mdl-navbar.module';
+export * from './mdl-navbar';

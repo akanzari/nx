@@ -1,1 +1,1 @@
-export * from './form-structure.module';
+export * from './form-structure';

@@ -1,0 +1,27 @@
+#Connexion {
+  background: #ffffff;
+
+  #ImgConnect {
+    background: url(../sof-images/001.jpg) no-repeat left center #fff;
+    background-size: auto 100%;
+    height: 100vh;
+    color: #ffffff;
+    h1, h2, h3, h4, h5, p, a {color: #ffffff;}
+    #Desc {padding: 20vh 15px;}
+  }
+  
+  #Content {padding: 30px;}
+}
+
+@media screen and (max-width: 991px) {
+  #Connexion #Content, 
+  #Connexion #Desc {
+    padding: 50px;
+  }
+  #ImgConnect {display: none;}
+  #Content {height: 100vh;}
+}
+
+#Footer {
+  margin-top:50px;
+}

@@ -1,0 +1,511 @@
+{
+  "home": {
+    "presentation": "Framework-Front est une collection des composants UI riches pour Angular et  les solutions récurrentes",
+    "design-problems":"afin de résolver les problèmes de conception courants.",
+   "version":"La version actuelle 3.12.8",
+    "new": "Nouveautés 3.12.8",
+    "start": "Getting Started",
+    "components": {
+      "title": "20+ COMPOSANTS",
+      "description": "Plus de 20 composants faciles à utiliser pour tous vos besoins d'UI. Composants stylés avec des fonctionnalités utiles."},
+      "opensource":{
+        "title":"OPENSOURCE",
+        "description": "Collection riche d'un ensemble de composants UI Angular natifs opensource"
+      },
+      "CUSTOMIZABLE":{
+      "title": "CUSTOMIZABLE",
+      "description": "Réalisé par l'équipe FF pour une intégration avec Angular. Avec un style spécifique et conforme aux UX Pattern Libraries."
+    }
+  },
+  "get_started": {
+    "angular-version1":"pour installer la version compatible de",
+    "angular-version2":"Choisir la version de Angular dans votre projet",
+    "paste-location":"Veuillez coller ici l'emplacement de votre projet Angular",
+    "presentation": "Framework Front comprend un ensemble de composants qui respectant les charts graphiques UX.",
+    "version": "La version actuel 3.12.8 supporte Angular 6.",
+    "download": "Installation",
+    "disponible": "Exécutez la commande suivante pour télécharger le framework-front-softilys sur votre projet:",
+    "create": "Créer un fichier",
+    "sous": "sous",
+    "details": "dans lequel vous mettez ces détails:",
+    "firstName": "prénom",
+    "LastName": "nom",
+    "replace": "Remplacer",
+    "mail": "par votre mail de be-softilys et de saisir votre propre mot de passe: ",
+    "primeng": "Exécutez la commande suivante pour installer les prérequis de primeNG, Awesome-Font et Bootstrap",
+    "ng-select": "Veuillez installer le ",
+    "version-angular": "compatible avec la version d'Angular déjà installée: ",
+    "version5": "Version 5",
+    "version6": "Version 6",
+    "StylesConfig": "Configurations du Style",
+    "modif":"Modifier la partie scripts du fichier",
+    "lancer":"Pour lancer votre projet :",
+    "config": "Configurez les styles requis dans la section",
+    "section": "du fichier",
+    "librairie": ", utilisant Pattern libraries templates: ",
+    "PS": "PS : Pour appliquer tous les styles des Pattern Libraries à votre application, ajoutez les fichiers sous le dossier style.",
+    "core_files": "Les fichiers de base des Pattern Libraries (css, js, fonts, images…) avec Bootstrap 4.1.3 ",
+    "télécharger": "Télécharger",
+    "browser_compatibility": "Compatibilité avec les navigateurs",
+    "list_browser": "Voici la liste des navigateurs:",
+    "navigateur": "Navigateur",
+    "version_browser": "Version",
+    "compatibility": "Compatibilité"
+  },
+
+
+  "tooltip": {
+    "tooltip": "Tooltip",
+    "tooltipCompo": "Composants / Tooltip",
+    "overview": "Vue globale",
+    "tooltip_overview": "Tooltip est une directive qui fournit une étiquette de texte qui s'affiche lorsque l'utilisateur survole un élément.",
+    "getting-strated": "Personnalisez vos propres fonctionnalités du tooltip et générez les codes:",
+    "exple_desc": "L'exemple suivant montre la directive Tooltip en action."
+  },
+  "general": {
+    "general_params": "Paramétrage général",
+    "advancedImplementation": "IMPLÉMENTATIONS AVANCÉES",
+    "functionalSetting":"PARAMETRAGE FONCTIONNEL",
+    "BASIC_USAGE": "UTILISATION DE BASE",
+    "params": "FONCTIONNALITÉS ET CARACTÉRISTIQUES",
+    "genericImplementation": "IMPLÉMENTATION GÉNÉRIQUE"
+  },
+  "navbarMvn" : {
+    "exple_desc":"L'exemple suivant montre la Navbar MVN en action",
+    "getting-strated":"Observez le comportement du composant et utilisez le code généré:",
+    "navbarCompo":"Composants / Navbar MVN",
+    "overview" :"Le composant Navbar MVN est un menu de navigation résponsive."
+  },
+  "table": {
+    "retour_ligne":"Retour à la ligne des titres",
+    "edit_cell":"Modification par cellule",
+    "tableCompo": "Composants / Table",
+    "overview": "Vue globale",
+    "table_overview": "Le composant table affiche les données sous forme de tableau et inclut plus de 15 fonctionnalités intégrées, notamment la pagination, le tri, le filtrage et la liaison de données.",
+    "getting-strated": "Personnalisez vos propres fonctionnalités de table et générez les codes:",
+    "table_result": "Résultat de la table (selon le paramétrage)",
+    "exple_desc": "L'exemple suivant montre la table en action.",
+    "DOCUMENTATION": "DOCUMENTATION",
+    "Properties": "Propriétés",
+    "lock": "Fixer les colonnes",
+    "column_filter": "Filtre par colonne",
+    "nb_ligne_per_page":"Nombre de ligne par page",
+    "badge": "Badge",
+    "change_ordre": "Reorder columns",
+    "add_style": "Style pour lignes",
+    "column_ordre": "Sort",
+    "multi_attributs": "Colonnes combinés",
+    "display_nombre": "Nombre total des lignes",
+    "footer": "Footer personnalisé",
+    "add_style_column": "Styles pour colonnes",
+    "buttons": "Boutons(Actions)",
+    "transformation": "Pipe",
+    "selectable": "Sélectable",
+    "filtre": "Filtre globale",
+    "subfields": "Sous-champs",
+    "input": "Edition d'une colonne",
+    "pagination": "Pagination",
+    "zebrure": "Zébrure",
+    "lazy":"Lazy loading",
+    "expandable": "Expandable",
+    "resize":"Redimensionner",
+    "reorder":"Reorder rows",
+    "editRow":"Edition d'une ligne",
+    "ajout": "Ajout d'une ligne",
+    "pop": "Ajout avec pop-up",
+    "dataOperation": "OPÉRATIONS DES DONNÉES",
+    "showCols":"AFFICHAGE DES COLONNES",
+    "multiCol":"Multi-colonnes",
+    "iconEdit":"Editer la ligne",
+    "iconSauvg":"Sauvgarder",
+    "iconCancel":"Annuler l'edition"
+  },
+  "interval": {
+    "interval": "Intervalle",
+    "du": "du",
+    "au": "au",
+    "date_form": "jj/mm/aaaa",
+    "utilsation": "UTILISATION DANS UN FORMULAIRE AVEC VALIDATION",
+    "nom_formation": "Nom de la formation",
+    "duree": "Durée",
+    "soumettre": "Soumettre",
+    "intervalCompo": "Composants / Intervalle",
+    "overview": "Vue globale",
+    "interval_overview": "Interval est un composant d'entrée permettant de sélectionner les dates de début et de fin.",
+    "getting-strated": "Personnalisez vos propres fonctionnalités de l'Intervalle et générez les codes:"
+
+  },
+  "tree": {
+    "label": "Attribut de l'objet à afficher",
+    "tree": "Tree",
+    "exple_desc": "L'exemple suivant montre le composant tree en action.",
+    "treeCompo": "Composants / Tree",
+    "overview": "Vue globale",
+    "tree_overview": "Tree est un composant permettant les données selon une arborescence",
+    "getting-strated": "Personnalisez vos propres fonctionnalités du Tree et générez les codes:"
+
+  },
+  "upload": {
+    "upload": "upload file",
+    "exple_desc": "L'exemple suivant montre le composant upload file en action.",
+    "soumettre": "Soumettre",
+    "uploadCompo": "Composants / Upload file",
+    "overview": "Vue globale",
+    "upload_overview": "Upload file est un composant permettant de glisser des fichiers dans des zones droppables.",
+    "getting-strated": "Personnalisez vos propres fonctionnalités du composant upload file et générez les codes:"
+
+  },
+  "check_radio": {
+    "breadcrumbCheck":"Composants / CheckBox & Radio button",
+    "overview":"Vue globale",
+    "check-overView":" Le composant Checkbox est une extension de l'élément standard checkbox. Il comprend de nombreuses fonctionnalités intégrées",
+    "radio-overView":" Le composant RadioButton est une extension de l'élément de bouton radio standard. Il comprend de nombreuses fonctionnalités intégrées",
+    "getting-strated": "Personnalisez vos propres fonctionnalités du CheckBox et Radio button et générez les codes:",
+    "setting_check": "Paramétrage général du Check-Box",
+    "expleCheck_desc":"L'exemple suivant montre le checkBox en action.",
+    "expleRadio_desc":"L'exemple suivant montre le bouton radio en action.",
+    "exemple": "Check box exemple d'utilisation Booléen",
+    "radioExemple":"Exemple de bouton radio",
+    "valeur": "La valeur insérée dans la variable de ngModel : false",
+    "setting_radio": "Paramétrage général du bouton radio",
+    "true": "vrai",
+    "fields": "champs à afficher",
+    "radio_value": "valeur de la radio",
+    "selected": "radio sélectionné",
+    "result":"Rendu selon le paramétrage",
+    "imp_detail_booleanCheck":"Détails d'implémentation pour le deuxiéme exemple"
+  },
+  "bouton": {
+    "buttonCompo": "Composants / Bouton",
+    "overview": "Vue globale",
+    "getting-strated": "Personnalisez vos propres fonctionnalités du Bouton et générez les codes:",
+    "setting": "Paramétrage du Bouton",
+    "style_bordure": "Changer le style de bordure",
+    "background": "Changer la couleur de l'arrière plan",
+    "button_color": "couleur du flat button",
+    "icon": "icône du bouton",
+    "block": "Bouton en bloc",
+    "width": "changer la largeur du bouton",
+    "size": "changer la taille du bouton",
+    "result": "résultat du bouton",
+    "disabled": "Bouton désactivé",
+    "exple_desc": "L'exemple suivant montre le bouton en action.",
+    "button_overview": "Le composant Bouton fournit une fonctionnalité d'interface utilisateur cliquable et inclut plus de 5 fonctionnalités intégrées, notamment la modification de la couleur de l'arrière-plan, le style de la bordure et la largeur du bouton."
+  },
+
+  "double_date_picker":{
+  "compo":"Composants / Double date picker",
+  "overview":"Vue globale",
+  "position": "Position du datepicker",
+  "disable": "Disabled",
+
+  "getting-strated": "Personnalisez vos propres fonctionnalités du Bouton et générez les codes:",
+  "double_date_picker_overview":"Le couposant Double date picker fournit la possibilité de choisir une date de début et une date de fin ena ayant les deux calendrier affiché en même temps.",
+  "affiche_label":"Label à afficher",
+  "exple_desc":"L'exemple suivant montre le composant en action."
+
+  },
+  
+  
+  "textarea":{
+    "textareaCompo":"Composants / Zone de texte",
+    "overview": "Vue globale",
+    "textarea_overview": "Le composant Zone de texte est un champ de saisie de texte, basée sur un type spécifique et prédéfini. Il inclut plus de 5 fonctionnalités intégrées.",
+    "getting-strated": "Personnalisez vos propres fonctionnalités du Zone de texte et générez les codes:",
+    "rows":"Nombre de lignes",
+    "cols":"Nombre de colonnes",
+    "exple_desc": "L'exemple suivant montre le composant Zone de texte en action.",
+    "pureTextErrorMsg":"saisir que du texte"
+  },
+
+
+  "input": {
+    "inputCompo":"Composants / Input",
+    "settings": "Paramétrage de l'input",
+    "input_overview": "Le composant Input est un champ de saisie, basée sur un type spécifique et prédéfini. Il inclut plus de 5 fonctionnalités intégrées.",
+    "overview": "Vue globale",
+    "getting-strated": "Personnalisez vos propres fonctionnalités de l'Input et générez les codes:",
+    "general-setting": "Paramétrage général",
+    "type": "Type",
+    "icon": "Icône",
+    "name": "Nom",
+    "exple_desc": "L'exemple suivant montre l'Input en action.",
+    "nniErrorMsg":"Veuillez saisir un NNI valide avec exactement 13 chiffres",
+    "ribErrorMsg":"Veuillez saisir un RIB valide avec exactement 23 chiffres",
+    "emailErrorMsg":"Veuillez saisir un EMAIL valide comme \"xxx.yyy@zzz.tn\"",
+    "numberErrorMsg":"Le type number doit contenir au max un tiret(-) au debut , 0 ou 1 point au milieu"
+
+  },
+  "navbar": {
+    "navbarCompo":"Composants / Navbar",
+    "settings": "Paramétrage du Navbar",
+    "navbar_overview": "Le composant Navbar est un menu de navigation résponsive.",
+    "overview": "Vue globale",
+    "getting-strated": "Personnalisez vos propres fonctionnalités du Navbar et générez les codes:",
+    "general-setting": "Paramétrage général",
+    "type": "Type",
+    "icon": "Icône",
+    "name": "Nom",
+    "exple_desc": "L'exemple suivant montre la Navbar en action."
+  },
+  "sidebar": {
+    "type": "Type",
+    "icon": "Icône",
+    "name": "Nom",
+    "sidebarCompo": "Composants / Sidebar",
+    "overview": "Vue globale",
+    "getting-strated": "Personnalisez vos propres fonctionnalités du Sidebar et générez les codes:",
+    "sidebar_overview": "Le composant Sidebar affiche un menu à gauche de la page.",
+    "exple_desc": "L'exemple suivant montre le Sidebar en action.",
+    "QUICK_ACCESS": "ACCÉS RAPIDE",
+    "color": "Couleur"
+  },
+
+  "card": {
+    "title": "titre",
+    "detail": "les raccourcies clavier Alt&+ et Alt&- ouvre et ferme le card container",
+    "card": "Card Container",
+    "cardCompo": "Composants / Card Container",
+    "overview": "Vue globale",
+    "card_overview": "Une carte est un conteneur de contenu flexible et extensible.",
+    
+    "getting-strated": "Personnalisez vos propres fonctionnalités du card container et générez les codes:",
+    "exple_desc": "L'exemple suivant montre le card container en action.",
+    "general-setting": "General settings"
+  },
+  "cards": {
+    "title": "Titre",
+    "heading": "Card Footer",
+    "label": "Card with Label",
+    "TextLabel":"Text Label",
+    "ColorLabel":"couleur de Label",
+    "icone":"icone du Card",
+    "iconeText":"icone",
+    "action1":"boutton action ",
+    "action2":"boutton action 2 ",
+    "action3":"boutton action 3 ",
+    "type1":"icone boutton 1 ",
+    "type2":"icone boutton 2 ",
+    "type3":"icone boutton 3 ",
+    "alert":"Card avec Alerte"
+
+  },
+  "drag": {
+    "drag": "Drag & Drop",
+    "exple_desc":"L'exemple suivant montre le composant Drag & Drop en action.",
+    "dragCompo": "Composants / Drag & Drop",
+    "overview":"Vue globale",
+    "drag_overview": "Drag & Drop permet de prendre en charge du glisser-déposer gratuit, du tri dans une liste et du transfert d'éléments entre les listes",
+    "getting-strated": "Personnalisez vos propres fonctionnalités du Toast et générez les codes:"
+    
+  },
+  
+  "typo": {
+    "drag": "Typography",
+    "exple_desc":"L'exemple suivant montre le composant Typography en action.",
+    "typoCompo": "Composants / Typography",
+    "overview":"Vue globale",
+    "typo_overview": "Typography ",
+    "getting-strated": "Personnalisez vos propres fonctionnalités du Typography et générez les codes:"
+    
+  },
+  "toast": {
+    "toast": "toast",
+    "exple_desc":"L'exemple suivant montre le composant Toast en action.",
+    "toastCompo": "Composants / Toast",
+    "overview": "Vue globale",
+    "toast_overview": "Le composant Toast permet d'afficher un message flottant.",
+    "getting-strated": "Personnalisez vos propres fonctionnalités du Toast et générez les codes:",
+    "display":"Afficher toast"
+
+
+  
+  },
+  "calendar": {
+    "calendar": "calendar",
+    "exple_desc":"L'exemple suivant montre le composant Calendar en action.",
+    "calendarCompo": "Composants / Calendar",
+    "overview": "Vue globale",
+    "calendar_overview": "Le composant calendar permet d'afficher les dates.",
+    "getting-strated": "Personnalisez vos propres fonctionnalités du calendar et générez les codes:"
+
+
+  
+  },
+  "icon": {
+    "nom":"Nom de l'icône",
+    "couleur":"Couleur",
+    "taille":"Taille",
+    "list":"Liste des icônes",
+    "icon": "Icons",
+    "exple_desc":"L'exemple suivant montre les icônes en action.",
+    "iconCompo": "Composants / Icons",
+    "overview": "Vue globale",
+    "icon_overview": "Une icône autonome peut être affichée à l'aide d'un élément tel que i ou span.",
+    "getting-strated": "Personnalisez vos propres fonctionnalités des icônes et générez les codes:"
+
+
+  
+  },
+  "form": {
+    "formCompo": "Composants / Form",
+    "setting": "Paramétrage de la structure du formulaire",
+    "bordure": "Bordure",
+    "column": "Colonnes",
+    "validation": "Activer validateur",
+    "error": "Message d'erreur",
+    "flex": "Option flex",
+    "result": "résultat du formulaire",
+    "title": "Titre",
+    "overview": "Vue globale",
+    "getting-strated": "Personnalisez vos propres fonctionnalités du Form et générez les codes:",
+    "form_overview": "Le composant Form défini la structure d'un formulaire paramétrable et responsive.",
+    "exple_desc": "L'exemple suivant montre le Formulaire en action."
+  },
+  "monoselect": {
+    "setting": "Paramétrage du composant",
+    "general": "Paramétrage générale",
+    "label": "Label affiché",
+    "value": "Valeur retournée",
+    "deactivated": "Désactivée",
+    "suppression": "Désactiver l'icône de suppression",
+    "active": "Activer l'auto-complete",
+    "callback": "Ajouter un callback on-add",
+    "onchange": "Ajouter un callback onChange",
+    "selected": "Eléments sélectionnés",
+    "monoselectCompo": "Composants / MonoSelect",
+    "overview": "Vue globale",
+    "getting-strated": "Personnalisez vos propres fonctionnalités du MonoSelect et générez les codes:",
+    "monoselect_overview": "MonoSelect est utilisé pour sélectionner un seul élément d'une collection.",
+    "exple_desc": "L'exemple suivant montre le MonoSelect en action.",
+    "name": "Nom"
+  },
+  "multiselect": {
+    "setting": "Paramétrage du composant",
+    "general": "Paramétrage générale",
+    "label": "Label affiché",
+    "value": "Valeur retournée",
+    "max": "Max items sélectionnés",
+    "hide": "Cacher éléments sélectionnés",
+    "deactivated": "Désactivée",
+    "suppression": "Désactiver l'icône de suppression",
+    "active": "Activer l'auto-complete",
+    "callback": "Ajouter un callback on-add",
+    "onchange": "Ajouter un callback onChange",
+    "selected": "Eléments sélectionnés",
+    "multiselectCompo": "Composants / MultiSelect",
+    "overview": "Vue globale",
+    "getting-strated": "Personnalisez vos propres fonctionnalités du MultiSelect et générez les codes:",
+    "multiselect_overview": "MultiSelect est utilisé pour sélectionner plusieurs éléments d'une collection.",
+    "exple_desc": "L'exemple suivant montre le MultiSelect en action.",
+    "name": "Nom"
+  },
+  "spinner": {
+    "spinner": "spinner",
+    "spinner_overview": "Spinner est un indicateur d'état du processus.",
+    "exple_desc": "L'exemple suivant montre le spinner en action.",
+    "spinnerCompo": "Composants / Spinner",
+    "overview": "Vue globale",
+    "getting-strated": "Personnalisez vos propres fonctionnalités du spinner et générez les codes:", 
+    "type": "Type spinner",
+    "size": "Taille spinner",
+    "color": "Couleur spinner"
+  },
+  "statusBar": {
+    "breadCrumbStatus": "Barre de status",
+    "nbrSub": "Nombre de subdivisions ",
+    "val": "Valeur de subdivision",
+    "color": "Couleur de subdivision",
+    "html": "Code HTML",
+    "tscode": "Code TS",
+    "statusBarCompo": "Composants / Barre de statut",
+    "overview": "Vue globale",
+    "getting-strated": "Personnalisez vos propres fonctionnalités du Barre de statut et générez les codes:",
+    "statusBar_overview": "Le composant Barre de statut est utilisé pour indiquer le pourcentage de progression.",
+    "exple_desc": "L'exemple suivant montre le Barre de statut en action."
+  },
+  "modal": {
+    "modalCompo": "Composants / Modal",
+    "overview": "Vue globale",
+    "getting-strated": "Personnalisez vos propres fonctionnalités du Modal et générez les codes:",
+    "modal_overview": "Le composant modal fournit une base solide pour créer des boites de dialogues.",
+    "exple_desc": "L'exemple suivant montre le Modal en action."
+   
+  },
+  "breadcrumb": {
+    "breadcrumbCompo": "Composants / Breadcrumb",
+    "overview": "Vue globale",
+    "getting-strated": "Personnalisez vos propres fonctionnalités du breadcrumb et générez les codes:",
+    "breadcrumb_overview": "Le composant breadcrumb fournit des informations contextuelles sur la hiérarchie des pages.",
+    "exple_desc": "L'exemple suivant montre le breadcrumb en action.",
+    "taille":"Taille"
+  },
+  "stepper": {
+
+    "stepperCompo": "Composants / stepper",
+    "overview": "Vue globale",
+    "getting-strated": "Personnalisez vos propres fonctionnalités du composant stepper et générez les codes:",
+    "stepper_overview": "Le composant stepper permer d'organiser les données dans des interfaces séparées.",
+    "exple_desc": "L'exemple suivant montre le composant stepper en action.",
+    "setting": "Paramétrage du Stepper",
+    "about": "A propos ce composant",
+    "documentation": {
+      "nextStep": "En ajoutant une directive \"awNextStep\" à un bouton ou à un lien dans une étape, vous ajoutez automatiquement un écouteur onClick au bouton ou au lien, cela mène à la prochaine étape. Cet écouteur changera automatiquement l'étapedu stepper actuellement sélectionnée à l'étape suivante de l'assistant après un clic sur le composant.",
+      "navigationMode": {
+        "def": "Ce composant prend en charge trois modes de navigation différents : ",
+        "mode1": "vous ne pouvez parcourir les étapes du stepper que de manière linéaire. Vous ne pouvez entrer l'étape suivante que si toutes les étapes précédentes sont terminées et que les conditions de sortie de votre étape actuelle sont remplies. Dans ce mode, il n'est pas possible de passer d'une étape à l'autre.Par conséquent, vous devez suivre les étapes dans l’ordre 1 -> 2 -> 3 -> 4.",
+        "mode2": "Ce mode permet à l'utilisateur de naviguer entre les étapes dans l'ordre de son choix.Cela signifie que, dans ce mode de navigation, un utilisateur peut exécuter les étapes dans l'ordre 1 -> 3 -> 2 -> 4, si les conditions de sortie sont remplies.",
+        "mode3": "Ce mode permet à l'utilisateur de naviguer librement entre les différentes étapes, y compris l'étape d'achèvement, dans l'ordre de son choix."
+      },
+      "prevStep": "En ajoutant une directive \"awPreviousStep\" à un bouton ou à un lien, vous ajoutez automatiquement un écouteur onClick au bouton ou au lien, qui modifie votre assistant à l'étape précédente. Cet écouteur changera automatiquement l'étape de l'assistant actuellement sélectionnée à l'étape précédente de Stepper après un clic sur le composant.",
+      "defaultStep": "Par défaut, le stepper commence toujours par la première étape, après l'initialisation. La même chose s'applique pour une réinitialisation, le stepper réinitialisant normalement à la première étape. Parfois, cela doit être changé. Si une autre étape par défaut doit être utilisée, vous pouvez la définir à l'aide de l'entrée [defaultStepIndex]. Par exemple, pour démarrer le stepper à la deuxième étape, vous devez définir [defaultStepIndex] = \"2\". Veuillez noter qu'Angular interprétera la valeur d'entrée donnée comme une chaîne si elle n'est pas entourée par []!",
+      "steptitle": "Sert à definir le titre de l'étape choisi.",
+      "otherFeatures": {
+        "title": "Autre fonctionnalités",
+        "completionStep": "Cette étape est considérée comme la dernière étape, qui indique à l'utilisateur qu'il a terminé avec succès le Stepper. Lorsque l'utilisateur a saisi une étape d'achèvement, toutes les étapes du Stepper, y compris les étapes facultatives appartenant au Stepper, sont marquées comme terminées. De plus, l'utilisateur n'est pas autorisé à quitter l'étape aw-wizard-completion-step pour passer à une autre étape, une fois celle-ci entrée.",
+        "completionStepCode": "Si vous avez besoin de cette fonctionnalité, ajoutez ce bout de code sous la balise <aw-wizard> : <aw-wizard-completion-step> Final wizard step </aw-wizard-completion-step>",
+        "optionalStep": "Si vous devez définir une étape facultative, elle n'a pas besoin d'être terminer pour passer aux étapes suivantes. Vous pouvez définir une étape facultative en ajoutant la directive \"awOptionalStep\" à l'étape que vous souhaitez déclarer comme facultative."
+      }
+    },
+    "labelDefaultIndex": "Indice du step par defaut",
+    "modeNavigation": "Mode de navigation ",
+    "titleStep": "Titre étape ",
+    "stepContent": "Contenu du step ",
+    "next": "Suivant",
+    "prev": "Précédent",
+    "finish": "Terminer"
+  },
+  "tabs": {
+
+    "stepperCompo": "Composants / tabs",
+    "overview": "Vue globale",
+    "getting-strated": "Personnalisez vos propres fonctionnalités du composant tabs et générez les codes:",
+    "stepper_overview": "Le composant tabs permer d'organiser les données dans des interfaces séparées.",
+    "exple_desc": "L'exemple suivant montre le composant tabs en action.",
+    "setting": "Paramétrage du tabs",
+    "about": "A propos ce composant",
+    "documentation": {
+      "nextStep": "En ajoutant une directive \"awNextStep\" à un bouton ou à un lien dans une étape, vous ajoutez automatiquement un écouteur onClick au bouton ou au lien, cela mène à la prochaine étape. Cet écouteur changera automatiquement l'étapedu stepper actuellement sélectionnée à l'étape suivante de l'assistant après un clic sur le composant.",
+      "navigationMode": {
+        "def": "Ce composant prend en charge trois modes de navigation différents : ",
+        "mode1": "vous ne pouvez parcourir les étapes du tabs que de manière linéaire. Vous ne pouvez entrer l'étape suivante que si toutes les étapes précédentes sont terminées et que les conditions de sortie de votre étape actuelle sont remplies. Dans ce mode, il n'est pas possible de passer d'une étape à l'autre.Par conséquent, vous devez suivre les étapes dans l’ordre 1 -> 2 -> 3 -> 4.",
+        "mode2": "Ce mode permet à l'utilisateur de naviguer entre les étapes dans l'ordre de son choix.Cela signifie que, dans ce mode de navigation, un utilisateur peut exécuter les étapes dans l'ordre 1 -> 3 -> 2 -> 4, si les conditions de sortie sont remplies.",
+        "mode3": "Ce mode permet à l'utilisateur de naviguer librement entre les différentes étapes, y compris l'étape d'achèvement, dans l'ordre de son choix."
+      
+       
+      }
+    },
+    "labelDefaultIndex": "Indice du step par defaut",
+    "modeNavigation": "Mode de navigation ",
+    "titleStep": "Titre étape ",
+    "stepContent": "Contenu du step ",
+    "next": "Suivant",
+    "prev": "Précédent",
+    "finish": "Terminer"
+  },
+  
+  "imp_details": "Détails d'implémentation",
+  "result": "Résultat",
+  "prerequis": "Prérequis",
+  "import": "importation"
+}

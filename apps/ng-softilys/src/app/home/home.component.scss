@@ -1,0 +1,138 @@
+.rectangle {
+  height: 250px;
+  background-color: rgb(44, 42, 42);
+}
+div.relative {
+  position: relative;
+  top: 60px;
+}
+.colorFont {
+  color: black;
+}
+div.relativeLangauageButton {
+  position: relative;
+  left: 1500px;
+  top: 30px;
+}
+
+.font {
+  font-family: 'Times New Roman';
+  color: #fff;
+}
+.myp1 {
+  color: #e5cea1;
+}
+.myp2 {
+  color: #d0cdc5;
+}
+input,
+select {
+  color: #ffffff;
+  width: 50px;
+}
+input,
+select {
+  padding: 8px 15px;
+  color: #363638;
+  font-size: 13px;
+  border: 0;
+  border: 1px solid #e4eaec;
+  border-radius: 0;
+  width: 4%;
+  background: none;
+  margin: 15px 0;
+  border-radius: 0;
+  color: white;
+}
+
+:host ::ng-deep sof-button button {
+  width: 132px;
+  height: 44px;
+  margin-top: 34px;
+}
+.Font-FF {
+  background: linear-gradient(85deg, #2a2c33, #494c56) !important;
+  height: 629px;
+}
+.h1-home {
+  margin-top: 191px;
+  padding: 0px;
+}
+
+.py-home {
+  padding-top: 53px !important;
+  padding-bottom: 220px !important;
+}
+
+.cd-item a {
+  display: block;
+  border-radius: 2px;
+  padding: 50px 15px 40px;
+  box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1);
+  background: white;
+}
+
+.AfficherCard {
+  height: 305px;
+  width: 344px;
+  text-align: center;
+  border-radius: 4px;
+  border: 1px solid rgba(0, 0, 0, 0.125) !important;
+}
+
+i.icons {
+  font-size: 47px;
+}
+
+.style-title {
+  font-family: 'Open Sans Bold';
+  font-size: 20px;
+  color: #363638;
+  margin-top: 34px;
+}
+
+.style-p {
+  font-size: 13px;
+  font-family: 'Open Sans Regular';
+  line-height: 24px;
+  margin-left: 16px;
+  margin-right: 17px;
+}
+
+.card .card-header {
+  border: 0px !important;
+}
+
+.justify-content-center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.center-table {
+  display: table;
+  height: 100%;
+  width: 60%;
+  margin: 20px;
+}
+.center-table p {
+  display: table-cell;
+  margin: 0;
+  font-size: 16px;
+  padding: 20px;
+  vertical-align: middle;
+}
+
+.center-table p span {
+  font-size: 40px;
+  font-family: 'Open Sans Bold';
+  color: black;
+}
+.videoHome {
+  width: 608px;
+  height: 392px;
+  background: white;
+  border-left: 20px solid white;
+  border-right: 20px solid white;
+  border-top: 0px solid white;
+  border-bottom: 0px solid white;
+}
