@@ -1,2 +1,2 @@
 export * from './checkbox';
-export * from './model/CheckboxItem';
+export * from './model/checkbox-item';

@@ -1,0 +1,41 @@
+label {
+  font-size: 14px !important;
+}
+
+:host ::ng-deep textarea {
+  min-height: 0px !important;
+}
+
+:host ::ng-deep div.code-toolbar > .toolbar a,
+div.code-toolbar > .toolbar button,
+div.code-toolbar > .toolbar span {
+  display: none;
+}
+
+pre {
+  overflow: hidden;
+}
+:host ::ng-deep .card {
+  width: 100%;
+  margin-bottom: 150px;
+  overflow: visible;
+}
+:host ::ng-deep div.card {
+  overflow: visible !important;
+}
+:host ::ng-deep div.card-block {
+  width: 100%;
+
+  overflow: visible;
+}
+:host ::ng-deep div.total-padding {
+  height: 150px !important;
+}
+
+:host ::ng-deep small {
+  display: none !important;
+}
+
+:host ::ng-deep #monoicon {
+  display: none;
+}

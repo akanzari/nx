@@ -11,7 +11,7 @@ import { SofButtonModule } from 'ng-softilys/button';
   templateUrl: './upload.html',
   styleUrls: ['./upload.scss']
 })
-export class UploadComponent {
+export class SofUpload {
 
   @Input() maxSize: string;
   @Input() visibility: boolean;
@@ -108,8 +108,7 @@ export class UploadComponent {
       FormsModule,
       SofButtonModule
    ],
-  declarations: [UploadComponent],
-  providers: [],
-  exports: [UploadComponent]
+  declarations: [SofUpload],
+  exports: [SofUpload]
 })
 export class SofUploadModule { }

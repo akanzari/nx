@@ -7,7 +7,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
   templateUrl: './toast.html',
   styleUrls: ['./toast.scss']
 })
-export class ToastComponent {
+export class SofToast {
 
   _msgs: String[] = [];
   alert: any;
@@ -96,11 +96,8 @@ export class ToastComponent {
 }
 
 @NgModule({
-  imports: [
-    CommonModule,
-    MatSnackBarModule
-  ],
-  declarations: [ToastComponent],
-  exports: [ToastComponent]
+  imports: [CommonModule, MatSnackBarModule ],
+  declarations: [SofToast],
+  exports: [SofToast]
 })
 export class SofToastModule { }

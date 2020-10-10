@@ -1,12 +1,12 @@
 import { Component, OnInit, Input, Output, EventEmitter, HostListener, ViewChild, Pipe, ElementRef, AfterViewInit, ChangeDetectorRef, ɵConsole } from '@angular/core';
-import { AlTableButtonEvent } from './model/AlTableButtonEvent';
+import { AlTableButtonEvent } from './model/table-button-event';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { AlTableConfig } from './model/config';
 import { Table } from 'primeng/table';
 import { FilterUtils } from 'primeng/utils';
 import { DatePipe } from '@angular/common';
 import { trigger, style, state, transition, animate } from '@angular/animations';
-import { ALTableButton } from './model/ALTableButton';
+import { ALTableButton } from './model/table-button';
 import * as _ from "lodash";
 
 export enum FilterTypes {
@@ -32,7 +32,7 @@ export enum FilterTypes {
   ]
 
 })
-export class TableComponent implements OnInit {
+export class SofTable implements OnInit {
 
   /*   definie dans data.service.ts avec l'attribut language
     nombreSubList=[{"value":"40","color":"progress-secondary"},{"value":"20","color":"progress-error"},{"value":"40","color":"progress-valid"}]; */

@@ -10,16 +10,13 @@
     [maxSelectedItems]="maxSelectedItems" (close)="onClose()" (focus)="onFocus($event)" groupBy="{{groupBy}}"
     (blur)="onBlur($event)" [appendTo]="appendTo" (clear)="onClear()" [clearSearchOnAdd]="true" [virtualScroll]="Load"
     [loading]="loading" [loading]="ItemLoading" (scrollToEnd)="scroll()" [selectableGroup]="false">
+
     <ng-template *ngIf="selectcheckbox" ng-header-tmp>
-
       <div id="divCheckbox">
-
         <sof-checkBox id="check" booleanValue='true' [(ngModel)]="checkboxValue" bindLabel="name"
           [value]="checkboxValue" (onCheck)="selectAll()" (unCheck)="unselectAll()">
           <span id="spanCheckbox">Sélectionner tout </span> </sof-checkBox>
       </div>
-
-
     </ng-template>
 
     <ng-template ng-multi-label-tmp let-items="items" let-clear="clear">
@@ -30,18 +27,14 @@
       <div id="items" class="ng-value" *ngIf="items.length > nbItemsToShow">
         <span id="item" class="ng-value-label">{{items.length-nbItemsToShow}} {{TextItems}} </span>
       </div>
-
-
     </ng-template>
-    <ng-template ng-option-tmp let-item="item" let-item$="item$" let-index="index" *ngIf="selected===true">
 
+    <ng-template ng-option-tmp let-item="item" let-item$="item$" let-index="index" *ngIf="selected===true">
       <div id="divCheckbox">
         <sof-checkBox booleanValue='true' [value]="item.booleanValue" [(ngModel)]="item.booleanValue" bindLabel="name"
           (unCheck)="unselect()" (onCheck)="select()"> {{item.name}}</sof-checkBox>
       </div>
-
     </ng-template>
-
 
   </ng-select>
 
@@ -51,9 +44,7 @@
         [ngClass]="(item.color ==null)?'label-primary':item.color ">{{try(item)}}
         <span id="ButtonClear" class="ng-value-icon right" (click)="clears(item);Removetags(item,i)" aria-hidden="true">
           ×</span></span>
-
-
     </li>
-
   </ul>
+  
 </div>

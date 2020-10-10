@@ -1,17 +1,17 @@
 import { Component, OnInit, Input, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SubFormComponent } from './template/sub-form/sub-form';
-import { FormButtonsComponent } from './template/form-buttons/form-buttons';
-import { LabelComponent } from './template/label/label';
-import { ItemComponent } from './template/item/item';
-import { ColumnsService } from './template/service/columns.service';
+import { SofSubForm } from './template/sub-form';
+import { SofFormButtons } from './template/form-buttons';
+import { SofFormLabel } from './template/form-label';
+import { SofFormItem } from './template/form-item';
+import { ColumnsService } from './service/columns.service';
 
 @Component({
   selector: 'sof-form',
   templateUrl: './form-structure.html',
   styleUrls: ['./form-structure.scss']
 })
-export class FormStructureComponent {
+export class SofFormStructure {
 
   @Input() columns: number = 1;
   @Input() title: string;
@@ -26,18 +26,18 @@ export class FormStructureComponent {
 @NgModule({
   imports: [CommonModule],
   declarations: [
-      FormStructureComponent,
-      SubFormComponent,
-      FormButtonsComponent,
-      LabelComponent,
-      ItemComponent
+    SofFormStructure,
+    SofSubForm,
+    SofFormButtons,
+    SofFormLabel,
+    SofFormItem
   ],
   exports: [
-      FormStructureComponent,
-      SubFormComponent,
-      FormButtonsComponent,
-      LabelComponent,
-      ItemComponent
+    SofFormStructure,
+    SofSubForm,
+    SofFormButtons,
+    SofFormLabel,
+    SofFormItem
   ],
   providers: [ColumnsService]
 })

@@ -5,10 +5,15 @@ import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'sof-status-bar',
-  templateUrl: './statusbar.html',
+  template: `
+   <div class="progress">
+      <div *ngFor="let item of data" [style.background-color]="getColor(item.color)" role="progressbar"
+        [style.width.%]="getWidth(item.value)"></div><!-- ; index as j" -->
+    </div>
+  `,
   styleUrls: ['./statusbar.scss']
 })
-export class StatusBarComponent implements OnInit {
+export class SofStatusBar implements OnInit {
   // @Input() progressColor;
   // @Input() Value;
   @Input() data: StatusBar[];
@@ -43,11 +48,8 @@ export class StatusBarComponent implements OnInit {
 }
 
 @NgModule({
-  imports: [
-      CommonModule,
-      FormsModule
-  ],
-  declarations: [StatusBarComponent],
-  exports: [StatusBarComponent]
+  imports: [CommonModule, FormsModule],
+  declarations: [SofStatusBar],
+  exports: [SofStatusBar]
 })
 export class SofStatusBarModule { }

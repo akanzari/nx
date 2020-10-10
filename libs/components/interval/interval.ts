@@ -11,7 +11,8 @@ import { CalendarModule } from 'primeng/calendar';
   templateUrl: './interval.html',
   styleUrls: ['./interval.scss']
 })
-export class IntervalComponent implements OnInit {
+export class SofInterval implements OnInit {
+  
   x = 'jj/mm/aaaa';
   public calendar: any;
   public calendar_fr: any;
@@ -199,7 +200,7 @@ export class IntervalComponent implements OnInit {
     ReactiveFormsModule,
     CalendarModule
   ],
-  declarations: [IntervalComponent],
-  exports: [IntervalComponent]
+  declarations: [SofInterval],
+  exports: [SofInterval]
 })
 export class SofIntervalModule { }

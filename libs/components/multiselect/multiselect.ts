@@ -8,7 +8,7 @@ const noop = () => { };
 
 export const CUSTOM_MULTI_SELECT_CONTROL_VALUE_ACCESSOR: any = {
   provide: NG_VALUE_ACCESSOR,
-  useExisting: forwardRef(() => MultiSelectComponent),
+  useExisting: forwardRef(() => SofMultiSelect),
   multi: true
 };
 @Component({
@@ -17,7 +17,7 @@ export const CUSTOM_MULTI_SELECT_CONTROL_VALUE_ACCESSOR: any = {
   styleUrls: ['./multiselect.scss'],
   providers: [CUSTOM_MULTI_SELECT_CONTROL_VALUE_ACCESSOR],
 })
-export class MultiSelectComponent implements OnInit, ControlValueAccessor, OnChanges {
+export class SofMultiSelect implements OnInit, ControlValueAccessor, OnChanges {
 
   @Input() selectcheckbox: boolean = false;
   @Input() Load: boolean;
@@ -248,12 +248,12 @@ export class MultiSelectComponent implements OnInit, ControlValueAccessor, OnCha
 
 @NgModule({
   imports: [
-      CommonModule,
-      FormsModule,
-      NgSelectModule,
-      SofCheckBoxModule
+    CommonModule,
+    FormsModule,
+    NgSelectModule,
+    SofCheckBoxModule
   ],
-  declarations: [ MultiSelectComponent],
-  exports: [MultiSelectComponent]
+  declarations: [SofMultiSelect],
+  exports: [SofMultiSelect]
 })
 export class SofMultiSelectModule { }

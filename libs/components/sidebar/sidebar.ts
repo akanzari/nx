@@ -35,7 +35,7 @@ import { FormsModule } from '@angular/forms';
     ])
   ]
 })
-export class SidebarComponent implements OnInit, AfterViewInit, OnDestroy {
+export class SofSidebar implements OnInit, AfterViewInit, OnDestroy {
 
   @Input() position: string;
   @Input() color: string;
@@ -202,13 +202,9 @@ export class SidebarComponent implements OnInit, AfterViewInit, OnDestroy {
 }
 
 @NgModule({
-  imports: [
-      CommonModule,
-      FormsModule, 
-      RouterModule
-  ],
-  declarations: [SidebarComponent],
-  exports: [SidebarComponent],
+  imports: [CommonModule, FormsModule, RouterModule],
+  declarations: [SofSidebar],
+  exports: [SofSidebar],
   providers: [LayoutService]
 })
 export class SofSidebarModule { }

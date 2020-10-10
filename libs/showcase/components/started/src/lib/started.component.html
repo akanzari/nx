@@ -1,0 +1,235 @@
+<div class="row">
+        <div class="col-12 framework-font padding-framework">
+                <div class="content-section introduction">
+                        <div>
+                                <h1 class="framework-h1-font">Getting Started</h1>
+                                <span>{{'get_started.presentation'|translate}}</span>
+                                <br>{{'get_started.version'|translate}}
+                        </div>
+                </div>
+                <h3 class="framework-h3-font">{{'get_started.download'|translate}}</h3>
+
+                <br>
+                <p> {{'get_started.create'|translate}}
+                        <span class="style-boder-radius"> .npmrc </span> &nbsp;{{ 'get_started.sous'|translate}}
+                        <span style="color:#DD1144;"
+                                class="framework-font">C:/utilisateurs/{{'get_started.firstName'|translate}}.{{'get_started.LastName'|translate}}</span>
+                        {{'get_started.details'|translate}} </p>
+                <p> PS : {{'get_started.replace'|translate}}
+                        <span style="color:#DD1144;"
+                                class="framework-font">{{'get_started.firstName'|translate}}.{{'get_started.LastName'|translate}}@be-softilys.tn</span>
+                        {{'get_started.mail'|translate}}</p>
+                <div class="relative">
+                        <div class="border border-radius bg-white mb-2 style-color padding-framework">
+                                loglevel=error
+                                <br> progress=true
+                                <br> registry=https://binaries.devtools.local/artifactory/api/npm/npm/
+                                <br> email=prénom.nom@almerys.com
+                                <br> always-auth=true
+                                <br> _auth=identifiant:mot de passe (en base 64)
+                                <br> strict-ssl=false
+                                <br>
+                        </div>
+                </div>
+                <br><br><br>
+                <h3 class="framework-h3-font">Méthode 1: Générer le fichier d'installation</h3>
+                {{'get_started.paste-location'|translate}}:
+                <div class="col-md-6">
+                        <sof-form [formGroup]="parentForm">
+                                <sof-form-item style="background-color: white"
+                                        [valid]="parentForm.controls.path.pristine ? true : parentForm.controls.path.valid"
+                                        errorMsg="L'emplacement de votre projet ne doit pas être null">
+                                        <sof-input class="col-md-3" [(ngModel)]="path" icon="folder"
+                                                placeholder="C:/users/jack.bisson/devtools/project"
+                                                formControlName="path"></sof-input>
+                                </sof-form-item>
+                        </sof-form>
+                </div>
+
+                <br>
+
+                {{'get_started.angular-version2'|translate}} {{'get_started.angular-version1'|translate}} <span
+                        class="style-boder-radius"> ng-select </span><br> <br>
+                &nbsp;&nbsp;&nbsp;<select class="col-md-2" name="selectType" [(ngModel)]="angularVersion">
+                        <option value="6+">Angular 6+</option>
+                        <option value="5">Angular 5</option>
+                </select>
+
+                <br><br>
+                Télécharger le fichier d'installation: <br>
+                <br>
+                <sof-button (click)="getInstallFile()" [disabled]="isActivated()">Télécharger</sof-button> <br>
+                <br><br>
+                Ensuite, veuillez exécutez le fichier téléchargé
+
+
+
+                <br>
+                <h3 class="framework-h3-font">Méthode 2: Exécuter ces commandes</h3>
+                <p>{{'get_started.primeng'|translate}}</p>
+                <div class="relative">
+                        <div class="border border-radius bg-white mb-2 style-color padding-framework">
+                                npm install primeng@6.1.7 --save
+                                <br>npm install primeicons@1.0.0 --save
+                                <br>npm install @fortawesome/fontawesome-free@5.10.0
+                                <br>npm install bootstrap@latest
+                                <br>npm install ng6-breadcrumbs@1.0.7
+                                <br>npm install angular-file@1.3.2
+                                <br>npm install ngx-spinner@7.2.0
+                                <br>npm i @angular/cdk@7.3.7
+                                <br>npm i @angular/material@7.3.7
+                                <br>npm install ngx-daterangepicker-material@2.1.8 –save
+                                <br>npm install --save moment@2.24.0 ngx-moment@3.4.0
+                                <br>npm i angular-archwizard@4.0.0
+                                <br>npm install cpx@1.5.0
+                                <br>@ng-select/ng-select@1.6.1
+                                <br>npm install ng-phone-number --save
+                                <br>npm install angular2-draggable --save
+                                <br>npm install google-libphonenumber@3.0.9 --save
+                                <br>npm i @angular-devkit/build-angular
+                                <br>npm install --save-dev webpack
+                                <br>npm i @ngx-translate/core
+                                <br><span style="color:black">npm rebuild</span>
+
+                        </div>
+                </div>
+                <br> {{'get_started.ng-select'|translate}} <span class="style-boder-radius"> ng-select </span>
+                &nbsp;{{'get_started.version-angular'|translate}}
+                <br>
+                <br>
+                <span class="style-span">{{'get_started.version5'|translate}}</span>
+                <br>
+                <div class="relative">
+                        <div class="border padding-15 border-radius bg-white mb-2 style-color">
+                                npm install --save @ng-select/ng-select @1.6.1
+
+
+                        </div>
+                </div>
+                <br>
+                <span class="style-span">{{'get_started.version6'|translate}}</span>
+                <br>
+                <div class="relative">
+                        <div class="border padding-15 border-radius bg-white mb-2 style-color">
+                                npm install --save @ng-select/ng-select
+
+
+                        </div>
+                </div>
+                <br>
+                <p>{{'get_started.disponible'|translate}}</p>
+                <div class="relative">
+                        <div class="border padding-framework border-radius bg-white mb-2 style-color">
+                                npm install framework-front-softilys
+                                <br>
+                        </div>
+                </div>
+
+                <br><br>
+
+                <h3 class="framework-h3-font">{{'get_started.StylesConfig'|translate}}</h3>
+                {{'get_started.config'|translate}} <span class="style-boder-radius"> &nbsp;styles
+                </span>{{'get_started.section'|translate}} <span style="color:#DD1144;"
+                        class="framework-font">angular.json</span> &nbsp;{{'get_started.librairie'|translate}}
+                <br>
+                <br>
+
+                <div class="relative">
+                        <div class="border padding-15 border-radius bg-white mb-2" style="color:#008080">
+                                "styles"<span style="color:#000080">:&#91;</span>
+                                <br> "./node_modules/primeicons/primeicons.css",
+                                <br> "./node_modules/primeng/resources/primeng.min.css",
+                                <br> "./node_modules/@ng-select/ng-select/themes/default.theme.css"<span
+                                        style="color:#000080">,
+                                        <br> //...
+                                        <br> ],</span>
+                                <br>
+                        </div>
+                </div>
+                <br>
+                <br>
+                {{'get_started.config'|translate}} {{'get_started.section'|translate}} <span style="color:#DD1144;"
+                        class="framework-font">styles.scss</span>
+                <br>
+
+                <p>théme:</p> <br>
+
+                <div class="col-md-3 col-lg-3 col-xl-4">
+                        <sof-monoselect [(ngModel)]="selectedOption" [options]="options" bindLabel="name"
+                                (onChange)="selecttheme()">
+                        </sof-monoselect>
+                        <br>
+                        <sof-status-bar *ngIf="theme" [data]="nombreSubListidys"> </sof-status-bar>
+                        <sof-status-bar *ngIf="!theme" [data]="nombreSubList"> </sof-status-bar>
+
+                </div>
+
+                <br>
+                <div class="relative">
+                        <div class="border padding-15 border-radius bg-white mb-2" style="color:#008080">
+                                <span style="color:#000080"></span>
+                                <div *ngIf="!theme">
+                                        <br> @import "../node_modules/framework-front-softilys/styles/be-software-theme"
+                                        <br> @import "../node_modules/framework-front-softilys/styles/be-software"
+                                </div>
+                                <div *ngIf="theme">
+                                        <br> @import "../node_modules/framework-front-softilys/styles/be-idys-theme"
+
+                                        <br> @import "../node_modules/framework-front-softilys/styles/be-idys"
+                                </div>
+
+                                <br><span style="color:black">//Delete:</span> <span style="color: grey;"> @import
+                                        "./styles/costom" & …./styles/app & …/styles/be-idys</span><span
+                                        style="color:#000080">,
+                                        <br> //...
+                                        <br> </span>
+                                <br>
+                        </div>
+                </div>
+                {{'get_started.PS'|translate}}
+                <br>{{'get_started.core_files'|translate}}
+                <u>
+                        <a href="https://ux.almerys.com/patterns/start.php"
+                                target="_blank">{{'get_started.télécharger'|translate}}</a>
+                </u>
+                <br>
+                <br><br>
+
+                {{'get_started.modif'|translate}} <span style="color:#DD1144;"
+                        class="framework-font">package.json</span>
+                <br>
+                <br>
+                <div class="relative">
+                        <div class="border padding-15 border-radius bg-white mb-2" style="color:#008080">
+                                scripts <span style="color:#000080">:&#123;</span>
+                                <br> "start" : "npm run install_assets && ng serve",
+                                <br> "build" : "npm run install_assets && ng build",
+
+                                <br>"install_assets" : "cpx \"./node_modules/framework-front-softilys/assets/**/*\"
+                                \"./src/assets\""
+
+
+
+                                <br> },
+                                <br>
+                        </div>
+                </div>
+                <br><br>
+                <p> {{'get_started.lancer'|translate}}</p>
+                <div class="relative">
+                        <div class="border padding-15 border-radius bg-white mb-2" style="color:#008080">
+
+                                <br> npm run build
+                                <br> npm start
+                                <br>
+                        </div>
+                </div>
+                <br>
+                <p> {{'get_started.browser_compatibility'|translate}}</p>
+                <p> {{'get_started.list_browser'|translate}}</p>
+                <div class="relative" style="font-size: 13px;">
+                        <sof-table [(data)]="navigateurs" [(columnsOrdered)]="columns" [(selectedRows)]="selectedRows"
+                                [(config)]="tableConf" totalElements="10"></sof-table>
+                </div>
+        </div>
+</div>

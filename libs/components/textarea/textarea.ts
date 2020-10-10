@@ -5,17 +5,17 @@ const noop = () => { };
 
 export const CUSTOM_INPUT_CONTROL_VALUE_ACCESSOR: any = {
   provide: NG_VALUE_ACCESSOR,
-  useExisting: forwardRef(() => TextAreaComponent),
+  useExisting: forwardRef(() => SofTextArea),
   multi: true
 };
 
 @Component({
   selector: 'sof-text-area',
-  templateUrl: './textarea.html',
+  template: `<textarea #sofArea [(ngModel)]="value" [placeholder]="placeholder" [cols]="cols" [rows]="rows"></textarea>`,
   styleUrls: ['./textarea.scss'],
   providers: [CUSTOM_INPUT_CONTROL_VALUE_ACCESSOR]
 })
-export class TextAreaComponent implements OnInit, ControlValueAccessor {
+export class SofTextArea implements OnInit, ControlValueAccessor {
 
   @ViewChild('sofArea', { read: ElementRef }) sofInput: ElementRef;
 
@@ -75,11 +75,8 @@ export class TextAreaComponent implements OnInit, ControlValueAccessor {
 }
 
 @NgModule({
-  imports: [
-      CommonModule,
-      FormsModule
-  ],
-  declarations: [TextAreaComponent],
-  exports: [TextAreaComponent]
+  imports: [CommonModule, FormsModule ],
+  declarations: [SofTextArea],
+  exports: [SofTextArea]
 })
 export class SofTextAreaModule { }

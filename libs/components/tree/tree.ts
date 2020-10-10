@@ -6,10 +6,16 @@ import { TreeModule } from 'primeng/tree';
 
 @Component({
   selector: 'sof-tree',
-  templateUrl: './tree.html',
+  template: `
+   <p-tree [value]="nodes" (onNodeExpand)="select($event)">
+      <ng-template let-node pTemplate="default">
+          {{node[label]}}
+      </ng-template>
+   </p-tree>
+  `,
   styleUrls: ['./tree.scss']
 })
-export class TreeComponent {
+export class SofTree {
   
   @Input() nodes: any;
   @Input() options: TreeNode[];
@@ -30,7 +36,7 @@ export class TreeComponent {
     CommonModule,
     TreeModule
   ],
-  declarations: [TreeComponent],
-  exports: [TreeComponent]
+  declarations: [SofTree],
+  exports: [SofTree]
 })
 export class SofTreeModule { }

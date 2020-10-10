@@ -15,7 +15,11 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@showcase/started": ["libs/showcase/components/started/src/index.ts"],
+      "@showcase/service": ["libs/showcase/service/src/index.ts"],
+      "@showcase/button": ["libs/showcase/components/button/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

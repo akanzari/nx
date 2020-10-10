@@ -9,12 +9,12 @@ import { CommonModule } from '@angular/common';
     providers: [
         {
             provide: NG_VALUE_ACCESSOR,
-            useExisting: forwardRef(() => RadioButtonComponent),
+            useExisting: forwardRef(() => SofRadioButton),
             multi: true
         }
     ]
 })
-export class RadioButtonComponent implements ControlValueAccessor {
+export class SofRadioButton implements ControlValueAccessor {
 
     @Input() groupName: string;
     @Input() id;
@@ -56,11 +56,8 @@ export class RadioButtonComponent implements ControlValueAccessor {
 }
 
 @NgModule({
-    imports: [
-        CommonModule,
-        FormsModule
-    ],
-    declarations: [RadioButtonComponent],
-    exports: [RadioButtonComponent]
+    imports: [CommonModule, FormsModule],
+    declarations: [SofRadioButton],
+    exports: [SofRadioButton]
 })
 export class SofRadioButtonModule { }

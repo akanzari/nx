@@ -10,7 +10,7 @@ import { CommonModule } from '@angular/common';
   template: `<p-calendar [locale]="calendar" [placeholder]="x" dateFormat="dd/mm/yy" [appendTo]="appendTo"></p-calendar>`,
   styleUrls: ['./calendar.scss']
 })
-export class SofCalendarComponent implements OnInit {
+export class SofCalendar implements OnInit {
 
   x = 'jj/mm/aaaa';
   public calendar: any;
@@ -64,7 +64,7 @@ export class SofCalendarComponent implements OnInit {
     FormsModule,
     CalendarModule
   ],
-  declarations: [SofCalendarComponent],
-  exports: [SofCalendarComponent]
+  declarations: [SofCalendar],
+  exports: [SofCalendar]
 })
 export class SofCalendarModule { }

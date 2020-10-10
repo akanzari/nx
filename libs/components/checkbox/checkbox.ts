@@ -5,42 +5,17 @@ import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'sof-checkBox',
-  template: `
-  <div id="checkbox" *ngIf="!switch">
-  <input id="inputcheckbox" *ngIf="(!isChechboxBoolean() && _value) || isChechboxBoolean()" type="checkbox"
-    [value]="_value" (change)="check(_value)" [attr.checked]="isChecked(_value)? true : null" />
-  <button id="buttoncheckbox"
-    (click)="check(_value);  _value == true && onCheck.emit(); _value == false && unCheck.emit()"
-    [disabled]="isdisabled">{{ isChechboxBoolean() ? '' : _value[bindLabel]}}<ng-content></ng-content></button>
-</div>
-
-<div id="checkbox" *ngIf="switch === 'Default'">
-  <label class='switch'>
-    <input id="inputcheckbox" *ngIf="(!isChechboxBoolean() && _value) || isChechboxBoolean()" type="checkbox"
-      [value]="_value" (change)="check(_value);_value == true && onCheck.emit(); _value == false && unCheck.emit()"
-      [attr.checked]="isChecked(_value)? true : null" />
-    <span class="slider round" id="buttoncheckbox"></span>
-  </label>
-</div>
-<div id="checkbox" *ngIf="switch === 'valid'">
-  <label class='switch-valid'>
-    <input id="inputcheckbox" *ngIf="(!isChechboxBoolean() && _value) || isChechboxBoolean()" type="checkbox"
-      [value]="_value" (change)="check(_value);_value == true && onCheck.emit(); _value == false && unCheck.emit()"
-      [attr.checked]="isChecked(_value)? true : null" />
-    <span class="slider round" id="buttoncheckbox"></span>
-  </label>
-</div>
-  `,
+  templateUrl: './checkbox.html',
   styleUrls: ['./checkbox.scss'],
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => CheckBoxComponent),
+      useExisting: forwardRef(() => SofCheckBox),
       multi: true
     }
   ]
 })
-export class CheckBoxComponent implements OnInit, ControlValueAccessor {
+export class SofCheckBox implements OnInit, ControlValueAccessor {
   
   @Output() onCheck = new EventEmitter();
   @Output() unCheck = new EventEmitter();
@@ -145,7 +120,7 @@ export class CheckBoxComponent implements OnInit, ControlValueAccessor {
 
 @NgModule({
   imports: [CommonModule],
-  declarations: [CheckBoxComponent],
-  exports: [CheckBoxComponent]
+  declarations: [SofCheckBox],
+  exports: [SofCheckBox]
 })
 export class SofCheckBoxModule { }

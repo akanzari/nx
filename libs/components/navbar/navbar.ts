@@ -7,13 +7,12 @@ import { SofInputModule } from 'ng-softilys/input';
 import { SofButtonModule } from 'ng-softilys/button';
 import { SofCheckBoxModule } from 'ng-softilys/checkbox';
 
-
 @Component({
   selector: 'sof-navbar',
   templateUrl: './navbar.html',
   styleUrls: ['./navbar.scss'],
 })
-export class NavbarComponent implements OnInit {
+export class SofNavbar implements OnInit {
 
   @Input() Color;
   @Input() Height;
@@ -42,7 +41,7 @@ export class NavbarComponent implements OnInit {
       SofButtonModule,
       SofCheckBoxModule
   ],
-  declarations: [NavbarComponent],
-  exports: [NavbarComponent]
+  declarations: [SofNavbar],
+  exports: [SofNavbar]
 })
 export class SofNavbarModule { }

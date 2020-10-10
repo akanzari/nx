@@ -28,6 +28,15 @@
     },
     "ng-softilys-library": {
       "tags": []
+    },
+    "showcase-components-started": {
+      "tags": []
+    },
+    "showcase-service": {
+      "tags": []
+    },
+    "showcase-components-button": {
+      "tags": []
     }
   }
 }

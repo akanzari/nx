@@ -3,21 +3,10 @@ import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'sof-button',
-  template: `
-  <button type="button" [class]="btnclass" (click)="onClick.emit($event)" (focus)="onFocus.emit($event)"
-  (blur)="onBlur.emit($event)" [disabled]="disabled? disabled : false">
-  <!--data="(disabled)? 'Disabled' : ''" -->
-  <span>
-    <ng-content></ng-content>
-  </span>
-  <div *ngIf="icon && !flat" class="icon">
-    <i [class]="icons"></i>
-  </div>
-</button>
-  `,
+  templateUrl: './button.html',
   styleUrls: ['./button.scss']
 })
-export class ButtonComponent {
+export class SofButton {
 
   /* button border should be one of the following values : primary, secondary, error, valid, default, white. */
   @Input() border: string;
@@ -63,7 +52,7 @@ export class ButtonComponent {
 
 @NgModule({
   imports: [CommonModule],
-  declarations: [ButtonComponent],
-  exports: [ButtonComponent]
+  declarations: [SofButton],
+  exports: [SofButton]
 })
 export class SofButtonModule { }

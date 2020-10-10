@@ -5,10 +5,12 @@ import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'sof-spinner',
-  templateUrl: './spinner.html',
+  template: `
+    <ngx-spinner  bdColor="rgba(4, 4, 4, 0.68)"  size={{spinnerSize}} [fullScreen]="false" [color]="getColor()" [type]="getType()"></ngx-spinner>
+  `,
   styleUrls: ['./spinner.scss']
 })
-export class SpinnerComponent {
+export class SofSpinner {
 
   @Input() spinnerType: string;
   @Input() spinnerSize: string;
@@ -45,12 +47,8 @@ export class SpinnerComponent {
 }
 
 @NgModule({
-  imports: [
-    NgxSpinnerModule,
-    CommonModule,
-    FormsModule
-  ],
-  declarations: [SpinnerComponent],
-  exports: [SpinnerComponent]
+  imports: [NgxSpinnerModule, CommonModule, FormsModule],
+  declarations: [SofSpinner],
+  exports: [SofSpinner]
 })
 export class SofSpinnerModule { }

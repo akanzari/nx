@@ -4,29 +4,7 @@ import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'sof-card',
-  template: `
-  <div class="row">
-  <div class="col">
-    <div class="accordion accordion-bloc border padding-15 border-radius bg-white">
-      <div class="card">
-        <div class="card-header">
-          <h5 class="semibold">
-            <a (click)="toggleContent(); false">
-              <i
-                class="icons {{isContentDisplayed ? 'icon-chevron_up' : 'icon-chevron_down'}} size-16 color-primary"></i>{{title}}
-            </a>
-          </h5>
-        </div>
-        <div [@cardContent]="isContentDisplayed ? 'visible' : 'hidden'" style="overflow: hidden">
-          <div class="card-block">
-            <ng-content></ng-content>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-  `,
+  templateUrl: './card-container.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   animations: [
     trigger('cardContent', [
@@ -42,7 +20,7 @@ import { CommonModule } from '@angular/common';
     ])
   ]
 })
-export class CardContainerComponent {
+export class SofCardContainer {
 
   @Input()
   public isContentDisplayed: boolean;
@@ -85,7 +63,7 @@ export class CardContainerComponent {
 
 @NgModule({
   imports: [CommonModule],
-  declarations: [CardContainerComponent],
-  exports: [CardContainerComponent]
+  declarations: [SofCardContainer],
+  exports: [SofCardContainer]
 })
 export class SofCardContainerModule { }

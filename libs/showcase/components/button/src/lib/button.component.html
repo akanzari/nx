@@ -1,0 +1,199 @@
+<div class="picto-item" aria-label="test" class="row">
+  <div class="col-12 framework-font padding-framework">
+    <div>
+      <h1 class="framework-h1-font">{{'bouton.buttonCompo'|translate}}</h1>
+      <span class="framework-font-Semibold">{{'bouton.overview'|translate}}</span>
+      <br>
+      <br>{{'bouton.button_overview'|translate}}
+      <br>
+      <br>
+      <span class="framework-font-Semibold">GETTING STARTED</span>
+      <br>{{'bouton.getting-strated'|translate}}
+      <br>
+      <br>
+    </div>
+    <span class="framework-h3-font">{{'general.params'|translate}}</span>
+    <br>
+    <br>
+    <sof-card class="style-sof-card" title="{{'general.general_params'|translate}}" id="general_parameters">
+      <br>
+      <table style="width:100%">
+        <tr>
+          <th style="width:16%">
+            <span class="framework-font-Semibold" style="font-size: 13px; margin-left: 23px;">
+              {{'general.advancedImplementation'|translate}}
+            </span>
+          </th>
+          <th>
+            <hr>
+          </th>
+        </tr>
+      </table>
+      <br>
+      <div class="form-horizontal">
+        <div class="form-group row framework-font-Semibold">
+          <label class="col-md-3 col-lg-3 col-xl-2 control-label">{{'bouton.style_bordure'|translate}} :</label>
+          <div class="col-md-3 col-lg-3 col-xl-4">
+            <select [(ngModel)]="bgColor? '' : border" [attr.disabled]="functionB()" id="bordure_select">
+              <option></option>
+              <option value="primary" selected>primary</option>
+              <option value="secondary">secondary</option>
+              <option value="error">error</option>
+              <option value="valid">valid</option>
+              <option value="default">default</option>
+              <option value="white">white</option>
+            </select>
+          </div>
+
+          <label class="col-md-3 col-lg-3 col-xl-2 control-label">{{'bouton.background'|translate}} :</label>
+          <div class="col-md-3 col-lg-3 col-xl-4">
+            <select [(ngModel)]="bgColor" [attr.disabled]="functionnB()" id="background_select">
+              <option></option>
+              <option value="primary">primary</option>
+              <option value="secondary">secondary</option>
+              <option value="error">error</option>
+              <option value="valid">valid</option>
+              <option value="default">default</option>
+              <option value="white">white</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group row framework-font-Semibold">
+          <label class="col-md-3 col-lg-3 col-xl-2 control-label">Flat Button </label>
+          <div class="col-md-3 col-lg-3 col-xl-4">
+            <input type="checkbox" (change)="updateflat($event)" name="flat" value="true" [(ngModel)]="flat"
+              id="flat_checkbox">
+            <label for="flat_checkbox"></label>
+          </div>
+          <label class="col-md-3 col-lg-3 col-xl-2 control-label">{{'bouton.button_color'|translate}} :</label>
+          <div class="col-md-3 col-lg-3 col-xl-4">
+            <select [(ngModel)]="color" [attr.disabled]="flat ? null :true" id='flatC'>
+              <option></option>
+              <option value="primary">primary</option>
+              <option value="secondary">secondary</option>
+              <option value="error">error</option>
+              <option value="valid">valid</option>
+              <option value="default">default</option>
+              <option value="white">white</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group row framework-font-Semibold">
+          <label class="col-md-3 col-lg-3 col-xl-2 control-label">{{'bouton.icon'|translate}} :</label>
+          <div class="col-md-3 col-lg-3 col-xl-4">
+
+            <sof-monoselect [(ngModel)]="icon" (click)="try()" mode="autoComplete" bindLabel="name" bindValue="name"
+              [Load]="true" [nbTotal]="nbTotal" [loading]="loading" [bufferSize]="bufferSize"
+              [optionsBuffer]="optionsBuffer" (inputFromChild)="recherche($event)" (onScrollToEnd)="onScrollToEnd()"
+              [disabled]="flat ? true :null" id="icon_input">
+            </sof-monoselect>
+          </div>
+          <label class="col-md-3 col-lg-3 col-xl-2 control-label">{{'bouton.block'|translate}} </label>
+          <div class="col-md-3 col-lg-3 col-xl-4">
+            <input type="checkbox" id="block_checkbox" name="block" value="true" [(ngModel)]="block">
+            <label for="block_checkbox"></label>
+          </div>
+        </div>
+
+
+        <div class="form-group row framework-font-Semibold">
+          <label class="col-md-3 col-lg-3 col-xl-2 control-label">{{'bouton.width'|translate}} :</label>
+          <div class="col-md-3 col-lg-3 col-xl-4">
+            <select [(ngModel)]="block? '' : width" [disabled]="blockfunction()" id="width_select">
+              <option></option>
+              <option value="50">50</option>
+              <option value="100">100</option>
+              <option value="150">150</option>
+              <option value="200">200</option>
+              <option value="250">250</option>
+              <option value="300">300</option>
+              <option value="350">350</option>
+              <option value="400">400</option>
+              <option value="450">450</option>
+              <option value="500">500</option>
+            </select>
+          </div>
+          <label class="col-md-3 col-lg-3 col-xl-2 control-label">{{'bouton.size'|translate}} :</label>
+          <div class="col-md-3 col-lg-3 col-xl-4">
+            <select [(ngModel)]="size" id="size_select">
+              <option></option>
+              <option value="small">small</option>
+              <option value="medium">medium</option>
+              <option value="large">large</option>
+            </select>
+          </div>
+
+          <label class="col-md-3 col-lg-3 col-xl-2 control-label">{{'bouton.disabled'|translate}} </label>
+          <div class="col-md-3 col-lg-3 col-xl-4">
+            <input type="checkbox" id="disable_checkbox" name="disable" value="true" [(ngModel)]="disable">
+            <label for="disable_checkbox"></label>
+          </div>
+        </div>
+      </div>
+    </sof-card>
+    <br>
+    <span class="framework-h3-font">{{'general.BASIC_USAGE'|translate}}</span>
+    <br>
+    <br> {{'bouton.exple_desc'|translate}}
+    <br>
+    <br>
+    <sof-card class="style-sof-card" title="{{'imp_details'|translate}}" id="implementation_details">
+      <sof-stepper>
+        <aw-wizard navBarLayout="large-empty-symbols" navigationMode="free" defaultStepIndex="0">
+          <aw-wizard-step stepTitle="{{'prerequis'|translate}}" id="prerequis_code">
+            <div class="padding-15">
+              <b>app.module.ts</b>
+            </div>
+            <div class="border padding-15 border-radius mb-2 background-code">
+              <pre id="tr1" class="language-typescript background-code">
+                  <button id="copy" (click)="SelectAllPre()" style=" 
+                  color: black;
+                  font-size: .8em;
+                  padding: 0 .5em;
+                  background: #f5f2f0;
+                  background: rgba(172, 171, 171, 0.2);
+                  box-shadow: 0 2px 0 0 rgba(0,0,0,0.2);
+                  border-radius: .5em; float:right;">copy</button>
+                <code id="copy1"	[innerHtml]="getPrerequis()"></code>
+                <div><div id='parentt' ></div></div>
+              </pre>
+            </div>
+          </aw-wizard-step>
+          <aw-wizard-step stepTitle="HTML" id="html_code">
+            <div class="border padding-15 border-radius mb-2 background-code">
+
+              <pre id='o' class="language-markup background-code">
+                  <button id="copy" (click)="SelectAll()" style=" 
+                  color: black;
+                  font-size: .8em;
+                  padding: 0 .5em;
+                  background: #f5f2f0;
+                  background: rgba(172, 171, 171, 0.2);
+                  box-shadow: 0 2px 0 0 rgba(0,0,0,0.2);
+                  border-radius: .5em; float:right;">copy</button>
+                       <code  id='code' [innerHtml]="getHtmlCode()" class="language-markup"></code> 
+                      <div><div id='parent' ></div></div>
+                   
+                    </pre>
+            </div>
+          </aw-wizard-step>
+        </aw-wizard>
+      </sof-stepper>
+    </sof-card>
+    <div class="border padding-10 border-radius bg-white">
+      <div class="left-align-text ux-label">{{'result'|translate}}</div>
+      <br>
+      <div
+        [ngClass]="((border === 'white') || (bgColor === 'white') || (color === 'white'))? 'padding-15 border-radius bg-secondary-200 mb-2' : 'padding-15 border-radius bg-white mb-2'">
+        <sof-button id="button_result" [border]="border" [bgColor]="bgColor" [width]="width" [size]="size" [icon]="icon"
+          [flat]="flat" [color]="color" [disabled]="disable" [block]="block" (onClick)="test()">{{getButton()}}
+        </sof-button>
+
+      </div>
+      <br />
+
+    </div>
+
+  </div>
+</div>

@@ -1,14 +1,8 @@
 import { HostListener, OnInit, Directive, Input } from '@angular/core';
-
-
-
 import { OnDestroy } from '@angular/core';
-
 import { Subscription } from 'rxjs';
 import { DomHandler } from 'primeng/dom';
 import { Table, TableService } from 'primeng/table';
-
-
 
 @Directive({
   selector: '[pSelectableRow]',

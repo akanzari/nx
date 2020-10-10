@@ -5,10 +5,16 @@ import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'sof-tabs',
-  templateUrl: './tabs.html',
+  template: `
+  <div class="row">
+     <div class="col-12">
+       <ng-content></ng-content>
+     </div>
+  </div>
+  `,
   styleUrls: ['./tabs.scss']
 })
-export class TabsComponent { }
+export class SofTabs { }
 
 @NgModule({
   imports: [
@@ -16,7 +22,7 @@ export class TabsComponent { }
       FormsModule,
       ArchwizardModule
   ],
-  declarations: [TabsComponent],
-  exports: [TabsComponent]
+  declarations: [SofTabs],
+  exports: [SofTabs]
 })
 export class SofTabsModule { }

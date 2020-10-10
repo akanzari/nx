@@ -9,7 +9,7 @@ const noop = () => { };
 
 export const CUSTOM_INPUT_CONTROL_VALUE_ACCESSOR: any = {
   provide: NG_VALUE_ACCESSOR,
-  useExisting: forwardRef(() => InputComponent),
+  useExisting: forwardRef(() => SofInput),
   multi: true
 };
 
@@ -20,7 +20,7 @@ export const CUSTOM_INPUT_CONTROL_VALUE_ACCESSOR: any = {
   providers: [CUSTOM_INPUT_CONTROL_VALUE_ACCESSOR]
 })
 
-export class InputComponent implements OnInit, ControlValueAccessor {
+export class SofInput implements OnInit, ControlValueAccessor {
 
   @ViewChild('sofInput', { read: ElementRef }) sofInput: ElementRef;
 
@@ -103,7 +103,7 @@ export class InputComponent implements OnInit, ControlValueAccessor {
       FormsModule,
       InternationalPhoneNumberModule
   ],
-  declarations: [InputComponent],
-  exports: [InputComponent]
+  declarations: [SofInput],
+  exports: [SofInput]
 })
 export class SofInputModule { }

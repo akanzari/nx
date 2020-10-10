@@ -5,10 +5,16 @@ import { ArchwizardModule } from 'angular-archwizard';
 
 @Component({
   selector: 'sof-stepper',
-  templateUrl: './stepper.html',
+  template: `
+  <div class="row">
+     <div class="col-12">
+       <ng-content></ng-content>
+     </div>
+  </div>
+  `,
   styleUrls: ['./stepper.scss']
 })
-export class StepperComponent {}
+export class SofStepper {}
 
 @NgModule({
   imports: [
@@ -16,7 +22,7 @@ export class StepperComponent {}
       FormsModule,
       ArchwizardModule
   ],
-  declarations: [StepperComponent],
-  exports: [StepperComponent]
+  declarations: [SofStepper],
+  exports: [SofStepper]
 })
 export class SofStepperModule { }

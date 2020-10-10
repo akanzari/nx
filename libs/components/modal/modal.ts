@@ -1,9 +1,9 @@
 
-import { AngularResizableDirective, AngularDraggableDirective, AngularDraggableModule } from 'angular2-draggable';
+import { AngularDraggableDirective, AngularDraggableModule } from 'angular2-draggable';
 import { Component, OnInit, Input, Output, EventEmitter, NgModule } from '@angular/core';
 import { trigger, transition, style, animate, state } from '@angular/animations';
 import { CommonModule } from '@angular/common';
-import { FooterComponent } from './template/footer/footer.component';
+import { SofModalFooter } from './template/footer';
 
 @Component({
   selector: 'sof-modal',
@@ -20,7 +20,8 @@ import { FooterComponent } from './template/footer/footer.component';
     ])
   ]
 })
-export class ModalComponent implements OnInit {
+export class SofModal implements OnInit {
+
   @Input() drag: boolean = false;
   @Input() closable = true;
   @Input() visible: boolean;
@@ -100,16 +101,16 @@ export class ModalComponent implements OnInit {
 
 @NgModule({
   imports: [
-      CommonModule,
-      AngularDraggableModule
+    CommonModule,
+    AngularDraggableModule
   ],
   declarations: [
-      ModalComponent,
-      FooterComponent
+    SofModal,
+    SofModalFooter
   ],
   exports: [
-      ModalComponent,
-      FooterComponent
+    SofModal,
+    SofModalFooter
   ]
 })
 export class SofModalModule { }

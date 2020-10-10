@@ -43,9 +43,7 @@
             "polyfills": "apps/ng-softilys/src/polyfills.ts",
             "tsConfig": "apps/ng-softilys/tsconfig.app.json",
             "aot": true,
-            "allowedCommonJsDependencies": [
-              "lodash", "util", "chart.js"
-            ],
+            "allowedCommonJsDependencies": ["lodash", "util", "chart.js", "prismjs"],
             "assets": [
               "apps/ng-softilys/src/favicon.ico",
               "apps/ng-softilys/src/assets"
@@ -126,6 +124,72 @@
               "tsConfig": "libs/components/tsconfig.lib.prod.json"
             }
           }
+        }
+      }
+    },
+    "showcase-components-started": {
+      "projectType": "library",
+      "root": "libs/showcase/components/started",
+      "sourceRoot": "libs/showcase/components/started/src",
+      "prefix": "webapp",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["libs/showcase/components/started/tsconfig.lib.json"],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/showcase/components/started/**/*"
+            ]
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "showcase-service": {
+      "projectType": "library",
+      "root": "libs/showcase/service",
+      "sourceRoot": "libs/showcase/service/src",
+      "prefix": "webapp",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["libs/showcase/service/tsconfig.lib.json"],
+            "exclude": ["**/node_modules/**", "!libs/showcase/service/**/*"]
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "showcase-components-button": {
+      "projectType": "library",
+      "root": "libs/showcase/components/button",
+      "sourceRoot": "libs/showcase/components/button/src",
+      "prefix": "webapp",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["libs/showcase/components/button/tsconfig.lib.json"],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/showcase/components/button/**/*"
+            ]
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
         }
       }
     }

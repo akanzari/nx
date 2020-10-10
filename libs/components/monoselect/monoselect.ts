@@ -6,7 +6,7 @@ const noop = () => { };
 
 export const CUSTOM_INPUT_CONTROL_VALUE_ACCESSOR: any = {
   provide: NG_VALUE_ACCESSOR,
-  useExisting: forwardRef(() => MonoselectComponent),
+  useExisting: forwardRef(() => SofMonoselect),
   multi: true
 };
 @Component({
@@ -15,7 +15,7 @@ export const CUSTOM_INPUT_CONTROL_VALUE_ACCESSOR: any = {
   styleUrls: ['./monoselect.scss'],
   providers: [CUSTOM_INPUT_CONTROL_VALUE_ACCESSOR]
 })
-export class MonoselectComponent implements OnInit, ControlValueAccessor {
+export class SofMonoselect implements OnInit, ControlValueAccessor {
 
   @Input() Load: boolean;
   @Input() optionsBuffer: any[];
@@ -159,7 +159,7 @@ export class MonoselectComponent implements OnInit, ControlValueAccessor {
       FormsModule,
       NgSelectModule
   ],
-  declarations: [MonoselectComponent],
-  exports: [MonoselectComponent]
+  declarations: [SofMonoselect],
+  exports: [SofMonoselect]
 })
 export class SofMonoSelectModule { }

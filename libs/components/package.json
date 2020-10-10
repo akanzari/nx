@@ -1,6 +1,6 @@
 {
   "name": "ng-softilys",
-  "version": "0.1.3",
+  "version": "0.1.5",
   "module": "ng-softilys.js",
   "typings": "ng-softilys.d.ts",
   "keywords": [

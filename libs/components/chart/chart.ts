@@ -6,7 +6,7 @@ import { CommonModule } from '@angular/common';
   selector: 'sof-chart',
   template: `<p-chart #chart [type]="type" [data]="data0" [options]="options">Redessiner</p-chart>`
 })
-export class ChartComponent implements OnInit, OnChanges {
+export class SofChart implements OnInit, OnChanges {
 
   @ViewChild('chart', { read: UIChart }) chart: UIChart;
 
@@ -113,13 +113,8 @@ export class ChartComponent implements OnInit, OnChanges {
 }
 
 @NgModule({
-  imports: [
-    CommonModule,
-    ChartModule,
-  ],
-  declarations: [ChartComponent],
-  exports: [
-    ChartComponent
-  ]
+  imports: [CommonModule, ChartModule],
+  declarations: [SofChart],
+  exports: [SofChart]
 })
 export class SofChartModule { }

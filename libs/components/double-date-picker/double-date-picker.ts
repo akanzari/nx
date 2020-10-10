@@ -9,19 +9,10 @@ moment.locale('fr')
 
 @Component({
   selector: 'sof-double-date-picker',
-  template: `
-  <div *ngIf="!disable">
-  <input (ngModelChange)="try()" autoApply="true" type="text" ngxDaterangepickerMd [(ngModel)]="selected"
-    class="form-control" [drops]="position" [opens]="up2" [locale]="options" [showClearButton]="true" />
-</div>
-<div *ngIf="disable">
-  <input (ngModelChange)="try()" autoApply="true" type="text" ngxDaterangepickerMd [(ngModel)]="selected"
-    class="form-control" [drops]="position" [opens]="up2" [locale]="options" [showClearButton]="true" disabled />
-</div>
-  `,
+  templateUrl: './double-date-picker.html',
   styleUrls: ['./double-date-picker.scss']
 })
-export class SofDoubleDatePickerComponent implements OnInit, OnChanges {
+export class SofDoubleDatePicker implements OnInit, OnChanges {
 
   alwaysShowCalendars: boolean;
   @Input() disable: boolean = false;
@@ -88,7 +79,7 @@ export class SofDoubleDatePickerComponent implements OnInit, OnChanges {
     FormsModule,
     NgxDaterangepickerMd
   ],
-  declarations: [SofDoubleDatePickerComponent],
-  exports: [SofDoubleDatePickerComponent]
+  declarations: [SofDoubleDatePicker],
+  exports: [SofDoubleDatePicker]
 })
 export class SofDoubleDatePickerModule { }

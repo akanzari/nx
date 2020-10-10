@@ -6,7 +6,7 @@ import { CommonModule } from '@angular/common';
   templateUrl: './mdl-navbar.html',
   styleUrls: ['./mdl-navbar.scss']
 })
-export class MdlNavbarComponent implements OnInit {
+export class MdlNavbar implements OnInit {
 
   public currentUser: any;
   public menu: any[] = [];
@@ -43,8 +43,8 @@ export class MdlNavbarComponent implements OnInit {
 }
 
 @NgModule({
-  declarations: [MdlNavbarComponent],
+  declarations: [MdlNavbar],
   imports: [CommonModule],
-  exports: [MdlNavbarComponent]
+  exports: [MdlNavbar]
 })
 export class MdlNavbarModule { }

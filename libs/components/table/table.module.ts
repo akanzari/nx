@@ -6,9 +6,9 @@ import { NgSelectModule } from '@ng-select/ng-select';
 
 import { TableModule } from 'primeng/table';
 import { CalendarModule } from 'primeng/calendar';
-import {DialogModule} from 'primeng/dialog';
+import { DialogModule } from 'primeng/dialog';
 
-import { TableComponent } from './table.component';
+import { SofTable } from './table.component';
 import { TabDragModule } from './tab-drag.directive';
 import { SelectableRow } from './navigation.directive';
 
@@ -19,9 +19,9 @@ import { SofTooltipModule } from 'ng-softilys/tooltip';
 import { SofButtonModule } from 'ng-softilys/button';
 import { SofCardsModule } from 'ng-softilys/card';
 import { SofModalModule } from 'ng-softilys/modal';
-import {SofMultiSelectModule} from 'ng-softilys/multiselect'
+import { SofMultiSelectModule } from 'ng-softilys/multiselect'
 import { SofMonoSelectModule } from 'ng-softilys/monoselect';
-import { SofRadioButtonModule} from 'ng-softilys/radio-button';
+import { SofRadioButtonModule } from 'ng-softilys/radio-button';
 
 @NgModule({
     imports: [
@@ -44,10 +44,7 @@ import { SofRadioButtonModule} from 'ng-softilys/radio-button';
         SofModalModule,
         RouterModule
     ],
-    declarations: [
-        TableComponent,
-        SelectableRow
-    ],
-    exports: [TableComponent ]
+    declarations: [SofTable, SelectableRow],
+    exports: [SofTable]
 })
 export class SofTableModule { }
