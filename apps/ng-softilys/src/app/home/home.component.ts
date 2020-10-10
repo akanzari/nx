@@ -7,7 +7,12 @@ import { LayoutService } from 'ng-softilys/api';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent {
+
+  persons: any[];
+  navigateurs: any;
+  columns: any[];
+  selectedRows: any[] = [];
 
   user = {
     name: 'Arthur',
@@ -18,15 +23,6 @@ export class HomeComponent implements OnInit {
     private translate: TranslateService,
     public ls: LayoutService) {
     translate.setDefaultLang('fr');
-  }
-
-  persons: any[];
-  navigateurs: any;
-  columns: any[];
-  selectedRows: any[] = [];
-
-  ngOnInit() {
-
   }
 
   btnClick() {

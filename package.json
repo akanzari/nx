@@ -28,8 +28,7 @@
     "help": "nx help",
     "build-lib": "nx build --prod ng-softilys-library && gulp build-assets",
     "npm-pack": "cd dist && npm pack ",
-    "install-fonts": "cpx \"./dist/resources/sof-fonts/**/*\" \"./apps/ng-softilys/src/assets/sof-fonts\"",
-    "install-images": "cpx \"./dist/resources/sof-images/**/*\" \"./apps/ng-softilys/src/assets/sof-images\""
+    "install-assets": "gulp copy-assets"
   },
   "private": true,
   "dependencies": {
@@ -52,7 +51,6 @@
     "angular2-draggable": "^2.3.2",
     "bootstrap": "^4.5.2",
     "chart.js": "^2.9.3",
-    "cpx": "^1.5.0",
     "font-awesome": "^4.7.0",
     "google-libphonenumber": "^3.2.13",
     "moment": "^2.29.1",
@@ -80,8 +78,8 @@
     "codelyzer": "~5.0.1",
     "dotenv": "6.2.0",
     "eslint": "7.10.0",
-    "gulp": "^3.9.1",
-    "gulp-uglify": "^1.5.3",
+    "gulp": "^4.0.2",
+    "gulp-uglify": "^3.0.2",
     "ng-packagr": "^10.1.0",
     "prettier": "2.0.4",
     "ts-node": "~7.0.0",
