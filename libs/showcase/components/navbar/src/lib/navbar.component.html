@@ -1,0 +1,284 @@
+<div class="picto-item" aria-label="test" class="row">
+  <div class="col-12 framework-font padding-framework">
+    <div>
+      <h1 class="framework-h1-font">{{'navbar.navbarCompo'|translate}}</h1>
+      <span class="framework-font-Semibold">{{'navbar.overview'|translate}}</span>
+      <br>
+      <br>{{'navbar.navbar_overview'|translate}}
+      <br>
+      <br>
+      <span class="framework-font-Semibold">GETTING STARTED</span>
+      <br>{{'navbar.getting-strated'|translate}}
+      <br>
+      <br>
+    </div>
+    <span class="framework-h3-font">{{'general.params'|translate}}</span>
+    <br>
+    <br>
+    <sof-card title="{{'general.general_params'|translate}}" class="style-sof-card">
+      <br>
+      <table style="width:100%">
+        <tr>
+          <th style="width:16%">
+            <span class="framework-font-Semibold" style="font-size: 13px; margin-left: 23px;">
+              {{'general.advancedImplementation'|translate}}
+            </span>
+          </th>
+          <th>
+            <hr>
+          </th>
+        </tr>
+      </table>
+
+
+      <sof-sub-form [column]="3">
+        <!-- <sof-form-label>Table vers une table:</sof-form-label> -->
+        <sof-form-item>
+          <sof-radio-button id='opt1' name='opt1' [(ngModel)]='radioButton' data='Classic Navbar' ngDefaultControl></sof-radio-button>
+        </sof-form-item>
+        <!-- <sof-form-label>List vers une table:</sof-form-label> -->
+        <sof-form-item>
+
+          <sof-radio-button id='opt2' name='opt1' [(ngModel)]='radioButton' data='MVN Navbar' ngDefaultControl></sof-radio-button>
+        </sof-form-item>
+      </sof-sub-form>
+
+      <div *ngIf="radioButton==='Classic Navbar'" class="row framework-font-Semibold" style="font-size: 14px;">
+        <div class="col-sm-12 col-md-3 col-lg-2">
+
+          <sof-checkBox booleanValue='true' [(ngModel)]="check">
+            <div style="color:#363638;">Sidebar</div>
+          </sof-checkBox>
+        </div>
+        <div class="col-sm-12 col-md-3 col-lg-2">
+
+          <sof-checkBox booleanValue='true' [(ngModel)]="checkScreen">
+            <div style="color:#363638;">Screen</div>
+          </sof-checkBox>
+        </div>
+        <div class="col-sm-12 col-md-3 col-lg-2">
+
+          <sof-checkBox booleanValue='true' [(ngModel)]="checkLangue">
+            <div style="color:#363638;">Langue</div>
+          </sof-checkBox>
+        </div>
+        <div class="col-sm-12 col-md-3 col-lg-2">
+          <sof-checkBox booleanValue='true' [(ngModel)]="checkAvatar">
+            <div style="color:#363638;">Avatar</div>
+          </sof-checkBox>
+        </div>
+        <div class="col-sm-12 col-md-3 col-lg-2">
+
+          <sof-checkBox booleanValue='true' [(ngModel)]="checkLogout">
+            <div style="color:#363638;">Logout</div>
+          </sof-checkBox>
+        </div>
+        <div class="col-sm-12 col-md-3 col-lg-2">
+
+          <sof-checkBox booleanValue='true' [(ngModel)]="checkComments">
+            <div style="color:#363638;">Comments</div>
+          </sof-checkBox>
+        </div>
+        <div class="col-sm-12 col-md-3 col-lg-2">
+
+          <sof-checkBox booleanValue='true' [(ngModel)]="checkLock" id="checkLock">
+            <div style="color:#363638;">Lock</div>
+          </sof-checkBox>
+        </div>
+      </div>
+
+      <table *ngIf="radioButton==='Classic Navbar'" style="width:100%">
+        <tr>
+          <th style="width:5%">
+            <span class="framework-font-Semibold" style="font-size: 13px; margin-left: 23px;">Style </span>
+          </th>
+          <th>
+            <hr>
+          </th>
+        </tr>
+      </table>
+
+      <div *ngIf="radioButton==='Classic Navbar'" class="row framework-font-Semibold" style="font-size: 14px;">
+        <sof-sub-form [column]="2" [border]="false" title="">
+          <sof-form-label>Size :</sof-form-label>
+          <sof-form-item>
+            <select name="selectType" [(ngModel)]="size">
+              <option value="small">Small</option>
+              <option value="big">Big</option>
+
+            </select>
+
+          </sof-form-item>
+
+
+
+          <sof-form-label>Color :</sof-form-label>
+          <sof-form-item>
+            <select name="selectType" [(ngModel)]="color">
+              <option value="white">Default</option>
+              <option value="black">Black</option>
+
+            </select>
+
+          </sof-form-item>
+
+        </sof-sub-form>
+
+      </div>
+
+    </sof-card>
+
+
+    <br>
+    <span class="framework-h3-font">{{'general.BASIC_USAGE'|translate}}</span>
+    <br>
+    <br> {{'navbar.exple_desc'|translate}}
+    <br>
+    <br>
+    <sof-card title="{{'imp_details'|translate}}" class="style-sof-card">
+      <sof-stepper>
+        <aw-wizard navBarLayout="large-empty-symbols" navigationMode="free" defaultStepIndex="0">
+          <aw-wizard-step stepTitle="{{'prerequis'|translate}}">
+            <div class="padding-15">
+              <b>app.module.ts</b>
+            </div>
+            <div class="border padding-15 border-radius mb-2 background-code">
+              <pre id="tr1" class="language-typescript background-code">
+                        <button  (click)="SelectAllPre()" style=" 
+                        color: black;
+                        font-size: .8em;
+                        padding: 0 .5em;
+                        background: #f5f2f0;
+                        background: rgba(172, 171, 171, 0.2);
+                        box-shadow: 0 2px 0 0 rgba(0,0,0,0.2);
+                        border-radius: .5em; float:right;">copy</button>
+                      <code id="copy1"	[innerHtml]="getPrerequis()"></code>
+                      <div><div id='parentt' ></div></div>
+                    </pre>
+            </div>
+          </aw-wizard-step>
+          <aw-wizard-step stepTitle="HTML">
+            <div class="border padding-15 border-radius mb-2 background-code">
+              <pre id='o' class="language-markup background-code">
+                      <button  (click)="SelectAll()" style=" 
+                      color: black;
+                      font-size: .8em;
+                      padding: 0 .5em;
+                      background: #f5f2f0;
+                      background: rgba(172, 171, 171, 0.2);
+                      box-shadow: 0 2px 0 0 rgba(0,0,0,0.2);
+                      border-radius: .5em; float:right;">copy</button>
+                           <code  id='copy' [innerHtml]="getHtmlCode()" class="language-markup"></code> 
+                          <div><div id='parent' ></div></div>
+                       
+                        </pre>
+            </div>
+          </aw-wizard-step>
+          <aw-wizard-step stepTitle="TS">
+            <div class="border padding-15 border-radius mb-2 background-code">
+              <pre id="o2" class="language-typescript background-code">
+                      <button  (click)="SelectAllTs()" style=" 
+                      color: black;
+                      font-size: .8em;
+                      padding: 0 .5em;
+                      background: #f5f2f0;
+                      background: rgba(172, 171, 171, 0.2);
+                      box-shadow: 0 2px 0 0 rgba(0,0,0,0.2);
+                      border-radius: .5em; float:right;">copy</button>
+                    <code id="copy11"	[innerHtml]="getTsCode()"></code>
+                    <div><div id='parenty' ></div></div>
+                  </pre>
+            </div>
+          </aw-wizard-step>
+
+          <!-- <aw-wizard-step stepTitle="CSS/SCSS">
+                      <div class="border padding-15 border-radius bg-white mb-2">
+                        <pre class="language-css"><code >{{getCssCode()}}</code></pre>
+                      </div>
+                    </aw-wizard-step> -->
+        </aw-wizard>
+      </sof-stepper>
+    </sof-card>
+    <br> <br>
+
+    <br>
+    <sof-navbar *ngIf="radioButton==='Classic Navbar'" [Color]="color" [Height]="size">
+      <nav class="navbar navbar-expand-lg navbar-top">
+
+
+        <button class="navbar-toggler navbar-toggler-right" type="button" (click)="toggleNavBarForSmallScreen()">
+          <i class="icons icon-ellipsize"></i>
+        </button>
+
+        <div class="logo"></div>
+
+
+        <div class="navbar-collapse collapse" [ngClass]="{'show': isSearchSmDisplay}">
+          <ul class="nav navbar-nav">
+            <li class="nav-item d-none d-lg-block " *ngIf="check">
+              <a class="nav-link nav-icon open " (click)="ls.toggleSideBarDisplay()">
+                <i *ngIf="ls.isSideBarDisplay" aria-hidden="true" class="icons icon-cancel "></i>
+                <i *ngIf="!ls.isSideBarDisplay" aria-hidden="true" class="icons icon-hamburger "></i>
+              </a>
+            </li>
+            <li class="nav-item d-none d-lg-block" *ngIf="checkScreen">
+              <button type="button" class="nav-link {{ls.isFullScreen ? 'full' : '' }}" id="btn-full"
+                (click)="ls.toggleFullScreen()">
+                <i *ngIf="!ls.isFullScreen" class="icons icon-expand "></i>
+                <i *ngIf="ls.isFullScreen" class="icons icon-contract "></i>
+              </button>
+            </li>
+          </ul>
+        </div>
+
+
+        <div class="collapse navbar-collapse" id="navbarNavDropdown" [ngClass]="{'show': isNavBarSmDisplay}">
+          <ul class="mr-auto"></ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li class="nav-item" *ngIf="checkLock">
+              <a class="nav-link ">
+                <i aria-hidden="true" class="icons icon-lock"></i>
+                <span class="d-block d-lg-none libelle-menu">Deconnexion</span>
+              </a>
+            </li>
+            <li class="nav-item dropdown " (click)="change()" (click)='animateLogo()' *ngIf="checkLangue">
+              <a class="nav-link dropdown-toggle" id="Language" data-toggle="dropdown">
+                <ng-container>
+                  <span class="flag flag-fr"></span>
+                </ng-container>
+              </a>
+            </li>
+
+            <li class="nav-item" *ngIf="checkComments">
+              <a class="nav-link ">
+                <i aria-hidden="true" class="icons icon-comments"></i>
+              </a>
+            </li>
+
+            <li class="nav-item" *ngIf="checkAvatar">
+              <a class="nav-link border-left " ngbDropdownToggle (click)="false">
+                <img src="assets/img/user.jpg" alt="avatar" class="rounded-circle">
+              </a>
+            </li>
+            <li class="nav-item dropdown user" *ngIf="checkLogout">
+              <a class="nav-link " (onClick)="Log()">
+                <i aria-hidden="true" class="icons icon-start"></i>
+
+              </a>
+            </li>
+
+          </ul>
+
+
+
+        </div>
+
+      </nav>
+
+    </sof-navbar>
+
+    <app-mdl-navbar *ngIf="radioButton==='MVN Navbar'" internal="true"></app-mdl-navbar>
+
+    <br><br><br>
+  </div>
+</div>

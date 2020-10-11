@@ -1,0 +1,141 @@
+<div class="picto-item" aria-label="test" class="row">
+  <div class="col-12 framework-font padding-framework">
+
+    <div>
+      <h1 class="framework-h1-font">{{'tabs.stepperCompo'|translate}}</h1>
+      <span class="framework-font-Semibold">{{'tabs.overview'|translate}}</span>
+      <br>
+      <br>{{'tabs.stepper_overview'|translate}}
+    </div>
+
+    <br>
+    <br>
+    <br>
+    <span class="framework-h3-font">{{'general.BASIC_USAGE'|translate}}</span>
+    <br>
+    <br> {{'tabs.exple_desc'|translate}}
+    <br>
+    <br>
+
+    <sof-card class="style-sof-card" title="{{'imp_details'|translate}}">
+      <sof-stepper>
+        <aw-wizard navBarLayout="large-empty-symbols" navigationMode="free" defaultStepIndex="0">
+          <aw-wizard-step stepTitle="{{'prerequis'|translate}}">
+            <div class="padding-15">
+              <b>app.module.ts</b>
+            </div>
+            <div class="border padding-15 border-radius mb-2 background-code">
+              <pre id="tr1" class="language-typescript background-code">
+                  <button  style=" 
+                  color: black;
+                  font-size: .8em;
+                  padding: 0 .5em;
+                  background: #f5f2f0;
+                  background: rgba(172, 171, 171, 0.2);
+                  box-shadow: 0 2px 0 0 rgba(0,0,0,0.2);
+                  border-radius: .5em; float:right;">copy</button>
+                <code id="copy1"	[innerHtml]="getPrerequis()" ></code>
+                <div><div id='parentt' ></div></div>
+              </pre>
+            </div>
+          </aw-wizard-step>
+          <aw-wizard-step stepTitle="HTML">
+            <div class="border padding-15 border-radius mb-2 background-code">
+              <pre id='o' class="language-markup background-code">
+                  <button   style=" 
+                  color: black;
+                  font-size: .8em;
+                  padding: 0 .5em;
+                  background: #f5f2f0;
+                  background: rgba(172, 171, 171, 0.2);
+                  box-shadow: 0 2px 0 0 rgba(0,0,0,0.2);
+                  border-radius: .5em; float:right;">copy</button>
+                       <code  id='copy' [innerHtml]="getHtml()" class="language-markup"></code> 
+                      <div><div id='parent' ></div></div>
+                   
+                    </pre>
+            </div>
+          </aw-wizard-step>
+          <aw-wizard-step stepTitle="CSS">
+            <div class="border padding-15 border-radius mb-2 background-code">
+              <pre id='o' class="language-css background-code">
+                  <button   style=" 
+                  color: black;
+                  font-size: .8em;
+                  padding: 0 .5em;
+                  background: #f5f2f0;
+                  background: rgba(172, 171, 171, 0.2);
+                  box-shadow: 0 2px 0 0 rgba(0,0,0,0.2);
+                  border-radius: .5em; float:right;">copy</button>
+                       <code  id='copy' [innerHtml]="getCSS()" ></code> 
+                      <div><div id='parent' ></div></div>
+                   
+                    </pre>
+            </div>
+          </aw-wizard-step>
+          <aw-wizard-step stepTitle="TS">
+            <div class="border padding-15 border-radius mb-2 background-code">
+              <pre id='o' class="language-typescript background-code">
+                  <button   style=" 
+                  color: black;
+                  font-size: .8em;
+                  padding: 0 .5em;
+                  background: #f5f2f0;
+                  background: rgba(172, 171, 171, 0.2);
+                  box-shadow: 0 2px 0 0 rgba(0,0,0,0.2);
+                  border-radius: .5em; float:right;">copy</button>
+                       <code  id='copy' [innerHtml]="getTS()" ></code> 
+                      <div><div id='parent' ></div></div>
+                   
+                    </pre>
+            </div>
+          </aw-wizard-step>
+
+        </aw-wizard>
+      </sof-stepper>
+    </sof-card>
+
+    <div class="border padding-10 border-radius bg-white">
+      <div class="left-align-text ux-label">{{'result'|translate}}</div>
+      <br>
+
+      <div class="row pl-3 ">
+        <label class="label label-large col-md-1 ">
+        </label>
+        <div class="col-12" style="margin-left: '25px';">
+
+          <sof-tabs>
+
+            <ul class="nav nav-tabs ">
+              <li><a (click)="onClick(1)" [ngClass]="{'active': tab==='tab1'}" data-toggle="tab"
+                  style="color: #2A2C33;">Home</a></li>
+              <li><a (click)="onClick(2)" [ngClass]="{'active': tab==='tab2'}" data-toggle="tab">Menu 1</a></li>
+              <li><a (click)="onClick(3)" [ngClass]="{'active': tab==='tab3'}" data-toggle="tab">Menu 2</a></li>
+              <li><a (click)="onClick(4)" [ngClass]="{'active': tab==='tab4'}" href="#" data-toggle="tab">Menu 3</a>
+              </li>
+              <li><a class="disabled" [ngClass]="{'active': tab==='tab5'}">Menu 4</a></li>
+
+            </ul>
+            <div class="tab-content">
+              <div class="tab-pane" [class.active]="tab==='tab1'" id="x">
+                <br>
+                Contenu Home
+              </div>
+              <div class="tab-pane " [class.active]="tab==='tab2'" id="c">
+                Contenu 1
+              </div>
+              <div class="tab-pane " [class.active]="tab==='tab3'" id="v">
+                Contenu 2
+              </div>
+
+            </div>
+
+
+
+          </sof-tabs>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

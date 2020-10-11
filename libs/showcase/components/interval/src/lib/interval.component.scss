@@ -1,0 +1,22 @@
+.left-align-text {
+  text-align: left;
+}
+
+.ux-label {
+  font-size: 16px;
+  font-size: 1.25em;
+  font-weight: 400;
+  padding: 0px 0;
+  min-height: 35px;
+  color: black;
+}
+
+:host ::ng-deep div.code-toolbar > .toolbar a,
+div.code-toolbar > .toolbar button,
+div.code-toolbar > .toolbar span {
+  display: none;
+}
+
+pre {
+  overflow: hidden;
+}

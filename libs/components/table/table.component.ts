@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter, HostListener, ViewChild, Pipe, ElementRef, AfterViewInit, ChangeDetectorRef, ɵConsole } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, HostListener, ViewChild, Pipe, ElementRef, AfterViewInit, ChangeDetectorRef, ɵConsole, ViewEncapsulation } from '@angular/core';
 import { AlTableButtonEvent } from './model/table-button-event';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { AlTableConfig } from './model/config';
@@ -30,7 +30,6 @@ export enum FilterTypes {
       transition('* <=> *', animate('400ms cubic-bezier(0.86, 0, 0.07, 1)'))
     ])
   ]
-
 })
 export class SofTable implements OnInit {
 

@@ -29,13 +29,100 @@
     "ng-softilys-library": {
       "tags": []
     },
-    "showcase-components-started": {
+    "showcase-started": {
       "tags": []
     },
     "showcase-service": {
       "tags": []
     },
-    "showcase-components-button": {
+    "showcase-button": {
+      "tags": []
+    },
+    "showcase-calendar": {
+      "tags": []
+    },
+    "showcase-card-container": {
+      "tags": []
+    },
+    "showcase-card": {
+      "tags": []
+    },
+    "showcase-chart": {
+      "tags": []
+    },
+    "showcase-checkbox": {
+      "tags": []
+    },
+    "showcase-double-date-picker": {
+      "tags": []
+    },
+    "showcase-dragdrop": {
+      "tags": []
+    },
+    "showcase-form": {
+      "tags": []
+    },
+    "showcase-icon": {
+      "tags": []
+    },
+    "showcase-input": {
+      "tags": []
+    },
+    "showcase-interval": {
+      "tags": []
+    },
+    "showcase-modal": {
+      "tags": []
+    },
+    "showcase-monoselect": {
+      "tags": []
+    },
+    "showcase-multiselect": {
+      "tags": []
+    },
+    "showcase-mvn-navbar": {
+      "tags": []
+    },
+    "showcase-navbar": {
+      "tags": []
+    },
+    "showcase-sidebar": {
+      "tags": []
+    },
+    "showcase-spinner": {
+      "tags": []
+    },
+    "showcase-statusbar": {
+      "tags": []
+    },
+    "showcase-stepper": {
+      "tags": []
+    },
+    "showcase-table": {
+      "tags": []
+    },
+    "showcase-tabs": {
+      "tags": []
+    },
+    "showcase-textarea": {
+      "tags": []
+    },
+    "showcase-toast": {
+      "tags": []
+    },
+    "showcase-tooltip": {
+      "tags": []
+    },
+    "showcase-tree": {
+      "tags": []
+    },
+    "showcase-typography": {
+      "tags": []
+    },
+    "showcase-upload": {
+      "tags": []
+    },
+    "showcase-shared": {
       "tags": []
     }
   }

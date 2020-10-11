@@ -1,18 +1,12 @@
 import { NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
-import { ArchwizardModule } from 'angular-archwizard';
-import { SofCardContainerModule } from 'ng-softilys/card-container';
-import { SofButtonModule } from 'ng-softilys/button';
-import { SofStepperModule } from 'ng-softilys/stepper';
-import { SofMonoSelectModule } from 'ng-softilys/monoselect';
-
 import { ButtonComponent } from './button.component';
 import { ServiceModule } from '@showcase/service';
+import { SharedModule } from '@showcase/shared';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, 'apps/ng-softilys/src/assets/i18n/');
@@ -20,15 +14,15 @@ export function HttpLoaderFactory(http: HttpClient) {
 
 @NgModule({
   imports: [
-    CommonModule,
-    FormsModule,
-    ReactiveFormsModule,
-    SofCardContainerModule,
-    SofMonoSelectModule,
-    SofButtonModule,
-    SofStepperModule,
-    ArchwizardModule,
+    SharedModule,
     ServiceModule,
+    RouterModule.forChild([
+      {
+        path: '',
+        pathMatch: 'full',
+        component: ButtonComponent
+      },
+    ]),
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

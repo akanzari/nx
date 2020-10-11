@@ -1,0 +1,19 @@
+:host ::ng-deep div.card-block {
+  width: 100%;
+}
+:host ::ng-deep div.total-padding {
+  height: 126px !important;
+}
+:host ::ng-deep small {
+  display: none !important;
+}
+
+:host ::ng-deep #monoicon {
+  display: none;
+}
+:host ::ng-deep #titre {
+  width: 47%;
+}
+:host ::ng-deep div.card {
+  overflow: visible !important;
+}

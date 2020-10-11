@@ -1,0 +1,172 @@
+<div class="picto-item" aria-label="test" class="row">
+  <div class="col-12 framework-font padding-framework">
+    <div>
+      <h1 class="framework-h1-font">{{'drag.dragCompo'|translate}}</h1>
+      <span class="framework-font-Semibold">{{'drag.overview'|translate}}</span>
+      <br>
+      <br>{{'drag.drag_overview'|translate}}
+      <br>
+      <br>
+    </div>
+    <sof-card class="style-sof-card" title="{{'general.general_params'|translate}}">
+      <br>
+      <table style="width:100%">
+        <tr>
+          <th style="width:16%">
+            <span class="framework-font-Semibold" style="font-size: 13px; margin-left: 23px;">
+              {{'general.advancedImplementation'|translate}}
+            </span>
+          </th>
+          <th>
+            <hr>
+          </th>
+        </tr>
+      </table>
+      <br>
+      <div class=" framework-font-Semibold" style="font-size: 14px;">
+
+        <div class="row">
+
+          <div class="col-1" style="left: 24px;"><label>Message :</label></div>
+          <div class="col-4">
+            <sof-input maxlength=30 type="number" [(ngModel)]="message"></sof-input>
+          </div>
+          <div class="col-4"></div>
+          <div class="col-3"></div>
+        </div>
+
+
+
+
+
+
+
+        <sof-sub-form [column]="3">
+          <!-- <sof-form-label>Table vers une table:</sof-form-label> -->
+          <sof-form-item>
+            <sof-radio-button id='opt1' name='opt1' [(ngModel)]='radioValue' data='Table vers Table'
+              (click)="onRadioClick()" ngDefaultControl></sof-radio-button>
+          </sof-form-item>
+          <!-- <sof-form-label>List vers une table:</sof-form-label> -->
+          <sof-form-item>
+
+            <sof-radio-button id='opt2' name='opt2' [(ngModel)]='radioValue' data='List vers Table'
+              (click)="onRadioClick()" ngDefaultControl></sof-radio-button>
+          </sof-form-item>
+        </sof-sub-form>
+      </div>
+    </sof-card>
+    <br>
+    <span class="framework-h3-font">{{'general.BASIC_USAGE'|translate}}</span>
+    <br>
+    <br> {{'drag.exple_desc'|translate}}
+    <br>
+    <br>
+    <sof-card class="style-sof-card" title="{{'imp_details'|translate}}">
+      <sof-stepper>
+        <aw-wizard navBarLayout="large-empty-symbols" navigationMode="free" defaultStepIndex="0">
+          <aw-wizard-step stepTitle="{{'prerequis'|translate}}">
+            <div class="padding-15">
+              <b>app.module.ts</b>
+            </div>
+            <div class="border padding-15 border-radius mb-2 background-code">
+              <pre id="tr1" class="language-typescript background-code">
+                    <button  (click)="SelectAllPre()" style=" 
+                    color: black;
+                    font-size: .8em;
+                    padding: 0 .5em;
+                    background: #f5f2f0;
+                    background: rgba(172, 171, 171, 0.2);
+                    box-shadow: 0 2px 0 0 rgba(0,0,0,0.2);
+                    border-radius: .5em; float:right;">copy</button>
+                  <code id="copy1"	[innerHtml]="getPrerequis()"></code>
+                  <div><div id='parentt' ></div></div>
+                </pre>
+            </div>
+          </aw-wizard-step>
+          <aw-wizard-step stepTitle="HTML">
+            <div class="border padding-15 border-radius mb-2 background-code">
+              <pre id='o' class="language-markup background-code">
+                    <button  (click)="SelectAll()" style=" 
+                    color: black;
+                    font-size: .8em;
+                    padding: 0 .5em;
+                    background: #f5f2f0;
+                    background: rgba(172, 171, 171, 0.2);
+                    box-shadow: 0 2px 0 0 rgba(0,0,0,0.2);
+                    border-radius: .5em; float:right;">copy</button>
+                         <code  id='copy' [innerHtml]="getHtmlCode()" class="language-markup"></code> 
+                        <div><div id='parent' ></div></div>
+                     
+                      </pre>
+            </div>
+          </aw-wizard-step>
+
+          <aw-wizard-step stepTitle="TS">
+            <div class="border padding-15 border-radius mb-2 background-code">
+              <pre id="o2" class="language-typescript background-code">
+                      <button  (click)="SelectAllTs()" style=" 
+                      color: black;
+                      font-size: .8em;
+                      padding: 0 .5em;
+                      background: #f5f2f0;
+                      background: rgba(172, 171, 171, 0.2);
+                      box-shadow: 0 2px 0 0 rgba(0,0,0,0.2);
+                      border-radius: .5em; float:right;">copy</button>
+                    <code id="copy11"	[innerHtml]="getTsCode()"></code>
+                    <div><div id='parenty' ></div></div>
+                  </pre>
+            </div>
+          </aw-wizard-step>
+
+        </aw-wizard>
+      </sof-stepper>
+    </sof-card>
+    <div class="row">
+      <div class="col-12">
+        <div class="border padding-10 border-radius bg-white">
+          <div class="left-align-text ux-label">{{'result'|translate}}</div>
+          <br>
+          <div class="row pl-12 ">
+
+            <div class="col-md-12 col-lg-12  ">
+              <div class="border padding-15 border-radius bg-white ">
+                <div class="form-title">Drag and Drop</div>
+                <div class="row">
+                  <div *ngIf="!isTable" class="col-sm-12" style="border-right: thin solid #6c757d;">
+                    <h4>{{'drag.list'|translate}}</h4>
+                    <ul>
+                      <li *ngFor="let p of persons2" style="font-size: 20px" sof-drag="persons"
+                        (onDragStart)="dragStart(p)" (onDragEnd)="dragEnd($event)">
+                        <i class="fa fa-arrows fa-1x" style="float:right;margin-top:6px"></i>
+                        <div>{{p.name}}</div>
+                      </li>
+                    </ul>
+                  </div>
+                  <div *ngIf="isTable" class="col-sm-12">
+                    <h4 *ngIf="isTable">{{'drag.table'|translate}}</h4>
+                    <sof-table *ngIf="isTable" [dragDrop]="true" [(data)]="persons" [(columnsOrdered)]="columns"
+                      [(config)]="tableConf" [totalElements]="persons.length" (onDragStart)="dragStart($event)"
+                      (onDragEnd)="dragEnd($event)"></sof-table>
+                  </div>
+                </div>
+                <h4>{{'drag.drop'|translate}}</h4>
+                <div class="border padding-15 border-radius bg-white ">
+                  <sof-table [message]="message" [(data)]="personsDrop" [rowDragged]="rowDragged"
+                    [(columnsOrdered)]="columns" [(config)]="tableConf0" [totalElements]="personsDrop.length"
+                    sof-drop="persons" (onDrop)="drop($event)">
+
+                  </sof-table>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+        <br>
+
+      </div>
+    </div>
+  </div>

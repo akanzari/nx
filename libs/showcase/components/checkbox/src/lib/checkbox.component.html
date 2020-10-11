@@ -1,0 +1,305 @@
+<div class="picto-item" aria-label="test" class="row">
+  <div class="col-12 framework-font padding-framework">
+    <div>
+      <h1 class="framework-h1-font">{{'check_radio.breadcrumbCheck'|translate}}</h1>
+      <span class="framework-font-Semibold">{{'check_radio.overview'|translate}}</span>
+      <br>
+      <br>{{'check_radio.check-overView'|translate}}
+      <br>
+      <br>{{'check_radio.radio-overView'|translate}}
+      <br>
+      <br>
+      <span class="framework-font-Semibold">GETTING STARTED</span>
+      <br>{{'check_radio.getting-strated'|translate}}
+      <br>
+      <br>
+    </div>
+    <span class="framework-h3-font">{{'general.params'|translate}}</span>
+    <br>
+    <br>
+    <sof-card class="style-sof-card" title="{{'check_radio.setting_check'|translate}}">
+
+      <table style="width:100%">
+        <tr>
+          <th style="width:16%">
+            <span class="framework-font-Semibold" style="font-size: 13px; margin-left: 23px;">
+              {{'general.advancedImplementation'|translate}}
+            </span>
+          </th>
+          <th>
+            <hr>
+          </th>
+        </tr>
+      </table>
+      <sof-form [border]="false">
+        <sof-sub-form column="1" [border]="false">
+          <sof-form-label>bindLabel :</sof-form-label>
+          <sof-form-item>
+            <select clearable='true' name="labelselect" [(ngModel)]="bindlabel">
+              <option value="name">name</option>
+              <option value="age">age</option>
+            </select>
+          </sof-form-item>
+
+          <sof-form-label>bindValue :</sof-form-label>
+          <sof-form-item>
+            <select clearable='true' name="valueselect" [(ngModel)]="bindvalue" (onChange)="onChange($event)">
+              <option value=""></option>
+              <option value="name">name</option>
+              <option value="age">age</option>
+            </select>
+          </sof-form-item>
+          <sof-form-label>Button Switch</sof-form-label>
+
+          <sof-form-item>
+            <input type="checkbox" id="switchcall" name="switchcall" value="true" [(ngModel)]="switchcall"
+              (click)="switchOff()">
+            <label for="switchcall"></label>
+          </sof-form-item>
+          <sof-form-item>
+            <div class="col 2" *ngIf="switchcall">
+              <sof-radio-button id='opt1' name='sw1' [(ngModel)]='switch' data='Default'></sof-radio-button>
+            </div>
+            <div class="col 2" *ngIf="switchcall">
+              <sof-radio-button id='opt2' name='sw1' [(ngModel)]='switch' data='valid'></sof-radio-button>
+            </div>
+          </sof-form-item>
+        </sof-sub-form>
+
+      </sof-form>
+
+    </sof-card>
+    <br>
+    <span class="framework-h3-font">{{'general.BASIC_USAGE'|translate}}</span>
+    <br>
+    <br> {{'check_radio.expleCheck_desc'|translate}}
+    <br>
+    <br>
+    <sof-card class="style-sof-card" title="{{'imp_details'|translate}}">
+      <sof-stepper>
+        <aw-wizard navBarLayout="large-empty-symbols" navigationMode="free" defaultStepIndex="0">
+          <aw-wizard-step stepTitle="{{'prerequis'|translate}}">
+            <div class="padding-15">
+              <b>app.module.ts</b>
+            </div>
+            <div class="border padding-15 border-radius mb-2 background-code">
+              <pre id="tr1s" class="language-typescript background-code">
+                    <button  (click)="SelectAllPre()" style=" 
+                    color: black;
+                    font-size: .8em;
+                    padding: 0 .5em;
+                    background: #f5f2f0;
+                    background: rgba(172, 171, 171, 0.2);
+                    box-shadow: 0 2px 0 0 rgba(0,0,0,0.2);
+                    border-radius: .5em; float:right;">copy</button>
+                  <code id="copy1ts"	[innerHtml]="getPrerequis()"></code>
+                  <div><div id='parentts' ></div></div>
+                </pre>
+            </div>
+          </aw-wizard-step>
+          <aw-wizard-step stepTitle="HTML">
+            <div class="border padding-15 border-radius mb-2 background-code">
+              <pre class="language-markup background-code">
+                  <pre  id='obc' class="language-markup background-code">
+                      <button  (click)="SelectAllCheck()" style=" 
+                      color: black;
+                      font-size: .8em;
+                      padding: 0 .5em;
+                      background: #f5f2f0;
+                      background: rgba(172, 171, 171, 0.2);
+                      box-shadow: 0 2px 0 0 rgba(0,0,0,0.2);
+                      border-radius: .5em; float:right;">copy</button>
+                           <code  id='copybc' [innerHtml]="getHtmlCode()" class="language-markup"></code> 
+                          <div><div id='parentbc' ></div></div>
+                       
+                        </pre>
+              </pre>
+            </div>
+          </aw-wizard-step>
+          <aw-wizard-step stepTitle="TS">
+            <div class="border padding-15 border-radius mb-2 background-code">
+              <pre id="o2cc" class="language-typescript background-code">
+                      <button  (click)="SelectAllCheckTs()" style=" 
+                      color: black;
+                      font-size: .8em;
+                      padding: 0 .5em;
+                      background: #f5f2f0;
+                      background: rgba(172, 171, 171, 0.2);
+                      box-shadow: 0 2px 0 0 rgba(0,0,0,0.2);
+                      border-radius: .5em; float:right;">copy</button>
+                    <code id="copy11cc"	[innerHtml]="getCheckBoxCode()"></code>
+                    <div><div id='parentycc' ></div></div>
+                  </pre>
+            </div>
+
+          </aw-wizard-step>
+          <aw-wizard-step stepTitle="HTML : Utilisation booléenne">
+            <div class="border padding-15 border-radius mb-2 background-code">
+              <pre id='ob' class="language-markup background-code">
+                        <button  (click)="SelectAllBC()" style=" 
+                        color: black;
+                        font-size: .8em;
+                        padding: 0 .5em;
+                        background: #f5f2f0;
+                        background: rgba(172, 171, 171, 0.2);
+                        box-shadow: 0 2px 0 0 rgba(0,0,0,0.2);
+                        border-radius: .5em; float:right;">copy</button>
+                             <code  id='copyb' [innerHtml]="gethtmlCheckBox()" class="language-markup"></code> 
+                            <div><div id='parentb' ></div></div>
+                         
+                          </pre>
+            </div>
+          </aw-wizard-step>
+        </aw-wizard>
+      </sof-stepper>
+    </sof-card>
+    <div class="border padding-15 border-radius bg-white mb-2">
+      <div [formGroup]="parentForm">
+        <div class="left-align-text ux-label">{{'check_radio.result'|translate}}</div>
+        <sof-checkBox [value]="data" [bindLabel]="bindlabel" [bindValue]="bindvalue" [(ngModel)]="selectedItems"
+          formControlName="control1"></sof-checkBox>
+        <sof-checkBox [value]="data1" [bindLabel]="bindlabel" [bindValue]="bindvalue" [(ngModel)]="selectedItems"
+          formControlName="control1"></sof-checkBox>
+        <sof-checkBox [value]="data2" [bindLabel]="bindlabel" [bindValue]="bindvalue" [(ngModel)]="selectedItems"
+          formControlName="control1"></sof-checkBox>
+        Selected Items:[
+        <span *ngFor="let item of selectedItems" style="margin-right:10px">{{item.name? (item | json) : item}}</span> ]
+        <br />
+      </div>
+
+      <!--2nd example of checkBox with boolean value-->
+      <hr>
+      <div class="left-align-text ux-label">{{'check_radio.exemple'|translate}}</div>
+      <!-- <sof-checkBox [value]="dataBoolean" [(ngModel)]="selectedboolean" ></sof-checkBox> -->
+      <sof-checkBox booleanValue='true' [isdisabled]="true" [(ngModel)]='selectedboolean' [value]="selectedboolean"
+        (unCheck)="unCheck()" (onCheck)="onCheck()" [switch]="switch">Label</sof-checkBox>
+      {{'check_radio.valeur'|translate}} : {{selectedboolean}}
+    </div>
+
+    <!--Radio Button-->
+    <sof-card class="style-sof-card" title="{{'check_radio.setting_radio'|translate}}">
+
+      <table style="width:100%">
+        <tr>
+          <th style="width:16%">
+            <span class="framework-font-Semibold" style="font-size: 13px; margin-left: 23px;">
+              {{'general.advancedImplementation'|translate}}
+            </span>
+          </th>
+          <th>
+            <hr>
+          </th>
+        </tr>
+      </table>
+
+      <sof-form [border]="false">
+        <sof-sub-form column="1" [border]="false">
+          <sof-form-label>{{'check_radio.fields'|translate}} :</sof-form-label>
+          <sof-form-item>
+            <select clearable='true' name="radioBindLabel" [(ngModel)]="radioBindLabel" ngDefaultControl>
+              <option value=""></option>
+              <option value="label">label</option>
+              <option value="value">value</option>
+            </select>
+          </sof-form-item>
+
+          <sof-form-label>{{'check_radio.radio_value'|translate}} :</sof-form-label>
+          <sof-form-item>
+            <select clearable='true' name="radioBindvalue" [(ngModel)]="radioBindValue" (onChange)="refresh()"
+              ngDefaultControl>
+              <option value=""></option>
+              <option value="label">label</option>
+              <option value="value">value</option>
+            </select>
+          </sof-form-item>
+
+        </sof-sub-form>
+
+      </sof-form>
+    </sof-card>
+    <br>
+    <span class="framework-h3-font">{{'general.BASIC_USAGE'|translate}}</span>
+    <br>
+    <br> {{'check_radio.expleRadio_desc'|translate}}
+    <br>
+    <br>
+    <sof-card class="style-sof-card" title="{{'imp_details'|translate}}">
+      <sof-stepper>
+        <aw-wizard navBarLayout="large-empty-symbols" navigationMode="free" defaultStepIndex="0">
+          <aw-wizard-step stepTitle="{{'prerequis'|translate}}">
+            <div class="padding-15">
+              <b>app.module.ts</b>
+            </div>
+            <div class="border padding-15 border-radius mb-2 background-code">
+              <pre id="tr1" class="language-typescript background-code">
+                    <button  (click)="SelectAllPreRadio()" style=" 
+                    color: black;
+                    font-size: .8em;
+                    padding: 0 .5em;
+                    background: #f5f2f0;
+                    background: rgba(172, 171, 171, 0.2);
+                    box-shadow: 0 2px 0 0 rgba(0,0,0,0.2);
+                    border-radius: .5em; float:right;">copy</button>
+                  <code id="copy1"	[innerHtml]="getPrerequisRadioButton()"></code>
+                  <div><div id='parentt' ></div></div>
+                </pre>
+            </div>
+          </aw-wizard-step>
+          <aw-wizard-step stepTitle="HTML">
+            <div class="border padding-15 border-radius mb-2 background-code">
+              <pre class="language-markup background-code">
+                      <pre  id='o' class="language-markup background-code">
+                    <button  (click)="SelectAll()" style=" 
+                    color: black;
+                    font-size: .8em;
+                    padding: 0 .5em;
+                    background: #f5f2f0;
+                    background: rgba(172, 171, 171, 0.2);
+                    box-shadow: 0 2px 0 0 rgba(0,0,0,0.2);
+                    border-radius: .5em; float:right;">copy</button>
+                         <code  id='copy' [innerHtml]="getHtmlRadioCode()" class="language-markup"></code> 
+                        <div><div id='parent' ></div></div>
+                     
+                      </pre>
+              </pre>
+            </div>
+          </aw-wizard-step>
+          <aw-wizard-step stepTitle="TS">
+            <div class="border padding-15 border-radius mb-2 background-code">
+              <pre id="o2" class="language-typescript background-code">
+                      <button  (click)="SelectAllRadioTs()" style=" 
+                      color: black;
+                      font-size: .8em;
+                      padding: 0 .5em;
+                      background: #f5f2f0;
+                      background: rgba(172, 171, 171, 0.2);
+                      box-shadow: 0 2px 0 0 rgba(0,0,0,0.2);
+                      border-radius: .5em; float:right;">copy</button>
+                    <code id="copy11"	[innerHtml]="getRadioCode()"></code>
+                    <div><div id='parenty' ></div></div>
+                  </pre>
+            </div>
+          </aw-wizard-step>
+
+        </aw-wizard>
+      </sof-stepper>
+    </sof-card>
+
+
+    <div [formGroup]="parentForm" class="border padding-15 border-radius bg-white mb-2">
+      <div class="left-align-text ux-label">{{'check_radio.radioExemple'|translate}}</div>
+
+      <sof-radio-button *ngIf="displayRadio" id="opt1" name="opt1" [(ngModel)]="selectedRadio1" formControlName="radioB"
+        [data]="radioDemoOptions" [bindValue]="radioBindValue" [bindLabel]="radioBindLabel || 'label'"
+        (unCheckRadio)="unCheckRadio()" (onCheckRadio)="onCheckRadio()" ngDefaultControl></sof-radio-button>
+
+      <sof-radio-button id="opt2" name="opt1" [(ngModel)]="selectedRadio1" formControlName="radioB" data="option2"
+        (unCheckRadio)="unCheckRadio()" (onCheckRadio)="onCheckRadio()" ngDefaultControl></sof-radio-button>
+
+      <sof-radio-button id="opt3 " name="opt1 " [(ngModel)]="selectedRadio1" formControlName="radioB" data="option3"
+        [disabled]="true" (unCheckRadio)="unCheckRadio()" (onCheckRadio)="onCheckRadio()" ngDefaultControl>
+      </sof-radio-button>
+
+    </div>
+  </div>
+</div>

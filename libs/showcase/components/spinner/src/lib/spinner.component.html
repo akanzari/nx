@@ -1,0 +1,154 @@
+<div class="picto-item" aria-label="test" class="row">
+  <div class="col-12 framework-font padding-framework">
+    <div>
+      <h1 class="framework-h1-font">{{'spinner.spinnerCompo'|translate}}</h1>
+      <span class="framework-font-Semibold">{{'spinner.overview'|translate}}</span>
+      <br>
+      <br>{{'spinner.spinner_overview'|translate}}
+      <br>
+      <br>
+      <span class="framework-font-Semibold">GETTING STARTED</span>
+      <br>{{'spinner.getting-strated'|translate}}
+      <br>
+      <br>
+    </div>
+    <span class="framework-h3-font">{{'general.params'|translate}}</span>
+    <br>
+    <br>
+
+    <sof-card class="style-sof-card" title="{{'general.general_params'|translate}}">
+      <br>
+      <table style="width:100%">
+        <tr>
+          <th style="width:16%">
+            <span class="framework-font-Semibold" style="font-size: 13px; margin-left: 23px;">
+              {{'general.advancedImplementation'|translate}}
+            </span>
+          </th>
+          <th>
+            <hr>
+          </th>
+        </tr>
+      </table>
+      <sof-form [border]="false" [formGroup]="form">
+        <sof-sub-form [column]="3" [border]="false">
+          <sof-form-label> {{ 'spinner.type' | translate }} :
+            <span class="obligatoire">*</span>
+          </sof-form-label>
+          <sof-form-item>
+            <sof-monoselect [(ngModel)]="spinnerType" [options]="typeOptions" bindValue="value" (click)="showSpin()"
+              formControlName="typeOptions">
+            </sof-monoselect>
+
+          </sof-form-item><br><br><br><br><br>
+
+          <sof-form-label>{{ 'spinner.size' | translate }} :
+
+          </sof-form-label>
+          <sof-form-item>
+
+            <select [(ngModel)]="spinnerSize" bindValue="value" (click)="showSpin()" formControlName="sizeOptions">
+              <option value="small">small</option>
+              <option value="medium">medium</option>
+              <option value="large">large</option>
+            </select>
+
+
+          </sof-form-item>
+          <sof-form-label>{{ 'spinner.color' | translate }} :
+            <!-- <span class="obligatoire">*</span> -->
+          </sof-form-label>
+          <sof-form-item>
+            <select [(ngModel)]="spinnerColor" bindValue="value" formControlName="colorOptions">
+              <option value="primary">primary</option>
+              <option value="secondary">secondary</option>
+              <option value="default">default</option>
+              <option value="white">white</option>
+
+            </select>
+
+          </sof-form-item>
+
+        </sof-sub-form>
+      </sof-form>
+    </sof-card>
+
+    <br>
+    <span class="framework-h3-font">{{'general.BASIC_USAGE'|translate}}</span>
+    <br>
+    <br> {{'spinner.exple_desc'|translate}}
+    <br>
+    <br>
+    <sof-card class="style-sof-card" title="{{'imp_details'|translate}}">
+      <sof-stepper>
+        <aw-wizard navBarLayout="large-empty-symbols" navigationMode="free" defaultStepIndex="0">
+          <aw-wizard-step stepTitle="{{'prerequis'|translate}}">
+            <div class="padding-15">
+              <b>app.module.ts</b>
+            </div>
+            <div class="border padding-15 border-radius mb-2 background-code">
+              <pre id="tr1" class="language-typescript background-code">
+                 <button  (click)="SelectAllPre()" style=" 
+                 color: black;
+                 font-size: .8em;
+                 padding: 0 .5em;
+                 background: #f5f2f0;
+                 background: rgba(172, 171, 171, 0.2);
+                 box-shadow: 0 2px 0 0 rgba(0,0,0,0.2);
+                 border-radius: .5em; float:right;">copy</button>
+               <code id="copy1"	[innerHtml]="getPrerequis()"></code>
+               <div><div id='parentt' ></div></div>
+             </pre>
+            </div>
+          </aw-wizard-step>
+          <aw-wizard-step stepTitle="HTML">
+            <div class="border padding-15 border-radius mb-2 background-code">
+              <pre id='o' class="language-markup background-code">
+                   <button  (click)="SelectAll()" style=" 
+                   color: black;
+                   font-size: .8em;
+                   padding: 0 .5em;
+                   background: #f5f2f0;
+                   background: rgba(172, 171, 171, 0.2);
+                   box-shadow: 0 2px 0 0 rgba(0,0,0,0.2);
+                   border-radius: .5em; float:right;">copy</button>
+                        <code  id='copy' [innerHtml]="getHtmlCode()" class="language-markup"></code> 
+                       <div><div id='parent' ></div></div>
+                    
+                     </pre>
+            </div>
+          </aw-wizard-step>
+
+        </aw-wizard>
+      </sof-stepper>
+    </sof-card>
+
+
+    <div class="border padding-10 border-radius bg-white">
+      <div class="div-size">
+        <div class="left-align-text ux-label">{{'result'|translate}}</div>
+
+
+
+        <div class="row pl-3 ">
+          <label class="label label-large col-md-1 ">
+          </label>
+
+
+          <!-- <div class="border padding-15 border-radius bg-white mb-2 margin">
+        <div class="margin"> 
+        <sof-spinner [spinnerType]="spinnerType" [spinnerSize]="spinnerSize" [spinnerColor]="spinnerColor" ></sof-spinner>
+        </div>
+        </div> -->
+
+
+          <div class="col-md-3 col-lg-3 col-xl-4" *ngIf="spinnerType != null">
+
+            <sof-spinner [spinnerType]="spinnerType" [spinnerSize]="spinnerSize" [spinnerColor]="spinnerColor">
+            </sof-spinner>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

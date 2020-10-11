@@ -1,0 +1,203 @@
+<div class="picto-item" aria-label="test" class="row">
+  <div class="col-12 framework-font padding-framework">
+    <div>
+      <h1 class="framework-h1-font">{{'interval.intervalCompo'|translate}}</h1>
+      <span class="framework-font-Semibold">{{'interval.overview'|translate}}</span>
+      <br>
+      <br>{{'interval.interval_overview'|translate}}
+      <br>
+      <br>
+      <span class="framework-font-Semibold">GETTING STARTED</span>
+      <br>{{'interval.getting-strated'|translate}}
+      <br>
+      <br>
+    </div>
+    <span class="framework-h3-font">{{'general.params'|translate}}</span>
+    <br>
+    <br>
+
+    <sof-card class="style-sof-card" title="{{'general.general_params'|translate}}">
+      <br>
+      <table style="width:100%">
+        <tr>
+          <th style="width:16%">
+            <span class="framework-font-Semibold" style="font-size: 13px; margin-left: 23px;">
+              {{'general.advancedImplementation'|translate}}
+            </span>
+          </th>
+          <th>
+            <hr>
+          </th>
+        </tr>
+      </table>
+      <sof-sub-form [column]="2" [border]="false">
+
+        <sof-form-label>Label début :</sof-form-label>
+        <sof-form-item>
+          <sof-input type="text" id="date_deb" name="date_deb" [(ngModel)]="date_deb"></sof-input>
+        </sof-form-item>
+
+        <sof-form-label>Label fin :</sof-form-label>
+        <sof-form-item>
+          <sof-input type="text" id="date_fin" name="date_fin" [(ngModel)]="date_fin"></sof-input>
+        </sof-form-item>
+      </sof-sub-form>
+
+    </sof-card>
+    <br>
+    <span class="framework-h3-font">{{'general.BASIC_USAGE'|translate}}</span>
+    <br>
+    <sof-card class="style-sof-card" title="{{'imp_details'|translate}}">
+      <sof-stepper>
+        <aw-wizard navBarLayout="large-empty-symbols" navigationMode="free" defaultStepIndex="0">
+          <aw-wizard-step stepTitle="{{'prerequis'|translate}}">
+            <div class="padding-15">
+              <b>app.module.ts</b>
+            </div>
+            <div class="border padding-15 border-radius mb-2 background-code">
+              <pre id="tr1" class="language-typescript background-code">
+                    <button  (click)="SelectAllPre()" style=" 
+                    color: black;
+                    font-size: .8em;
+                    padding: 0 .5em;
+                    background: #f5f2f0;
+                    background: rgba(172, 171, 171, 0.2);
+                    box-shadow: 0 2px 0 0 rgba(0,0,0,0.2);
+                    border-radius: .5em; float:right;">copy</button>
+                  <code id="copy1"	[innerHtml]="getPrerequis()"></code>
+                  <div><div id='parentt' ></div></div>
+                </pre>
+            </div>
+          </aw-wizard-step>
+          <aw-wizard-step stepTitle="HTML">
+            <div class="border padding-15 border-radius mb-2 background-code">
+              <pre id='o' class="language-markup background-code">
+                    <button  (click)="SelectAll()" style=" 
+                    color: black;
+                    font-size: .8em;
+                    padding: 0 .5em;
+                    background: #f5f2f0;
+                    background: rgba(172, 171, 171, 0.2);
+                    box-shadow: 0 2px 0 0 rgba(0,0,0,0.2);
+                    border-radius: .5em; float:right;">copy</button>
+                         <code  id='copy' [innerHtml]="getHtmlCode()" class="language-markup"></code> 
+                        <div><div id='parent' ></div></div>
+                     
+                      </pre>
+            </div>
+          </aw-wizard-step>
+          <aw-wizard-step stepTitle="TS">
+            <div class="border padding-15 border-radius mb-2 background-code">
+              <pre id="o2" class="language-typescript background-code">
+                    <button  (click)="SelectAllTs()" style=" 
+                    color: black;
+                    font-size: .8em;
+                    padding: 0 .5em;
+                    background: #f5f2f0;
+                    background: rgba(172, 171, 171, 0.2);
+                    box-shadow: 0 2px 0 0 rgba(0,0,0,0.2);
+                    border-radius: .5em; float:right;">copy</button>
+                  <code id="copy11"	[innerHtml]="getTsCode()"></code>
+                  <div><div id='parenty' ></div></div>
+                </pre>
+            </div>
+          </aw-wizard-step>
+        </aw-wizard>
+      </sof-stepper>
+    </sof-card>
+
+    <div class="border padding-10 border-radius bg-white">
+      <div class="left-align-text">{{'result'|translate}}</div>
+      <sof-sub-form [column]="1" [border]="false">
+        <sof-form-label>{{'interval.interval'|translate}} :</sof-form-label>
+        <sof-form-item>
+          <sof-interval id="test" [date_deb]='date_deb' [date_fin]='date_fin' [(intervaleData)]="interval">
+          </sof-interval>
+        </sof-form-item>
+      </sof-sub-form>
+    </div>
+    <br>
+    <span class="framework-h3-font">{{'interval.utilsation'|translate}}</span>
+    <sof-card class="style-sof-card" title="{{'imp_details'|translate}}">
+      <sof-stepper>
+        <aw-wizard navBarLayout="large-empty-symbols" navigationMode="free" defaultStepIndex="0">
+          <aw-wizard-step stepTitle="{{'prerequis'|translate}}">
+            <div class="padding-15">
+              <b>app.module.ts</b>
+            </div>
+            <div class="border padding-15 border-radius mb-2 background-code">
+              <pre id="tr11" class="language-typescript background-code">
+                      <button  (click)="SelectAllPreForm()" style=" 
+                      color: black;
+                      font-size: .8em;
+                      padding: 0 .5em;
+                      background: #f5f2f0;
+                      background: rgba(172, 171, 171, 0.2);
+                      box-shadow: 0 2px 0 0 rgba(0,0,0,0.2);
+                      border-radius: .5em; float:right;">copy</button>
+                    <code id="copy11"	[innerHtml]="getPrerequis()"></code>
+                    <div><div id='parenttt' ></div></div>
+                  </pre>
+            </div>
+          </aw-wizard-step>
+          <aw-wizard-step stepTitle="HTML">
+            <div class="border padding-15 border-radius mb-2 background-code">
+              <pre id='o4' class="language-markup background-code">
+                      <button  (click)="SelectAllForm()" style=" 
+                      color: black;
+                      font-size: .8em;
+                      padding: 0 .5em;
+                      background: #f5f2f0;
+                      background: rgba(172, 171, 171, 0.2);
+                      box-shadow: 0 2px 0 0 rgba(0,0,0,0.2);
+                      border-radius: .5em; float:right;">copy</button>
+                           <code  id='copy4' [innerHtml]="getHtmlCodeForm()" class="language-markup"></code> 
+                          <div><div id='parent4' ></div></div>
+                       
+                        </pre>
+            </div>
+          </aw-wizard-step>
+          <aw-wizard-step stepTitle="TS">
+            <div class="border padding-15 border-radius mb-2 background-code">
+              <pre id="o25" class="language-typescript background-code">
+                      <button  (click)="SelectAllTsForm()" style=" 
+                      color: black;
+                      font-size: .8em;
+                      padding: 0 .5em;
+                      background: #f5f2f0;
+                      background: rgba(172, 171, 171, 0.2);
+                      box-shadow: 0 2px 0 0 rgba(0,0,0,0.2);
+                      border-radius: .5em; float:right;">copy</button>
+                    <code id="copy115"	[innerHtml]="getTsCodeForm()"></code>
+                    <div><div id='parenty5' ></div></div>
+                  </pre>
+            </div>
+          </aw-wizard-step>
+        </aw-wizard>
+      </sof-stepper>
+    </sof-card>
+    <div class="border padding-10 border-radius bg-white">
+      <div class="left-align-text">{{'result'|translate}}</div>
+      <sof-form title="" [formGroup]="parentForm" class="form-horizontal">
+        <sof-sub-form column="2" border="false">
+          <sof-form-label>{{'interval.nom_formation'|translate}} :
+            <span style="color: red">* </span>
+          </sof-form-label>
+          <sof-form-item
+            [valid]="!parentForm?.controls?.trainingName.pristine ? parentForm?.controls?.trainingName.valid : true"
+            errorMsg="Formation obligatoire">
+            <input type="text" formControlName="trainingName">
+          </sof-form-item>
+          <sof-form-label>{{'interval.duree'|translate}} :</sof-form-label>
+          <sof-form-item [valid]="getIntervalValid()" errorMsg="Durée de formation non valide">
+            <sof-interval id="interval1" [date_deb]='date_deb' [date_fin]='date_fin' [(intervaleData)]="interval"
+              [(parentForm)]="parentForm" validationName="trainingPeriod"></sof-interval>
+          </sof-form-item>
+        </sof-sub-form>
+        <sof-form-buttons>
+          <sof-button (onClick)="btnClick();">{{'interval.soumettre'|translate}}</sof-button>
+        </sof-form-buttons>
+      </sof-form>
+    </div>
+  </div>
+</div>

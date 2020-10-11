@@ -1,0 +1,48 @@
+/deep/.preview {
+  width: 150px;
+  display: inline-block;
+  margin: 5px;
+  border: 1px solid #e4eaec;
+  background: #fff;
+}
+/deep/ .preview .inner {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  padding: 25px 10px 10px;
+}
+/* i.icons {
+  font-size: 24px;
+ // color: #d8c392;
+} */
+/deep/ i {
+  line-height: 1;
+}
+/deep/ .preview .label {
+  display: inline-block;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 5px 10px 15px;
+  font-size: 10px;
+  font-family: Monaco, monospace;
+  color: #666;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-border-radius: 0 0 3px 3px;
+  -moz-border-radius: 0 0 3px 3px;
+  border-radius: 0 0 3px 3px;
+}
+/deep/ .marge {
+  margin-left: 5em;
+}
+
+:host ::ng-deep div.code-toolbar > .toolbar a,
+div.code-toolbar > .toolbar button,
+div.code-toolbar > .toolbar span {
+  display: none;
+}
+
+pre {
+  overflow: hidden;
+}

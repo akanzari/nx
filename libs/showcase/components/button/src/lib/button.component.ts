@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, OnInit, Inject } from '@angular/core';
-import { Route, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { HighlightService, IconService } from '@showcase/service';
 
 @Component({
@@ -8,6 +8,7 @@ import { HighlightService, IconService } from '@showcase/service';
   providers: [HighlightService, IconService]
 })
 export class ButtonComponent implements OnInit, AfterViewInit {
+
   size: string;
   border: string;
   flat: string;
@@ -18,9 +19,6 @@ export class ButtonComponent implements OnInit, AfterViewInit {
   bgColor: string;
   block: string;
   disable: boolean = false;
-  constructor(private router: Router, @Inject(HighlightService) private readonly highlightService: HighlightService, private IconService: IconService) { }
-
-
   Load: boolean; // activer Loading Data 
   input: string; // input du recherche
   optionsBuffer = []; // resultat des valeurs à afficher
@@ -28,7 +26,9 @@ export class ButtonComponent implements OnInit, AfterViewInit {
   loading = false; // activer spinner loading
   nbTotal: number; // nombre des éléments trouvé
 
-
+  constructor(private router: Router,
+    @Inject(HighlightService) private readonly highlightService: HighlightService,
+    private IconService: IconService) { }
 
   ngOnInit() {
     // retourner nombre Total 
@@ -36,15 +36,15 @@ export class ButtonComponent implements OnInit, AfterViewInit {
     // retourner les 10 premier elements avec le webservices
     this.optionsBuffer = this.IconService.getDataPerpage(1, 10, null, this.input);
   }
-  try() {
 
-    document.getElementById('inputmono').setAttribute('placeholder', 'recherche')
-    document.getElementById('inputmono').focus()
+  try() {
+    if (document.getElementById('inputmono')) {
+      document.getElementById('inputmono').setAttribute('placeholder', 'recherche')
+      document.getElementById('inputmono').focus()
+    }
   }
 
-
   // ce methode fait appel à la methode fetch à chaque fin de scroll
-
   onScrollToEnd() {
     if (this.optionsBuffer.length <= this.nbTotal && this.input == null) {
       this.fetchMore();
@@ -52,9 +52,7 @@ export class ButtonComponent implements OnInit, AfterViewInit {
     return
   }
 
-
   // fait appel au web service et concatine les resultats
-
   private fetchMore() {
     const len = this.optionsBuffer.length;
     let more = [];
@@ -73,13 +71,10 @@ export class ButtonComponent implements OnInit, AfterViewInit {
     }, 1000)
   }
 
-
-
   // methode de recherche 
   recherche(event) {
     this.optionsBuffer = [];
     this.input = event;
-
     this.nbTotal = this.IconService.getAllP();
     if (event) {
       this.optionsBuffer = this.IconService.getDataPerpage(1, this.bufferSize, "name", event); // 1 : page de debut , this.bufferSize : taille de page , "name" : bindlabel ,
@@ -87,14 +82,9 @@ export class ButtonComponent implements OnInit, AfterViewInit {
     } else {
       this.optionsBuffer = this.IconService.getDataPerpage(1, this.bufferSize, null, null);
     }
-
   }
 
-
-
-
   getHtmlCode() {
-
     this.highlightService.highlightAll();
     return '\n &lt;sof-button ' + (this.border ? 'border=\"' + this.border + '\"' : '') +
       (this.bgColor ? ' bgColor=\"' + this.bgColor + '\"' : '') +
@@ -107,6 +97,7 @@ export class ButtonComponent implements OnInit, AfterViewInit {
       (this.block ? ' block=\"' + this.block + '\"' : '')
       + '>&lt;/sof-button>';
   }
+
   str2DOMElement(html) {
     var frame = document.createElement('iframe');
     frame.style.display = 'none';
@@ -119,25 +110,18 @@ export class ButtonComponent implements OnInit, AfterViewInit {
     return el;
   }
 
-
-
   SelectAllPre() {
-
     let code = this.getPrerequis();
-
     let text = "<textarea></textarea>"
     let textnode = this.str2DOMElement(text)
     document.getElementById('parentt').appendChild(textnode);
     (textnode as HTMLTextAreaElement).id = 'test11';
     (textnode as HTMLTextAreaElement).value = code;
-
     (textnode as HTMLTextAreaElement).select();
-
     document.execCommand("copy");
     (textnode as HTMLTextAreaElement).style.visibility = 'hidden';
     document.getElementById('tr1').style.height = '185px';
   }
-
 
   blockfunction() {
     if (this.block) {
@@ -146,26 +130,21 @@ export class ButtonComponent implements OnInit, AfterViewInit {
     }
     else return false;
   }
-  SelectAll() {
 
+  SelectAll() {
     let code = this.getHtmlCode();
     let codeF;
     var regex = /&lt;/gi;
     codeF = code.replace(regex, "<");
-
-
     let text = "<textarea></textarea>"
     let textnode = this.str2DOMElement(text)
     document.getElementById('parent').appendChild(textnode);
     (textnode as HTMLTextAreaElement).id = 'test1';
     (textnode as HTMLTextAreaElement).value = codeF;
-
     (textnode as HTMLTextAreaElement).select();
-
     document.execCommand("copy");
     (textnode as HTMLTextAreaElement).style.visibility = 'hidden';
     document.getElementById('o').style.height = '184px';
-
   }
 
   getButton() {
@@ -177,15 +156,13 @@ export class ButtonComponent implements OnInit, AfterViewInit {
   test() {
     // this.router.navigateByUrl('/home/table_demo');
   }
+
   updateflat(event) {
     (document.getElementById('flatC') as HTMLInputElement).value = "";
     this.color = "";
     this.bgColor = "";
     this.border = "";
-
   }
-
-
 
   functionB() {
     if (this.flat || this.bgColor) {
@@ -205,13 +182,14 @@ export class ButtonComponent implements OnInit, AfterViewInit {
     }
   }
 
-
   getPrerequis() {
     return `
     import { SofButtonModule } from 'framework-front-softilys';
     imports : [SofButtonModule ];`
   }
+
   public ngAfterViewInit(): void {
     this.highlightService.highlightAll();
   }
+
 }

@@ -1,0 +1,2010 @@
+<div class="picto-item" aria-label="test" class="row">
+    <div class="col-12 framework-font padding-framework">
+        <div>
+            <h1 class="framework-h1-font">{{'icon.iconCompo'|translate}}</h1>
+            <span class="framework-font-Semibold">{{'icon.overview'|translate}}</span>
+            <br>
+            <br>{{'icon.icon_overview'|translate}}
+            <br>
+            <br>
+            <span class="framework-font-Semibold">GETTING STARTED</span>
+            <br>{{'icon.getting-strated'|translate}}
+            <br>
+            <br>
+        </div>
+        <span class="framework-h3-font">{{'general.params'|translate}}</span>
+        <br>
+        <br>
+
+        <sof-card class="style-sof-card" title="{{'general.general_params'|translate}}">
+            <br>
+            <table style="width:100%">
+                <tr>
+                    <th style="width:16%">
+                        <span class="framework-font-Semibold" style="font-size: 13px; margin-left: 23px;">
+                            {{'general.advancedImplementation'|translate}}
+                        </span>
+                    </th>
+                    <th>
+                        <hr>
+                    </th>
+                </tr>
+            </table>
+
+
+            <sof-sub-form [column]="3" [border]="false">
+                <sof-form-label>{{'icon.nom'|translate}} :</sof-form-label>
+                <sof-input [(ngModel)]="icon_name"></sof-input>
+                <sof-form-label>{{'icon.couleur'|translate}} :</sof-form-label>
+                <sof-form-item>
+                    <select [(ngModel)]="icon_colour">
+                        <option></option>
+                        <option value="color-primary">primary</option>
+                        <option value=" color-secondary">secondary</option>
+                        <option value="color-default">default</option>
+                        <option value="color-valid">valid</option>
+                        <option value="color-info">info</option>
+                        <option value="color-text">text</option>
+                        <option value="color-title">title</option>
+                        <option value="color-white">white</option>
+                    </select>
+                </sof-form-item>
+                <sof-form-label>{{'icon.taille'|translate}} :</sof-form-label>
+                <sof-form-item>
+                    <select [(ngModel)]="icon_size">
+                        <option></option>
+                        <option value="size-16">size 16</option>
+                        <option value="size-20">size 20</option>
+                        <option value="size-24">size 24</option>
+                        <option value="size-32">size 32</option>
+                        <option value="size-50">size 50</option>
+                    </select>
+                </sof-form-item>
+            </sof-sub-form>
+        </sof-card>
+        <br>
+        <span class="framework-h3-font">{{'general.BASIC_USAGE'|translate}}</span>
+        <br>
+        <br> {{'icon.exple_desc'|translate}}
+        <br>
+        <br>
+
+        <sof-card class="style-sof-card" title="{{'imp_details'|translate}}">
+            <sof-stepper>
+                <aw-wizard navBarLayout="large-empty-symbols" navigationMode="free" defaultStepIndex="0">
+
+                    <aw-wizard-step stepTitle="HTML">
+                        <div class="border padding-15 border-radius mb-2 background-code">
+                            <pre id='o' class="language-markup background-code">
+                        <button  (click)="SelectAll()" style=" 
+                        color: black;
+                        font-size: .8em;
+                        padding: 0 .5em;
+                        background: #f5f2f0;
+                        background: rgba(172, 171, 171, 0.2);
+                        box-shadow: 0 2px 0 0 rgba(0,0,0,0.2);
+                        border-radius: .5em; float:right;">copy</button>
+                             <code  id='copy' [innerHtml]="getHtmlCode()" class="language-markup"></code> 
+                            <div><div id='parent' ></div></div>
+                         
+                          </pre>
+                        </div>
+                    </aw-wizard-step>
+
+                </aw-wizard>
+            </sof-stepper>
+        </sof-card>
+
+        <div class="row" id="list">
+            <div class="col-12">
+                <h2 class="framework-h3-font">{{'icon.list'|translate}}</h2>
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-add"></i>
+                    </span>
+                    <br>
+                    <span class="label">add</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-alert"></i>
+                    </span>
+                    <br>
+                    <span class="label">alert</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-align_center"></i>
+                    </span>
+                    <br>
+                    <span class="label">align_center</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-align_justify"></i>
+                    </span>
+                    <br>
+                    <span class="label">align_justify</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-align_left"></i>
+                    </span>
+                    <br>
+                    <span class="label">align_left</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-align_right"></i>
+                    </span>
+                    <br>
+                    <span class="label">align_right</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-amp"></i>
+                    </span>
+                    <br>
+                    <span class="label">amp</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-anchor"></i>
+                    </span>
+                    <br>
+                    <span class="label">anchor</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-arrow_bottom_left"></i>
+                    </span>
+                    <br>
+                    <span class="label">arrow_bottom_left</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-arrow_bottom_right"></i>
+                    </span>
+                    <br>
+                    <span class="label">arrow_bottom_right</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-arrow_circle_down"></i>
+                    </span>
+                    <br>
+                    <span class="label">arrow_circle_down</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-arrow_circle_left"></i>
+                    </span>
+                    <br>
+                    <span class="label">arrow_circle_left</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-arrow_circle_right"></i>
+                    </span>
+                    <br>
+                    <span class="label">arrow_circle_right</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-arrow_circle_up"></i>
+                    </span>
+                    <br>
+                    <span class="label">arrow_circle_up</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-arrow_corner"></i>
+                    </span>
+                    <br>
+                    <span class="label">arrow_corner</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-arrow_down"></i>
+                    </span>
+                    <br>
+                    <span class="label">arrow_down</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-arrow_horizontal"></i>
+                    </span>
+                    <br>
+                    <span class="label">arrow_horizontal</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-arrow_left"></i>
+                    </span>
+                    <br>
+                    <span class="label">arrow_left</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-arrow_left_right"></i>
+                    </span>
+                    <br>
+                    <span class="label">arrow_left_right</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-arrow_right"></i>
+                    </span>
+                    <br>
+                    <span class="label">arrow_right</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-arrow_shrink"></i>
+                    </span>
+                    <br>
+                    <span class="label">arrow_shrink</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-arrow_top_bottom"></i>
+                    </span>
+                    <br>
+                    <span class="label">arrow_top_bottom</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-arrow_top_left"></i>
+                    </span>
+                    <br>
+                    <span class="label">arrow_top_left</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-arrow_top_right"></i>
+                    </span>
+                    <br>
+                    <span class="label">arrow_top_right</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-arrow_up"></i>
+                    </span>
+                    <br>
+                    <span class="label">arrow_up</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-arrow_vertical"></i>
+                    </span>
+                    <br>
+                    <span class="label">arrow_vertical</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-asterisk"></i>
+                    </span>
+                    <br>
+                    <span class="label">asterisk</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-at"></i>
+                    </span>
+                    <br>
+                    <span class="label">at</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-bar_chart"></i>
+                    </span>
+                    <br>
+                    <span class="label">bar_chart</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-basket"></i>
+                    </span>
+                    <br>
+                    <span class="label">basket</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-bold"></i>
+                    </span>
+                    <br>
+                    <span class="label">bold</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-calendar"></i>
+                    </span>
+                    <br>
+                    <span class="label">calendar</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-cancel"></i>
+                    </span>
+                    <br>
+                    <span class="label">cancel</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-chart"></i>
+                    </span>
+                    <br>
+                    <span class="label">chart</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-chart_histo_down"></i>
+                    </span>
+                    <br>
+                    <span class="label">chart_histo_down</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-chart_histo_up"></i>
+                    </span>
+                    <br>
+                    <span class="label">chart_histo_up</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-check"></i>
+                    </span>
+                    <br>
+                    <span class="label">check</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-check_box"></i>
+                    </span>
+                    <br>
+                    <span class="label">check_box</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-chevron_down"></i>
+                    </span>
+                    <br>
+                    <span class="label">chevron_down</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-chevron_left"></i>
+                    </span>
+                    <br>
+                    <span class="label">chevron_left</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-chevron_left_right"></i>
+                    </span>
+                    <br>
+                    <span class="label">chevron_left_right</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-chevron_right"></i>
+                    </span>
+                    <br>
+                    <span class="label">chevron_right</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-chevron_up"></i>
+                    </span>
+                    <br>
+                    <span class="label">chevron_up</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-chevron_up_down"></i>
+                    </span>
+                    <br>
+                    <span class="label">chevron_up_down</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-clothing"></i>
+                    </span>
+                    <br>
+                    <span class="label">clothing</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-cloud"></i>
+                    </span>
+                    <br>
+                    <span class="label">cloud</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-cloud_down"></i>
+                    </span>
+                    <br>
+                    <span class="label">cloud_down</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-cloud_up"></i>
+                    </span>
+                    <br>
+                    <span class="label">cloud_up</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-code"></i>
+                    </span>
+                    <br>
+                    <span class="label">code</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-columns"></i>
+                    </span>
+                    <br>
+                    <span class="label">columns</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-comment"></i>
+                    </span>
+                    <br>
+                    <span class="label">comment</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-comment_alt"></i>
+                    </span>
+                    <br>
+                    <span class="label">comment_alt</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-comments"></i>
+                    </span>
+                    <br>
+                    <span class="label">comments</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-contract"></i>
+                    </span>
+                    <br>
+                    <span class="label">contract</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-contrast_1"></i>
+                    </span>
+                    <br>
+                    <span class="label">contrast_1</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-contrast_2"></i>
+                    </span>
+                    <br>
+                    <span class="label">contrast_2</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-contrast_3"></i>
+                    </span>
+                    <br>
+                    <span class="label">contrast_3</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-control_backward"></i>
+                    </span>
+                    <br>
+                    <span class="label">control_backward</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-control_eject"></i>
+                    </span>
+                    <br>
+                    <span class="label">control_eject</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-control_fast_backward"></i>
+                    </span>
+                    <br>
+                    <span class="label">control_fast_backward</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-control_fast_forward"></i>
+                    </span>
+                    <br>
+                    <span class="label">control_fast_forward</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-control_forward"></i>
+                    </span>
+                    <br>
+                    <span class="label">control_forward</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-control_pause"></i>
+                    </span>
+                    <br>
+                    <span class="label">control_pause</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-control_play"></i>
+                    </span>
+                    <br>
+                    <span class="label">control_play</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-control_record"></i>
+                    </span>
+                    <br>
+                    <span class="label">control_record</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-control_skip_backward"></i>
+                    </span>
+                    <br>
+                    <span class="label">control_skip_backward</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-control_skip_forward"></i>
+                    </span>
+                    <br>
+                    <span class="label">control_skip_forward</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-control_stop"></i>
+                    </span>
+                    <br>
+                    <span class="label">control_stop</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-copy"></i>
+                    </span>
+                    <br>
+                    <span class="label">copy</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-copyright"></i>
+                    </span>
+                    <br>
+                    <span class="label">copyright</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-credit_card"></i>
+                    </span>
+                    <br>
+                    <span class="label">credit_card</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-cursor"></i>
+                    </span>
+                    <br>
+                    <span class="label">cursor</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-download"></i>
+                    </span>
+                    <br>
+                    <span class="label">download</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-drugstore"></i>
+                    </span>
+                    <br>
+                    <span class="label">drugstore</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-edit"></i>
+                    </span>
+                    <br>
+                    <span class="label">edit</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-ellipsize"></i>
+                    </span>
+                    <br>
+                    <span class="label">ellipsize</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-enter"></i>
+                    </span>
+                    <br>
+                    <span class="label">enter</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-eraser"></i>
+                    </span>
+                    <br>
+                    <span class="label">eraser</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-exit"></i>
+                    </span>
+                    <br>
+                    <span class="label">exit</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-expand"></i>
+                    </span>
+                    <br>
+                    <span class="label">expand</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-eye"></i>
+                    </span>
+                    <br>
+                    <span class="label">eye</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-eye_close"></i>
+                    </span>
+                    <br>
+                    <span class="label">eye_close</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-face"></i>
+                    </span>
+                    <br>
+                    <span class="label">face</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-face_sad"></i>
+                    </span>
+                    <br>
+                    <span class="label">face_sad</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-face_sceptical"></i>
+                    </span>
+                    <br>
+                    <span class="label">face_sceptical</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-face_smile"></i>
+                    </span>
+                    <br>
+                    <span class="label">face_smile</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-file"></i>
+                    </span>
+                    <br>
+                    <span class="label">file</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-file_add"></i>
+                    </span>
+                    <br>
+                    <span class="label">file_add</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-file_audio"></i>
+                    </span>
+                    <br>
+                    <span class="label">file_audio</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-file_code"></i>
+                    </span>
+                    <br>
+                    <span class="label">file_code</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-file_corner"></i>
+                    </span>
+                    <br>
+                    <span class="label">file_corner</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-file_delete"></i>
+                    </span>
+                    <br>
+                    <span class="label">file_delete</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-file_delete_alt"></i>
+                    </span>
+                    <br>
+                    <span class="label">file_delete_alt</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-file_drugstore"></i>
+                    </span>
+                    <br>
+                    <span class="label">file_drugstore</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-file_edit"></i>
+                    </span>
+                    <br>
+                    <span class="label">file_edit</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-file_excel"></i>
+                    </span>
+                    <br>
+                    <span class="label">file_excel</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-file_image"></i>
+                    </span>
+                    <br>
+                    <span class="label">file_image</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-file_pdf"></i>
+                    </span>
+                    <br>
+                    <span class="label">file_pdf</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-file_powerpoint"></i>
+                    </span>
+                    <br>
+                    <span class="label">file_powerpoint</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-file_word"></i>
+                    </span>
+                    <br>
+                    <span class="label">file_word</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-folder"></i>
+                    </span>
+                    <br>
+                    <span class="label">folder</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-folder_drugstore"></i>
+                    </span>
+                    <br>
+                    <span class="label">folder_drugstore</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-food"></i>
+                    </span>
+                    <br>
+                    <span class="label">food</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-form"></i>
+                    </span>
+                    <br>
+                    <span class="label">form</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-fullscreen"></i>
+                    </span>
+                    <br>
+                    <span class="label">fullscreen</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-funnel"></i>
+                    </span>
+                    <br>
+                    <span class="label">funnel</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-furnishing"></i>
+                    </span>
+                    <br>
+                    <span class="label">furnishing</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-gallery"></i>
+                    </span>
+                    <br>
+                    <span class="label">gallery</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-grid"></i>
+                    </span>
+                    <br>
+                    <span class="label">grid</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-hamburger"></i>
+                    </span>
+                    <br>
+                    <span class="label">hamburger</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-hammer"></i>
+                    </span>
+                    <br>
+                    <span class="label">hammer</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-heart"></i>
+                    </span>
+                    <br>
+                    <span class="label">heart</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-heart_rate"></i>
+                    </span>
+                    <br>
+                    <span class="label">heart_rate</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-heart_rate_alt"></i>
+                    </span>
+                    <br>
+                    <span class="label">heart_rate_alt</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-help"></i>
+                    </span>
+                    <br>
+                    <span class="label">help</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-home"></i>
+                    </span>
+                    <br>
+                    <span class="label">home</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-image"></i>
+                    </span>
+                    <br>
+                    <span class="label">image</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-indent"></i>
+                    </span>
+                    <br>
+                    <span class="label">indent</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-infos"></i>
+                    </span>
+                    <br>
+                    <span class="label">infos</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-italic"></i>
+                    </span>
+                    <br>
+                    <span class="label">italic</span>
+                </div>
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-keyboard"></i>
+                    </span>
+                    <br>
+                    <span class="label">keyboard</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-label"></i>
+                    </span>
+                    <br>
+                    <span class="label">label</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-label_alt"></i>
+                    </span>
+                    <br>
+                    <span class="label">label_alt</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-legal_notices"></i>
+                    </span>
+                    <br>
+                    <span class="label">legal_notices</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-link"></i>
+                    </span>
+                    <br>
+                    <span class="label">link</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-list_ol"></i>
+                    </span>
+                    <br>
+                    <span class="label">list_ol</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-list_ul"></i>
+                    </span>
+                    <br>
+                    <span class="label">list_ul</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-lock"></i>
+                    </span>
+                    <br>
+                    <span class="label">lock</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-mail"></i>
+                    </span>
+                    <br>
+                    <span class="label">mail</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-mail_open"></i>
+                    </span>
+                    <br>
+                    <span class="label">mail_open</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-map"></i>
+                    </span>
+                    <br>
+                    <span class="label">map</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-map_marker"></i>
+                    </span>
+                    <br>
+                    <span class="label">map_marker</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-move"></i>
+                    </span>
+                    <br>
+                    <span class="label">move</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-nine_points"></i>
+                    </span>
+                    <br>
+                    <span class="label">nine_points</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-note"></i>
+                    </span>
+                    <br>
+                    <span class="label">note</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-note_drugstore"></i>
+                    </span>
+                    <br>
+                    <span class="label">note_drugstore</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-note_heart_rate"></i>
+                    </span>
+                    <br>
+                    <span class="label">note_heart_rate</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-note_text"></i>
+                    </span>
+                    <br>
+                    <span class="label">note_text</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-outdent"></i>
+                    </span>
+                    <br>
+                    <span class="label">outdent</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-paint"></i>
+                    </span>
+                    <br>
+                    <span class="label">paint</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-paperclip"></i>
+                    </span>
+                    <br>
+                    <span class="label">paperclip</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-phone"></i>
+                    </span>
+                    <br>
+                    <span class="label">phone</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-picture"></i>
+                    </span>
+                    <br>
+                    <span class="label">picture</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-pill"></i>
+                    </span>
+                    <br>
+                    <span class="label">pill</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-print"></i>
+                    </span>
+                    <br>
+                    <span class="label">print</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-rack"></i>
+                    </span>
+                    <br>
+                    <span class="label">rack</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-reduce"></i>
+                    </span>
+                    <br>
+                    <span class="label">reduce</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-refresh"></i>
+                    </span>
+                    <br>
+                    <span class="label">refresh</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-remove"></i>
+                    </span>
+                    <br>
+                    <span class="label">remove</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-restart"></i>
+                    </span>
+                    <br>
+                    <span class="label">restart</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-rotate_left"></i>
+                    </span>
+                    <br>
+                    <span class="label">rotate_left</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-rotate_right"></i>
+                    </span>
+                    <br>
+                    <span class="label">rotate_right</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-safe"></i>
+                    </span>
+                    <br>
+                    <span class="label">safe</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-sandglass"></i>
+                    </span>
+                    <br>
+                    <span class="label">sandglass</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-save"></i>
+                    </span>
+                    <br>
+                    <span class="label">save</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-screen"></i>
+                    </span>
+                    <br>
+                    <span class="label">screen</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-screen_search"></i>
+                    </span>
+                    <br>
+                    <span class="label">screen_search</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-screen_statement"></i>
+                    </span>
+                    <br>
+                    <span class="label">screen_statement</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-search"></i>
+                    </span>
+                    <br>
+                    <span class="label">search</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-settings"></i>
+                    </span>
+                    <br>
+                    <span class="label">settings</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-share"></i>
+                    </span>
+                    <br>
+                    <span class="label">share</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-shield"></i>
+                    </span>
+                    <br>
+                    <span class="label">shield</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-shield_add"></i>
+                    </span>
+                    <br>
+                    <span class="label">shield_add</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-shield_error"></i>
+                    </span>
+                    <br>
+                    <span class="label">shield_error</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-shield_ok"></i>
+                    </span>
+                    <br>
+                    <span class="label">shield_ok</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-shield_remove"></i>
+                    </span>
+                    <br>
+                    <span class="label">shield_remove</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-shutdown"></i>
+                    </span>
+                    <br>
+                    <span class="label">shutdown</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-slider_horizontal"></i>
+                    </span>
+                    <br>
+                    <span class="label">slider_horizontal</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-slider_vertical"></i>
+                    </span>
+                    <br>
+                    <span class="label">slider_vertical</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-smartphone"></i>
+                    </span>
+                    <br>
+                    <span class="label">smartphone</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-star"></i>
+                    </span>
+                    <br>
+                    <span class="label">star</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-star_half"></i>
+                    </span>
+                    <br>
+                    <span class="label">star_half</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-start"></i>
+                    </span>
+                    <br>
+                    <span class="label">start</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-stethoscope"></i>
+                    </span>
+                    <br>
+                    <span class="label">stethoscope</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-suitcase"></i>
+                    </span>
+                    <br>
+                    <span class="label">suitcase</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-suitcase_drugstore"></i>
+                    </span>
+                    <br>
+                    <span class="label">suitcase_drugstore</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-table"></i>
+                    </span>
+                    <br>
+                    <span class="label">table</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-tablet"></i>
+                    </span>
+                    <br>
+                    <span class="label">tablet</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-target"></i>
+                    </span>
+                    <br>
+                    <span class="label">target</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-terminal"></i>
+                    </span>
+                    <br>
+                    <span class="label">terminal</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-test_tube"></i>
+                    </span>
+                    <br>
+                    <span class="label">test_tube</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-time"></i>
+                    </span>
+                    <br>
+                    <span class="label">time</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-toggle_off"></i>
+                    </span>
+                    <br>
+                    <span class="label">toggle_off</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-toggle_on"></i>
+                    </span>
+                    <br>
+                    <span class="label">toggle_on</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-token"></i>
+                    </span>
+                    <br>
+                    <span class="label">token</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-transport_bike"></i>
+                    </span>
+                    <br>
+                    <span class="label">transport_bike</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-transport_bus"></i>
+                    </span>
+                    <br>
+                    <span class="label">transport_bus</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-transport_car"></i>
+                    </span>
+                    <br>
+                    <span class="label">transport_car</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-transport_pedestrian"></i>
+                    </span>
+                    <br>
+                    <span class="label">transport_pedestrian</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-transport_tractor"></i>
+                    </span>
+                    <br>
+                    <span class="label">transport_tractor</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-trash"></i>
+                    </span>
+                    <br>
+                    <span class="label">trash</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-unlink"></i>
+                    </span>
+                    <br>
+                    <span class="label">unlink</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-unlock"></i>
+                    </span>
+                    <br>
+                    <span class="label">unlock</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-upload"></i>
+                    </span>
+                    <br>
+                    <span class="label">upload</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-user"></i>
+                    </span>
+                    <br>
+                    <span class="label">user</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-user_add"></i>
+                    </span>
+                    <br>
+                    <span class="label">user_add</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-user_delete"></i>
+                    </span>
+                    <br>
+                    <span class="label">user_delete</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-users"></i>
+                    </span>
+                    <br>
+                    <span class="label">users</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-volume_1"></i>
+                    </span>
+                    <br>
+                    <span class="label">volume_1</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-volume_2"></i>
+                    </span>
+                    <br>
+                    <span class="label">volume_2</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-volume_3"></i>
+                    </span>
+                    <br>
+                    <span class="label">volume_3</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-volume_off"></i>
+                    </span>
+                    <br>
+                    <span class="label">volume_off</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-warning"></i>
+                    </span>
+                    <br>
+                    <span class="label">warning</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-weather_cloud"></i>
+                    </span>
+                    <br>
+                    <span class="label">weather_cloud</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-weather_lightning"></i>
+                    </span>
+                    <br>
+                    <span class="label">weather_lightning</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-weather_rain"></i>
+                    </span>
+                    <br>
+                    <span class="label">weather_rain</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-weather_sunny"></i>
+                    </span>
+                    <br>
+                    <span class="label">weather_sunny</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-wifi"></i>
+                    </span>
+                    <br>
+                    <span class="label">wifi</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-world"></i>
+                    </span>
+                    <br>
+                    <span class="label">world</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-zoom_down"></i>
+                    </span>
+                    <br>
+                    <span class="label">zoom_down</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-zoom_up"></i>
+                    </span>
+                    <br>
+                    <span class="label">zoom_up</span>
+                </div>
+
+
+                <div class="preview">
+                    <span class="inner">
+                        <i class="icons icon-zoom_x"></i>
+                    </span>
+                    <br>
+                    <span class="label">zoom_x</span>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>

@@ -1,0 +1,158 @@
+<div class="picto-item" aria-label="test" class="row">
+  <div class="col-12 framework-font padding-framework">
+    <div>
+      <h1 class="framework-h1-font">{{'modal.modalCompo'|translate}}</h1>
+      <span class="framework-font-Semibold">{{'modal.overview'|translate}}</span>
+      <br>
+      <br>{{'modal.modal_overview'|translate}}
+      <br>
+      <br>
+      <span class="framework-font-Semibold">GETTING STARTED</span>
+      <br>{{'modal.getting-strated'|translate}}
+      <br>
+      <br>
+    </div>
+    <span class="framework-h3-font">{{'general.params'|translate}}</span>
+    <br>
+    <br>
+    <sof-card class="style-sof-card" title="{{'general.general_params'|translate}}">
+      <br>
+      <table style="width:100%">
+        <tr>
+          <th style="width:16%">
+            <span class="framework-font-Semibold" style="font-size: 13px; margin-left: 23px;">
+              {{'general.advancedImplementation'|translate}}
+            </span>
+          </th>
+          <th>
+            <hr>
+          </th>
+        </tr>
+      </table>
+      <br>
+      <sof-form title="">
+        <sof-sub-form column="3" [border]="false">
+          <label class="stylelabel">Position :</label>
+          <sof-form-item>
+            <select name="selectType" [(ngModel)]="selectedOption" style="width: 200px;" (change)="onChange()">
+              <option value="top">top</option>
+              <option value="center">center</option>
+              <option value="sidebar">sidebar</option>
+              <option value="full">full</option>
+            </select>
+          </sof-form-item>
+
+
+
+          <label class="stylelabel" style="margin-left:70px;"> Raccourci clavier</label>
+          <i class="icons icon-infos color-primary size-16"
+            softooltip="Si vous voulez utiliser le raccourcis clavier comme échap"
+            style=" line-height: 2;    margin-left: 0.3%;"></i>
+          <sof-form-item>
+            <sof-checkBox booleanValue='true' id="checkBox" [(ngModel)]='echap' ngDefaultControl></sof-checkBox>
+          </sof-form-item>
+          <label class="stylelabel" *ngIf="selectedOption==='top' || selectedOption==='center'"> Déplacer le
+            modal</label>
+
+          <sof-checkBox booleanValue='true' id="checkBox2" [(ngModel)]='drag' (onCheck)="onCheck()"
+            *ngIf="selectedOption==='top' || selectedOption==='center'" ngDefaultControl></sof-checkBox>
+
+        </sof-sub-form>
+        <sof-form-buttons>
+          <sof-button (click)="showDialog = !showDialog">Open</sof-button>
+        </sof-form-buttons>
+      </sof-form>
+    </sof-card>
+    <br>
+    <span class="framework-h3-font">{{'general.BASIC_USAGE'|translate}}</span>
+    <br>
+    <br> {{'modal.exple_desc'|translate}}
+    <br>
+    <br>
+    <sof-modal [(visible)]="showDialog " position="{{selectedOption}}" title="Title" (closeMethode)="onNotify()"
+      [drag]="drag" [selectedOption]="selectedOption">
+      <br><label>Nom :</label> <br>
+      <input class="test">
+
+
+      <br><label> Responsable : </label><br>
+      <sof-monoselect [(ngModel)]="selected" [options]="options" bindLabel="name" appendTo="body"></sof-monoselect>
+
+      <br><label> Calender : </label><br>
+
+      <sof-calendar (onBlur)=getNext() appendTo="body" style="background-color: white !important"></sof-calendar>
+
+      <br><label> Calender : </label><br>
+
+      <sof-calendar (onBlur)=getNext() appendTo="body" style="background-color: white !important"></sof-calendar>
+
+
+
+
+      <sof-modal-footer>
+        <sof-button>
+          button
+        </sof-button>
+        <button type="button" (click)="showDialog = !showDialog;onNotify()" class="btn btn-default">Close</button>
+      </sof-modal-footer>
+    </sof-modal>
+    <sof-card class="style-sof-card" title="{{'imp_details'|translate}}">
+      <sof-stepper>
+        <aw-wizard navBarLayout="large-empty-symbols" navigationMode="free" defaultStepIndex="0">
+          <aw-wizard-step stepTitle="{{'prerequis'|translate}}">
+            <div class="padding-15">
+              <b>app.module.ts</b>
+            </div>
+            <div class="border padding-15 border-radius mb-2 background-code">
+              <pre id="tr1" class="language-typescript background-code">
+                    <button  (click)="SelectAllPre()" style=" 
+                    color: black;
+                    font-size: .8em;
+                    padding: 0 .5em;
+                    background: #f5f2f0;
+                    background: rgba(172, 171, 171, 0.2);
+                    box-shadow: 0 2px 0 0 rgba(0,0,0,0.2);
+                    border-radius: .5em; float:right;">copy</button>
+                  <code id="copy1"	[innerHtml]="getPrerequis()"></code>
+                  <div><div id='parentt' ></div></div>
+                </pre>
+            </div>
+          </aw-wizard-step>
+          <aw-wizard-step stepTitle="HTML">
+            <div class="border padding-15 border-radius mb-2 background-code">
+              <pre id='o' class="language-markup background-code">
+                    <button  (click)="SelectAll()" style=" 
+                    color: black;
+                    font-size: .8em;
+                    padding: 0 .5em;
+                    background: #f5f2f0;
+                    background: rgba(172, 171, 171, 0.2);
+                    box-shadow: 0 2px 0 0 rgba(0,0,0,0.2);
+                    border-radius: .5em; float:right;">copy</button>
+                         <code  id='copy' [innerHtml]="getHtmlCode()" class="language-markup"></code> 
+                        <div><div id='parent' ></div></div>
+                     
+                      </pre>
+            </div>
+          </aw-wizard-step>
+          <aw-wizard-step stepTitle="TS">
+            <div class="border padding-15 border-radius mb-2 background-code">
+              <pre id="o2" class="language-typescript background-code">
+                    <button  (click)="SelectAllTs()" style=" 
+                    color: black;
+                    font-size: .8em;
+                    padding: 0 .5em;
+                    background: #f5f2f0;
+                    background: rgba(172, 171, 171, 0.2);
+                    box-shadow: 0 2px 0 0 rgba(0,0,0,0.2);
+                    border-radius: .5em; float:right;">copy</button>
+                  <code id="copy11"	[innerHtml]="getTSCode()"></code>
+                  <div><div id='parenty' ></div></div>
+                </pre>
+            </div>
+          </aw-wizard-step>
+        </aw-wizard>
+      </sof-stepper>
+    </sof-card>
+  </div>
+</div>

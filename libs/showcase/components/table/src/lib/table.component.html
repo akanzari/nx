@@ -1,0 +1,568 @@
+<div class="picto-item" aria-label="test" class="row">
+  <div class="col-12 framework-font padding-framework">
+    <div>
+      <h1 class="framework-h1-font">{{'table.tableCompo'|translate}}</h1>
+      <span id="spand1" class="framework-font-Semibold">{{'table.overview'|translate}}</span>
+      <br>
+      <br>{{'table.table_overview'|translate}}
+      <br>
+      <br>
+      <span id="spand2" class="framework-font-Semibold">GETTING STARTED</span>
+      <br>{{'table.getting-strated'|translate}}
+      <br>
+      <br>
+    </div>
+    <span id="spand3" class="framework-h3-font">{{'general.params'|translate}}</span>
+    <br>
+    <br>
+    <sof-card class="style-sof-card" title="{{'general.general_params'|translate}}">
+      <br>
+      <table style="width:100%">
+        <tr id="tr1">
+          <th id="th1" style="width:16%">
+            <span id="spand4" class="framework-font-Semibold" style="font-size: 13px; margin-left: 23px;">
+              {{'general.advancedImplementation'|translate}}
+            </span>
+          </th>
+          <th>
+            <hr>
+          </th>
+        </tr>
+      </table>
+      <div class="row framework-font-Semibold" style="font-size: 14px;">
+        <div id="selection" class="col-sm-12 col-md-4 col-lg-3">
+          <sof-checkBox id="checkBoxSelection" booleanValue='true' [(ngModel)]='tableConf.checkboxSelection'
+            id="checkBoxSelection" (click)="selectionMode()">{{'table.selectable'|translate}}</sof-checkBox>
+        </div>
+        <div class="col-sm-12 col-md-4 col-lg-3">
+          <sof-checkBox booleanValue='true' (click)="refreshTable()" [(ngModel)]='checkboxCellStyle'>
+            {{'table.add_style_column'|translate}}</sof-checkBox>
+        </div>
+        <div class="col-sm-12 col-md-4 col-lg-3">
+
+          <sof-checkBox booleanValue='true' (click)="setfields()">{{'table.multi_attributs'|translate}}</sof-checkBox>
+        </div>
+        <div class="col-sm-12 col-md-4 col-lg-3">
+          <sof-checkBox booleanValue='true' [(ngModel)]='resize' (click)="setWidth()">
+            {{'table.resize'|translate}}<i *ngIf="fix" class="icons icon-infos color-primary size-16"
+              softooltip="Si vous voulez activer le fixe des colonnes le taille minimal sera 10%"
+              style=" display: inline"></i></sof-checkBox>
+        </div>
+
+
+      </div>
+      <!--  ligne 2 -->
+      <div class="row framework-font-Semibold" style="font-size: 14px;">
+        <div class="col-sm-12 col-md-4 col-lg-3" *ngIf="tableConf.checkboxSelection">
+          <sof-radio-button data="single" groupName="g1" (click)="selectedRows = []" name="mode" id="sn"
+            [(ngModel)]="tableConf.selectionMode"></sof-radio-button>
+        </div>
+        <div class="col-sm-12 col-md-4 col-lg-3" *ngIf="!tableConf.checkboxSelection">
+          <sof-checkBox booleanValue='true' [(ngModel)]='customRow'>{{'table.footer'|translate}}</sof-checkBox>
+        </div>
+
+        <div class="col-sm-12 col-md-4 col-lg-3">
+          <sof-checkBox booleanValue='true' [(ngModel)]='checkboxRowStyle' (click)="refreshTable()">
+            {{'table.add_style'|translate}}</sof-checkBox>
+        </div>
+        <div class="col-sm-12 col-md-4 col-lg-3">
+          <sof-checkBox booleanValue='true' [(ngModel)]='sub' (click)="setSubfields()">{{'table.subfields'|translate}}
+          </sof-checkBox>
+        </div>
+        <div class="col-sm-12 col-md-4 col-lg-3">
+          <sof-checkBox booleanValue='true' (click)="setPipe()">{{'table.transformation'|translate}} <i
+              class="icons icon-infos color-primary size-16"
+              softooltip="Si vous voulez transformer vos données par colonne avant l'affichage"
+              style=" display: inline"></i></sof-checkBox>
+
+        </div>
+
+
+      </div>
+      <!-- ligne 3 -->
+      <div class="row framework-font-Semibold" style="font-size: 14px;">
+        <div class="col-sm-12 col-md-4 col-lg-3" *ngIf="tableConf.checkboxSelection">
+          <sof-radio-button data="multiple" groupName="g1" name="mode2" id="mp" (click)="selectedRows = []"
+            [(ngModel)]="tableConf.selectionMode"></sof-radio-button>
+        </div>
+        <div class="col-sm-12 col-md-4 col-lg-3" *ngIf="!tableConf.checkboxSelection">
+
+        </div>
+        <div class="col-sm-12 col-md-4 col-lg-3">
+          <sof-checkBox booleanValue='true' [(ngModel)]="zebrure">{{'table.zebrure'|translate}}</sof-checkBox>
+        </div>
+        <div id="expandable" class="col-sm-12 col-md-4 col-lg-3">
+          <sof-checkBox booleanValue='true' id="checkBoxExpandable" [(ngModel)]='expandable' (click)="refreshTable()">
+            {{'table.expandable'|translate}}</sof-checkBox>
+          <!-- <sof-checkBox booleanValue='true' [(ngModel)]='testScrollBar' (click)="getMultiColumns()"> {{'table.multiCol'|translate}}</sof-checkBox> -->
+        </div>
+
+        <div id="buttonAction" class="col-sm-12 col-md-4 col-lg-3">
+
+          <sof-checkBox id="buttonAction_id" booleanValue='true' (click)="setButtons()" [(ngModel)]='actionB'>
+            {{'table.buttons'|translate}}</sof-checkBox>
+
+        </div>
+
+      </div>
+      <!--ligne 4-->
+      <div class="row framework-font-Semibold" style="font-size: 14px;">
+        <div class="col-sm-12 col-md-4 col-lg-3" *ngIf="tableConf.checkboxSelection">
+          <sof-checkBox booleanValue='true' [(ngModel)]='customRow'>{{'table.footer'|translate}}</sof-checkBox>
+        </div>
+        <div class="col-sm-12 col-md-4 col-lg-3" *ngIf="!tableConf.checkboxSelection">
+
+        </div>
+        <div class="col-sm-12 col-md-4 col-lg-3">
+          <sof-checkBox booleanValue='true' [(ngModel)]="fix" (onCheck)="onCheck1()">{{'table.lock'|translate}}
+          </sof-checkBox>
+
+        </div>
+        <div class="col-sm-12 col-md-4 col-lg-3">
+          <sof-checkBox booleanValue='true' [(ngModel)]="retour_ligne" (unCheck)="uncheckRetour()">
+            {{'table.retour_ligne'|translate}}</sof-checkBox>
+
+        </div>
+
+
+
+      </div>
+
+
+
+
+
+      <table style="width:100%">
+        <tr id="tr2">
+          <th id="th3" style="width:13%">
+            <span class="framework-font-Semibold" style="font-size: 13px; margin-left: 23px;">
+              {{'table.dataOperation'|translate}} </span>
+          </th>
+          <th>
+            <hr>
+          </th>
+        </tr>
+      </table>
+
+      <div class="row framework-font-Semibold" style="font-size: 14px;">
+        <div div id="FiltreGlobal" class="col-sm-12 col-md-4 col-lg-3">
+          <sof-checkBox id="checkBoxFiltreGlobal" booleanValue='true' [(ngModel)]='tableConf.globalFilter'>
+            {{'table.filtre'|translate}}</sof-checkBox>
+        </div>
+        <div class="col-sm-12 col-md-4 col-lg-3">
+
+          <sof-checkBox booleanValue='true' [(ngModel)]="EditMultiColonne" (unCheck)=cancelMono();resetEditSelect()>
+            {{'table.input'|translate}}</sof-checkBox>
+        </div>
+        <div id="pagination" class="col-sm-12 col-md-4 col-lg-3">
+          <sof-checkBox id="checkBoxPagination" booleanValue='true' [(ngModel)]="tableConf.pagination">
+            {{'table.pagination'|translate}}</sof-checkBox>
+        </div>
+        <div class="col-sm-12 col-md-4 col-lg-3">
+
+          <sof-checkBox booleanValue='true' [(ngModel)]='tableConf.reorderable'>
+            {{'table.reorder'|translate}}</sof-checkBox>
+        </div>
+
+
+
+      </div>
+
+      <div class="row framework-font-Semibold" style="font-size: 14px;">
+
+        <div id="filtreGlobal" class="col-sm-12 col-md-4 col-lg-3">
+          <sof-checkBox id="checkBoxFiltreGlobal" booleanValue='true' [(ngModel)]='filterByColumns'
+            (click)="refreshTable()">{{'table.column_filter'|translate}}</sof-checkBox>
+        </div>
+        <div class="col-sm-12 col-md-4 col-lg-3" *ngIf="EditMultiColonne">
+          <sof-radio-button data="Edit Input" groupName="g11" name="ls" id="ti" [(ngModel)]="editCol"
+            (unCheckRadio)="cancelMono();setInput()"></sof-radio-button>
+          <sof-radio-button data="Edit Radio" groupName="g11" name="ls" id="tr" [(ngModel)]="editCol"
+            (unCheckRadio)="cancelMono();setInput()" [disabled]="Row"></sof-radio-button>
+
+
+          <div class="col-sm-12 col-md-4 col-lg-3"></div>
+          <div class="col-sm-12 col-md-4 col-lg-3"></div>
+
+
+        </div>
+
+        <div class="col-sm-12 col-md-4 col-lg-3">
+          <sof-checkBox booleanValue='true' [(ngModel)]='tableConf.editRow' (unCheck)="uncheckEdit()">
+            {{'table.editRow'|translate}}</sof-checkBox>
+        </div>
+
+        <div class="col-sm-12 col-md-4 col-lg-3">
+          <sof-checkBox booleanValue='true' (click)="setLazy()">{{'table.lazy'|translate}}</sof-checkBox>
+        </div>
+
+
+        <div class="col-sm-12 col-md-4 col-lg-3">
+
+          <sof-checkBox booleanValue='true' [(ngModel)]='tableConf.reorderableColumns'>
+            {{'table.change_ordre'|translate}}</sof-checkBox>
+        </div>
+        <div class="col-sm-12 col-md-4 col-lg-3">
+          <sof-radio-button data="Edit Select" groupName="g11" name="ls" id="ts" [(ngModel)]="editCol"
+            *ngIf="EditMultiColonne" (unCheckRadio)="setInput()"></sof-radio-button>
+        </div>
+      </div>
+      <div class="row framework-font-Semibold" style="font-size: 14px;">
+
+        <div class="col-sm-12 col-md-4 col-lg-3">
+          <sof-checkBox booleanValue='true' [(ngModel)]='numberOfRowsPerPage'>{{'table.nb_ligne_per_page'|translate}}
+          </sof-checkBox>
+        </div>
+        <div class="col-sm-12 col-md-4 col-lg-3" *ngIf="tableConf.editRow">
+          <sof-radio-button data="Edition String" name="es" id="es" [(ngModel)]='ColObString'
+            (unCheckRadio)="getEditCelCol('string')"></sof-radio-button>
+          <sof-radio-button data="Edition List Objet" name="es" id="eo" [(ngModel)]='ColObString'
+            (unCheckRadio)="getEditCelCol('objet')"></sof-radio-button>
+
+        </div>
+        <div class="col-sm-12 col-md-4 col-lg-3">
+          <sof-checkBox booleanValue='true' [(ngModel)]='tableConf.editCellCol' (onCheck)="getEditCelCol()"
+            (unCheck)="getEditCelCol()">Edition colonne par cellule</sof-checkBox>
+        </div>
+
+
+        <div class="col-sm-12 col-md-4 col-lg-3" style="    margin-left: 15px; margin-right: -13px;margin-top: 5px;">
+          <sof-checkBox booleanValue='true' [(ngModel)]='Row' (click)=RowMode() id="rw"
+            [isdisabled]="editCol==='Edit Radio'? true: false"> {{'table.ajout'|translate}}</sof-checkBox>
+        </div>
+
+        <div id="nombreTotal" class="col-sm-12 col-md-4 col-lg-3" style="margin-right: -2px">
+          <sof-checkBox id="checkBoxNombreTotal" booleanValue='true' [(ngModel)]="tableConf.showTotalDataNumber">
+            {{'table.display_nombre'|translate}}</sof-checkBox>
+        </div>
+
+
+        <div class="col-sm-12 col-md-4 col-lg-3">
+
+          <sof-checkBox booleanValue='true' [(ngModel)]='tableConf.sortedColumns'>{{'table.column_ordre'|translate}}
+          </sof-checkBox>
+        </div>
+
+
+
+        <div class="col-sm-12 col-md-4 col-lg-3">
+          <sof-checkBox booleanValue='true' [(ngModel)]='tableConf.editCell'>{{'table.edit_cell'|translate}}
+          </sof-checkBox>
+        </div>
+
+        <div class="col-sm-12 col-md-4 col-lg-3" *ngIf="Row">
+          <sof-radio-button data="Ajout dans le tableau" groupName="g1" name="lt" id="tb" (click)="rowmethode()"
+            [(ngModel)]="tableConf.var"></sof-radio-button>
+        </div>
+        <div class="col-sm-12 col-md-4 col-lg-3"></div>
+        <div class="col-sm-12 col-md-4 col-lg-3"></div>
+        <div class="col-sm-12 col-md-4 col-lg-3"></div>
+        <div class="col-sm-12 col-md-4 col-lg-3" *ngIf="Row">
+          <sof-radio-button data="Ajout dynamique" groupName="g3" name="ld" id="td" [(ngModel)]="tableConf.var"
+            (click)="dynamicmethode()"></sof-radio-button>
+        </div>
+        <div class="col-sm-12 col-md-4 col-lg-3"></div>
+        <div class="col-sm-12 col-md-4 col-lg-3"></div>
+        <div class="col-sm-12 col-md-4 col-lg-3"></div>
+        <div class="col-sm-12 col-md-4 col-lg-3" *ngIf="Row">
+          <sof-radio-button data="Ajout avec modal" groupName="g2" name="lp" id="pop" (click)="popmethode()"
+            [(ngModel)]="tableConf.var"></sof-radio-button>
+        </div>
+
+        <div class="col-sm-12 col-md-4 col-lg-3">
+
+
+        </div>
+      </div>
+
+
+
+      <div class="row framework-font-Semibold" style="font-size: 14px;">
+        <div class="col-sm-12 col-md-4 col-lg-3"></div>
+        <div class="col-sm-12 col-md-4 col-lg-3"></div>
+        <div class="col-sm-12 col-md-4 col-lg-3" [hidden]="!tableConf.showTotalDataNumber"
+          style="margin-left: 11px;margin-top: -6px;">
+          <sof-input type="text" [(ngModel)]="tableConf.totalDataMessage" maxlength="45"></sof-input>
+        </div>
+        <div class="col-sm-12 col-md-4 col-lg-3"></div>
+
+      </div>
+
+
+      <table style="width:100%">
+        <tr id="tr2">
+          <th id="th2" style="width:13%">
+            <span class="framework-font-Semibold" style="font-size: 13px; margin-left: 23px;">
+              {{'table.showCols'|translate}} </span>
+          </th>
+          <th id="th4">
+            <hr>
+          </th>
+        </tr>
+      </table>
+
+      <div class="row framework-font-Semibold" style="font-size: 14px;">
+        <div class="col-sm-12 col-md-4 col-lg-3">
+          <sof-checkBox booleanValue='true' [(ngModel)]='isProgress' (click)="setProgress()">Barre de status
+          </sof-checkBox>
+        </div>
+        <div class="col-sm-12 col-md-4 col-lg-3">
+          <sof-checkBox booleanValue='true' [(ngModel)]='tableConf.badge' (onCheck)="onCheckbdg1()"
+            (click)="looseBadgeColumns()">{{'table.badge'|translate}}</sof-checkBox>
+        </div>
+
+        <div class="col-sm-12 col-md-4 col-lg-3">
+          <sof-checkBox booleanValue='true' [(ngModel)]='showImage' (click)="getImageColumns()">Image</sof-checkBox>
+        </div>
+        <div class="col-sm-12 col-md-4 col-lg-3">
+          <sof-checkBox booleanValue='true' [(ngModel)]='showSelect' id='editcheckBox' (click)="getSelectColumns()">
+            Mono-select</sof-checkBox>
+        </div>
+        <div class="col-sm-12 col-md-4 col-lg-3">
+          <sof-checkBox booleanValue='true' [(ngModel)]='showMultiSelect' (click)="getMultiSelectColumns()">Multi-select
+          </sof-checkBox>
+        </div>
+
+
+
+        <div class="col-sm-12 col-md-4 col-lg-3" *ngIf="tableConf.badge">
+          <div *ngIf="!colorField">
+            <sof-checkBox booleanValue='true' [(ngModel)]='colorRow' (onCheck)="onCheckbdg();getBadgeColumns()">Par
+              ligne</sof-checkBox>
+          </div>
+          <div *ngIf="!colorRow">
+            <sof-checkBox booleanValue='true' [(ngModel)]='colorField' (onCheck)="onCheckbdg();getBadgeColumns()">Par
+              colonne</sof-checkBox>
+          </div>
+          <div *ngIf="colorRow || colorField">
+            <sof-radio-button data="pillule" groupName="p1" name="pl" id="pillule" (click)="getBadgeColumns()"
+              [(ngModel)]="bdg"></sof-radio-button>
+            <sof-radio-button data="carre" groupName="c2" name="ca" id="carre" (click)="getBadgeColumns()"
+              [(ngModel)]="bdg"></sof-radio-button>
+            <div *ngIf="tableConf.badge">
+              <sof-checkBox booleanValue='true' [(ngModel)]='BadgeSize' (click)="getcheckBoxColumns()">Badge Size
+              </sof-checkBox>
+            </div>
+            <div *ngIf="BadgeSize">
+              <sof-input type="text" [(ngModel)]="BadgeSizeWidth"></sof-input>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="col-sm-12 col-md-4 col-lg-3">
+          <sof-checkBox booleanValue='true' [(ngModel)]='showcheckBox' (click)="getcheckBoxColumns()">Check-box
+          </sof-checkBox>
+        </div>
+        <div class="col-sm-12 col-md-4 col-lg-3">
+          <sof-checkBox booleanValue='true' [(ngModel)]='showLien' (click)="getLienColumns()">Lien</sof-checkBox>
+        </div>
+        <div class="col-sm-12 col-md-4 col-lg-3">
+          <sof-checkBox booleanValue='true' [(ngModel)]='showradio' (click)=" getradio()"
+            [isdisabled]="editCol==='Edit Radio'? true: false">Radio-button</sof-checkBox>
+        </div>
+
+        <div class="col-sm-12 col-md-4 col-lg-3" *ngIf="showMultiSelect">
+          <sof-input name="nbItemsToShowT" (ngModelChange)="getnbItemsToShowT()" type="number" id="nbItemsToShowT"
+            [(ngModel)]="nbItemsToShowT"></sof-input>
+        </div>
+
+
+      </div>
+
+
+
+
+
+
+
+    </sof-card>
+    <br>
+    <span class="framework-h3-font">{{'general.BASIC_USAGE'|translate}}</span>
+    <br>
+    <br> {{'table.exple_desc'|translate}}
+    <br>
+    <br>
+
+    <sof-card class="style-sof-card" title="{{'imp_details'|translate}}">
+      <sof-stepper>
+        <aw-wizard navBarLayout="large-empty-symbols" navigationMode="free" defaultStepIndex="0">
+          <aw-wizard-step stepTitle="{{'prerequis'|translate}}">
+            <div class="padding-15">
+              <b>app.module.ts</b>
+            </div>
+            <div class="border padding-15 border-radius mb-2 background-code">
+              <pre id="tr1" class="language-typescript background-code">
+                        <button  (click)="SelectAllPre()" style=" 
+                        color: black;
+                        font-size: .8em;
+                        padding: 0 .5em;
+                        background: #f5f2f0;
+                        background: rgba(172, 171, 171, 0.2);
+                        box-shadow: 0 2px 0 0 rgba(0,0,0,0.2);
+                        border-radius: .5em; float:right;">copy</button>
+                      <code id="copy1"	[innerHtml]="getPrerequis()"></code>
+                      <div><div id='parentt' ></div></div>
+                    </pre>
+            </div>
+          </aw-wizard-step>
+          <aw-wizard-step stepTitle="HTML">
+            <div class="border padding-15 border-radius mb-2 background-code">
+              <pre id='o' class="language-markup background-code">
+                      <button  (click)="SelectAll()" style=" 
+                      color: black;
+                      font-size: .8em;
+                      padding: 0 .5em;
+                      background: #f5f2f0;
+                      background: rgba(172, 171, 171, 0.2);
+                      box-shadow: 0 2px 0 0 rgba(0,0,0,0.2);
+                      border-radius: .5em; float:right;">copy</button>
+                           <code  id='copy' [innerHtml]="getHtmlCode()" class="language-markup"></code> 
+                          <div><div id='parent' ></div></div>
+                       
+                        </pre>
+            </div>
+          </aw-wizard-step>
+          <aw-wizard-step stepTitle="TS">
+            <div class="border padding-15 border-radius mb-2 background-code">
+              <pre id="o2" class="language-typescript background-code">
+                      <button  (click)="SelectAllTs()" style=" 
+                      color: black;
+                      font-size: .8em;
+                      padding: 0 .5em;
+                      background: #f5f2f0;
+                      background: rgba(172, 171, 171, 0.2);
+                      box-shadow: 0 2px 0 0 rgba(0,0,0,0.2);
+                      border-radius: .5em; float:right;">copy</button>
+                    <code id="copy11"	[innerHtml]="getTsCode()"></code>
+                    <div><div id='parenty' ></div></div>
+                  </pre>
+            </div>
+          </aw-wizard-step>
+          <aw-wizard-step stepTitle="CSS"
+            *ngIf="checkboxCellStyle || checkboxRowStyle ||(checkboxCellStyle && checkboxRowStyle)">
+            <div class="border padding-15 border-radius mb-2 background-code">
+              <pre id="o12" class="language-css background-code">
+                        <button  (click)="SelectAllCss()" style=" 
+                        color: black;
+                        font-size: .8em;
+                        padding: 0 .5em;
+                        background: #f5f2f0;
+                        background: rgba(172, 171, 171, 0.2);
+                        box-shadow: 0 2px 0 0 rgba(0,0,0,0.2);
+                        border-radius: .5em; float:right;">copy</button>
+                      <code id="copy321"	[innerHtml]="getCssCode()"></code>
+                      <div><div id='parentxy' ></div></div>
+                    </pre>
+            </div>
+          </aw-wizard-step>
+
+        </aw-wizard>
+      </sof-stepper>
+    </sof-card>
+
+    <div class="border padding-10 border-radius bg-white">
+      <div class="left-align-text ux-label">{{'table.table_result'|translate}}</div>
+
+
+      <sof-table id="table" (filter)="filterValue($event)" (onSavingRow)="saveRow($event)" [Row]="Row"
+        (getRowsPerPage)="catchNbRowsPerPage($event)" (TitleIconChanger)="TitleIconChanger($event)"
+        (getResultradio)="getResultradio($event)" (onRowClick)="methodToExecuteOnRowClick($event)" [src]="src"
+        [pays]="pays" *ngIf="displayTable" [(data)]="persons" [(columnsOrdered)]="columns"
+        [(selectedRows)]="selectedRows" [(config)]="tableConf" [totalElements]="totalElements"
+        [nbItemsToShowT]="nbItemsToShowT" dataKey="name" [condition]="condition" [colCondition]="colCondition"
+        [colorRow]="colorRow" [colorField]="colorField" [fix]="fix" [retour_ligne]="retour_ligne" [zebrure]="zebrure"
+        (buttonClick)="buttonAction($event);" (onEditRow)="onEditRow($event)" (unCheckAll)="unCheckAll()"
+        (onCheckAll)="onCheckAll()" [(lockedColumns)]="lockedColumns" [radioDemoOptionsTab]="radioDemoOptionsTab"
+        [typeTable]="typeTable" [filterByColumns]="filterByColumns" [globalFilter]="globalFilter"
+        [editLabel]="editLabel" [saveLabel]="saveLabel" [cancelLabel]="cancelLabel" [editCol]="editCol"
+        (dataTableChange)="test($event)" (onLazyLoad)="loadData($event)" [headerpop]="headerpop"
+        (onClick)="onPopClick()" (onCheck)="onCheck()" [buttonpop1]="buttonpop1" [buttonpop2]="buttonpop2"
+        [buttonAdd]="buttonAdd">
+        <!--[loading]="loading"-->
+
+
+        <ng-container *ngIf="expandable" ngProjectAs="expandableContent">
+          <!-- <button (click)="try(rowData,persons,columns,selectedRows,tableConf)">xxxxxxxxxxxxxxx</button> -->
+          <td [attr.colspan]="columns.length + 1" id="exp">
+            <div class="ui-g ui-fluid " style="font-size:16px;padding:20px">
+              <div class="ui-g-12 ui-md-9" style="margin-left:30%">
+                <div class="ui-g">
+                  <div class="ui-g-12">
+                    <b>Profession:</b> {{rowData?.job}}
+                  </div>
+                  <div class="ui-g-12">
+                    <b>Marié(e):</b> {{rowData?.married}}
+                  </div>
+                  <div class="ui-g-12">
+                    <b>Date d'anniversaire:</b> {{rowData?.birthDate | date: 'M/d/yy, h:mm a'}}
+                  </div>
+                  <div class="ui-g-12">
+                    <b>Langue:</b> {{rowData?.language}}
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </td>
+        </ng-container>
+        <ng-container *ngIf="customRow" ngProjectAs="footer">
+          <td></td>
+          <td id="custom" colspan="3">custom</td>
+          <td id="row">row</td>
+        </ng-container>
+
+        <body *ngIf="pers">
+          <div class="ui-g-12">
+            <div class="ui-g-4">
+              <label id="nom" for="vin">NOM</label>
+            </div>
+            <div class="ui-g-8">
+              <input pInputText [(ngModel)]="pers.name" />
+            </div>
+          </div>
+          <div class="ui-g-12">
+            <div class="ui-g-4">
+              <label id="prenom" for="year">Prénom</label>
+            </div>
+            <div class="ui-g-8">
+              <input pInputText id="firstName" [(ngModel)]="pers.firstName" />
+            </div>
+          </div>
+          <div class="ui-g-12">
+            <div class="ui-g-4">
+              <label id="pro" for="brand">Profession</label>
+            </div>
+            <div class="ui-g-8">
+              <input pInputText id="job" [(ngModel)]="pers.job" />
+
+            </div>
+          </div>
+          <div class="ui-g-12">
+            <div class="ui-g-4">
+              <label id="langue" for="color">Langue</label>
+            </div>
+            <div class="ui-g-8">
+              <input id="language" pInputText [(ngModel)]="pers.language" />
+
+            </div>
+
+          </div>
+
+        </body>
+      </sof-table>
+    </div>
+    <!-- Selected : {{selectedRows | json}} -->
+    <p id="action" *ngIf="buttonadded">button click = {{buttonActiontype}} pour {{clickedActionData}}</p>
+
+    <!-- 
+  
+  
+      <br>
+  
+      <span class="framework-h3-font">{{'table.DOCUMENTATION'|translate}}</span>
+      <br>
+      <br> {{'table.Properties'|translate}}
+   -->
+  </div>               
+</div>

@@ -1,0 +1,40 @@
+/deep/ .native-language {
+  background-color: #aed5ff !important;
+}
+button:focus {
+  outline: 0px solid #e2d0a6 !important;
+}
+
+/deep/ aw-wizard-navigation-bar.horizontal ul.steps-indicator {
+  width: 20% !important;
+}
+
+:host ::ng-deep div.code-toolbar > .toolbar a,
+div.code-toolbar > .toolbar button,
+div.code-toolbar > .toolbar span {
+  display: none;
+}
+
+pre {
+  overflow: hidden;
+}
+
+#exp :hover {
+  background-color: white !important;
+}
+
+//   :host ::ng-deep  table .btn-action {
+//     width: 43px !important;
+// }
+
+:host ::ng-deep #rw > div {
+  padding: 0px 15px 0px !important;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+}
+
+:host ::ng-deep #add {
+  color: #ffffff;
+  text-align: left;
+  opacity: 1;
+}

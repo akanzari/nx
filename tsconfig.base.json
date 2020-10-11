@@ -16,9 +16,54 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@default/*": ["apps/ng-softilys/src/app/*"],
+      "@showcase/*": ["libs/showcase/components/*"],
       "@showcase/started": ["libs/showcase/components/started/src/index.ts"],
       "@showcase/service": ["libs/showcase/service/src/index.ts"],
-      "@showcase/button": ["libs/showcase/components/button/src/index.ts"]
+      "@showcase/button": ["libs/showcase/components/button/src/index.ts"],
+      "@showcase/calendar": ["libs/showcase/components/calendar/src/index.ts"],
+      "@showcase/card-container": [
+        "libs/showcase/components/card-container/src/index.ts"
+      ],
+      "@showcase/card": ["libs/showcase/components/card/src/index.ts"],
+      "@showcase/chart": ["libs/showcase/components/chart/src/index.ts"],
+      "@showcase/checkbox": ["libs/showcase/components/checkbox/src/index.ts"],
+      "@showcase/double-date-picker": [
+        "libs/showcase/components/double-date-picker/src/index.ts"
+      ],
+      "@showcase/dragdrop": ["libs/showcase/components/dragdrop/src/index.ts"],
+      "@showcase/form": ["libs/showcase/components/form/src/index.ts"],
+      "@showcase/icon": ["libs/showcase/components/icon/src/index.ts"],
+      "@showcase/input": ["libs/showcase/components/input/src/index.ts"],
+      "@showcase/interval": ["libs/showcase/components/interval/src/index.ts"],
+      "@showcase/modal": ["libs/showcase/components/modal/src/index.ts"],
+      "@showcase/monoselect": [
+        "libs/showcase/components/monoselect/src/index.ts"
+      ],
+      "@showcase/multiselect": [
+        "libs/showcase/components/multiselect/src/index.ts"
+      ],
+      "@showcase/mvn-navbar": [
+        "libs/showcase/components/mvn-navbar/src/index.ts"
+      ],
+      "@showcase/navbar": ["libs/showcase/components/navbar/src/index.ts"],
+      "@showcase/sidebar": ["libs/showcase/components/sidebar/src/index.ts"],
+      "@showcase/spinner": ["libs/showcase/components/spinner/src/index.ts"],
+      "@showcase/statusbar": [
+        "libs/showcase/components/statusbar/src/index.ts"
+      ],
+      "@showcase/stepper": ["libs/showcase/components/stepper/src/index.ts"],
+      "@showcase/table": ["libs/showcase/components/table/src/index.ts"],
+      "@showcase/tabs": ["libs/showcase/components/tabs/src/index.ts"],
+      "@showcase/textarea": ["libs/showcase/components/textarea/src/index.ts"],
+      "@showcase/toast": ["libs/showcase/components/toast/src/index.ts"],
+      "@showcase/tooltip": ["libs/showcase/components/tooltip/src/index.ts"],
+      "@showcase/tree": ["libs/showcase/components/tree/src/index.ts"],
+      "@showcase/typography": [
+        "libs/showcase/components/typography/src/index.ts"
+      ],
+      "@showcase/upload": ["libs/showcase/components/upload/src/index.ts"],
+      "@showcase/shared": ["libs/showcase/shared/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

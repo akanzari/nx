@@ -1,0 +1,21 @@
+:host ::ng-deep select {
+  height: 40px;
+}
+:host ::ng-deep .ui-colorpicker-overlay-panel {
+  top: -170px !important;
+}
+
+:host ::ng-deep div.code-toolbar > .toolbar a,
+div.code-toolbar > .toolbar button,
+div.code-toolbar > .toolbar span {
+  display: none;
+}
+
+pre {
+  overflow: hidden;
+}
+#nb {
+  font-size: x-small;
+  color: gray;
+  display: inline;
+}

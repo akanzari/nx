@@ -1,0 +1,83 @@
+$primary: #d8c392;
+$text: #76777b;
+$default: #e4eaec;
+$white: #ffffff;
+$valid: #3aa99e;
+$error: #e9595b;
+$secondary: #363638;
+$info: #306f91;
+.label,
+.label-medium {
+  display: inline;
+  padding: 0.2em 0.6em 0.3em;
+  font-size: 60%;
+  font-weight: 300;
+  line-height: 1;
+  color: $text;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: 3px;
+
+  &.label-default {
+    color: $text;
+    background: $default;
+  }
+  &.label-valid {
+    color: $white;
+    background: $valid;
+  }
+  &.label-error {
+    color: $white;
+    background: $error;
+  }
+  &.label-primary {
+    color: $white;
+    background: $primary;
+  }
+  &.label-secondary {
+    color: $white;
+    background: $secondary;
+  }
+  &.label-info {
+    color: $white;
+    background: $info;
+  }
+
+  &.label-radius {
+    border-radius: 50px;
+    padding: 0.2em 1em 0.3em;
+  }
+}
+
+.label-small {
+  padding: 0px 2px;
+  font-size: 9px;
+}
+
+.label-large {
+  padding: 4px 10px 5px;
+  font-size: 12px;
+}
+
+  input:focus {
+  border-bottom: 1px solid #a99252 !important;
+}
+.ng-dirty.ng-invalid input {
+  border-bottom: 1px solid #e9595b !important;
+  //border-bottom: 1px solid rgba(0, 0, 0, 0.15) !important;
+}
+
+.ng-dirty.ng-valid input {
+  border-bottom: 1px solid #3aa99e !important;
+}
+
+:host ::ng-deep div.code-toolbar > .toolbar a,
+div.code-toolbar > .toolbar button,
+div.code-toolbar > .toolbar span {
+  display: none;
+}
+
+pre {
+  overflow: hidden;
+}

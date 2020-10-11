@@ -1,0 +1,196 @@
+<div class="picto-item" aria-label="test" class="row">
+  <div class="col-12 framework-font padding-framework">
+    <div>
+      <h1 class="framework-h1-font">{{'statusBar.statusBarCompo'|translate}}</h1>
+      <span class="framework-font-Semibold">{{'statusBar.overview'|translate}}</span>
+      <br>
+      <br>{{'statusBar.statusBar_overview'|translate}}
+      <br>
+      <br>
+      <span class="framework-font-Semibold">GETTING STARTED</span>
+      <br>{{'statusBar.getting-strated'|translate}}
+      <br>
+      <br>
+    </div>
+    <span class="framework-h3-font">{{'general.params'|translate}}</span>
+    <br>
+    <br>
+    <sof-card class="style-sof-card" title="{{'general.general_params'|translate}}">
+      <br>
+      <table style="width:100%">
+        <tr>
+          <th style="width:16%">
+            <span class="framework-font-Semibold" style="font-size: 13px; margin-left: 23px;"> {{'general.advancedImplementation'|translate}}
+            </span>
+          </th>
+          <th>
+            <hr>
+          </th>
+        </tr>
+      </table>
+      <br>
+    <div class=" framework-font-Semibold" style="font-size: 14px;">
+        <div class="row">
+            
+           
+           
+           
+            
+            
+           
+            <div class="col-4" style="padding-right: 0px;padding-left: 4px;">
+                <sof-form-label style="    margin-right: 17px;">Primary :</sof-form-label>
+                
+                  <p-colorPicker  [(ngModel)]="color1" [showTransitionOptions]="'225ms ease-out'" [hideTransitionOptions]="'0ms'" disabled="true"></p-colorPicker>
+                  <input name="valueselect" [(ngModel)]="color1" bindValue="value" style="width: 40%;padding: 0px;" disabled="true">
+                
+            </div>
+            <div class="col-4"style="padding-right: 0px;padding-left: 4px;">
+                <sof-form-label>Valid :</sof-form-label>
+                
+                  <p-colorPicker [(ngModel)]="color2" [showTransitionOptions]="'225ms ease-out'" [hideTransitionOptions]="'0ms'" disabled="true"></p-colorPicker>
+                  <input name="valueselect" [(ngModel)]="color2" bindValue="value" style="width: 40%;padding: 0px;" disabled="true">
+                
+              </div>
+              <div class="col-4"style="padding-right: 0px;padding-left: 4px;">
+                  <sof-form-label style="    margin-right: 15px;">Error :</sof-form-label>
+                  
+                    <p-colorPicker [(ngModel)]="color3" [showTransitionOptions]="'225ms ease-out'" [hideTransitionOptions]="'0ms'" disabled="true"></p-colorPicker>
+                    <input name="valueselect" [(ngModel)]="color3" bindValue="value" style="width: 40%;padding: 0px;" disabled="true">
+                  
+                </div>
+              </div>
+                <div class="row">
+                <div class="col-4"style="padding-right: 0px;padding-left: 4px;">
+                    <sof-form-label>Secondary :</sof-form-label>
+                    
+                      <p-colorPicker [(ngModel)]="color4" [showTransitionOptions]="'225ms ease-out'" [hideTransitionOptions]="'0ms'" disabled="true"></p-colorPicker>
+                      <input name="valueselect" [(ngModel)]="color4" bindValue="value" style="width: 40%;padding: 0px;" disabled="true">
+                    
+                  </div>
+                  <div class="col-4"style="padding-right: 0px;padding-left: 4px;">
+                      <sof-form-label style="    margin-right: 6px;">Info :</sof-form-label>
+                      
+                        <p-colorPicker [(ngModel)]="color5" [showTransitionOptions]="'225ms ease-out'" [hideTransitionOptions]="'0ms'" disabled="true"></p-colorPicker>
+                        <input name="valueselect" [(ngModel)]="color5" bindValue="value" style="width: 40%;padding: 0px;" disabled="true">
+                    
+                    </div>
+                    <div class="col-4"style="padding-right: 0px;padding-left: 4px;">
+                        <sof-form-label>Default :</sof-form-label>
+                        
+                          <p-colorPicker [(ngModel)]="color6" [showTransitionOptions]="'225ms ease-out'" [hideTransitionOptions]="'0ms'" disabled="true"></p-colorPicker>
+                          <input name="valueselect" [(ngModel)]="color6" bindValue="value" style="width: 40%;padding: 0px;" disabled="true">
+                       
+                      </div>
+                      
+          </div>
+      <sof-form>
+          <sof-sub-form [column]="1">
+            <sof-form-label>{{'statusBar.nbrSub'|translate}} :</sof-form-label>
+            <sof-form-item>
+              <sof-input type="number" [(ngModel)]="nombreSub" id="nombreSub" (change)="subdivision($event)"></sof-input>
+            </sof-form-item>
+            
+          </sof-sub-form>
+        </sof-form>
+        
+  
+          <sof-sub-form [column]="2" *ngFor="let i of nombreSubList ">
+          
+            <sof-form-label>{{'statusBar.val'|translate}} :</sof-form-label>
+            <sof-form-item>
+              <sof-input [(ngModel)]="i.value" [type]="'number'" id="valeur" [name]="'valeur'">
+               
+              </sof-input>
+            </sof-form-item>
+            <sof-form-label>{{'statusBar.color'|translate}} :
+                <i class="icons icon-infos color-primary size-16" softooltip="Cliquez pour avoir un sélecteur de couleurs" style="margin-left: 2%"></i> 
+
+            </sof-form-label>
+            <sof-form-item>
+            
+              <p-colorPicker [(ngModel)]="i.color" [showTransitionOptions]="'1000ms ease-out'" [hideTransitionOptions]="'10ms'"></p-colorPicker>
+              <input name="valueselect" [(ngModel)]="i.color" bindValue="value" style="width: 80%;">
+         
+                            
+            </sof-form-item>
+            
+          </sof-sub-form>
+        </div>
+    </sof-card>
+      <br>
+      <span class="framework-h3-font">{{'general.BASIC_USAGE'|translate}}</span>
+      <br>
+      <br> {{'statusBar.exple_desc'|translate}}
+      <br>
+      <br>
+      <sof-card class="style-sof-card" title="{{'imp_details'|translate}}">
+          <sof-stepper>
+            <aw-wizard navBarLayout="large-empty-symbols" navigationMode="free" defaultStepIndex="0">
+              <aw-wizard-step stepTitle="{{'prerequis'|translate}}">
+                  <div class="padding-15">
+                      <b>app.module.ts</b>
+                      </div>
+                <div class="border padding-15 border-radius mb-2 background-code">
+                  <pre id="tr1" class="language-typescript background-code">
+                      <button  (click)="SelectAllPre()" style=" 
+                      color: black;
+                      font-size: .8em;
+                      padding: 0 .5em;
+                      background: #f5f2f0;
+                      background: rgba(172, 171, 171, 0.2);
+                      box-shadow: 0 2px 0 0 rgba(0,0,0,0.2);
+                      border-radius: .5em; float:right;">copy</button>
+                    <code id="copy1"	[innerHtml]="getPrerequis()"></code>
+                    <div><div id='parentt' ></div></div>
+                  </pre>
+                </div>
+              </aw-wizard-step>
+              <aw-wizard-step stepTitle="HTML">
+                <div class="border padding-15 border-radius mb-2 background-code">
+                    <pre  id='o' class="language-markup background-code">
+                        <button  (click)="SelectAll()" style=" 
+                        color: black;
+                        font-size: .8em;
+                        padding: 0 .5em;
+                        background: #f5f2f0;
+                        background: rgba(172, 171, 171, 0.2);
+                        box-shadow: 0 2px 0 0 rgba(0,0,0,0.2);
+                        border-radius: .5em; float:right;">copy</button>
+                             <code  id='copy' [innerHtml]="getHtmlCode()" class="language-markup"></code> 
+                            <div><div id='parent' ></div></div>
+                         
+                          </pre>
+                </div>
+              </aw-wizard-step>
+              <aw-wizard-step stepTitle="TS">
+                  <div class="border padding-15 border-radius mb-2 background-code">
+                      <pre id="o2" class="language-typescript background-code">
+                          <button  (click)="SelectAllTs()" style=" 
+                          color: black;
+                          font-size: .8em;
+                          padding: 0 .5em;
+                          background: #f5f2f0;
+                          background: rgba(172, 171, 171, 0.2);
+                          box-shadow: 0 2px 0 0 rgba(0,0,0,0.2);
+                          border-radius: .5em; float:right;">copy</button>
+                        <code id="copy11"	[innerHtml]="getTsCode()"></code>
+                        <div><div id='parenty' ></div></div>
+                      </pre>
+                  </div>
+                </aw-wizard-step>
+            </aw-wizard>
+          </sof-stepper>
+        </sof-card>
+        <div class="border padding-10 border-radius bg-white">
+            <div class="left-align-text ux-label">{{'result'|translate}}</div>
+            <br>
+
+        <sof-status-bar [data]="nombreSubList"></sof-status-bar>
+        <!--[widthSubdivision]="widthSubdivision"-->
+<br>
+
+    </div>
+    </div>
+    </div>
+

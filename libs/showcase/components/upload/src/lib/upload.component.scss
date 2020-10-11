@@ -1,0 +1,63 @@
+.left-align-text {
+  text-align: left;
+}
+
+.ux-label {
+  font-size: 14px;
+  font-weight: 400;
+  padding: 0px 0;
+  min-height: 35px;
+  color: #76777b;
+}
+
+:host ::ng-deep sof-card > div > div > div {
+  padding: 0px !important;
+  margin: 0 0 -2px;
+}
+:host ::ng-deep sof-card > div > div > .accordion .card .card-header {
+  background: #e0e0e0;
+}
+
+:host
+  ::ng-deep
+  sof-card
+  > div
+  > div
+  > div
+  > div
+  > div
+  > h5
+  > a
+  > i.icons.icon-chevron_down:before {
+  color: #363638;
+  line-height: 3.2;
+}
+
+:host
+  ::ng-deep
+  sof-card
+  > div
+  > div
+  > div
+  > div
+  > div
+  > h5
+  > a
+  > i.icons.icon-chevron_up:before {
+  color: #363638;
+  line-height: 3.2;
+}
+
+:host ::ng-deep sof-card > div > div > div > div > div > h5 {
+  line-height: 3.2;
+}
+
+:host ::ng-deep div.code-toolbar > .toolbar a,
+div.code-toolbar > .toolbar button,
+div.code-toolbar > .toolbar span {
+  display: none;
+}
+
+pre {
+  overflow: hidden;
+}

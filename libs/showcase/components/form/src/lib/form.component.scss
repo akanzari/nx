@@ -1,0 +1,59 @@
+.sof-title {
+  font-size: 1.75em !important;
+  font-weight: 600 !important;
+  padding: 5px 0 !important;
+  color: #6c757d !important;
+  width: 100% !important;
+  clear: both !important;
+  margin: 0 !important;
+}
+
+@media (min-width: 768px) {
+  .col-md-9 {
+    flex: 0 0 75%;
+    max-width: 75%;
+    margin-bottom: 8px;
+  }
+}
+
+:host ::ng-deep sof-form-label .stylelabel {
+  font-family: 'Open Sans Semibold';
+  font-size: 13px;
+  color: #363638;
+}
+
+.stylelabel {
+  font-family: 'Open Sans Semibold';
+  font-size: 13px;
+  color: #363638;
+}
+
+:host ::ng-deep option {
+  font-size: 16px !important;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 8px 10px !important;
+  border-left: 2px solid #d8c392 !important;
+  border-left-width: 2px;
+  border-left-style: solid;
+  border-left-color: rgb(216, 195, 146);
+  background-color: unset !important;
+  padding-left: 8px;
+}
+
+:host ::ng-deep option :hover {
+  background-color: #56bfb5 !important;
+}
+:host ::ng-deep div.code-toolbar > .toolbar a,
+div.code-toolbar > .toolbar button,
+div.code-toolbar > .toolbar span {
+  display: none;
+}
+
+pre {
+  overflow: hidden;
+}

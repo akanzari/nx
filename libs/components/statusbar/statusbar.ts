@@ -1,7 +1,12 @@
 import { Component, OnInit, Input, NgModule } from '@angular/core';
-import { StatusBar } from './model/statusBarModel';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+
+export class StatusBar {
+  value: number;
+  color: string;
+  constructor() { }
+};
 
 @Component({
   selector: 'sof-status-bar',

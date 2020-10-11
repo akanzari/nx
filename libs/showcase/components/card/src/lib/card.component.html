@@ -1,0 +1,261 @@
+<div class="picto-item" aria-label="test" class="row">
+  <div class="col-12 framework-font padding-framework">
+    <div>
+      <h1 class="framework-h1-font">{{'card.cardCompo'|translate}}</h1>
+      <span class="framework-font-Semibold">{{'card.overview'|translate}}</span>
+      <br>
+      <br>{{'card.card_overview'|translate}}
+      <br>
+      <br>
+      <span class="framework-h3-font">{{'general.params'|translate}}</span>
+      <br>
+      <br>
+      <sof-card class="style-sof-card" title="{{'general.general_params'|translate}}">
+        <br>
+        <table style="width:100%">
+          <tr>
+            <th style="width:16%">
+              <span class="framework-font-Semibold" style="font-size: 13px; margin-left: 23px;">
+                {{'general.advancedImplementation'|translate}}
+              </span>
+            </th>
+            <th>
+              <hr>
+            </th>
+          </tr>
+        </table>
+        <br>
+        <div class="form-horizontal">
+          <div class="form-group row framework-font-Semibold">
+            <label class="col-md-3 col-lg-3 col-xl-2 control-label">{{'cards.title'|translate}} :</label>
+            <div class="col-md-3 col-lg-3 col-xl-4">
+              <sof-input type="text" [(ngModel)]="test" id="titre"></sof-input>
+            </div>
+            <label class="col-md-2 col-lg-2 col-xl-2 control-label" style="right: 17%;">{{'cards.heading'|translate}}
+            </label>
+            <div class="col-md-2 col-lg-2 col-xl-2" style="right: 264px;">
+              <input type="checkbox" id="head" name="head" value="true" [(ngModel)]="head">
+              <label for="head"></label>
+            </div>
+
+
+          </div>
+          <div class="form-group row framework-font-Semibold">
+
+            <label class="col-md-2 col-lg-2 col-xl-2 control-label">{{'cards.icone'|translate}} </label>
+            <div class="col-md-2 col-lg-2 col-xl-2">
+              <input type="checkbox" id="icone" name="icone" value="true" [(ngModel)]="icone">
+
+              <label for="icone"></label>
+            </div>
+
+            <label class="col-md-2 col-lg-2 col-xl-2 control-label">{{'cards.iconeText'|translate}} :</label>
+            <div class="col-md-2 col-lg-2 col-xl-2">
+              <sof-monoselect [(ngModel)]="Texticon" (click)="try()" mode="autoComplete" name="icone" bindLabel="name"
+                bindValue="name" [Load]="true" [nbTotal]="nbTotal" [loading]="loading" [bufferSize]="bufferSize"
+                [optionsBuffer]="optionsBuffer" (inputFromChild)="recherche($event)" (onScrollToEnd)="onScrollToEnd()"
+                [disabled]="!icone ? true :null" id="icon_input">
+              </sof-monoselect>
+            </div>
+            <div class="col-md-2 col-lg-2 col-xl-2"></div>
+            <div class="col-md-2 col-lg-2 col-xl-2"></div>
+
+            <label class="col-md-2 col-lg-2 col-xl-2 control-label">{{'cards.label'|translate}} </label>
+            <div class="col-md-2 col-lg-2 col-xl-2">
+              <input type="checkbox" id="label" name="label" value="true" [(ngModel)]="label">
+              <label for="label"></label>
+            </div>
+
+
+            <label class="col-md-2 col-lg-2 col-xl-2 control-label">{{'cards.TextLabel'|translate}} :</label>
+
+            <div class="col-md-2 col-lg-2 col-xl-2">
+              <sof-input type="text" [(ngModel)]="cardLabel" [disabled]="!label ? true :null"></sof-input>
+            </div>
+
+            <label class="col-md-2 col-lg-2 col-xl-2 control-label">{{'cards.ColorLabel'|translate}} :</label>
+            <input type="checkbox" id="icone" name="icone" value="true" [(ngModel)]="icone">
+
+            <div class="col-md-2 col-lg-2 col-xl-2">
+              <select [(ngModel)]="lbColor">
+                <option [disabled]="!label ? true :null"></option>
+                <option value="primary" [disabled]="!label ? true :null">primary</option>
+                <option value="secondary" [disabled]="!label ? true :null">secondary</option>
+                <option value="error" [disabled]="!label ? true :null">error</option>
+                <option value="valid" [disabled]="!label ? true :null">valid</option>
+                <option value="default" [disabled]="!label ? true :null">default</option>
+              </select>
+            </div>
+
+
+          </div>
+
+
+          <div class="form-group row framework-font-Semibold">
+
+            <label class="col-md-2 col-lg-2 col-xl-2 control-label">{{'cards.action1'|translate}} :</label>
+            <div class="col-md-2 col-lg-2 col-xl-2">
+              <select (change)="changeAction()" [(ngModel)]="action">
+                <option></option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+
+              </select>
+            </div>
+            <div class="col-md-2 col-lg-2 col-xl-2"></div>
+            <div class="col-md-2 col-lg-2 col-xl-2"></div>
+            <div class="col-md-2 col-lg-2 col-xl-2"></div>
+            <div class="col-md-2 col-lg-2 col-xl-2"></div>
+            <label class="col-md-2 col-lg-2 col-xl-2 control-label">{{'cards.type1'|translate}} :</label>
+            <div class="col-md-2 col-lg-2 col-xl-2">
+              <sof-monoselect [(ngModel)]="Type1" name="icone" mode="autoComplete" (click)="try()" mode="autoComplete"
+                bindLabel="name" bindValue="name" [Load]="true" [nbTotal]="nbTotal" [loading]="loading"
+                [bufferSize]="bufferSize" [optionsBuffer]="optionsBuffer" (inputFromChild)="recherche($event)"
+                (onScrollToEnd)="onScrollToEnd()" [disabled]="!action1 ? true :null" id="icon_input">
+              </sof-monoselect>
+            </div>
+
+            <label class="col-md-2 col-lg-2 col-xl-2 control-label">{{'cards.type2'|translate}} :</label>
+            <div class="col-md-2 col-lg-2 col-xl-2">
+              <sof-monoselect [(ngModel)]="Type2" name="icone" mode="autoComplete" (click)="try()" bindLabel="name"
+                bindValue="name" [Load]="true" [nbTotal]="nbTotal" [loading]="loading" [bufferSize]="bufferSize"
+                [optionsBuffer]="optionsBuffer" (inputFromChild)="recherche($event)" (onScrollToEnd)="onScrollToEnd()"
+                [disabled]="!action2 ? true :null" id="icon_input">
+              </sof-monoselect>
+            </div>
+            <label class="col-md-2 col-lg-2 col-xl-2 control-label">{{'cards.type3'|translate}} :</label>
+            <div class="col-md-2 col-lg-2 col-xl-2">
+              <sof-monoselect [(ngModel)]="Type3" name="icone" mode="autoComplete" (click)="try()" bindLabel="name"
+                bindValue="name" [Load]="true" [nbTotal]="nbTotal" [loading]="loading" [bufferSize]="bufferSize"
+                [optionsBuffer]="optionsBuffer" (inputFromChild)="recherche($event)" (onScrollToEnd)="onScrollToEnd()"
+                [disabled]="!action3 ? true :null" id="icon_input">
+              </sof-monoselect>
+            </div>
+          </div>
+
+          <div class="form-group row framework-font-Semibold">
+            <label class="col-md-2 col-lg-2 col-xl-2 control-label">{{'cards.alert'|translate}} </label>
+            <div class="col-md-2 col-lg-2 col-xl-2">
+              <input type="checkbox" id="alert" name="alert" value="alert" [(ngModel)]="alert">
+              <label for="alert"></label>
+            </div>
+            <div class="col-md-2 col-lg-2 col-xl-2"></div>
+            <div class="col-md-2 col-lg-2 col-xl-2"></div>
+            <div class="col-md-2 col-lg-2 col-xl-2"></div>
+            <div class="col-md-2 col-lg-2 col-xl-2"></div>
+
+            <label class="col-md-2 col-lg-2 col-xl-2 control-label">couleur de l'alerte :</label>
+
+            <div class="col-md-2 col-lg-2 col-xl-2">
+              <select [(ngModel)]="alertColor" [disabled]="!alert ? true :null">
+                <option value="primary" [disabled]="!alert ? true :null">primary</option>
+                <option value="secondary" [disabled]="!alert ? true :null">secondary</option>
+                <option value="error" [disabled]="!alert ? true :null">error</option>
+                <option value="valid" [disabled]="!alert ? true :null">valid</option>
+                <option value="default" [disabled]="!alert ? true :null">default</option>
+              </select>
+            </div>
+
+            <label class="col-md-2 col-lg-2 col-xl-2 control-label">Message d'alerte :</label>
+            <div class="col-md-3 col-lg-3 col-xl-4">
+              <sof-input type="text" [(ngModel)]="messageAlert" [disabled]="!alert ? true :null"></sof-input>
+            </div>
+          </div>
+
+
+
+        </div>
+      </sof-card>
+
+
+      <br>
+      <span class="framework-h3-font">{{'general.BASIC_USAGE'|translate}}</span>
+      <br>
+      <br> {{'card.exple_desc'|translate}}
+      <br>
+      <br>
+      <sof-card class="style-sof-card" title="{{'imp_details'|translate}}">
+        <sof-stepper>
+          <aw-wizard navBarLayout="large-empty-symbols" navigationMode="free" defaultStepIndex="0">
+            <aw-wizard-step stepTitle="{{'prerequis'|translate}}">
+              <div class="padding-15">
+                <b>app.module.ts</b>
+              </div>
+              <div class="border padding-15 border-radius mb-2 background-code">
+                <pre id="tr1" class="language-typescript background-code">
+                              <button  style=" 
+                              color: black;
+                              font-size: .8em;
+                              padding: 0 .5em;
+                              background: #f5f2f0;
+                              background: rgba(172, 171, 171, 0.2);
+                              box-shadow: 0 2px 0 0 rgba(0,0,0,0.2);
+                              border-radius: .5em; float:right;">copy</button>
+                            <code id="copy1"	[innerHtml]="getPrerequis()"></code>
+                            <div><div id='parentt' ></div></div>
+                          </pre>
+              </div>
+            </aw-wizard-step>
+            <aw-wizard-step stepTitle="HTML">
+              <div class="border padding-15 border-radius mb-2 background-code">
+
+                <pre id='o' class="language-markup background-code">
+                          <button   style=" 
+                          color: black;
+                          font-size: .8em;
+                          padding: 0 .5em;
+                          background: #f5f2f0;
+                          background: rgba(172, 171, 171, 0.2);
+                          box-shadow: 0 2px 0 0 rgba(0,0,0,0.2);
+                          border-radius: .5em; float:right;">copy</button>
+                               <code  id='copy' [innerHtml]="getHtmlCode()" class="language-markup"></code> 
+                              <div><div id='parent' ></div></div>
+                           
+                            </pre>
+              </div>
+            </aw-wizard-step>
+            <aw-wizard-step stepTitle="TS">
+              <div class="border padding-15 border-radius mb-2 background-code">
+                <pre id="o2cc" class="language-typescript background-code">
+                          <button   style=" 
+                          color: black;
+                          font-size: .8em;
+                          padding: 0 .5em;
+                          background: #f5f2f0;
+                          background: rgba(172, 171, 171, 0.2);
+                          box-shadow: 0 2px 0 0 rgba(0,0,0,0.2);
+                          border-radius: .5em; float:right;">copy</button>
+                        <code id="copy11cc"	[innerHtml]="getTS()"></code>
+                        <div><div id='parentycc' ></div></div>
+                      </pre>
+              </div>
+
+            </aw-wizard-step>
+
+          </aw-wizard>
+        </sof-stepper>
+      </sof-card>
+
+      <div class="border padding-10 border-radius bg-white">
+        <div class="left-align-text ux-label">{{'result'|translate}}</div>
+        <br>
+        <div class="row pl-3 ">
+
+          <div class="col-12">
+            <br>
+            <sof-cards [alert]="alert" [alertColor]="alertColor" [messageAlert]="messageAlert" [test]="test"
+              [head]="head" [label]="label" [cardLabel]="cardLabel" [lbColor]="lbColor" [icone]="icone"
+              [Texticon]="Texticon" [action1]="action1" [Type1]="Type1" [action2]="action2" [Type2]="Type2"
+              [action3]="action3" [Type3]="Type3" (onClick1)="onNotify()" (onClick2)="onNotify2()"
+              (onClick3)="onNotify3()" (init)="initmsg()">
+
+            </sof-cards>
+
+          </div>
+        </div>
+      </div>
+
+
+
+    </div>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { LayoutService } from 'ng-softilys/api';
@@ -26,7 +26,7 @@ export class HomeComponent {
   }
 
   btnClick() {
-    this.router.navigate(['comp/get_started']);
+    this.router.navigate(['showcase/setup']);
   }
 
   switchLanguage(language: string) {

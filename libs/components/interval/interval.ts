@@ -1,10 +1,17 @@
 import { Component, OnInit, Input, EventEmitter, Output, ViewChild, ElementRef, NgModule } from '@angular/core';
-import { Interval } from './model/interval';
 import { FormGroup, FormBuilder, FormControl, ReactiveFormsModule } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import { interval } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { CalendarModule } from 'primeng/calendar';
+
+export class Interval {
+  public beginDate: Date;
+  public endDate: Date;
+  public valid: Boolean;
+  constructor() {
+  }
+}
 
 @Component({
   selector: 'sof-interval',

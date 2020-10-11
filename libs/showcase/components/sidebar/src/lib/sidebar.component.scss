@@ -1,0 +1,51 @@
+:host ::ng-deep .sidebar-left {
+  position: -webkit-sticky;
+  position: sticky;
+  left: 0;
+  top: 0;
+  overflow-y: auto;
+  height: 40vh;
+  float: left;
+}
+.sof-button {
+  float: right;
+}
+
+:host ::ng-deep div.code-toolbar > .toolbar a,
+div.code-toolbar > .toolbar button,
+div.code-toolbar > .toolbar span {
+  display: none;
+}
+
+pre {
+  overflow: hidden;
+}
+table1,
+th,
+td {
+  border: 0px;
+}
+td .tooltiptext::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+:host ::ng-deep small {
+  display: none !important;
+}
+
+:host ::ng-deep #monoicon {
+  display: none;
+}
+:host ::ng-deep div.total-padding {
+  height: 80px !important;
+}
+#placeholder {
+  margin-top: -1%;
+}

@@ -1,0 +1,39 @@
+select{
+    height: 40px;
+}
+
+:host ::ng-deep  sof-card > div > div > div {
+    padding: 0px !important;
+    margin: 0 0 -2px;
+  }
+  :host ::ng-deep  sof-card > div > div > .accordion .card .card-header  {
+  background: #E0E0E0;
+  }
+
+  :host ::ng-deep  sof-card > div > div > div > div > div > h5 > a > i.icons.icon-chevron_down:before {
+    color: #363638;
+    line-height: 3.2;
+}
+
+:host ::ng-deep  sof-card > div > div > div > div > div > h5 > a > i.icons.icon-chevron_up:before {
+  color: #363638;
+  line-height: 3.2;
+}
+
+:host ::ng-deep  sof-card > div > div > div > div > div > h5 {
+  line-height: 3.2;
+} 
+
+
+:host ::ng-deep div.code-toolbar > .toolbar a, div.code-toolbar > .toolbar button, div.code-toolbar > .toolbar span {
+  display: none;
+  }
+
+
+  pre{
+    overflow: hidden;
+  }
+
+  #checkLock{
+    padding: 1%;
+  }

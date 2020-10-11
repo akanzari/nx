@@ -1,0 +1,30 @@
+#seleect {
+  padding: 0px !important;
+}
+
+// :host ::ng-deep #nbb  {
+//     width: 30% !important;
+// }
+
+:host ::ng-deep input[_ngcontent-c28] {
+  height: 35px;
+  width: 70% !important;
+}
+
+:host ::ng-deep .ui-colorpicker-overlay-panel {
+  top: -170px !important;
+}
+
+:host ::ng-deep #ss {
+  width: 100% !important;
+}
+#nb {
+  font-size: x-small;
+  color: gray;
+  display: inline-block;
+  width: 81%;
+  padding: 0px;
+}
+:host ::ng-deep #stat {
+  width: 40% !important;
+}

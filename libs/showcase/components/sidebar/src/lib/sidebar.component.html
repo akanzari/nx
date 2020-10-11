@@ -1,0 +1,429 @@
+<div class="picto-item" aria-label="test" class="row">
+  <div class="col-12 framework-font padding-framework">
+    <div>
+      <h1 class="framework-h1-font">{{'sidebar.sidebarCompo'|translate}}</h1>
+      <span class="framework-font-Semibold">{{'sidebar.overview'|translate}}</span>
+      <br>
+      <br>{{'sidebar.sidebar_overview'|translate}}
+      <br>
+      <br>
+      <span class="framework-font-Semibold">GETTING STARTED</span>
+      <br>{{'sidebar.getting-strated'|translate}}
+      <br>
+      <br>
+    </div>
+    <span class="framework-h3-font">{{'general.params'|translate}}</span>
+    <br>
+    <br>
+    <sof-card class="style-sof-card" title="{{'general.general_params'|translate}}">
+      <br>
+      <table style="width:100%">
+        <tr>
+          <th style="width:15%">
+            <span class="framework-font-Semibold" style="font-size: 13px; margin-left: 23px;">
+              {{'general.advancedImplementation'|translate}}
+            </span>
+          </th>
+          <th>
+            <hr>
+          </th>
+        </tr>
+      </table>
+      <div class="framework-font-Semibold" style="font-size: 14px;">
+        <sof-sub-form [column]="4" title="">
+
+
+          <sof-form-label>Placeholder :</sof-form-label>
+          <sof-form-item id="placeholder">
+            <sof-input type="text" id="Placeholders" maxlength="50" name="Placeholder" [(ngModel)]="placeholder">
+            </sof-input>
+          </sof-form-item>
+
+          <sof-form-label>Position :</sof-form-label>
+          <sof-form-item>
+            <select name="selectType" [(ngModel)]="position">
+              <option value="left">left</option>
+              <option value="right">right</option>
+            </select>
+          </sof-form-item>
+
+          <sof-form-label>Color :</sof-form-label>
+          <sof-form-item>
+            <select name="selectType" [(ngModel)]="color">
+              <option value="black">black</option>
+              <!-- <option value="white">white</option> -->
+            </select>
+          </sof-form-item>
+
+          <sof-form-label></sof-form-label>
+
+
+          <!-- <sof-form-label>Size</sof-form-label>
+              <sof-form-item>
+                <select name="selectType" [(ngModel)]="size">
+                  <option value="left">small</option>
+                  <option value="right">large</option>
+                  </select>
+              </sof-form-item> -->
+        </sof-sub-form>
+      </div>
+
+      <table style="width:100%">
+        <tr>
+          <th style="width:12%">
+            <span class="framework-font-Semibold" style="font-size: 13px; margin-left: 23px;"> {{'Menu-Definition'}}
+            </span>
+          </th>
+          <th>
+            <hr>
+          </th>
+        </tr>
+      </table>
+      <br>
+      <div style="margin-left: 23px;">
+        <sof-button icon='add' (click)="showDialogfn()">Ajouter</sof-button>
+      </div>
+      <sof-table [(data)]="subMenuItems" dataKey='code' (onCheck)="onCheck()"
+        (onRowClick)="methodToExecuteOnRowClick($event)" [totalElements]="subMenuItems.length"
+        [(columnsOrdered)]="columns" [zebrure]="false" [(config)]="tableConf" [(selectedRows)]="selectedRows"
+        (buttonClick)="buttonAction($event)" [totalElements]="subMenuItems.length">
+        <ng-container ngProjectAs="expandableContent">
+          <td [attr.colspan]="columnsSB.length + 1">
+            <div class="ui-g ui-fluid" style="font-size:16px;padding:15px">
+              <div class="ui-g-12 ui-md-9" style="margin-left:5%">
+                <div class="ui-g">
+                  <div class="ui-g-12">
+                    <b>Sous Menu :</b>
+                  </div>
+                  <sof-table [(data)]="rowData" [(columnsOrdered)]="columnsSB" [zebrure]="true" [(config)]="tableConfSB"
+                    [totalElements]="rowData.length" (buttonClick)="buttonAction($event)"></sof-table>
+                </div>
+              </div>
+            </div>
+          </td>
+        </ng-container>
+
+      </sof-table>
+
+    </sof-card>
+    <br>
+    <span class="framework-h3-font">{{'general.BASIC_USAGE'|translate}}</span>
+    <br>
+    <br> {{'sidebar.exple_desc'|translate}}
+    <br>
+    <br>
+    <sof-card class="style-sof-card" title="{{'imp_details'|translate}}">
+      <sof-stepper>
+        <aw-wizard navBarLayout="large-empty-symbols" navigationMode="free" defaultStepIndex="0">
+          <aw-wizard-step stepTitle="{{'prerequis'|translate}}">
+            <div class="padding-15">
+              <b>app.module.ts</b>
+            </div>
+            <div class="border padding-15 border-radius mb-2 background-code">
+              <pre id="tr1" class="language-typescript background-code">
+                    <button  (click)="SelectAllPre()" style=" 
+                    color: black;
+                    font-size: .8em;
+                    padding: 0 .5em;
+                    background: #f5f2f0;
+                    background: rgba(172, 171, 171, 0.2);
+                    box-shadow: 0 2px 0 0 rgba(0,0,0,0.2);
+                    border-radius: .5em; float:right;">copy</button>
+                  <code id="copy1"	[innerHtml]="getPrerequis()"></code>
+                  <div><div id='parentt' ></div></div>
+                </pre>
+            </div>
+          </aw-wizard-step>
+          <aw-wizard-step stepTitle="HTML">
+            <div class="border padding-15 border-radius mb-2 background-code">
+              <pre id='o' class="language-markup background-code">
+                    <button  (click)="SelectAll()" style=" 
+                    color: black;
+                    font-size: .8em;
+                    padding: 0 .5em;
+                    background: #f5f2f0;
+                    background: rgba(172, 171, 171, 0.2);
+                    box-shadow: 0 2px 0 0 rgba(0,0,0,0.2);
+                    border-radius: .5em; float:right;">copy</button>
+                         <code  id='copy' [innerHtml]="getHtmlCode()" class="language-markup"></code> 
+                        <div><div id='parent' ></div></div>
+                     
+                      </pre>
+            </div>
+          </aw-wizard-step>
+          <aw-wizard-step stepTitle="TS">
+            <div class="border padding-15 border-radius mb-2 background-code">
+              <pre id="o2" class="language-typescript background-code">
+                    <button  (click)="SelectAllTs()" style=" 
+                    color: black;
+                    font-size: .8em;
+                    padding: 0 .5em;
+                    background: #f5f2f0;
+                    background: rgba(172, 171, 171, 0.2);
+                    box-shadow: 0 2px 0 0 rgba(0,0,0,0.2);
+                    border-radius: .5em; float:right;">copy</button>
+                  <code id="copy11"	[innerHtml]="getTsCode()"></code>
+                  <div><div id='parenty' ></div></div>
+                </pre>
+            </div>
+          </aw-wizard-step>
+        </aw-wizard>
+      </sof-stepper>
+    </sof-card>
+    <div class="border padding-10 border-radius bg-white">
+      <div class="left-align-text ux-label">{{'result'|translate}}</div>
+      <br>
+      <!-- <h2 style="color:#6c757d; ">Menu-Definition</h2>
+      <br>
+      <div>
+        <sof-button icon='add' (click)="showDialogfn()">Ajouter</sof-button>
+      </div>
+      <sof-table [data]="subMenuItems" [(columnsOrdered)]="columns" [(config)]="tableConf" [(selectedRows)]="selectedRows" (buttonClick)="buttonAction($event)"
+        [totalElements]="subMenuItems.length"></sof-table> -->
+
+      <div class="row pl-3 ">
+        <label class="label label-large col-md-1 ">
+        </label>
+        <div class="col-md-3 col-lg-3 col-xl-4">
+          <sof-sidebar [data]="subMenuItems" [placeholder]="placeholder" [visible]="Visible" [position]="position"
+            [color]="color"></sof-sidebar>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+<sof-modal [(visible)]="showDialog" position="center" title="Titre">
+  <div class="row">
+    <div class="col-12">
+      <form class="form-horizontal" #f1="ngForm">
+        <div class="form-group row">
+          <label class="col-md-3 col-lg-3 col-xl-2 control-label">Code
+            <span style="color: red">*</span>
+          </label>
+          <div class="col-md-3 col-lg-3 col-xl-4">
+            <input type="number" name="code" min='1' onKeyPress="if(this.value.length==8) return false;"
+              placeholder="Entrer le code" required [(ngModel)]="item.code">
+          </div>
+
+          <label class="col-md-3 col-lg-3 col-xl-2 control-label">Icône </label>
+          <div class="col-md-3 col-lg-3 col-xl-4">
+            <sof-monoselect (click)="try()" [(ngModel)]="item.icon" name="icone" mode="autoComplete" bindLabel="name"
+              bindValue="name" [Load]="true" [nbTotal]="nbTotal" [loading]="loading" [bufferSize]="bufferSize"
+              [optionsBuffer]="optionsBuffer" (inputFromChild)="recherche($event)" (onScrollToEnd)="onScrollToEnd()"
+              [disabled]="flat ? true :null" id="icon_input">
+            </sof-monoselect>
+          </div>
+
+          <label class="col-md-3 col-lg-3 col-xl-2 control-label">Label
+            <span style="color: red">*</span>
+          </label>
+          <div class="col-md-3 col-lg-3 col-xl-4">
+            <input type="text" name="defaultLabel" required [(ngModel)]="item.defaultLabel"
+              (ngModelChange)="testESpace(item.defaultLabel)">
+          </div>
+          <label class="col-md-3 col-lg-3 col-xl-2 control-label">Fragment
+            <span style="color: red"></span>
+          </label>
+          <div class="col-md-3 col-lg-3 col-xl-4">
+            <input type="text" name="fragment" [(ngModel)]="item.fragment">
+          </div>
+          <label class="col-md-3 col-lg-3 col-xl-2 control-label">Lien de routage
+            <span style="color: red"></span>
+          </label>
+          <div class="col-md-3 col-lg-3 col-xl-4">
+            <input type="text" name="routerLink" [(ngModel)]="item.routerLink">
+          </div>
+        </div>
+
+
+      </form>
+    </div>
+  </div>
+  <sof-modal-footer>
+    <button type="button" (click)="addnew()" [disabled]="(!f1.valid || !testEspace)" class="btn btn-primary">
+      Ajouter
+    </button>
+    <button type="button" class="btn btn-default" (click)="showDialog = !showDialog">Annuler</button>
+  </sof-modal-footer>
+</sof-modal>
+
+
+
+<sof-modal [(visible)]="showDialogUpdate" position="center" title="Titre">
+  <div class="row">
+    <div class="col-12">
+      <form class="form-horizontal" #f="ngForm">
+        <div class="form-group row">
+          <label class="col-md-3 col-lg-3 col-xl-2 control-label">Code
+            <span style="color: red">*</span>
+          </label>
+          <div class="col-md-3 col-lg-3 col-xl-4">
+            <input type="number" name="code" min='1' maxlength="8" placeholder="Entrer le code" required
+              [(ngModel)]="selectedRows.code" (ngModelChange)="testEspace=true;">
+          </div>
+
+          <label class="col-md-3 col-lg-3 col-xl-2 control-label">Icône </label>
+          <div class="col-md-3 col-lg-3 col-xl-4">
+            <sof-monoselect [(ngModel)]="selectedRows.icon" (click)="try()" mode="autoComplete" name="icone"
+              bindLabel="name" bindValue="name" [Load]="true" [nbTotal]="nbTotal" [loading]="loading"
+              [bufferSize]="bufferSize" [optionsBuffer]="optionsBuffer" (inputFromChild)="recherche($event)"
+              (onScrollToEnd)="onScrollToEnd()" [disabled]="flat ? true :null" id="icon_input"
+              (ngModelChange)="testEspace=true;">
+            </sof-monoselect>
+          </div>
+
+          <label class="col-md-3 col-lg-3 col-xl-2 control-label">Label
+            <span style="color: red">*</span>
+          </label>
+          <div class="col-md-3 col-lg-3 col-xl-4">
+            <input type="text" name="defaultLabel" (ngModelChange)="testESpace(selectedRows.defaultLabel)"
+              maxlength="22" required [(ngModel)]="selectedRows.defaultLabel">
+          </div>
+          <label class="col-md-3 col-lg-3 col-xl-2 control-label">Fragment
+            <span style="color: red"></span>
+          </label>
+          <div class="col-md-3 col-lg-3 col-xl-4">
+            <input type="text" name="fragment" [(ngModel)]="selectedRows.fragment" (ngModelChange)="testEspace=true;">
+          </div>
+          <label class="col-md-3 col-lg-3 col-xl-2 control-label">Lien de routage
+            <span style="color: red"></span>
+          </label>
+          <div class="col-md-3 col-lg-3 col-xl-4">
+            <input type="text" name="routerLink" [(ngModel)]="selectedRows.routerLink"
+              (ngModelChange)="testEspace=true;">
+          </div>
+        </div>
+
+
+      </form>
+    </div>
+  </div>
+  <sof-modal-footer>
+    <button type="button" [disabled]="(!f.valid || !testEspace)" (click)="Edit()" class="btn btn-primary">
+      Modifier
+    </button>
+
+    <button type="button" class="btn btn-default"
+      (click)="showDialogUpdate = !showDialogUpdate; testEspace=false; ">Annuler</button>
+  </sof-modal-footer>
+</sof-modal>
+<sof-modal [(visible)]="showDialogSubMenu" position="center" title="Titre">
+  <div class="row">
+    <div class="col-12">
+      <form class="form-horizontal" #f2="ngForm">
+        <div class="form-group row">
+          <label class="col-md-3 col-lg-3 col-xl-2 control-label">Code
+            <span style="color: red">*</span>
+          </label>
+          <div class="col-md-3 col-lg-3 col-xl-4">
+            <input type="number" name="code" min='1' onKeyPress="if(this.value.length==8) return false;"
+              placeholder="Entrer le code" required [(ngModel)]="itemS.codeS">
+          </div>
+
+          <label class="col-md-3 col-lg-3 col-xl-2 control-label">Icône </label>
+          <div class="col-md-3 col-lg-3 col-xl-4">
+
+            <sof-monoselect [(ngModel)]="itemS.iconS" (click)="try()" name="icone" mode="autoComplete" bindLabel="name"
+              bindValue="name" [Load]="true" [nbTotal]="nbTotal" [loading]="loading" [bufferSize]="bufferSize"
+              [optionsBuffer]="optionsBuffer" (inputFromChild)="recherche($event)" (onScrollToEnd)="onScrollToEnd()"
+              [disabled]="flat ? true :null" id="icon_input">
+            </sof-monoselect>
+          </div>
+
+          <label class="col-md-3 col-lg-3 col-xl-2 control-label">Label
+            <span style="color: red">*</span>
+          </label>
+          <div class="col-md-3 col-lg-3 col-xl-4">
+            <input type="text" name="defaultLabel" maxlength="22" required [(ngModel)]="itemS.defaultLabelS"
+              (ngModelChange)="testESpace(itemS.defaultLabelS)">
+          </div>
+          <label class="col-md-3 col-lg-3 col-xl-2 control-label">Fragment
+            <span style="color: red"></span>
+          </label>
+          <div class="col-md-3 col-lg-3 col-xl-4">
+            <input type="text" name="fragment" [(ngModel)]="itemS.fragmentS">
+          </div>
+          <label class="col-md-3 col-lg-3 col-xl-2 control-label">Lien de routage
+            <span style="color: red"></span>
+          </label>
+          <div class="col-md-3 col-lg-3 col-xl-4">
+            <input type="text" name="routerLink" [(ngModel)]="itemS.routerLinkS">
+          </div>
+        </div>
+
+
+      </form>
+    </div>
+  </div>
+  <sof-modal-footer>
+    <button type="button" (click)="addSB()" [disabled]="(!f2.valid || !testEspace)" class="btn btn-primary">
+      Ajouter
+    </button>
+    <button type="button" class="btn btn-default" (click)="showDialogSubMenu = !showDialogSubMenu">Annuler</button>
+  </sof-modal-footer>
+</sof-modal>
+<sof-modal [(visible)]="showDialogUpdateSB" position="center" title="Titre">
+  <div class="row">
+    <div class="col-12">
+      <form class="form-horizontal" #f4="ngForm">
+        <div class="form-group row">
+          <label class="col-md-3 col-lg-3 col-xl-2 control-label">Code
+            <span style="color: red">*</span>
+          </label>
+          <div class="col-md-3 col-lg-3 col-xl-4">
+            <input type="number" name="code" min='1' onKeyPress="if(this.value.length==8) return false;"
+              placeholder="Entrer le code" required [(ngModel)]="selectedRowsSB.codeS"
+              (ngModelChange)="testEspace=true;">
+          </div>
+
+          <label class="col-md-3 col-lg-3 col-xl-2 control-label">Icône </label>
+          <div class="col-md-3 col-lg-3 col-xl-4">
+            <sof-monoselect [(ngModel)]="selectedRowsSB.iconS" mode="autoComplete" (click)="try()" name="icone"
+              bindLabel="name" bindValue="name" [Load]="true" [nbTotal]="nbTotal" [loading]="loading"
+              [bufferSize]="bufferSize" [optionsBuffer]="optionsBuffer" (inputFromChild)="recherche($event)"
+              (onScrollToEnd)="onScrollToEnd()" [disabled]="flat ? true :null" id="icon_input"
+              (ngModelChange)="testEspace=true;">
+            </sof-monoselect>
+          </div>
+
+          <label class="col-md-3 col-lg-3 col-xl-2 control-label">Label
+            <span style="color: red">*</span>
+          </label>
+          <div class="col-md-3 col-lg-3 col-xl-4">
+            <input type="text" name="defaultLabel" maxlength="22"
+              (ngModelChange)="testESpace(selectedRowsSB.defaultLabelS)" required
+              [(ngModel)]="selectedRowsSB.defaultLabelS">
+          </div>
+          <label class="col-md-3 col-lg-3 col-xl-2 control-label">Fragment
+            <span style="color: red"></span>
+          </label>
+          <div class="col-md-3 col-lg-3 col-xl-4">
+            <input type="text" name="fragment" [(ngModel)]="selectedRowsSB.fragmentS"
+              (ngModelChange)="testEspace=true;">
+          </div>
+          <label class="col-md-3 col-lg-3 col-xl-2 control-label">lien de routage
+            <span style="color: red"></span>
+          </label>
+          <div class="col-md-3 col-lg-3 col-xl-4">
+            <input type="text" name="routerLink" [(ngModel)]="selectedRowsSB.routerLinkS"
+              (ngModelChange)="testEspace=true;">
+          </div>
+        </div>
+
+
+      </form>
+    </div>
+  </div>
+  <sof-modal-footer>
+    <button type="button" [disabled]="(!f4.valid || !testEspace)" (click)="EditSB()" class="btn btn-primary">
+      Modifier
+    </button>
+
+    <button type="button" class="btn btn-default"
+      (click)="showDialogUpdateSB = !showDialogUpdateSB; testEspace=false;">Annuler</button>
+  </sof-modal-footer>
+</sof-modal>

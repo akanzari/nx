@@ -1,0 +1,147 @@
+<div class="picto-item" aria-label="test" class="row">
+    <div class="col-12 framework-font padding-framework">
+        <div>
+            <h1 class="framework-h1-font">{{'upload.uploadCompo'|translate}}</h1>
+            <span class="framework-font-Semibold">{{'upload.overview'|translate}}</span>
+            <br>
+            <br>{{'upload.upload_overview'|translate}}
+            <br>
+            <br>
+            <span class="framework-font-Semibold">GETTING STARTED</span>
+            <br>{{'upload.getting-strated'|translate}}
+            <br>
+            <br>
+          </div>
+          <span class="framework-h3-font">{{'general.params'|translate}}</span>
+    <br>
+    <br>
+    <sof-card title="{{'general.general_params'|translate}}">
+        <br>
+        <table style="width:100%">
+          <tr>
+            <th style="width:16%">
+              <span class="framework-font-Semibold" style="font-size: 13px; margin-left: 23px;"> {{'general.advancedImplementation'|translate}}
+              </span>
+            </th>
+            <th>
+              <hr>
+            </th>
+          </tr>
+        </table>
+        <sof-sub-form [column]="2" [border]="false">
+            <div class="row framework-font-Semibold" style="font-size: 14px;">
+                <sof-form   [border]="false">
+                         <sof-form-label>Text :</sof-form-label>
+                        <sof-form-item>
+                          <sof-input  type="text" id="text" placeholder="Glisser votre fichier içi !" name="text"
+                            [(ngModel)]="placeholder"></sof-input>
+                        </sof-form-item> 
+                        <sof-form-label>Error text :</sof-form-label>
+                        <sof-form-item>
+                          <sof-input  type="text" id="errort" placeholder="Message d'erreur" name="errort"
+                            [(ngModel)]="error"></sof-input>
+                        </sof-form-item>   
+             
+                      
+               
+                      
+                        <sof-form-label>Max Size (in bytes) :</sof-form-label>
+                        <sof-form-item>
+                          <sof-input  type="number" id="Placeholder" min="0" name="maxSize"
+                            [(ngModel)]="maxSize"></sof-input>
+                        </sof-form-item>         
+                      
+                        <sof-form-label>Visible size</sof-form-label>
+                        <sof-form-item>
+      
+                             <input name="Visible" type="checkbox" id="Visible" [(ngModel)]="Visible">
+                             <label for="Visible"></label>
+                       </sof-form-item>
+                        
+                        
+                
+                          
+          
+          
+                
+                         <sof-form-label>Manual upload</sof-form-label>
+                         <sof-form-item>
+                          <input name="manualUpload" type="checkbox" id="manualUpload" [(ngModel)]="manualUpload">
+                          <label for="manualUpload"></label>
+                         </sof-form-item>     
+                             
+                     
+                  </sof-form>
+           
+              </div>
+             </sof-sub-form>
+          </sof-card>
+          <br>
+          <span class="framework-h3-font">{{'general.BASIC_USAGE'|translate}}</span>
+          <br>
+          <br> {{'upload.exple_desc'|translate}}
+          <br>
+          <br>
+          <sof-card title="{{'imp_details'|translate}}">
+              <sof-stepper>
+                  <aw-wizard navBarLayout="large-empty-symbols" navigationMode="free" defaultStepIndex="0">
+                    <aw-wizard-step stepTitle="{{'prerequis'|translate}}">
+                        <div class="padding-15">
+                              <b>app.module.ts</b>
+                              </div>
+                      <div class="border padding-15 border-radius mb-2 background-code">
+                          <pre id="tr1" class="language-typescript background-code">
+                              <button  (click)="SelectAllPre()" style=" 
+                              color: black;
+                              font-size: .8em;
+                              padding: 0 .5em;
+                              background: #f5f2f0;
+                              background: rgba(172, 171, 171, 0.2);
+                              box-shadow: 0 2px 0 0 rgba(0,0,0,0.2);
+                              border-radius: .5em; float:right;">copy</button>
+                            <code id="copy1"	[innerHtml]="getPrerequis()"></code>
+                            <div><div id='parentt' ></div></div>
+                          </pre>
+                      </div>
+                    </aw-wizard-step>
+                    <aw-wizard-step stepTitle="HTML">
+                        <div class="border padding-15 border-radius mb-2 background-code">
+                            <pre  id='o' class="language-markup background-code">
+                                <button  (click)="SelectAll()" style=" 
+                                color: black;
+                                font-size: .8em;
+                                padding: 0 .5em;
+                                background: #f5f2f0;
+                                background: rgba(172, 171, 171, 0.2);
+                                box-shadow: 0 2px 0 0 rgba(0,0,0,0.2);
+                                border-radius: .5em; float:right;">copy</button>
+                                     <code  id='copy' [innerHtml]="getHtmlCode()" class="language-markup"></code> 
+                                    <div><div id='parent' ></div></div>
+                                 
+                                  </pre>
+                          </div>
+                    </aw-wizard-step>
+                  </aw-wizard>
+                </sof-stepper>
+            </sof-card>
+            <div class="border padding-10 border-radius bg-white">
+                <div class="left-align-text ux-label">{{'result'|translate}}</div>
+                <br>
+            <div class="row pl-3 ">
+              <label class="label label-large col-md-1 ">
+              </label>
+              <div class="col-12">
+            <sof-upload [maxSize]="maxSize" [manualUpload]="manualUpload" [error]="error" [placeholder]="placeholder" [visibility]="Visible"></sof-upload>
+          </div>
+        </div>
+  
+  
+     
+        
+      </div>
+    </div>
+  
+  </div>
+  
+  
+  

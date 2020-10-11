@@ -1,0 +1,433 @@
+<div class="picto-item" aria-label="test" class="row">
+  <div class="col-12 framework-font padding-framework">
+    <div>
+
+      <h1 class="framework-h1-font">Composants / Charts</h1>
+      <br>
+      <br>
+      <br>
+      <br>
+    </div>
+
+    <sof-card class="style-sof-card" title="{{'general.general_params'|translate}}">
+      <br>
+      <table style="width:100%">
+        <tr>
+          <th style="width:16%">
+            <span class="framework-font-Semibold" style="font-size: 13px; margin-left: 23px;">
+              {{'general.advancedImplementation'|translate}}
+            </span>
+          </th>
+          <th>
+            <hr>
+          </th>
+        </tr>
+      </table>
+      <br>
+      <div class="row">
+        <div class="col-3"></div>
+        <div class="col-3"><label>Type de chart graphique :</label></div>
+        <div class="col-3" style="right: 11%;">
+          <select (change)="onTypeChange()" [(ngModel)]="type" name="" id="seleect">
+            <option value="pie">pie</option>
+            <option value="doughnut">doughnut</option>
+            <option value="polarArea">polarArea</option>
+            <option value="radar">radar</option>
+            <option value="bar">bar</option>
+            <option value="line">line</option>
+
+            <option value="statusBar">statusBar</option>
+          </select>
+          <sof-checkBox *ngIf="this.type == 'bar'" booleanValue='true' [(ngModel)]="mixte" [value]="mixte"
+            (click)="onTypeChange()">Ajouter line chart</sof-checkBox>
+          <sof-checkBox id="checkBoxSelection" booleanValue='true' [(ngModel)]="displaylegend"
+            (onCheck)='changedisplay()' (unCheck)='changedisplay()'>Afficher legende</sof-checkBox>
+
+        </div>
+        <div class="col-3"></div>
+
+      </div>
+      <br>
+      <div class="row" *ngIf="this.type=='pie' ||this.type=='doughnut' || this.type=='polarArea'">
+
+        <div class="col-4" style="padding-right: 0px;padding-left: 4px;">
+          <sof-form-label style="    margin-right: 17px;">Primary :</sof-form-label>
+
+          <p-colorPicker [(ngModel)]="color1" [showTransitionOptions]="'225ms ease-out'" [hideTransitionOptions]="'0ms'"
+            disabled="true"></p-colorPicker>
+          <input name="valueselect" [(ngModel)]="color1" bindValue="value" style="width: 40%;padding: 0px;"
+            disabled="true">
+
+        </div>
+        <div class="col-4" style="padding-right: 0px;padding-left: 4px;">
+          <sof-form-label>Valid :</sof-form-label>
+
+          <p-colorPicker [(ngModel)]="color2" [showTransitionOptions]="'225ms ease-out'" [hideTransitionOptions]="'0ms'"
+            disabled="true"></p-colorPicker>
+          <input name="valueselect" [(ngModel)]="color2" bindValue="value" style="width: 40%;padding: 0px;"
+            disabled="true">
+
+        </div>
+        <div class="col-4" style="padding-right: 0px;padding-left: 4px;">
+          <sof-form-label style="    margin-right: 15px;">Error :</sof-form-label>
+
+          <p-colorPicker [(ngModel)]="color3" [showTransitionOptions]="'225ms ease-out'" [hideTransitionOptions]="'0ms'"
+            disabled="true"></p-colorPicker>
+          <input name="valueselect" [(ngModel)]="color3" bindValue="value" style="width: 40%;padding: 0px;"
+            disabled="true">
+
+        </div>
+      </div>
+      <div class="row" *ngIf="this.type=='pie' ||this.type=='doughnut' || this.type=='polarArea'">
+        <div class="col-4" style="padding-right: 0px;padding-left: 4px;">
+          <sof-form-label>Secondary :</sof-form-label>
+
+          <p-colorPicker [(ngModel)]="color4" [showTransitionOptions]="'225ms ease-out'" [hideTransitionOptions]="'0ms'"
+            disabled="true"></p-colorPicker>
+          <input name="valueselect" [(ngModel)]="color4" bindValue="value" style="width: 40%;padding: 0px;"
+            disabled="true">
+
+        </div>
+        <div class="col-4" style="padding-right: 0px;padding-left: 4px;">
+          <sof-form-label style="    margin-right: 6px;">Info :</sof-form-label>
+
+          <p-colorPicker [(ngModel)]="color5" [showTransitionOptions]="'225ms ease-out'" [hideTransitionOptions]="'0ms'"
+            disabled="true"></p-colorPicker>
+          <input name="valueselect" [(ngModel)]="color5" bindValue="value" style="width: 40%;padding: 0px;"
+            disabled="true">
+
+        </div>
+        <div class="col-4" style="padding-right: 0px;padding-left: 4px;">
+          <sof-form-label>Default :</sof-form-label>
+
+          <p-colorPicker [(ngModel)]="color6" [showTransitionOptions]="'225ms ease-out'" [hideTransitionOptions]="'0ms'"
+            disabled="true"></p-colorPicker>
+          <input name="valueselect" [(ngModel)]="color6" bindValue="value" style="width: 40%;padding: 0px;"
+            disabled="true">
+
+        </div>
+
+      </div>
+      <div class="row">
+        <div class="col-2" style="top: 38px;     flex: 0 0 11.666667%;"><label
+            *ngIf="this.type=='pie' ||this.type=='doughnut' || this.type=='polarArea'">Nombre de subdivision :</label>
+        </div>
+        <div class="col-1" style="top: 38px;">
+          <sof-input class="nb" *ngIf="this.type=='pie' ||this.type=='doughnut' || this.type=='polarArea'" id="nbb"
+            maxlength=2 type="number" [(ngModel)]="nbSubdivision" (ngModelChange)="onChange()"></sof-input>
+        </div>
+        <div class="col-1"></div>
+        <div class="col-1"></div>
+        <div class="col-2"></div>
+        <div class="col-2"></div>
+        <div class="col-4"></div>
+      </div>
+
+      <ng-container *ngIf="this.type=='pie' ||this.type=='doughnut' || this.type=='polarArea'">
+        <div *ngFor="let sub of  subDivisions">
+          <div class="row">
+            <div class="col-2" style="top: 38px;"></div>
+            <div class="col-1" style="top: 38px;"></div>
+            <div class="col-2" style="    flex: 0 0 11.666667%;"><label>Valeur de subdivision :</label></div>
+            <div class="col-1">
+              <sof-input class="nb" (ngModelChange)="reorderData()" maxlength=2 type="number" [(ngModel)]="sub.value">
+              </sof-input>
+            </div>
+            <!-- <div class="col-1"><label>Couleur:</label></div> -->
+            <!-- <div class="col-1">
+                    <select id="ss" [(ngModel)]="sub.predefinedColor" (ngModelChange)="reorderData()" name="" >
+                        <option value=""></option>
+                        <option value="primary">primary</option>
+                        <option value="secondary">secondary</option>
+                        <option value="error">error</option>
+                        <option value="valid">valid</option>
+                        <option value="default">default</option>
+                        <option value="white">white</option>
+                        <option value="autre">autre</option>
+                      </select>
+                </div> -->
+            <div class="col-2" style="    flex: 0 0 11.666667%;"><label *ngIf="sub.predefinedColor==='autre'">Code de
+                couleur :</label>
+              <i *ngIf="sub.predefinedColor==='autre'" class="icons icon-infos color-primary size-16"
+                softooltip="Cliquez pour avoir un sélecteur de couleurs" style="margin-left: 2%"></i>
+
+            </div>
+            <div class="col-2">
+              <div *ngIf="sub.predefinedColor==='autre'">
+
+                <p-colorPicker (ngModelChange)="reorderData()" [(ngModel)]="sub.freeColor"
+                  [showTransitionOptions]="'225ms ease-out'" [hideTransitionOptions]="'0ms'"></p-colorPicker>
+
+                <sof-input id="nb" (ngModelChange)="reorderData()" maxlength=25 type="number"
+                  [(ngModel)]="sub.freeColor"></sof-input>
+
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </ng-container>
+
+
+
+
+
+
+
+      <div class=" framework-font-Semibold" style="font-size: 14px;" *ngIf="this.type=='statusBar'">
+        <div class="row">
+          <div class="col-4" style="padding-right: 0px;padding-left: 4px;">
+            <sof-form-label style="    margin-right: 17px;">Primary :</sof-form-label>
+
+            <p-colorPicker [(ngModel)]="color1" [showTransitionOptions]="'225ms ease-out'"
+              [hideTransitionOptions]="'0ms'" disabled="true"></p-colorPicker>
+            <input name="valueselect" [(ngModel)]="color1" bindValue="value" style="width: 40%;padding: 0px;"
+              disabled="true">
+
+          </div>
+          <div class="col-4" style="padding-right: 0px;padding-left: 4px;">
+            <sof-form-label>Valid :</sof-form-label>
+
+            <p-colorPicker [(ngModel)]="color2" [showTransitionOptions]="'225ms ease-out'"
+              [hideTransitionOptions]="'0ms'" disabled="true"></p-colorPicker>
+            <input name="valueselect" [(ngModel)]="color2" bindValue="value" style="width: 40%;padding: 0px;"
+              disabled="true">
+
+          </div>
+          <div class="col-4" style="padding-right: 0px;padding-left: 4px;">
+            <sof-form-label style="    margin-right: 15px;">Error :</sof-form-label>
+
+            <p-colorPicker [(ngModel)]="color3" [showTransitionOptions]="'225ms ease-out'"
+              [hideTransitionOptions]="'0ms'" disabled="true"></p-colorPicker>
+            <input name="valueselect" [(ngModel)]="color3" bindValue="value" style="width: 40%;padding: 0px;"
+              disabled="true">
+
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-4" style="padding-right: 0px;padding-left: 4px;">
+            <sof-form-label>Secondary :</sof-form-label>
+
+            <p-colorPicker [(ngModel)]="color4" [showTransitionOptions]="'225ms ease-out'"
+              [hideTransitionOptions]="'0ms'" disabled="true"></p-colorPicker>
+            <input name="valueselect" [(ngModel)]="color4" bindValue="value" style="width: 40%;padding: 0px;"
+              disabled="true">
+
+          </div>
+          <div class="col-4" style="padding-right: 0px;padding-left: 4px;">
+            <sof-form-label style="    margin-right: 6px;">Info :</sof-form-label>
+
+            <p-colorPicker [(ngModel)]="color5" [showTransitionOptions]="'225ms ease-out'"
+              [hideTransitionOptions]="'0ms'" disabled="true"></p-colorPicker>
+            <input name="valueselect" [(ngModel)]="color5" bindValue="value" style="width: 40%;padding: 0px;"
+              disabled="true">
+
+          </div>
+          <div class="col-4" style="padding-right: 0px;padding-left: 4px;">
+            <sof-form-label>Default :</sof-form-label>
+
+            <p-colorPicker [(ngModel)]="color6" [showTransitionOptions]="'225ms ease-out'"
+              [hideTransitionOptions]="'0ms'" disabled="true"></p-colorPicker>
+            <input name="valueselect" [(ngModel)]="color6" bindValue="value" style="width: 40%;padding: 0px;"
+              disabled="true">
+
+          </div>
+
+        </div>
+        <!-- <sof-form>
+                <sof-sub-form [column]="1">
+                  <sof-form-label>{{'statusBar.nbrSub'|translate}}:</sof-form-label>
+                  <sof-form-item>
+                    <sof-input type="number" [(ngModel)]="nombreSub" id="nombreSub" (change)="subdivision($event)"></sof-input>
+                  </sof-form-item>
+                  
+                </sof-sub-form>
+              </sof-form> -->
+        <div class="row">
+          <div class="col-2" style="top: 38px;     flex: 0 0 11.666667%;"><label>Nombre de subdivision :</label></div>
+          <div class="col-1" style="top: 38px;">
+            <sof-input type="number" [(ngModel)]="nombreSub" id="nombreSub" (change)="subdivision($event)"></sof-input>
+          </div>
+          <div class="col-1"></div>
+          <div class="col-1"></div>
+          <div class="col-2"></div>
+          <div class="col-2"></div>
+          <div class="col-4"></div>
+        </div>
+
+        <!--         
+                <sof-sub-form [column]="2" *ngFor="let i of nombreSubList ">
+                
+                  <sof-form-label>{{'statusBar.val'|translate}} :</sof-form-label>
+                  <sof-form-item>
+                    <sof-input [(ngModel)]="i.value" [type]="'number'" id="valeur" [name]="'valeur'">
+                     
+                    </sof-input>
+                  </sof-form-item>
+                  <sof-form-label>{{'statusBar.color'|translate}} :
+                      <i class="icons icon-infos color-primary size-16" softooltip="Cliquez pour avoir un sélecteur de couleurs" style="margin-left: 2%"></i> 
+      
+                  </sof-form-label>
+                  <sof-form-item>
+                  
+                    <p-colorPicker [(ngModel)]="i.color" [showTransitionOptions]="'1000ms ease-out'" [hideTransitionOptions]="'10ms'"></p-colorPicker>
+                    <input name="valueselect" [(ngModel)]="i.color" bindValue="value" style="width: 80%;">
+               
+                                  
+                  </sof-form-item>
+                  
+                </sof-sub-form> -->
+        <ng-container>
+          <div *ngFor="let i of nombreSubList ">
+            <div class="row">
+              <div class="col-2" style="top: 38px;"></div>
+              <div class="col-1" style="top: 38px;"></div>
+              <div class="col-2" style="    flex: 0 0 11.666667%;"><label>Valeur de subdivision :</label></div>
+              <div class="col-1">
+                <sof-input [(ngModel)]="i.value" [type]="'number'" id="valeur" [name]="'valeur'"></sof-input>
+              </div>
+              <!-- <div class="col-1"><label>Couleur:</label></div> -->
+              <!-- <div class="col-1">
+                          <select id="ss" [(ngModel)]="sub.predefinedColor" (ngModelChange)="reorderData()" name="" >
+                              <option value=""></option>
+                              <option value="primary">primary</option>
+                              <option value="secondary">secondary</option>
+                              <option value="error">error</option>
+                              <option value="valid">valid</option>
+                              <option value="default">default</option>
+                              <option value="white">white</option>
+                              <option value="autre">autre</option>
+                            </select>
+                      </div> -->
+              <div class="col-2" style="    flex: 0 0 11.666667%;"><label>Code de couleur :</label>
+                <i class="icons icon-infos color-primary size-16"
+                  softooltip="Cliquez pour avoir un sélecteur de couleurs" style="margin-left: 2%"></i>
+
+              </div>
+              <div class="col-2">
+
+
+                <p-colorPicker [(ngModel)]="i.color" [showTransitionOptions]="'1000ms ease-out'"
+                  [hideTransitionOptions]="'10ms'"></p-colorPicker>
+
+                <sof-input name="valueselect" [(ngModel)]="i.color" bindValue="value" id="stat"></sof-input>
+
+
+              </div>
+
+            </div>
+
+          </div>
+        </ng-container>
+      </div>
+
+      <div class="row"
+        *ngIf="this.type=='pie' ||this.type=='doughnut' || this.type=='polarArea'|| this.type=='radar'|| this.type=='line'|| this.type=='bar'">
+        <div class="col-2"></div>
+        <div class="col-1"></div>
+        <div class="col-2"></div>
+        <div class="col-1" style="display: flex;top: 12px;">&nbsp;&nbsp;&nbsp;<sof-button bgColor="primary"
+            [width]="100" (click)="reDrawChart()">Draw </sof-button> <i class="icons icon-infos color-primary size-16"
+            softooltip="Refresh the chart" style="margin-left: -11%"></i></div>
+        <div class="col-2" style="    left: 30px;"></div>
+        <div class="col-2"></div>
+      </div>
+
+
+    </sof-card>
+
+    <br>
+    <span class="framework-h3-font">{{'general.BASIC_USAGE'|translate}}</span>
+    <br>
+    <br> {{'drag.exple_desc'|translate}}
+    <br>
+    <br>
+
+    <sof-card class="style-sof-card" title="{{'imp_details'|translate}}">
+      <sof-stepper>
+        <aw-wizard navBarLayout="large-empty-symbols" navigationMode="free" defaultStepIndex="0">
+          <aw-wizard-step stepTitle="{{'prerequis'|translate}}">
+            <div class="padding-15">
+              <b>app.module.ts - angular.json</b>
+            </div>
+            <div class="border padding-15 border-radius mb-2 background-code">
+              <pre id="tr1" class="language-typescript background-code">
+                    <button  (click)="SelectAllPre()" style=" 
+                    color: black;
+                    font-size: .8em;
+                    padding: 0 .5em;
+                    background: #f5f2f0;
+                    background: rgba(172, 171, 171, 0.2);
+                    box-shadow: 0 2px 0 0 rgba(0,0,0,0.2);
+                    border-radius: .5em; float:right;">copy</button>
+                  <code id="copy1"	[innerHtml]="getPrerequis()"></code>
+                  <div><div id='parentt' ></div></div>
+                </pre>
+            </div>
+          </aw-wizard-step>
+          <aw-wizard-step stepTitle="HTML">
+            <div class="border padding-15 border-radius mb-2 background-code">
+              <pre id='o' class="language-markup background-code">
+                    <button  (click)="SelectAll()" style=" 
+                    color: black;
+                    font-size: .8em;
+                    padding: 0 .5em;
+                    background: #f5f2f0;
+                    background: rgba(172, 171, 171, 0.2);
+                    box-shadow: 0 2px 0 0 rgba(0,0,0,0.2);
+                    border-radius: .5em; float:right;">copy</button>
+                         <code  id='copy' [innerHtml]="getHtmlCode()" class="language-markup"></code> 
+                        <div><div id='parent' ></div></div>
+                     
+                      </pre>
+            </div>
+          </aw-wizard-step>
+          <aw-wizard-step stepTitle="TS">
+            <div class="border padding-15 border-radius mb-2 background-code">
+              <pre id="o2" class="language-typescript background-code">
+                      <button  (click)="SelectAllTs()" style=" 
+                      color: black;
+                      font-size: .8em;
+                      padding: 0 .5em;
+                      background: #f5f2f0;
+                      background: rgba(172, 171, 171, 0.2);
+                      box-shadow: 0 2px 0 0 rgba(0,0,0,0.2);
+                      border-radius: .5em; float:right;">copy</button>
+                    <code id="copy11"	[innerHtml]="getTsCode()"></code>
+                    <div><div id='parenty' ></div></div>
+                  </pre>
+            </div>
+          </aw-wizard-step>
+        </aw-wizard>
+      </sof-stepper>
+    </sof-card>
+
+    <div class="row">
+      <div class="col-12">
+        <div class="border padding-10 border-radius bg-white">
+          <div class="left-align-text ux-label">{{'result'|translate}}</div>
+          <br>
+          <div class="row"
+            *ngIf="this.type=='pie' ||this.type=='doughnut' || this.type=='polarArea'|| this.type=='radar'|| this.type=='line'|| this.type=='bar'">
+            <div class="col-2">
+            </div>
+            <div class="col-4" style="    max-width: 54.333333%;flex: 0 0 60.333333%;">
+              <sof-chart #chart [type]="type" [options]="options" [datas]="data" [displaylegend]="displaylegend">
+              </sof-chart>
+            </div>
+            <div class="col-2"></div>
+            <div class="col-2"></div>
+            <div class="col-2"></div>
+          </div>
+          <div class="row pl-12 ">
+            <div class="col-md-12 col-lg-12  ">
+              <sof-status-bar [data]="nombreSubList" *ngIf="this.type=='statusBar'"></sof-status-bar>
+            </div>
+          </div>
+        </div>
+        <br>
+      </div>
+    </div>
+
+  </div>

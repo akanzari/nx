@@ -1,0 +1,99 @@
+.margin  {
+  height: 200px !important;
+}
+
+:host ::ng-deep .overlay .ng-star-inserted {
+  margin-left: 28% !important;
+}
+
+:host .no-overflow {
+  height: 25px;
+  width: 25px;
+  margin: 15px;
+  overflow: hidden;
+}
+:host ::ng-deep .overlay {
+  position: sticky !important;
+  top: 60% !important;
+  left: 15% !important;
+  width: 200% !important;
+  height: 620% !important;
+  z-index: 99999 !important;
+  overflow: absolute;
+}
+:host ::ng-deep .overlay[_ngcontent-c34] {
+  margin-left: 25% !important;
+}
+// :host ::ng-deep  .overlay[_ngcontent-c34]{
+//   position :sticky !important;
+//   top: 60%;
+//   left: 15%;
+//   width: 200%;
+//   height: 620%;
+//   z-index: 99999!important;
+//   overflow:absolute;
+
+// }
+
+// top: 90%;
+// left: 30%;
+// width: 50%;
+// height: 8%;
+
+:host .ui-progress-spinner-svg  {
+  height: 25px;
+  width: 25px;
+  animation: rotator 1.4s linear infinite;
+  margin: 15px;
+  overflow: hidden;
+  vertical-align: middle;
+}
+
+.div-size {
+  height: 130px;
+}
+
+.obligatoire {
+  color: #d6494b;
+}
+// .margin {
+//   height: 200px;
+// }
+:host ::ng-deep .black-overlay {
+  // si j'enleve [ngcontent-c27] le spinner ne fonctionne pas mais si j'enleve aussi position: fixed il fonctionne
+  position: relative !important;
+
+  height: 83% !important;
+  z-index: 99999 !important;
+}
+:host ::ng-deep .la-ball-scale-pulse > div {
+  display: inline-block;
+  float: none;
+  background-color: currentColor;
+  border: 0 solid currentColor;
+  position: fixed;
+  top: 0;
+  left: -65% !important;
+}
+:host ::ng-deep.la-ball-clip-rotate > div {
+  display: inline-block;
+  float: none;
+  border: 2px solid currentColor;
+  left: -65% !important;
+}
+@media only screen and (width: 548px) {
+  :host ::ng-deep .la-ball-scale-pulse > div,
+  :host ::ng-deep.la-ball-clip-rotate > div {
+    left: 0% !important;
+  }
+}
+
+:host ::ng-deep div.code-toolbar > .toolbar a,
+div.code-toolbar > .toolbar button,
+div.code-toolbar > .toolbar span {
+  display: none;
+}
+
+pre {
+  overflow: hidden;
+}

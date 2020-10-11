@@ -1,0 +1,80 @@
+<div class="picto-item" aria-label="test" class="row">
+  <div class="col-12 framework-font padding-framework">
+    <div>
+      <h1 class="framework-h1-font">{{'navbarMvn.navbarCompo'|translate}}</h1>
+      <span class="framework-font-Semibold">{{'navbar.overview'|translate}}</span>
+      <br>
+      <br>{{'navbarMvn.overview'|translate}}
+      <br>
+      <br>
+      <span class="framework-font-Semibold">GETTING STARTED</span>
+      <br>{{'navbarMvn.getting-strated'|translate}}
+      <br>
+      <br>
+    </div>
+
+
+    <br>
+    <span class="framework-h3-font">{{'general.BASIC_USAGE'|translate}}</span>
+    <br>
+    <br> {{'navbarMvn.exple_desc'|translate}}
+    <br>
+    <br>
+    <sof-card title="{{'imp_details'|translate}}" class="style-sof-card">
+      <sof-stepper>
+        <aw-wizard navBarLayout="large-empty-symbols" navigationMode="free" defaultStepIndex="0">
+          <aw-wizard-step stepTitle="{{'prerequis'|translate}}">
+            <div class="padding-15">
+              <b>app.module.ts</b>
+            </div>
+            <div class="border padding-15 border-radius mb-2 background-code">
+              <pre id="tr1" class="language-typescript background-code">
+                          <button  (click)="SelectAllPre()" style=" 
+                          color: black;
+                          font-size: .8em;
+                          padding: 0 .5em;
+                          background: #f5f2f0;
+                          background: rgba(172, 171, 171, 0.2);
+                          box-shadow: 0 2px 0 0 rgba(0,0,0,0.2);
+                          border-radius: .5em; float:right;">copy</button>
+                        <code id="copy1"	[innerHtml]="getPrerequis()"></code>
+                        <div><div id='parentt' ></div></div>
+                      </pre>
+            </div>
+          </aw-wizard-step>
+          <aw-wizard-step stepTitle="HTML">
+            <div class="border padding-15 border-radius mb-2 background-code">
+              <pre id='o' class="language-markup background-code">
+                        <button  (click)="SelectAll()" style=" 
+                        color: black;
+                        font-size: .8em;
+                        padding: 0 .5em;
+                        background: #f5f2f0;
+                        background: rgba(172, 171, 171, 0.2);
+                        box-shadow: 0 2px 0 0 rgba(0,0,0,0.2);
+                        border-radius: .5em; float:right;">copy</button>
+                             <code  id='copy' [innerHtml]="getHtmlCode()" class="language-markup"></code> 
+                            <div><div id='parent' ></div></div>
+                         
+                          </pre>
+            </div>
+          </aw-wizard-step>
+
+
+          <!-- <aw-wizard-step stepTitle="CSS/SCSS">
+                        <div class="border padding-15 border-radius bg-white mb-2">
+                          <pre class="language-css"><code >{{getCssCode()}}</code></pre>
+                        </div>
+                      </aw-wizard-step> -->
+        </aw-wizard>
+      </sof-stepper>
+    </sof-card>
+    <br> <br>
+
+    <br>
+    <app-mdl-navbar internal="true"></app-mdl-navbar>
+
+
+    <br><br><br>
+  </div>
+</div>

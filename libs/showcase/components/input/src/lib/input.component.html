@@ -1,0 +1,303 @@
+<div class="picto-item" aria-label="test" class="row">
+  <div class="col-12 framework-font padding-framework">
+    <div>
+      <h1 class="framework-h1-font">{{'input.inputCompo'|translate}}</h1>
+      <span class="framework-font-Semibold">{{'input.overview'|translate}}</span>
+      <br>
+      <br>{{'input.input_overview'|translate}}
+      <br>
+      <br>
+      <span class="framework-font-Semibold">GETTING STARTED</span>
+      <br>{{'input.getting-strated'|translate}}
+      <br>
+      <br>
+    </div>
+    <span class="framework-h3-font">{{'general.params'|translate}}</span>
+    <br>
+    <br>
+
+    <sof-card class="style-sof-card" title="{{'general.general_params'|translate}}">
+      <br>
+      <table style="width:100%">
+        <tr>
+          <th style="width:16%">
+            <span class="framework-font-Semibold" style="font-size: 13px; margin-left: 23px;">
+              {{'general.advancedImplementation'|translate}}
+            </span>
+          </th>
+          <th>
+            <hr>
+          </th>
+        </tr>
+      </table>
+      <sof-sub-form [column]="3" [border]="false">
+
+
+        <div class="row framework-font-Semibold" style="font-size: 14px;">
+          <sof-form-label>Type :</sof-form-label>
+          <sof-form-item>
+            <select name="selectType" [(ngModel)]="config.type" [disabled]="(functionalParam)? 'disabled' : 'false'">
+              <option value=""></option>
+              <option value="text">text</option>
+              <option value="number">number</option>
+              <option value="email">email</option>
+              <option value="password">password</option>
+              <option value="phone">phone</option>
+            </select>
+
+            <!--      <sof-monoselect [(ngModel)]="config.type" [options]="inputOption" bindValue="value" id="selectType" [disabled]="(functionalParam)? 'disabled' : 'false'" 
+        >
+            </sof-monoselect> -->
+            <!--deux champs qui définissent le min et le max d'un number-->
+          </sof-form-item>
+          <ng-container *ngIf="config.type ==='number'">
+            <sof-form-label>max :</sof-form-label>
+            <sof-form-item>
+              <sof-input type="number" id="confTypemaxi" name="inputmaxi" [(ngModel)]="config.max"></sof-input>
+            </sof-form-item>
+            <sof-form-label>min :</sof-form-label>
+            <sof-form-item>
+              <sof-input type="number" id="confTypemini" name="inputmini" [(ngModel)]="config.min"></sof-input>
+            </sof-form-item>
+          </ng-container>
+
+
+          <!--   <sof-form-label>NgModel :</sof-form-label>
+          <sof-form-item>
+            <sof-input type="text" id="confTypengModal" name="input0Modal" [(ngModel)]="config.ngModal" placeholder="myVar"></sof-input>
+          </sof-form-item> -->
+
+          <sof-form-label>Placeholder :</sof-form-label>
+          <sof-form-item>
+            <sof-input [focus]="true" type="text" id="confTypePlaceholder" name="confTypePlaceholder"
+              [(ngModel)]="config.placeholder"></sof-input>
+          </sof-form-item>
+
+          <sof-form-label>{{'input.icon'|translate}} :</sof-form-label>
+          <sof-monoselect [(ngModel)]="config.icon" mode="autoComplete" bindLabel="name" bindValue="name" [Load]="true"
+            [nbTotal]="nbTotal" [loading]="loading" [bufferSize]="bufferSize" [optionsBuffer]="optionsBuffer"
+            (inputFromChild)="recherche($event)" style="width: 10%;">
+          </sof-monoselect>
+
+          <!--  <sof-form-label>Id :</sof-form-label>
+          <sof-form-item>
+            <sof-input type="text" id="confTypeId" name="inputId" [(ngModel)]="config.id"></sof-input>
+          </sof-form-item> -->
+
+          <sof-form-label>{{'input.name'|translate}} :</sof-form-label>
+          <sof-form-item>
+            <sof-input type="text" id="confTypeName" name="inputName" [(ngModel)]="config.name"></sof-input>
+          </sof-form-item>
+
+          <sof-form-label>Taille maximale :</sof-form-label>
+          <sof-form-item>
+            <sof-input type="number" id="confTypemax" name="inputmax" [(ngModel)]="config.maxlength"
+              onkeypress="if(event.charCode==46 || event.charCode==101 || event.charCode==45) event.returnValue = false"
+              min="0"></sof-input>
+          </sof-form-item>
+
+          <sof-form-label>Focus</sof-form-label>
+          <sof-form-item>
+            <input name="focus" type="checkbox" id="focus" [(ngModel)]="config.focus">
+            <label for="focus"></label>
+          </sof-form-item>
+
+          <sof-form-label>disabled</sof-form-label>
+
+          <sof-form-item>
+            <sof-radio-button [(ngModel)]="config.disabled" id="true" name="opt1" data="true" [disabled]="false" ngDefaultControl>
+            </sof-radio-button>
+            <sof-radio-button [(ngModel)]="config.disabled" id="false" name="opt1" data="false" [disabled]="false" ngDefaultControl>
+            </sof-radio-button>
+          </sof-form-item>
+        </div>
+      </sof-sub-form>
+
+      <table style="width:100%">
+        <tr>
+          <th style="width:16%">
+            <span class="framework-font-Semibold" style="font-size: 13px; margin-left: 23px;">
+              {{'general.functionalSetting'|translate}}
+            </span>
+          </th>
+          <th>
+            <hr>
+          </th>
+        </tr>
+      </table>
+
+      <sof-form>
+        <sof-sub-form [column]="1">
+          <sof-form-label>Type :</sof-form-label>
+          <sof-form-item>
+
+            <!--   <sof-monoselect [(ngModel)]="functionalParam" [options]="functionalOption" bindValue="value"  [disabled]="(config.type)? 'disabled' : 'false'">
+                    </sof-monoselect> -->
+            <select name="selectType" [(ngModel)]="functionalParam" [disabled]="(config.type)? 'disabled' : 'false'">
+              <option value=""></option>
+              <option value="NNI">NNI</option>
+              <option value="RIB">RIB</option>
+
+            </select>
+          </sof-form-item>
+        </sof-sub-form>
+      </sof-form>
+
+
+    </sof-card>
+    <br>
+    <span class="framework-h3-font">{{'general.BASIC_USAGE'|translate}}</span>
+    <br>
+    <br> {{'input.exple_desc'|translate}}
+    <br>
+    <br>
+    <sof-card class="style-sof-card" title="{{'imp_details'|translate}}">
+      <sof-stepper>
+        <aw-wizard navBarLayout="large-empty-symbols" navigationMode="free" defaultStepIndex="0">
+          <aw-wizard-step stepTitle="{{'prerequis'|translate}}">
+            <div class="padding-15">
+              <b>app.module.ts</b>
+            </div>
+            <div class="border padding-15 border-radius mb-2 background-code">
+              <pre id="tr1" class="language-typescript background-code">
+                    <button  (click)="SelectAllPre()" style=" 
+                    color: black;
+                    font-size: .8em;
+                    padding: 0 .5em;
+                    background: #f5f2f0;
+                    background: rgba(172, 171, 171, 0.2);
+                    box-shadow: 0 2px 0 0 rgba(0,0,0,0.2);
+                    border-radius: .5em; float:right;">copy</button>
+                  <code id="copy1"	[innerHtml]="getPrerequis()"></code>
+                  <div><div id='parentt' ></div></div>
+                </pre>
+            </div>
+          </aw-wizard-step>
+          <aw-wizard-step stepTitle="HTML">
+            <div class="border padding-15 border-radius mb-2 background-code">
+              <pre id='o' class="language-markup background-code">
+                      <button  (click)="SelectAll()" style=" 
+                      color: black;
+                      font-size: .8em;
+                      padding: 0 .5em;
+                      background: #f5f2f0;
+                      background: rgba(172, 171, 171, 0.2);
+                      box-shadow: 0 2px 0 0 rgba(0,0,0,0.2);
+                      border-radius: .5em; float:right;">copy</button>
+                           <code  id='copy' [innerHtml]="getHtmlCode()" class="language-markup"></code> 
+                          <div><div id='parent' ></div></div>
+                       
+                        </pre>
+            </div>
+          </aw-wizard-step>
+          <aw-wizard-step stepTitle="TS">
+            <div class="border padding-15 border-radius mb-2 background-code">
+              <pre id="o2" class="language-typescript background-code">
+                    <button  (click)="SelectAllTs()" style=" 
+                    color: black;
+                    font-size: .8em;
+                    padding: 0 .5em;
+                    background: #f5f2f0;
+                    background: rgba(172, 171, 171, 0.2);
+                    box-shadow: 0 2px 0 0 rgba(0,0,0,0.2);
+                    border-radius: .5em; float:right;">copy</button>
+                  <code id="copy11"	[innerHtml]="getTSCode()"></code>
+                  <div><div id='parenty' ></div></div>
+                </pre>
+            </div>
+          </aw-wizard-step>
+        </aw-wizard>
+      </sof-stepper>
+    </sof-card>
+    <div class="border padding-10 border-radius bg-white">
+      <div class="left-align-text ux-label">{{'result'|translate}}</div>
+      <br>
+      <sof-form
+        *ngIf="config.type !== 'number' && config.type !== 'email' && functionalParam !== 'NNI' && functionalParam !== 'RIB' && config.type !== 'phone'">
+        <sof-sub-form [column]="1">
+          <sof-form-label>label :</sof-form-label>
+          <sof-form-item>
+
+            <sof-input data-date-format="mm/dd/yyyy" [focus]="config.focus" [type]="config.type" id="input1"
+              name="input1" [disabled]="config.disabled  ? config.disabled : 'false'" [(ngModel)]="inputValue"
+              [icon]="config.icon" [placeholder]="config.placeholder || ''" [max]="config.max" [min]="config.min"
+              [maxlength]="config.maxlength"></sof-input>
+
+          </sof-form-item>
+        </sof-sub-form>
+      </sof-form>
+      <sof-form [formGroup]="parentForm"
+        *ngIf="config.type == 'number' || config.type == 'email' || functionalParam == 'NNI' || functionalParam == 'RIB' || config.type == 'phone'">
+        <sof-sub-form [column]="1">
+
+          <sof-form-label *ngIf="functionalParam == 'NNI' ">NNI :</sof-form-label>
+          <sof-form-item *ngIf="functionalParam == 'NNI'"
+            [valid]="parentForm.controls.nni.pristine ? true : parentForm.controls.nni.valid"
+            errorMsg="{{'input.nniErrorMsg'| translate}}">
+
+            <sof-input data-date-format="mm/dd/yyyy" [focus]="config.focus" [type]="config.type" id="input1"
+              name="input1" [disabled]="config.disabled  ? config.disabled : 'false'" [(ngModel)]="inputValue"
+              [icon]="config.icon" [placeholder]="config.placeholder || ''" [max]="config.max" [min]="config.min"
+              [maxlength]="config.maxlength" formControlName="nni"></sof-input>
+
+          </sof-form-item>
+
+          <sof-form-label *ngIf="config.type == 'number' ">Number :</sof-form-label>
+          <sof-form-item *ngIf="config.type == 'number'"
+            [valid]="parentForm.controls.number.pristine ? true : parentForm.controls.number.valid"
+            errorMsg="{{'input.numberErrorMsg'| translate}}">
+
+            <sof-input data-date-format="mm/dd/yyyy" [focus]="config.focus" [type]="config.type" id="input1"
+              name="input1" [disabled]="config.disabled  ? config.disabled : 'false'" [(ngModel)]="inputValue"
+              [icon]="config.icon" [placeholder]="config.placeholder || ''" [max]="config.max" [min]="config.min"
+              [maxlength]="config.maxlength" formControlName="number"></sof-input>
+
+          </sof-form-item>
+
+          <sof-form-label *ngIf="config.type == 'email' ">Email :</sof-form-label>
+          <sof-form-item *ngIf="config.type == 'email'"
+            [valid]="parentForm.controls.email.pristine ? true : parentForm.controls.email.valid"
+            errorMsg="{{'input.emailErrorMsg'| translate}}">
+
+            <sof-input data-date-format="mm/dd/yyyy" [focus]="config.focus" [type]="config.type" id="input1"
+              name="input1" [disabled]="config.disabled  ? config.disabled : 'false'" [(ngModel)]="inputValue"
+              [icon]="config.icon" [placeholder]="config.placeholder || ''" [max]="config.max" [min]="config.min"
+              [maxlength]="config.maxlength" formControlName="email"></sof-input>
+
+          </sof-form-item>
+
+
+          <sof-form-label *ngIf="functionalParam === 'RIB'">RIB :</sof-form-label>
+          <sof-form-item *ngIf="functionalParam === 'RIB'"
+            [valid]="parentForm.controls.rib.pristine ? true : parentForm.controls.rib.valid"
+            errorMsg="{{'input.ribErrorMsg'| translate}}">
+            <p-inputMask minlength="23" mask="99999 99999 *********** 99" [(ngModel)]="inputValue"
+              [type]="functionalParam" formControlName="rib">
+            </p-inputMask>
+          </sof-form-item>
+
+
+
+          <sof-form-label *ngIf="config.type === 'phone' ">phone :</sof-form-label>
+          <sof-form-item *ngIf="config.type === 'phone' "
+            [valid]="parentForm.controls.phone.pristine ? true : parentForm.controls.phone.valid"
+            errorMsg="Veuillez saisir un numero valide ">
+
+            <sof-input [focus]="config.focus" [type]="config.type" id="input1" name="input1"
+              [disabled]="config.disabled  ? config.disabled : 'false'" [(ngModel)]="inputValue" [icon]="config.icon"
+              [placeholder]="config.placeholder || ''" [defaultCountry]="defaultCountry" [maxlength]="config.maxlength"
+              formControlName="phone" (ngModelChange)="test()"></sof-input>
+
+
+          </sof-form-item>
+
+        </sof-sub-form>
+      </sof-form>
+
+
+
+    </div>
+
+
+  </div>
+</div>

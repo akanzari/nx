@@ -1,0 +1,223 @@
+<div class="picto-item" aria-label="test" class="row">
+  <div class="col-12 framework-font padding-framework">
+    <sof-toast [(msgs)]="msgs" [toastPosition]="position" [toastType]="toastColor" [toastDuration]="duration"
+      [bgCol]="bgCol" [insert]="insert">
+
+      <div>
+        <div class="ui-g-12">
+          <div class="ui-g-4">
+            <label for="vin">NOM</label>
+          </div>
+          <div class="ui-g-8">
+            <input pInputText />
+          </div>
+        </div>
+        <div class="ui-g-12">
+          <div class="ui-g-4">
+            <label for="year">Prénom</label>
+          </div>
+          <div class="ui-g-8">
+            <input pInputText />
+          </div>
+        </div>
+        <div class="ui-g-12">
+          <div class="ui-g-4">
+            <label for="brand">Profession</label>
+          </div>
+          <div class="ui-g-8">
+            <input pInputText />
+          </div>
+        </div>
+        <div class="ui-g-12">
+          <div class="ui-g-4">
+            <label for="color">Langue</label>
+          </div>
+          <div class="ui-g-8">
+            <input pInputText />
+          </div>
+        </div>
+
+      </div>
+    </sof-toast>
+    <div>
+      <h1 class="framework-h1-font">{{'toast.toastCompo'|translate}}</h1>
+      <span class="framework-font-Semibold">{{'toast.overview'|translate}}</span>
+      <br>
+      <br>{{'toast.toast_overview'|translate}}
+      <br>
+      <br>
+      <span class="framework-font-Semibold">GETTING STARTED</span>
+      <br>{{'toast.getting-strated'|translate}}
+      <br>
+      <br>
+    </div>
+    <span class="framework-h3-font">{{'general.params'|translate}}</span>
+    <br>
+    <br>
+    <sof-card class="style-sof-card" title="{{'general.general_params'|translate}}">
+      <br>
+      <table style="width:100%">
+        <tr>
+          <th style="width:15%">
+            <span class="framework-font-Semibold" style="font-size: 13px; margin-left: 23px;">
+              {{'general.advancedImplementation'|translate}}
+            </span>
+          </th>
+          <th>
+            <hr>
+          </th>
+        </tr>
+      </table>
+      <div>
+        <sof-form [border]="false" [formGroup]="form">
+          <sof-sub-form [column]="3" [border]="false">
+            <sof-form-label>Message :<span class="obligatoire">*</span></sof-form-label>
+            <sof-form-item [valid]="form.controls.message.pristine ? true : form.controls.message.valid"
+              errorMsg="Ce champs est obligatoire">
+              <sof-input type="text" [(ngModel)]="message" formControlName="message"></sof-input>
+            </sof-form-item>
+
+            <sof-form-label>position :</sof-form-label>
+            <sof-form-item>
+              <select [(ngModel)]="position" bindValue="value" formControlName="positionOptions">
+                <option value="top-right">En haut à droite</option>
+                <option value="top-center">En haut au centre</option>
+                <option value="top-left">En haut à gauche</option>
+                <option value="bottom-left">En bas à gauche</option>
+                <option value="bottom-center">En bas au centre</option>
+                <option value="bottom-right">En bas à droite</option>
+              </select>
+            </sof-form-item>
+
+
+            <sof-form-label>type :</sof-form-label>
+            <sof-form-item>
+              <select [(ngModel)]="toastColor" bindValue="value" formControlName="typeOptions">
+                <option value="alert-white">white</option>
+                <option value="alert-default">default</option>
+                <option value="alert-primary">priamry</option>
+                <option value="alert-secondary">secondary</option>
+                <option value="alert-error">error</option>
+                <option value="alert-valid">valid</option>
+              </select>
+
+
+
+            </sof-form-item>
+            <sof-form-label>duration :<span class="obligatoire">*</span></sof-form-label>
+            <sof-form-item [valid]=" form.controls.duration.pristine ? true : form.controls.duration.valid"
+              errorMsg="Ce champs est obligatoire">
+              <sof-input type="number" [(ngModel)]="duration" formControlName="duration"></sof-input>
+            </sof-form-item>
+            <sof-form-label>Insertion Body</sof-form-label>
+            <sof-form-item>
+
+
+              <input type="checkbox" id="insert" name="insert" [(ngModel)]="insert" formControlName="insert">
+              <label for="insert"></label>
+
+
+
+
+            </sof-form-item>
+            <sof-form-label>Body couleur :</sof-form-label>
+            <sof-form-item>
+              <select [(ngModel)]="bgCol" bindValue="value" formControlName="bgColOptions">
+                <option value="#ffffff">white</option>
+                <option value="#E4EAEC">default</option>
+                <option value="#baa365">priamry</option>
+                <option value="#363638">secondary</option>
+                <option value="#e9595b">error</option>
+                <option value="#3aa99e">valid</option>
+              </select>
+
+
+
+            </sof-form-item>
+          </sof-sub-form>
+        </sof-form>
+      </div>
+    </sof-card>
+    <br>
+    <span class="framework-h3-font">{{'general.BASIC_USAGE'|translate}}</span>
+    <br>
+    <br> {{'toast.exple_desc'|translate}}
+    <br>
+    <br>
+
+    <sof-card class="style-sof-card" title="{{'imp_details'|translate}}">
+      <sof-stepper>
+        <aw-wizard navBarLayout="large-empty-symbols" navigationMode="free" defaultStepIndex="0">
+          <aw-wizard-step stepTitle="{{'prerequis'|translate}}">
+            <div class="padding-15">
+              <b>app.module.ts</b>
+            </div>
+            <div class="border padding-15 border-radius mb-2 background-code">
+              <pre id="tr1" class="language-typescript background-code">
+                  <button  (click)="SelectAllPre()" style=" 
+                  color: black;
+                  font-size: .8em;
+                  padding: 0 .5em;
+                  background: #f5f2f0;
+                  background: rgba(172, 171, 171, 0.2);
+                  box-shadow: 0 2px 0 0 rgba(0,0,0,0.2);
+                  border-radius: .5em; float:right;">copy</button>
+                <code id="copy1"	[innerHtml]="getPrerequis()"></code>
+                <div><div id='parentt' ></div></div>
+              </pre>
+            </div>
+          </aw-wizard-step>
+          <aw-wizard-step stepTitle="HTML">
+            <div class="border padding-15 border-radius mb-2 background-code">
+              <pre id='o' class="language-markup background-code">
+                  <button  (click)="SelectAll()" style=" 
+                  color: black;
+                  font-size: .8em;
+                  padding: 0 .5em;
+                  background: #f5f2f0;
+                  background: rgba(172, 171, 171, 0.2);
+                  box-shadow: 0 2px 0 0 rgba(0,0,0,0.2);
+                  border-radius: .5em; float:right;">copy</button>
+                       <code  id='copy' [innerHtml]="getHtmlCode()" class="language-markup"></code> 
+                      <div><div id='parent' ></div></div>
+                   
+                    </pre>
+            </div>
+          </aw-wizard-step>
+          <aw-wizard-step stepTitle="TS" *ngIf="message">
+            <div class="border padding-15 border-radius mb-2 background-code">
+              <pre id="o2" class="language-typescript background-code">
+                  <button  (click)="SelectAllTs()" style=" 
+                  color: black;
+                  font-size: .8em;
+                  padding: 0 .5em;
+                  background: #f5f2f0;
+                  background: rgba(172, 171, 171, 0.2);
+                  box-shadow: 0 2px 0 0 rgba(0,0,0,0.2);
+                  border-radius: .5em; float:right;">copy</button>
+                <code id="copy11"	[innerHtml]="getTsCode()"></code>
+                <div><div id='parenty' ></div></div>
+              </pre>
+            </div>
+          </aw-wizard-step>
+        </aw-wizard>
+      </sof-stepper>
+    </sof-card>
+
+    <div class="border padding-10 border-radius bg-white">
+      <div class="left-align-text ux-label">{{'result'|translate}}</div>
+      <br>
+      <div class="row pl-3 ">
+
+        <div class="col-md-3 col-lg-3 col-xl-4" style="margin-left: 10px;">
+
+          <sof-button [disabled]="(form.valid)? false : true" (click)="display()">{{'toast.display'|translate}}
+          </sof-button>
+
+        </div>
+      </div>
+    </div>
+    <br>
+
+  </div>
+</div>

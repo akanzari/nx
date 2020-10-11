@@ -1,0 +1,325 @@
+<div class="picto-item" aria-label="test" class="row">
+    <div class="col-12 framework-font padding-framework">
+        <div>
+            <h1 class="framework-h1-font">{{'multiselect.multiselectCompo'|translate}}</h1>
+            <span class="framework-font-Semibold">{{'multiselect.overview'|translate}}</span>
+            <br>
+            <br>{{'multiselect.multiselect_overview'|translate}}
+            <br>
+            <br>
+            <span class="framework-font-Semibold">GETTING STARTED</span>
+            <br>{{'multiselect.getting-strated'|translate}}
+            <br>
+            <br>
+        </div>
+        <span class="framework-h3-font">{{'general.params'|translate}}</span>
+        <br>
+        <br>
+        <sof-card class="style-sof-card" title="{{'general.general_params'|translate}}">
+
+            <br>
+            <table style="width:100%">
+                <tr>
+                    <th style="width:16%">
+                        <span class="framework-font-Semibold" style="font-size: 13px; margin-left: 23px;">
+                            {{'general.advancedImplementation'|translate}}
+                        </span>
+                    </th>
+                    <th>
+                        <hr>
+                    </th>
+                </tr>
+            </table>
+            <br>
+
+            <sof-sub-form [column]="3" title="">
+
+                <sof-form-label>
+                    <div class="stylelabel">Placeholder :</div>
+                </sof-form-label>
+                <sof-form-item>
+                    <sof-input type="text" id="confType" [name]="'input0'" [(ngModel)]="placeholder"
+                        [placeholder]="placeholder || ''" maxlength="100"></sof-input>
+                    <label for="confType"></label>
+                </sof-form-item>
+
+                <sof-form-label>
+                    <div class="stylelabel">{{'multiselect.label'|translate}} :</div>
+                </sof-form-label>
+                <sof-form-item>
+                    <sof-monoselect [(ngModel)]="bindLabel" clearable="false" name="bindLabel1" (onChange)="refresh()"
+                        [options]="labelOptions" bindLabel="label" bindValue="value">
+                    </sof-monoselect>
+
+                </sof-form-item>
+                <sof-form-label>
+                    <div class="stylelabel">{{'multiselect.setting'|translate}}</div>
+                </sof-form-label>
+                <sof-form-item>
+                    <sof-monoselect [(ngModel)]="bindValue" name="'bindValue1'" (onChange)="refresh()"
+                        [options]="labelOptions" bindLabel="value" bindValue="value">
+                    </sof-monoselect>
+
+                </sof-form-item>
+
+
+                <sof-form-label>
+                    <div class="stylelabel">{{'multiselect.max'|translate}} :</div>
+                </sof-form-label>
+                <sof-form-item>
+                    <sof-input type="number" [id]="'confTypeId'" [name]="'inputId'" [(ngModel)]="maxSelectedItems"
+                        [disabled]="(selected)? 'disabled' : 'false'"></sof-input>
+
+                </sof-form-item>
+
+                <sof-form-label>
+                    <div class="stylelabel">{{'multiselect.hide'|translate}} </div>
+                </sof-form-label>
+                <sof-form-item>
+                    <input name="hideSelected1" type="checkbox" id="hideSelected1" [(ngModel)]="hideSelected">
+                    <label for="hideSelected1"></label>
+                </sof-form-item>
+
+                <sof-form-label>
+                    <div class="stylelabel">{{'multiselect.deactivated'|translate}} </div>
+                </sof-form-label>
+                <sof-form-item>
+                    <input name="disabled1" type="checkbox" id="disabled1" [(ngModel)]="disabled">
+                    <label for="disabled1"></label>
+                </sof-form-item>
+                <!--  -->
+                <sof-form-label>
+                    <div class="stylelabel">Nombre items affichés :</div>
+                </sof-form-label>
+                <sof-form-item>
+                    <input name="nbItemsToShow" id="nbItemsToShow" [(ngModel)]="nbItemsToShow">
+
+                </sof-form-item>
+                <sof-form-label>
+                    <div class="stylelabel">Afficher Tags</div>
+                </sof-form-label>
+                <sof-form-item>
+                    <input name="showTags" type="checkbox" id="showTags" [(ngModel)]="showTags">
+                    <label for="showTags"></label>
+                    <div *ngIf="showTags">
+                        <sof-radio-button data="En bas" [(ngModel)]="position" (unCheckRadio)="getposition()"
+                            ngDefaultControl></sof-radio-button>
+
+                        <sof-radio-button data="A droite" [(ngModel)]="position" (unCheckRadio)="getposition()"
+                            ngDefaultControl> </sof-radio-button>
+                    </div>
+                </sof-form-item>
+                <sof-form-label>
+                    <div class="stylelabel">Lazy back loading</div>
+                </sof-form-label>
+                <sof-form-item>
+                    <input name="Load" type="checkbox" id="Load" [(ngModel)]="Load">
+                    <label for="Load"></label>
+                </sof-form-item>
+                <sof-form-label>
+                    <div class="stylelabel">Liste de Strings</div>
+                </sof-form-label>
+                <sof-form-item>
+                    <input name="strings" type="checkbox" id="strings" [(ngModel)]="strings" (click)="onchangeoptions()"
+                        [disabled]="(selected)? 'disabled' : 'false'">
+                    <label for="strings"></label>
+                </sof-form-item>
+
+
+
+
+                <!--  -->
+                <sof-form-label>
+                    <div class="stylelabel">{{'multiselect.suppression'|translate}}</div>
+                </sof-form-label>
+                <sof-form-item>
+                    <input name="clear1" type="checkbox" id="clear1" [(ngModel)]="clear">
+                    <label for="clear1"></label>
+                </sof-form-item>
+                <sof-form-label>
+                    <div class="stylelabel">Text items trouvés :</div>
+                </sof-form-label>
+                <sof-form-item>
+                    <input name="TextItems" id="TextItems" [(ngModel)]="TextItems">
+
+                </sof-form-item>
+
+
+                <sof-form-label>
+                    <div class="stylelabel">{{'multiselect.callback'|translate}}</div>
+                </sof-form-label>
+                <sof-form-item>
+                    <input name="onAdd1" type="checkbox" id="onAdd1" [(ngModel)]="onAddCallBack">
+                    <label for="onAdd1"></label>
+                </sof-form-item>
+
+                <sof-form-label>
+                    <div class="stylelabel">{{'multiselect.onchange'|translate}}</div>
+                </sof-form-label>
+                <sof-form-item>
+                    <input name="onChange1" type="checkbox" id="onChange1" [(ngModel)]="onChangeCallBack">
+                    <label for="onChange1"></label>
+                </sof-form-item>
+
+
+
+
+                <sof-form-label>
+                    <div class="stylelabel">{{'multiselect.active'|translate}} </div>
+                    <br>
+                    <sof-radio-button *ngIf="autoComplete" [(ngModel)]="autoCompleteMode" [id]="'autoCompleteLocal1'"
+                        [name]="'LocalData1'" [data]="'localData'" ngDefaultControl></sof-radio-button>
+
+                </sof-form-label>
+                <sof-form-item>
+
+                    <input name="autoComplete1" type="checkbox" id="autoComplete1" [(ngModel)]="autoComplete">
+                    <label for="autoComplete1"></label><br>
+
+
+
+                    <sof-radio-button *ngIf="autoComplete" [(ngModel)]="autoCompleteMode" [id]="'autoCompleteLocal2'"
+                        [name]="'remoteData1'" [data]="'remoteData'" ngDefaultControl>
+                    </sof-radio-button>
+
+
+                </sof-form-item>
+                <ng-container *ngIf="autoComplete">
+                    <sof-form-label>
+                        <div class="stylelabel">Not found text</div>
+                    </sof-form-label>
+                    <sof-form-item>
+                        <sof-input [type]="text" id="notfoundtext" [(ngModel)]="notFoundText"></sof-input>
+                        <label for="notfoundtext"></label>
+                    </sof-form-item>
+                </ng-container>
+                <ng-container *ngIf="autoComplete">
+                    <sof-form-label>
+                        <div class="stylelabel">Ajouter run callback onSearch</div>
+                    </sof-form-label>
+                    <sof-form-item>
+                        <input name="onSearch1" type="checkbox" id="onSearch1" [(ngModel)]="onSearchCallBack">
+                        <label for="onSearch1"></label>
+                    </sof-form-item>
+
+                </ng-container>
+
+
+                <sof-form-label>
+                    <div class="stylelabel">Mode de sélection en checkbox </div>
+                </sof-form-label>
+
+                <sof-form-item>
+                    <input name="selected" type="checkbox" id="selected" [(ngModel)]="selected">
+                    <label for="selected"></label>
+
+                </sof-form-item>
+                <sof-form-label *ngIf="selected">
+                    <div class="stylelabel">Sélectionner tout en checkbox </div>
+                </sof-form-label>
+                <sof-form-item *ngIf="selected">
+                    <input name="selectcheckbox" type="checkbox" id="selectcheckbox" [(ngModel)]="selectcheckbox">
+                    <label for="selectcheckbox"></label>
+
+                </sof-form-item>
+            </sof-sub-form>
+
+
+        </sof-card>
+
+        <br>
+        <span class="framework-h3-font">{{'general.BASIC_USAGE'|translate}}</span>
+        <br> {{'multiselect.exple_desc'|translate}}
+        <br>
+        <br>
+        <sof-card class="style-sof-card" title="{{'imp_details'|translate}}">
+            <sof-stepper>
+                <aw-wizard navBarLayout="large-empty-symbols" navigationMode="free" defaultStepIndex="0">
+                    <aw-wizard-step stepTitle="{{'prerequis'|translate}}">
+                        <div class="border padding-15 border-radius mb-2 background-code">
+                            <pre id="tr1" class="language-typescript background-code">
+                                        <button  (click)="SelectAllPre()" style=" 
+                                        color: black;
+                                        font-size: .8em;
+                                        padding: 0 .5em;
+                                        background: #f5f2f0;
+                                        background: rgba(172, 171, 171, 0.2);
+                                        box-shadow: 0 2px 0 0 rgba(0,0,0,0.2);
+                                        border-radius: .5em; float:right;">copy</button>
+                                      <code id="copy1"	[innerHtml]="getPrerequis()"></code>
+                                      <div><div id='parentt' ></div></div>
+                                    </pre>
+                        </div>
+                    </aw-wizard-step>
+                    <aw-wizard-step stepTitle="HTML">
+                        <div class="border padding-15 border-radius mb-2 background-code">
+                            <pre id='o' class="language-markup background-code">
+                                        <button  (click)="SelectAll()" style=" 
+                                        color: black;
+                                        font-size: .8em;
+                                        padding: 0 .5em;
+                                        background: #f5f2f0;
+                                        background: rgba(172, 171, 171, 0.2);
+                                        box-shadow: 0 2px 0 0 rgba(0,0,0,0.2);
+                                        border-radius: .5em; float:right;">copy</button>
+                                             <code  id='copy' [innerHtml]="getHtmlCode()" class="language-markup"></code> 
+                                            <div><div id='parent' ></div></div>
+                                         
+                                          </pre>
+                        </div>
+                    </aw-wizard-step>
+                    <aw-wizard-step stepTitle="TS">
+                        <div class="border padding-15 border-radius mb-2 background-code">
+                            <pre id="o2" class="language-typescript background-code">
+                                        <button  (click)="SelectAllTs()" style=" 
+                                        color: black;
+                                        font-size: .8em;
+                                        padding: 0 .5em;
+                                        background: #f5f2f0;
+                                        background: rgba(172, 171, 171, 0.2);
+                                        box-shadow: 0 2px 0 0 rgba(0,0,0,0.2);
+                                        border-radius: .5em; float:right;">copy</button>
+                                      <code id="copy11"	[innerHtml]="getTsCode()"></code>
+                                      <div><div id='parenty' ></div></div>
+                                    </pre>
+                        </div>
+                    </aw-wizard-step>
+                </aw-wizard>
+            </sof-stepper>
+        </sof-card>
+        <div class="border padding-10 border-radius bg-white">
+            <div class="left-align-text ux-label">{{'result'|translate}}</div>
+            <br>
+            <div class="form-group row">
+                <div class="col-md-12 col-lg-12 col-xl-12">
+                    <sof-multi-select [notFoundText]="notFoundText" *ngIf="display" name="multi" clearable="{{!clear}}"
+                        [options]="options" [groupBy]="groupBy" [bindLabel]="bindLabel" [bindValue]="bindValue"
+                        [placeholder]="placeholder" [disabled]="disabled" [hideSelected]="hideSelected"
+                        [maxSelectedItems]="maxSelectedItems" [selectcheckbox]="selectcheckbox"
+                        [(ngModel)]="selectedItems" [mode]="autoComplete ? 'autoComplete' : null" (onSearch)="((onSearchCallBack || ( autoComplete && autoCompleteMode.indexOf('remoteData') >-1))&& searching = $event) ||
+                            searching = false" (onClear)="onClear()"
+                        (onChange)="((onChangeCallBack ) && changed = $event) || changed = false"
+                        [nbItemsToShow]="nbItemsToShow" [showTags]="showTags" [positionTag]="positionTag"
+                        [strings]="strings" [TextItems]="TextItems" (onRemovetags)="onRemovetags($event)"
+                        [checkboxValue]="checkboxValue" (onAdd)="onAdd($event)" (onRemove)=" onRemove($event)"
+                        [Load]="Load" [nbTotal]="nbTotal" [selected]="selected" [loading]="loading"
+                        [bufferSize]="bufferSize" [optionsBuffer]="optionsBuffer" (inputFromChild)="recherche($event)"
+                        (onScrollToEnd)="onScrollToEnd()">
+
+                    </sof-multi-select>
+                </div>
+            </div>
+            <div *ngIf="showTags===true"> <br> {{'multiselect.selected'|translate}} :
+                {{(selectedItems | json) ||'none'}}</div>
+
+            <br /> {{onChangeCallBack  && changed ? ( 'change : ' + ( changed | json) ): ''}}
+            <br /> {{onSearchCallBack  && searching ? ( 'searching : ' + ( searching | json) ): ''}}
+        </div>
+        <br>
+        <span class="framework-h3-font">{{'table.DOCUMENTATION'|translate}}</span>
+        <br>
+        <br> {{'table.Properties'|translate}}
+
+        <sof-table [(data)]="events" [(columnsOrdered)]="columns" [zebrure]="false" [(config)]="tableConf"></sof-table>
+    </div>
+</div>
